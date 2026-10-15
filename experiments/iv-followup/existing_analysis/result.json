@@ -1,0 +1,68 @@
+{
+  "status": "post-hoc exploratory analysis of existing 40 seeds",
+  "models": {
+    "response_difference__q_ratio": {
+      "rmse": 0.01725034739998886,
+      "baseline_rmse": 0.01997785670562655,
+      "skill_vs_training_mean": 0.25441372676622076,
+      "pearson_r": 0.4677533172694299
+    },
+    "response_difference__v_ratio": {
+      "rmse": 0.01909000699868711,
+      "baseline_rmse": 0.01997785670562655,
+      "skill_vs_training_mean": 0.08690831545942912,
+      "pearson_r": 0.2435418273057585
+    },
+    "response_difference__m_ratio": {
+      "rmse": 0.019026703468752137,
+      "baseline_rmse": 0.01997785670562655,
+      "skill_vs_training_mean": 0.09295400099323681,
+      "pearson_r": 0.24581546757495404
+    },
+    "response_ratio__q_ratio": {
+      "rmse": 0.2182105566520891,
+      "baseline_rmse": 0.2874142810171327,
+      "skill_vs_training_mean": 0.42358559272078344,
+      "pearson_r": 0.6311523113867558
+    },
+    "response_ratio__v_ratio": {
+      "rmse": 0.28864684825067616,
+      "baseline_rmse": 0.2874142810171327,
+      "skill_vs_training_mean": -0.008595328961082283,
+      "pearson_r": -0.2626607788739544
+    },
+    "response_ratio__m_ratio": {
+      "rmse": 0.2870819160602696,
+      "baseline_rmse": 0.2874142810171327,
+      "skill_vs_training_mean": 0.0023114563604850202,
+      "pearson_r": 0.09720403273692992
+    }
+  },
+  "unfitted_q_equals_response_ratio": {
+    "rmse": 0.38947533623461955,
+    "baseline_rmse": 0.2802289239917044,
+    "skill_vs_training_mean": -0.9316747519669268,
+    "pearson_r": 0.7064541434455657,
+    "q_ratio": {
+      "mean": 1.9500089696758274,
+      "low": 1.9193685003575631,
+      "high": 1.9817327912328024,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "response_ratio": {
+      "mean": 2.271321612797638,
+      "low": 2.19150132614093,
+      "high": 2.3622156166365498,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "ratio_error": {
+      "mean": 0.3213126431218102,
+      "low": 0.2578655012990406,
+      "high": 0.3942243694209766,
+      "n": 40,
+      "equivalent_002": false
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "base_config": {
+    "train_size": 2048,
+    "selector_size": 512,
+    "test_size": 1024,
+    "source_dim": 3,
+    "bottleneck": 3,
+    "correlation": 0.35,
+    "observation_noise": 0.02,
+    "hidden_dim": 24,
+    "batch_size": 256,
+    "history_steps": 400,
+    "common_steps": 800,
+    "history_lambda_a": 0.9,
+    "history_lambda_b": 0.1,
+    "checkpoints": [
+      0,
+      20,
+      100,
+      300,
+      800
+    ],
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "seeds": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "probe_ridge": 0.001,
+    "selector_interval": 10,
+    "selector_gain": 1.5,
+    "selector_max_bias": 0.4,
+    "conditions": [
+      "all_targets",
+      "balanced_sampled",
+      "fixed_propensity",
+      "stabilization",
+      "exploration"
+    ]
+  },
+  "effective_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "effective_conditions": [
+    "all_targets",
+    "fixed_propensity",
+    "stabilization",
+    "exploration"
+  ],
+  "history_steps": [
+    25,
+    50,
+    100,
+    200,
+    400
+  ]
+}

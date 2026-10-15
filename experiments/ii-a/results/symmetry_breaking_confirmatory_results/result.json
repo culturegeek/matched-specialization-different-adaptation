@@ -1,0 +1,102 @@
+{
+  "design": {
+    "seeds": [
+      300,
+      301,
+      302,
+      303,
+      304,
+      305,
+      306,
+      307,
+      308,
+      309,
+      310,
+      311,
+      312,
+      313,
+      314,
+      315,
+      316,
+      317,
+      318,
+      319,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335,
+      336,
+      337,
+      338,
+      339
+    ],
+    "balanced_pretrain_steps": 25,
+    "history_lambda": 0.5,
+    "conditions": [
+      "balanced_sampled",
+      "fixed_propensity",
+      "stabilization",
+      "exploration"
+    ]
+  },
+  "initial_selector_index": {
+    "mean": -0.0005377613438304778,
+    "ci_low": -0.05478881803299564,
+    "ci_high": 0.053713295345334686,
+    "positive_fraction": 0.475
+  },
+  "final_abs_probe_index": {
+    "balanced_sampled": {
+      "final_abs_probe_mean": 0.1817276178220884,
+      "ci_low": 0.13691998572156738,
+      "ci_high": 0.22653524992260943
+    },
+    "fixed_propensity": {
+      "final_abs_probe_mean": 0.4207496049529351,
+      "ci_low": 0.34036173028083266,
+      "ci_high": 0.5011374796250375
+    },
+    "stabilization": {
+      "final_abs_probe_mean": 0.868333981564092,
+      "ci_low": 0.8576964000083761,
+      "ci_high": 0.878971563119808
+    },
+    "exploration": {
+      "final_abs_probe_mean": 0.058003357439345295,
+      "ci_low": 0.0417270030538737,
+      "ci_high": 0.07427971182481688
+    }
+  },
+  "stabilization_minus_fixed": {
+    "mean": 0.447584376611157,
+    "ci_low": 0.36840295299494835,
+    "ci_high": 0.5267658002273656,
+    "ratio": 2.0637784833075714
+  },
+  "stabilization_sign_alignment": 0.5641025641025641,
+  "stabilization_early_choice_sign_alignment": {
+    "25": 0.7,
+    "50": 0.7222222222222222,
+    "100": 0.85
+  },
+  "gates": {
+    "initial_signed_mean_near_zero": true,
+    "both_initial_signs_present": true,
+    "stabilization_exceeds_fixed_by_20_percent": true,
+    "paired_stabilization_minus_fixed_ci_excludes_zero": true,
+    "exploration_below_half_stabilization": true,
+    "initial_sign_predicts_stabilized_sign": false
+  }
+}

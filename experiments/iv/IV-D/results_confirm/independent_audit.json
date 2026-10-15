@@ -1,0 +1,168 @@
+{
+  "source": "raw CSV only; result.json and experiment module not imported",
+  "completeness": {
+    "seeds": 40,
+    "formation_rows": 160,
+    "protocol_rows": 1280,
+    "timecourse_rows": 218880,
+    "geometry_rows": 80
+  },
+  "same_checkpoint_max_start_difference": 0.0,
+  "formation_match": {
+    "aligned_s": {
+      "value": {
+        "mean": -0.006423856789277505,
+        "low": -0.009867272809536825,
+        "high": -0.0031812256774474174
+      },
+      "pass": true,
+      "margin": 0.02
+    },
+    "target_D": {
+      "value": {
+        "mean": 0.0033946458250284197,
+        "low": 0.001450903844088316,
+        "high": 0.005447297384962439
+      },
+      "pass": true,
+      "margin": 0.02
+    },
+    "other_D": {
+      "value": {
+        "mean": -0.005386123061180114,
+        "low": -0.007997929323464631,
+        "high": -0.00292654786258936
+      },
+      "pass": true,
+      "margin": 0.02
+    },
+    "error_sum": {
+      "value": {
+        "mean": -0.001991477236151695,
+        "low": -0.0037614397145807744,
+        "high": -0.00016176013275980965
+      },
+      "pass": true,
+      "margin": 0.02
+    },
+    "aligned_low_s": {
+      "value": {
+        "mean": -0.0016131791498079904,
+        "low": -0.0027525277034790947,
+        "high": -0.0004970102129944045
+      },
+      "pass": true,
+      "margin": 0.01
+    }
+  },
+  "formation_match_all_pass": true,
+  "outcome_classifications": {
+    "carried_neutral_auc": {
+      "value": {
+        "mean": -0.0024920239758188805,
+        "low": -0.006356355984565396,
+        "high": 0.0012296084783236464
+      },
+      "classification": "equivalent_within_margin",
+      "margin": 0.02
+    },
+    "reset_neutral_auc": {
+      "value": {
+        "mean": -0.0018072169267595313,
+        "low": -0.006810894120552584,
+        "high": 0.0029788537616217687
+      },
+      "classification": "equivalent_within_margin",
+      "margin": 0.02
+    },
+    "carried_acquisition_pulse": {
+      "value": {
+        "mean": 0.16676206044084987,
+        "low": 0.16026169068402366,
+        "high": 0.17321599415456593
+      },
+      "classification": "different",
+      "margin": 0.05
+    },
+    "carried_update_pulse": {
+      "value": {
+        "mean": 0.1509709105834193,
+        "low": 0.14547802149385028,
+        "high": 0.15635278257987426
+      },
+      "classification": "different",
+      "margin": 0.05
+    },
+    "carried_combined_pulse": {
+      "value": {
+        "mean": 0.19506404302035482,
+        "low": 0.18801612117432218,
+        "high": 0.20199950926151086
+      },
+      "classification": "different",
+      "margin": 0.05
+    },
+    "reset_acquisition_pulse": {
+      "value": {
+        "mean": 0.0010650810200150667,
+        "low": -0.0010651374757991543,
+        "high": 0.0034465873621190592
+      },
+      "classification": "equivalent_within_margin",
+      "margin": 0.02
+    },
+    "reset_update_pulse": {
+      "value": {
+        "mean": 0.01198778654313964,
+        "low": 0.009341322245181902,
+        "high": 0.014882643139626252
+      },
+      "classification": "equivalent_within_margin",
+      "margin": 0.02
+    },
+    "reset_combined_pulse": {
+      "value": {
+        "mean": 0.01027906131692988,
+        "low": 0.007881009328484206,
+        "high": 0.01291051268228273
+      },
+      "classification": "equivalent_within_margin",
+      "margin": 0.02
+    }
+  },
+  "optimizer_state_interaction": {
+    "acquisition_pulse": {
+      "value": {
+        "mean": 0.16569697942083478,
+        "low": 0.1598383591003396,
+        "high": 0.17176950347887684
+      },
+      "minimum": 0.08,
+      "pass": true
+    },
+    "update_pulse": {
+      "value": {
+        "mean": 0.13898312404027965,
+        "low": 0.134261670191185,
+        "high": 0.1438423000008439
+      },
+      "minimum": 0.08,
+      "pass": true
+    },
+    "combined_pulse": {
+      "value": {
+        "mean": 0.18478498170342492,
+        "low": 0.1786623348533265,
+        "high": 0.19098639049343094
+      },
+      "minimum": 0.08,
+      "pass": true
+    }
+  },
+  "optimizer_state_interaction_all_pass": true,
+  "hashes": {
+    "script": "faa61d4334ad0937fa8a6d42e66ea1d60322aafa926f953deffd4233701f123d",
+    "preregistration": "6f501b541f8af5f11419ed5a073a125c38ad9fddee2aea7a4d520835b995d392",
+    "audit": "eef098d2419bc97788694bd80d5e14923b823c657dbc997703db07d507c57700"
+  }
+}

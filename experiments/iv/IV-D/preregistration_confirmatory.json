@@ -1,0 +1,59 @@
+{
+  "experiment": "IV-D",
+  "registered_at": "2026-09-02T12:30:00+09:00",
+  "question": "取得主導と更新主導で表面指標を揃えた形成状態は、共通条件と同じ摂動への応答も同じか。また経路差はoptimizer状態に保持されているか。",
+  "fixed_design": {
+    "seeds": [8100, 8101, 8102, 8103, 8104, 8105, 8106, 8107, 8108, 8109, 8110, 8111, 8112, 8113, 8114, 8115, 8116, 8117, 8118, 8119, 8120, 8121, 8122, 8123, 8124, 8125, 8126, 8127, 8128, 8129, 8130, 8131, 8132, 8133, 8134, 8135, 8136, 8137, 8138, 8139],
+    "initial_steps": 100,
+    "formation_steps": 500,
+    "acquisition_route": {
+      "acquisition": "direction-precise",
+      "update_weight_A": 0.5
+    },
+    "update_route": {
+      "acquisition": "balanced half A-precise/B-precise",
+      "A_direction_weight_A": 0.8,
+      "B_direction_weight_A": 0.19999999999999996
+    },
+    "post_protocols": ["neutral", "acquisition_pulse", "update_pulse", "combined_switch"],
+    "optimizer_modes": ["carried", "reset"],
+    "protocol_steps": {
+      "neutral": 400,
+      "acquisition_pulse": 110,
+      "update_pulse": 110,
+      "combined_switch": 60
+    },
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "initial_noise": 0.15
+  },
+  "formation_match_tolerances": {
+    "aligned_s": 0.02,
+    "target_D": 0.02,
+    "other_D": 0.02,
+    "error_sum": 0.02,
+    "aligned_low_s": 0.01
+  },
+  "outcome_equivalence_margins": {
+    "carried_neutral_auc": {"optimizer_mode": "carried", "protocol": "neutral", "outcome": "auc_aligned_s_0_200", "margin": 0.02},
+    "reset_neutral_auc": {"optimizer_mode": "reset", "protocol": "neutral", "outcome": "auc_aligned_s_0_200", "margin": 0.02},
+    "carried_acquisition_pulse": {"optimizer_mode": "carried", "protocol": "acquisition_pulse", "outcome": "pulse_drop", "margin": 0.05},
+    "carried_update_pulse": {"optimizer_mode": "carried", "protocol": "update_pulse", "outcome": "pulse_drop", "margin": 0.05},
+    "carried_combined_pulse": {"optimizer_mode": "carried", "protocol": "combined_switch", "outcome": "pulse_drop", "margin": 0.05},
+    "reset_acquisition_pulse": {"optimizer_mode": "reset", "protocol": "acquisition_pulse", "outcome": "pulse_drop", "margin": 0.02},
+    "reset_update_pulse": {"optimizer_mode": "reset", "protocol": "update_pulse", "outcome": "pulse_drop", "margin": 0.02},
+    "reset_combined_pulse": {"optimizer_mode": "reset", "protocol": "combined_switch", "outcome": "pulse_drop", "margin": 0.02}
+  },
+  "optimizer_state_interaction_minima": {
+    "acquisition_pulse": {"protocol": "acquisition_pulse", "outcome": "pulse_drop", "minimum": 0.08},
+    "update_pulse": {"protocol": "update_pulse", "outcome": "pulse_drop", "minimum": 0.08},
+    "combined_pulse": {"protocol": "combined_switch", "outcome": "pulse_drop", "minimum": 0.08}
+  },
+  "primary_probe": "全条件共通のA/B両方高精度・未使用probe/test",
+  "secondary_probe": "全条件共通のA/B両方低精度・未使用probe/test",
+  "statistical_unit": "seed。A/B方向をseed内で平均し、取得主導－更新主導の対応差を解析する。",
+  "confidence_interval": "seed bootstrap percentile 95% interval, 5000 resamples",
+  "stopping_rule": "未使用40 seedをすべて実行し、形成終点の一致や後続応答の結果にかかわらず終了する。",
+  "script_sha256": "faa61d4334ad0937fa8a6d42e66ea1d60322aafa926f953deffd4233701f123d",
+  "base_script_sha256": "5c2c52f56f1c5d2d5c21f5be946ac6a64f59b271a62ce47131972856e30643e7"
+}

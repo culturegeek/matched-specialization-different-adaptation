@@ -1,0 +1,289 @@
+{
+  "n_seeds": 40,
+  "formation_match": {
+    "aligned_s": {
+      "mean": -0.0035191527947932228,
+      "low": -0.006015844860730627,
+      "high": -0.0008794288124748746,
+      "n": 40,
+      "equivalent_002": true,
+      "margin": 0.02,
+      "pass": true
+    },
+    "target_D": {
+      "mean": 0.0013942770659923554,
+      "low": -8.527223020792008e-05,
+      "high": 0.002767781987786292,
+      "n": 40,
+      "equivalent_002": true,
+      "margin": 0.02,
+      "pass": true
+    },
+    "other_D": {
+      "mean": -0.0041986644268035885,
+      "low": -0.006768764853477478,
+      "high": -0.0017780725285410888,
+      "n": 40,
+      "equivalent_002": true,
+      "margin": 0.02,
+      "pass": true
+    },
+    "error_sum": {
+      "mean": -0.0028043873608112335,
+      "low": -0.005217715594917536,
+      "high": -0.0006323076225817213,
+      "n": 40,
+      "equivalent_002": true,
+      "margin": 0.02,
+      "pass": true
+    },
+    "aligned_low_s": {
+      "mean": -0.0004998028711064208,
+      "low": -0.001280880332764588,
+      "high": 0.000337274975532215,
+      "n": 40,
+      "equivalent_002": true,
+      "margin": 0.01,
+      "pass": true
+    }
+  },
+  "short_route_effects": {
+    "m_other": {
+      "mode": "m_other",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.19289935528544863,
+      "low": 0.18575891885226772,
+      "high": 0.19965684081629803,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "own": {
+      "mode": "own",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.19071687301021673,
+      "low": 0.1833950573254562,
+      "high": 0.19733052688609676,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "reset": {
+      "mode": "reset",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.009630099460074735,
+      "low": 0.00749091652194513,
+      "high": 0.012012166658069125,
+      "n": 40,
+      "equivalent_002": true
+    },
+    "scalar_v_equal": {
+      "mode": "scalar_v_equal",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.03948502445461106,
+      "low": 0.034256401999423564,
+      "high": 0.04493952335860756,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "scalar_v_own": {
+      "mode": "scalar_v_own",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.12511602654703163,
+      "low": 0.11867684815034445,
+      "high": 0.13175155312066447,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "sgd_base": {
+      "mode": "sgd_base",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.0006001791645428557,
+      "low": 0.0004960240222157122,
+      "high": 0.0007100922154124515,
+      "n": 40,
+      "equivalent_002": true
+    },
+    "sgd_calibrated": {
+      "mode": "sgd_calibrated",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.012296713438827721,
+      "low": 0.010197349677545367,
+      "high": 0.01449783606314575,
+      "n": 40,
+      "equivalent_002": true
+    },
+    "v_equal_scale": {
+      "mode": "v_equal_scale",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": 0.08751503644352059,
+      "low": 0.08244205138386718,
+      "high": 0.0925632610463447,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "v_other": {
+      "mode": "v_other",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": -0.11830318156141643,
+      "low": -0.12631928487144725,
+      "high": -0.11017055275121473,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "v_other_equal_scale": {
+      "mode": "v_other_equal_scale",
+      "trajectory": "continued_opposition",
+      "step": 10,
+      "mean": -0.01098560455160823,
+      "low": -0.01723027768806673,
+      "high": -0.004541272924971482,
+      "n": 40,
+      "equivalent_002": true
+    }
+  },
+  "between_mode_contrasts": {
+    "own_minus_v_equal_scale": {
+      "mean": 0.10320183656669615,
+      "low": 0.09933637238621837,
+      "high": 0.10694508140286553,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "v_equal_scale_minus_scalar_v_equal": {
+      "mean": 0.048030011988909535,
+      "low": 0.04386744338253204,
+      "high": 0.05198022221615679,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "v_equal_scale_minus_v_other_equal_scale": {
+      "mean": 0.09850064099512881,
+      "low": 0.09241179799843935,
+      "high": 0.1045522832377267,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "own_minus_scalar_v_own": {
+      "mean": 0.06560084646318512,
+      "low": 0.059774013175076524,
+      "high": 0.07103025473800853,
+      "n": 40,
+      "equivalent_002": false
+    },
+    "own_minus_m_other": {
+      "mean": -0.002182482275231894,
+      "low": -0.00522817305044833,
+      "high": 0.0012474353241401482,
+      "n": 40,
+      "equivalent_002": true
+    }
+  },
+  "late_endpoint_differences": {
+    "continued_opposition__own": {
+      "mean": -0.00045395791622343876,
+      "low": -0.001419146796586826,
+      "high": 0.0005820569134952775,
+      "n": 40,
+      "equivalent_002": true
+    },
+    "continued_opposition__reset": {
+      "mean": -0.002105278024048497,
+      "low": -0.00307670020375588,
+      "high": -0.0011345093402513494,
+      "n": 40,
+      "equivalent_002": true
+    },
+    "pulse_then_neutral__own": {
+      "mean": 0.009835969763105879,
+      "low": 0.00859803979721898,
+      "high": 0.011079910889394485,
+      "n": 40,
+      "equivalent_002": true
+    },
+    "pulse_then_neutral__reset": {
+      "mean": -0.0018605001962540945,
+      "low": -0.0034068570163498205,
+      "high": -0.0004633762931482341,
+      "n": 40,
+      "equivalent_002": true
+    }
+  },
+  "external_prediction": {
+    "response_difference__q_ratio": {
+      "rmse": 0.018977503816218405,
+      "baseline_rmse": 0.0233930500859065,
+      "skill_vs_training_mean": 0.34188093274075393,
+      "pearson_r": 0.5506455475453509
+    },
+    "response_difference__v_ratio": {
+      "rmse": 0.02255138504507861,
+      "baseline_rmse": 0.0233930500859065,
+      "skill_vs_training_mean": 0.07066404660835235,
+      "pearson_r": 0.2930266510468103
+    },
+    "response_difference__m_ratio": {
+      "rmse": 0.024252644243755377,
+      "baseline_rmse": 0.0233930500859065,
+      "skill_vs_training_mean": -0.0748416604117379,
+      "pearson_r": 0.05715803904404393
+    },
+    "response_ratio__q_ratio": {
+      "rmse": 0.2157640733412483,
+      "baseline_rmse": 0.19090830448057217,
+      "skill_vs_training_mean": -0.27734621007774796,
+      "pearson_r": 0.4761172697302966
+    },
+    "response_ratio__v_ratio": {
+      "rmse": 0.1929372089945391,
+      "baseline_rmse": 0.19090830448057217,
+      "skill_vs_training_mean": -0.02136822441262476,
+      "pearson_r": -0.0524985918341851
+    },
+    "response_ratio__m_ratio": {
+      "rmse": 0.22701229999958064,
+      "baseline_rmse": 0.19090830448057217,
+      "skill_vs_training_mean": -0.41399911138401535,
+      "pearson_r": -0.15401143584417715
+    },
+    "unfitted_q_equals_response_ratio": {
+      "q_ratio": {
+        "mean": 1.904243038074514,
+        "low": 1.8711125914414513,
+        "high": 1.9385253607743524,
+        "n": 40,
+        "equivalent_002": false
+      },
+      "response_ratio": {
+        "mean": 2.2450309066873144,
+        "low": 2.1873928910819944,
+        "high": 2.3052352677271437,
+        "n": 40,
+        "equivalent_002": false
+      },
+      "ratio_error": {
+        "mean": 0.34078786861280036,
+        "low": 0.29195899158279,
+        "high": 0.3958181733026553,
+        "n": 40,
+        "equivalent_002": false
+      },
+      "rmse": 0.379724050825735,
+      "baseline_rmse": 0.18908934261842322,
+      "skill_vs_training_mean": -3.0327574893393487,
+      "pearson_r": 0.47611726973029656
+    }
+  },
+  "original_pattern_replication": {
+    "own_lower_above_010": true,
+    "v_swap_negative": true,
+    "reset_equivalent": true
+  }
+}

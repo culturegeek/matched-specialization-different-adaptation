@@ -1,0 +1,7 @@
+{
+  "python": "3.12.13 (main, Aug  7 2026, 02:15:23) [Clang 22.1.3 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "numpy": "2.3.5",
+  "script_sha256": "cf1ebae6036a4c39ce37d9aaca2e62943bcf2e4cf783ddb1ed4ad80ca7141e7d",
+  "preregistration_sha256": "1093813deaabe60aa66bff72b1f56fbcbdbd42bb5141df12db9f58fffdb6e6de"
+}

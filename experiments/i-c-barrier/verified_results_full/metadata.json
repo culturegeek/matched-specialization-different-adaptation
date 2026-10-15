@@ -1,0 +1,73 @@
+{
+  "experiment": "Experiment I-C v0.2.2: shared-estimator transition barriers",
+  "version": "0.2.2",
+  "config": {
+    "train_size": 8192,
+    "test_size": 4096,
+    "time_steps": 4,
+    "phis": [
+      0.0,
+      0.4,
+      0.8
+    ],
+    "correlation": 0.35,
+    "observation_noise": 0.05,
+    "lambdas": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "importance_a": [
+      1.8,
+      1.4,
+      0.6,
+      0.2
+    ],
+    "importance_b": [
+      0.2,
+      0.6,
+      1.4,
+      1.8
+    ],
+    "policy_iterations": 400,
+    "policy_learning_rate": 0.2,
+    "policy_init_scale": 1.0,
+    "ridge": 1e-07,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "alpha_points": 1001,
+  "runtime_seconds": 51.24514889717102,
+  "python": "3.12.13 (main, Aug  7 2026, 02:15:23) [Clang 22.1.3 ]",
+  "numpy": "2.3.5",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "criteria": {
+    "phi0_shared_penalty_near_zero": true,
+    "phi08_barriers_present": true,
+    "phi08_shared_penalty_substantial": true,
+    "dedicated_experts_have_no_barrier": true,
+    "mixing_penalty_nonnegative_with_tolerance": true,
+    "passed": true
+  },
+  "scope_note": "The barrier is a property of fitting one estimator to a mixture of observation schedules. Schedule-specific estimators remove this mixing barrier."
+}

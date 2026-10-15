@@ -1,0 +1,117 @@
+{
+  "experiment": "III-A2",
+  "seeds": [
+    3400,
+    3401,
+    3402,
+    3403,
+    3404,
+    3405,
+    3406,
+    3407,
+    3408,
+    3409,
+    3410,
+    3411,
+    3412,
+    3413,
+    3414,
+    3415,
+    3416,
+    3417,
+    3418,
+    3419,
+    3420,
+    3421,
+    3422,
+    3423,
+    3424,
+    3425,
+    3426,
+    3427,
+    3428,
+    3429,
+    3430,
+    3431,
+    3432,
+    3433,
+    3434,
+    3435,
+    3436,
+    3437,
+    3438,
+    3439
+  ],
+  "settings": {
+    "train_n": 2048,
+    "test_n": 2048,
+    "batch": 128,
+    "balanced_steps": 300,
+    "formation_steps": 1800,
+    "measurement_steps": 3600,
+    "lr": 0.018,
+    "selector_interval": 10,
+    "selector_gain": 3.0,
+    "selector_bias": 0.4,
+    "weight_decay": 0.0001
+  },
+  "preregistered_gates": "G1 formation: binding formation |s| CI lower >0.80; unbinding formation |s| CI upper <0.10.\nG2 current regime: terminal CC and UC |s| CI lower >0.80; UU CI upper <0.10.\nG3 release: CU |s| reduction CI lower >0.70; CU terminal |s| CI upper <0.20.\nG4 symmetry: pooled terminal constrained positive-branch fraction in [0.25,0.75].\nUnit=seed 3400--3439; paired percentile bootstrap seed=20260824, B=10000.",
+  "statistics": {
+    "formation_C": {
+      "mean": 0.97060747264547,
+      "low": 0.9696136645757373,
+      "high": 0.9716102143856333
+    },
+    "formation_U": {
+      "mean": 0.05495568251323548,
+      "low": 0.04015119276836406,
+      "high": 0.07183545445643522
+    },
+    "terminal_UU": {
+      "mean": 0.05916805381718811,
+      "low": 0.04335450080193842,
+      "high": 0.07769169635082071
+    },
+    "terminal_UC": {
+      "mean": 0.9861923888529949,
+      "low": 0.9856591873675081,
+      "high": 0.9867125716522038
+    },
+    "terminal_CU": {
+      "mean": 0.1303423976827865,
+      "low": 0.10567123357621493,
+      "high": 0.15730485369555122
+    },
+    "terminal_CC": {
+      "mean": 0.9856467204608641,
+      "low": 0.9851667132206859,
+      "high": 0.9861337119751421
+    },
+    "CU_reduction": {
+      "mean": 0.8402650749626833,
+      "low": 0.8140494258884542,
+      "high": 0.8643552891964766
+    }
+  },
+  "gates": {
+    "G1_formation_resource": {
+      "pass": true
+    },
+    "G2_current_resource": {
+      "pass": true
+    },
+    "G3_release_history": {
+      "pass": true
+    },
+    "G4_symmetry": {
+      "pass": true,
+      "positive_branch_fraction": 0.5375
+    }
+  },
+  "completeness": {
+    "rows": 960,
+    "expected": 960,
+    "unique_keys": 960,
+    "pass": true
+  }
+}

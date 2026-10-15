@@ -1,0 +1,142 @@
+{
+  "experiment": "III-A2b",
+  "seeds": [
+    3500,
+    3501,
+    3502,
+    3503,
+    3504,
+    3505,
+    3506,
+    3507,
+    3508,
+    3509,
+    3510,
+    3511,
+    3512,
+    3513,
+    3514,
+    3515,
+    3516,
+    3517,
+    3518,
+    3519,
+    3520,
+    3521,
+    3522,
+    3523,
+    3524,
+    3525,
+    3526,
+    3527,
+    3528,
+    3529,
+    3530,
+    3531,
+    3532,
+    3533,
+    3534,
+    3535,
+    3536,
+    3537,
+    3538,
+    3539
+  ],
+  "settings": {
+    "train_n": 2048,
+    "test_n": 2048,
+    "batch": 128,
+    "balanced_steps": 300,
+    "formation_steps": 1800,
+    "measurement_steps": 3600,
+    "lr": 0.018,
+    "selector_interval": 10,
+    "selector_gain": 3.0,
+    "selector_bias": 0.4,
+    "weight_decay": 0.0001
+  },
+  "preregistered_gates": "G1 representation: C1_both |s| CI lower >0.80 and sum_D gap C1_both-C2_both CI lower >0.80.\nG2 learning opportunity: |s| paired difference C2_single-C2_both CI lower >0.15.\nG3 nonbinding: C2_both |s| CI upper <0.20 and sum_D CI upper <0.05.\nG4 symmetry: C1_both positive-branch fraction in [0.25,0.75].\nUnit=seed 3500--3539; percentile bootstrap seed=20260824, B=10000.",
+  "statistics": {
+    "C1_single_abs_s": {
+      "mean": 0.9705500034961325,
+      "low": 0.9691685252663834,
+      "high": 0.9718343170980057
+    },
+    "C1_single_sum_D": {
+      "mean": 1.017653178269412,
+      "low": 1.016308715150214,
+      "high": 1.0190773639018347
+    },
+    "C1_both_abs_s": {
+      "mean": 0.903686091749529,
+      "low": 0.8617576441164831,
+      "high": 0.9404698672708892
+    },
+    "C1_both_sum_D": {
+      "mean": 1.0148145984390535,
+      "low": 1.0123321196652562,
+      "high": 1.0175233212999102
+    },
+    "C2_single_abs_s": {
+      "mean": 0.33675821109439025,
+      "low": 0.2797629406615908,
+      "high": 0.39160634885345663
+    },
+    "C2_single_sum_D": {
+      "mean": 0.058009291748617776,
+      "low": 0.05399744320707965,
+      "high": 0.062308136470432346
+    },
+    "C2_both_abs_s": {
+      "mean": 0.06585153314458124,
+      "low": 0.04846248271451057,
+      "high": 0.08607611257445547
+    },
+    "C2_both_sum_D": {
+      "mean": 0.026218765868539152,
+      "low": 0.02550288952175419,
+      "high": 0.0269214281988687
+    },
+    "representation_sumD_gap": {
+      "mean": 0.9885958325705143,
+      "low": 0.9860038178083272,
+      "high": 0.9914282665428591
+    },
+    "learning_absS_gap": {
+      "mean": 0.27090667794980905,
+      "low": 0.2224062583351634,
+      "high": 0.31776966116351385
+    },
+    "C1_single_minus_both": {
+      "mean": 0.06686391174660351,
+      "low": 0.03036514786734171,
+      "high": 0.1086608566205537
+    },
+    "interaction": {
+      "mean": -0.20404276620320555,
+      "low": -0.26626020221244834,
+      "high": -0.13866062837668314
+    }
+  },
+  "gates": {
+    "G1_representation_capacity": {
+      "pass": true
+    },
+    "G2_learning_opportunity": {
+      "pass": true
+    },
+    "G3_nonbinding_control": {
+      "pass": true
+    },
+    "G4_symmetry": {
+      "pass": true,
+      "positive_fraction": 0.425
+    }
+  },
+  "completeness": {
+    "rows": 160,
+    "expected": 160,
+    "unique": 160,
+    "pass": true
+  }
+}

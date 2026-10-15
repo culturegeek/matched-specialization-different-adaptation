@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv*/
+generated/
+experiments/**/results_*_new/

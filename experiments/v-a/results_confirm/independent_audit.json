@@ -1,0 +1,206 @@
+{
+  "experiment": "V-A",
+  "audit_seed": 20260903,
+  "gates": {
+    "completeness": true,
+    "identical_initial_state_within_seed": true,
+    "sensor_A": true,
+    "sensor_B": true,
+    "sensor_C": true,
+    "capacity_2_acquisition_A": true,
+    "capacity_2_update_A": true,
+    "capacity_2_other_symmetry_A": true,
+    "capacity_2_acquisition_B": true,
+    "capacity_2_update_B": true,
+    "capacity_2_other_symmetry_B": true,
+    "capacity_2_acquisition_C": true,
+    "capacity_2_update_C": true,
+    "capacity_2_other_symmetry_C": true,
+    "capacity_2_balanced_label_symmetry": true,
+    "capacity_2_label_exchangeability": true,
+    "capacity_2_two_dimensional_allocation_span": true,
+    "capacity_3_acquisition_A": true,
+    "capacity_3_update_A": true,
+    "capacity_3_other_symmetry_A": true,
+    "capacity_3_acquisition_B": true,
+    "capacity_3_update_B": true,
+    "capacity_3_other_symmetry_B": true,
+    "capacity_3_acquisition_C": true,
+    "capacity_3_update_C": true,
+    "capacity_3_other_symmetry_C": true,
+    "capacity_3_balanced_label_symmetry": true,
+    "capacity_3_label_exchangeability": true,
+    "capacity_3_two_dimensional_allocation_span": true,
+    "reported_gate_vector_matches": true,
+    "script_hash_matches_registration": true,
+    "script_hash_matches_provenance": true,
+    "preregistration_hash_matches_provenance": true
+  },
+  "all_pass": true,
+  "details": {
+    "row_counts": {
+      "cells": 560,
+      "timecourse": 12880,
+      "sensors": 40,
+      "checkpoints_per_cell": 23
+    },
+    "initial_max_difference": 0.0,
+    "sensor_A": {
+      "mean": 0.544515085365856,
+      "low": 0.5408880129436148,
+      "high": 0.5482731791830157
+    },
+    "sensor_B": {
+      "mean": 0.5441416048328392,
+      "low": 0.5403089506051038,
+      "high": 0.5480028499261242
+    },
+    "sensor_C": {
+      "mean": 0.5415083401312586,
+      "low": 0.5380553694198897,
+      "high": 0.5448085626505781
+    },
+    "capacity_2_A": {
+      "acquisition_q_gain": {
+        "mean": 0.37011197525295597,
+        "low": 0.35553367240544037,
+        "high": 0.38411806363371226
+      },
+      "acquisition_favored_fraction": 1.0,
+      "other_absolute_asymmetry": {
+        "mean": 0.017432546333382377,
+        "low": 0.013763081511407262,
+        "high": 0.021341406846233736
+      },
+      "update_q_gain": {
+        "mean": 0.4664566729992524,
+        "low": 0.4568590922406262,
+        "high": 0.47655954932338196
+      },
+      "update_favored_fraction": 1.0
+    },
+    "capacity_2_B": {
+      "acquisition_q_gain": {
+        "mean": 0.3728615676267729,
+        "low": 0.3603587319417894,
+        "high": 0.3856016717764079
+      },
+      "acquisition_favored_fraction": 1.0,
+      "other_absolute_asymmetry": {
+        "mean": 0.019280366373495804,
+        "low": 0.01503595760560414,
+        "high": 0.023899990016905882
+      },
+      "update_q_gain": {
+        "mean": 0.4634819756742175,
+        "low": 0.45621678691707757,
+        "high": 0.4710550986705849
+      },
+      "update_favored_fraction": 1.0
+    },
+    "capacity_2_C": {
+      "acquisition_q_gain": {
+        "mean": 0.37305107913884894,
+        "low": 0.36202346899813076,
+        "high": 0.3839734640135132
+      },
+      "acquisition_favored_fraction": 1.0,
+      "other_absolute_asymmetry": {
+        "mean": 0.019970265525035766,
+        "low": 0.015261995242240603,
+        "high": 0.02515109686232407
+      },
+      "update_q_gain": {
+        "mean": 0.4667761556690658,
+        "low": 0.45979695450671765,
+        "high": 0.4741873799731059
+      },
+      "update_favored_fraction": 1.0
+    },
+    "capacity_2_symmetry_and_span": {
+      "balanced_group_means": {
+        "A": -0.0005685388553034132,
+        "B": 0.0036297396396481317,
+        "C": -0.0030612007843447155
+      },
+      "balanced_group_mean_range": 0.006690940423992847,
+      "acquisition_effect_mean_range": 0.0029391038858929686,
+      "plane_second_to_first_ratio": {
+        "mean": 0.9841767598440534,
+        "low": 0.9840163758218522,
+        "high": 0.9843381034232006
+      }
+    },
+    "capacity_3_A": {
+      "acquisition_q_gain": {
+        "mean": 0.9232107004013198,
+        "low": 0.8945339121294313,
+        "high": 0.9515463131135501
+      },
+      "acquisition_favored_fraction": 1.0,
+      "other_absolute_asymmetry": {
+        "mean": 0.023367076274146876,
+        "low": 0.018469159002122423,
+        "high": 0.028567617854403933
+      },
+      "update_q_gain": {
+        "mean": 1.2296964328402655,
+        "low": 1.2110107404083907,
+        "high": 1.2486944974879297
+      },
+      "update_favored_fraction": 1.0
+    },
+    "capacity_3_B": {
+      "acquisition_q_gain": {
+        "mean": 0.9029764898700041,
+        "low": 0.8755586921114235,
+        "high": 0.9298097344490165
+      },
+      "acquisition_favored_fraction": 1.0,
+      "other_absolute_asymmetry": {
+        "mean": 0.021712331893788194,
+        "low": 0.017106117006466273,
+        "high": 0.026751652723866825
+      },
+      "update_q_gain": {
+        "mean": 1.2295483220897068,
+        "low": 1.2106991041513377,
+        "high": 1.2480098038032617
+      },
+      "update_favored_fraction": 1.0
+    },
+    "capacity_3_C": {
+      "acquisition_q_gain": {
+        "mean": 0.9221995278860312,
+        "low": 0.9009213664456548,
+        "high": 0.942931257045564
+      },
+      "acquisition_favored_fraction": 1.0,
+      "other_absolute_asymmetry": {
+        "mean": 0.021582165423228678,
+        "low": 0.016453839314433588,
+        "high": 0.02711525724769822
+      },
+      "update_q_gain": {
+        "mean": 1.2238850663312069,
+        "low": 1.2033065603382704,
+        "high": 1.2442902473098187
+      },
+      "update_favored_fraction": 1.0
+    },
+    "capacity_3_symmetry_and_span": {
+      "balanced_group_means": {
+        "A": -0.000242063425522826,
+        "B": 0.003753419252838336,
+        "C": -0.0035113558273154573
+      },
+      "balanced_group_mean_range": 0.007264775080153793,
+      "acquisition_effect_mean_range": 0.02023421053131569,
+      "plane_second_to_first_ratio": {
+        "mean": 0.9875365808225691,
+        "low": 0.9873896946525309,
+        "high": 0.9876853408630607
+      }
+    }
+  }
+}

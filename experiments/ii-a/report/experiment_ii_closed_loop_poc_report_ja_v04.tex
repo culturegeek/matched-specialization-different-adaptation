@@ -1,0 +1,293 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage{geometry}
+\usepackage{booktabs,array,tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\geometry{margin=22mm}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,
+pdftitle={実験II v0.4：初期経験系列への介入},pdfauthor={Toru Takahashi}}
+\definecolor{Main}{HTML}{176B87}
+\definecolor{Accent}{HTML}{D95F59}
+\definecolor{Explore}{HTML}{3578B8}
+\definecolor{Pale}{HTML}{EEF5F7}
+\setlist[itemize]{leftmargin=1.7em,itemsep=3pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=4pt,topsep=4pt}
+\renewcommand{\baselinestretch}{1.05}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1em}
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
+\newenvironment{takeaway}{\begin{center}\begin{minipage}{0.93\linewidth}\color{Main}\hrule\vspace{6pt}\color{black}}{\vspace{6pt}\color{Main}\hrule\color{black}\end{minipage}\end{center}}
+
+\title{\textbf{実験II v0.4：初期経験系列への介入}\\
+\large 微小な選択履歴は、世界表現の形成方向を因果的に変えるか}
+\author{Toru Takahashi}
+\date{2026年8月16日}
+
+\begin{document}
+\maketitle
+
+\begin{takeaway}
+\textbf{結果}
+
+状態から独立に、最初の100回だけAを55回選ぶ系列と、その鏡像である45回選ぶ系列を与えた。操作直後の小さな方向差は、固定配分と安定化型の双方で約2.7倍へ成長し、探索型ではほぼ消えた。この結果は、初期経験系列が表現形成の方向へ因果効果を持つことを示す。一方、選択確率を更新し続ける安定化型は固定配分を上回らず、動的更新の追加利得は確認されなかった。
+\end{takeaway}
+
+\section{実験の問い}
+
+実験II v0.1では、前半だけ異なる保存要求を学習した二つのモデルに、後半からAとBの誤差を常に等しく与えた。前半で生じた表現差は、後半学習によってほぼ消えた。過去の履歴が重みに残るだけでは、持続的な形成経路にならないことを示す負の結果である。
+
+v0.2では、現在の表現精度が次にどちらの誤差を学ぶかを変える閉ループを導入した。
+
+\begin{equation}
+\boxed{
+\text{表現精度の差}
+\rightarrow
+\text{誤差選択}
+\rightarrow
+\text{表現更新}
+\rightarrow
+\text{次の誤差選択}
+}
+\end{equation}
+
+しかし、強い初期履歴では、後半開始時に固定した選択確率だけで差が維持された。閉ループ固有の寄与は分離できなかった。そこでv0.3では、AとBを等しく学習した対称状態から出発し、偶発的な微小差が閉ループによって分岐へ成長するかを問う。
+
+\begin{enumerate}
+\item 安定化型は、固定配分より大きな表現差を生成するか。
+\item 探索型は、同じ偶発差を縮小するか。
+\item 分岐方向は、学習開始時の微小な表現差によって予測できるか。
+\end{enumerate}
+
+\section{環境と選択機構}
+
+\subsection{競合する二つの保存要求}
+
+合成源 $A,B\in\mathbb R^3$ は、一部の共有情報と、それぞれに固有の情報を持つ。これらを直交変換で混合した6次元入力 $X$ から、3次元の共有表現 $Z$ を形成し、二つのヘッドで $A$ と $B$ を予測する。
+
+\begin{align}
+Z &= E_\omega(X), \qquad Z\in\mathbb R^3,\\
+\widehat A &= H_A(Z),\qquad \widehat B=H_B(Z).
+\end{align}
+
+共有容量は両方の固有情報を完全に保存するには不足する。このため、どちらの誤差を多く学習に入れるかが、共有表現の資源配分を変える。
+
+\subsection{表現精度から誤差選択へ}
+
+学習データと評価データから独立した固定バッファで、共有表現 $Z$ からAとBを復号する線形プローブを学習し、正規化誤差 $D_A,D_B$ を測る。配分指数を
+
+\begin{equation}
+s=\frac{D_B-D_A}{D_A+D_B}
+\end{equation}
+
+とする。$s>0$ ならAの方が精密に表現され、$s<0$ ならBの方が精密に表現されている。
+
+安定化型と探索型のA選択確率は、
+
+\begin{align}
+p_A^{\mathrm{stab}} &= 0.5+m\tanh(\kappa s),\\
+p_A^{\mathrm{explore}} &= 0.5-m\tanh(\kappa s)
+\end{align}
+
+で与える。$m=0.40,\ \kappa=1.5$ である。各ミニバッチではAかBの一方だけを選び、選ばれた誤差で共有表現を更新する。
+
+\begin{center}
+\begin{tikzpicture}[node distance=9mm and 13mm,>=Latex,every node/.style={font=\small},box/.style={draw=Main,rounded corners,fill=Pale,minimum width=28mm,minimum height=10mm,align=center}]
+\node[box] (rep) {現在の共有表現\\$Z=E_\omega(X)$};
+\node[box,right=of rep] (measure) {精度差を測定\\$s=(D_B-D_A)/(D_A+D_B)$};
+\node[box,right=of measure] (select) {A/Bの誤差を選択\\$p_A=f(s)$};
+\node[box,below=of measure] (update) {選択された誤差で\\表現と読み出しを更新};
+\draw[->,thick] (rep)--(measure);
+\draw[->,thick] (measure)--(select);
+\draw[->,thick] (select)|-(update);
+\draw[->,thick] (update)-|(rep);
+\end{tikzpicture}
+\end{center}
+
+この精度測定は生成過程の正解を使う上限対照である。選択則が安定化または探索を実装することは仮定であり、実験が問うのは、共有容量を持つ学習系でその選択則が表現差をどこまで生成・増幅または縮小するかである。
+
+\section{比較条件}
+
+最初の25ステップは、すべてのseedでAとBを等しい重みで学習する。同じseed内では、この時点のモデルを四条件へ複製し、その後800ステップを学習する。A履歴群とB履歴群はあらかじめ作らない。分岐の種になるのは、有限標本、初期重み、ミニバッチ、確率的な誤差選択に含まれる偶発差だけである。
+
+\begin{table}[ht]
+\centering
+\begin{tabularx}{0.98\linewidth}{>{\bfseries}lX}
+\toprule
+条件 & 後半学習で行うこと \\
+\midrule
+balanced sampled & 各ステップでAかBを等確率で選ぶ。閉ループを持たない基準。\\
+fixed propensity & 25ステップ後の $s$ から選択確率を一度だけ求め、その後は固定する。\\
+stabilization & 現在精密に扱える側を選びやすくし、選択確率を更新し続ける。\\
+exploration & 現在扱いにくい側を選びやすくし、選択確率を更新し続ける。\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+主要測定量は、A側とB側への偏りを表す最終プローブ指数の絶対値 $|s_{\mathrm{probe}}|$ である。符号ではなく絶対値を用いることで、どちら側へ進んだかではなく、対称状態からどれだけ離れたかを測る。
+
+\section{先行する履歴強度走査の確認}
+
+v0.2では、前半履歴を25ステップに弱めた探索条件で、stabilizationの履歴差AUCがfixed propensityより1.383倍となり、対応差の95\%区間は $[0.046,\ 0.520]$ だった。この走査は強い履歴で差が出なかった後に行った探索的分析である。
+
+そこでseed 100--119を用い、履歴25ステップ、AUC比 $>1.20$、対応差の95\%区間の下限 $>0$ を実行前に固定して再確認した。AUC比は1.155、対応差は0.135、95\%区間は $[-0.021,\ 0.291]$ となり、二つの主要条件を満たさなかった。探索型が安定化型の半分未満になる条件だけは再現した。
+
+したがって、明示的に与えた弱い履歴に対する閉ループ固有の上乗せは、現時点では支持されない。以下の対称条件は、この結果を受けて履歴の維持ではなく、差の生成を独立に問う実験である。
+
+\section{対称条件からの分岐}
+
+\subsection{探索実行と独立確認}
+
+最初の40 seed（200--239）に対して、次の六条件を実行前に置いた。
+
+\begin{enumerate}
+\item 初期配分指数の平均絶対値が0.10未満である。
+\item 初期配分指数の正符号率が0.25から0.75の間にある。
+\item stabilizationの最終偏差がfixed propensityの1.20倍を超える。
+\item stabilizationとfixed propensityの対応差の95\%区間が0を含まない。
+\item explorationの最終偏差がstabilizationの半分未満である。
+\item 初期配分指数の符号とstabilization後の符号の一致率が0.75を超える。
+\end{enumerate}
+
+探索実行では六条件すべてを満たした。同じ判定条件を変えず、seed 300--339で独立に再実行した結果を表\ref{tab:symmetry}に示す。
+
+\begin{table}[ht]
+\centering
+\caption{対称条件から生じた最終偏差}
+\label{tab:symmetry}
+\begin{tabular}{lrr}
+\toprule
+測定量 & 探索seed & 独立seed \\
+\midrule
+初期配分指数の平均 & 0.0393 & $-0.0005$ \\
+balanced sampled 最終 $|s_{\mathrm{probe}}|$ & 0.1588 & 0.1817 \\
+fixed propensity 最終 $|s_{\mathrm{probe}}|$ & 0.4558 & 0.4207 \\
+stabilization 最終 $|s_{\mathrm{probe}}|$ & 0.8608 & 0.8683 \\
+exploration 最終 $|s_{\mathrm{probe}}|$ & 0.0975 & 0.0580 \\
+stabilization / fixed propensity & 1.889 & 2.064 \\
+stabilization--fixed 対応差95\%区間 & $[0.329,\ 0.481]$ & $[0.368,\ 0.527]$ \\
+初期符号と最終符号の一致率 & 0.784 & 0.564 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+表の最終行は、選択確率の計算に使った固定バッファ上の初期指数を用い、$|s_0|\leq0.01$ のseedを除外して集計した。対象数は探索seedで37、独立seedで39である。全seedを含めた独立評価データ上のstep 0指数では、最終符号との一致率は0.575だった。
+
+独立seedでも、stabilizationの偏差はfixed propensityの2.064倍となり、対応差の区間はゼロを含まなかった。explorationの偏差はstabilizationの6.7\%だった。差の生成・増幅と探索による縮小は再現した。
+
+一方、分岐方向を開始時の表現差が予測するという第六条件は再現しなかった。したがって、学習開始時に測った微小差が、そのまま将来の方向を決めたとは言えない。
+
+\subsection{状態と選択系列の追加監査}
+
+分岐方向を決めた要因を調べるため、stabilization条件で初期状態と誤差選択系列を記録した。この分析は独立確認後に追加した探索的監査である。
+
+独立seedでは、評価データ上のプローブ指数と最終符号の一致率は、step 0で0.575、step 20で0.775、step 100で0.950、step 300で1.000だった。最初の100選択の偏りと最終符号の一致率は0.850であり、step 100のプローブ指数との相関は $r=0.918$ だった。
+
+選択確率は現在のプローブ指数 $s$ から決まるため、初期選択と初期状態は同じ循環の二つの測定であり、相関だけでは因果方向を判定できない。step 0の差は測定誤差に埋もれた可能性もある。方向はstep 20から100で明瞭になるが、因果同定には状態から独立した選択系列の操作が要る。
+
+\section{何が示され、何が残ったか}
+
+\subsection{示されたこと}
+
+この構成環境では、次の三点が二つのseed集合で再現した。
+
+\begin{enumerate}
+\item 対称な損失履歴から出発しても、安定化型の動的選択は固定配分より大きな表現偏差を生成しうる。
+\item 探索型の動的選択は、同じ偶発差を縮小しうる。
+\item したがって、現在の表現精度と次の学習対象を結ぶ循環は、表現形成経路を分岐させる構成的な機構になりうる。
+\end{enumerate}
+
+安定化型が得意な側を選び、探索型が不得意な側を選ぶというフィードバックの向きは、実験設計として与えたものである。測定によって分かったのは、その選択則が共有容量下で実際に持続的な表現偏差を形成すること、固定配分を大きく上回ること、探索型では偏差が縮小することである。balanced sampledでも独立seedの最終偏差は0.1817となり、単一対象を確率的に更新すること自体が拡散を生む。fixed propensityの0.4207とstabilizationの0.8683を比較することで、この基準的な拡散、固定された選択傾向、動的な自己増幅を分けて測定できた。
+
+ここで観測された自己強化は、初期に与えたA履歴またはB履歴の保存ではない。対称な学習条件の後に生じる有限な偶発差が、選択と表現更新の循環によって拡大したものである。ただし、共有容量によって一方の精度を高めるほど他方の復号誤差は増える一方、安定化型はその誤差を学習対象として選びにくくする。測定された偏差の大きさと持続は、この復元圧力が選択段階で遮られる条件下で成立した結果である。
+
+\subsection{因果介入前に残った限定}
+
+対称条件からの分岐を測った段階では、次の限定が残った。
+
+\begin{itemize}
+\item 線形プローブは正解ラベルを使う。系自身が確信度や不確実性を学習する機構ではない。
+\item 選ばれるのは取得済みデータの誤差であり、世界のどこを観測するかではない。
+\item 分岐方向を決める初期選択系列は操作しておらず、因果的な証拠ではない。
+\item 合成された二つの保存要求を扱っており、心理志向／客観志向や現前志向／観念志向の構造はまだ実装していない。
+\item 課題領域を越えた復帰、転換費用、ヒステリシスは測定していない。
+\end{itemize}
+
+このうち初期選択系列の因果効果を、次節の介入実験で扱う。
+
+\section{初期選択系列への介入}
+
+\subsection{操作と比較条件}
+
+AとBを等しく25ステップ学習した同一モデルを複製し、続く100ステップだけ選択系列を外部から与えた。一方はAを55回、Bを45回選び、もう一方は各選択を反転させた鏡像系列を用いる。二つのモデルは、初期重み、入力、ミニバッチ順、学習率を共有する。操作後にはAdam状態をリセットし、操作期の運動量を持ち越さない。
+
+操作後のA寄り系列とB寄り系列のプローブ指数をそれぞれ $s^{55A}$、$s^{55B}$ とし、方向効果を
+
+\begin{equation}
+e_t=\frac{s_t^{55A}-s_t^{55B}}{2}
+\end{equation}
+
+と定義した。$e_t>0$ なら、鏡像的な初期経験の違いが予測方向に表現差を生んだことを意味する。操作後は、balanced sampled、fixed propensity、stabilization、explorationの四条件へ分け、800ステップ学習した。fixed propensityは操作直後の状態から選択確率を一度だけ求めて固定し、stabilizationとexplorationは10ステップごとに更新する。
+
+探索seed 400--439に対し、操作効果が小さく有意であること、stabilizationが操作効果を1.5倍以上へ増幅すること、fixed propensityを1.2倍以上上回ること、explorationがstabilizationの半分未満へ縮小することなど、七つの判定を実行前に固定した。同じ判定を変えず、seed 500--539で独立に再実行した。
+
+\subsection{結果}
+
+\begin{table}[ht]
+\centering
+\caption{初期選択系列の操作による方向効果}
+\label{tab:causal}
+\begin{tabular}{lrr}
+\toprule
+測定量 & 探索seed & 独立seed \\
+\midrule
+操作直後 $e_0$ & 0.0774 & 0.0848 \\
+$e_0$ の95\%区間 & $[0.066,\ 0.088]$ & $[0.072,\ 0.098]$ \\
+balanced sampled 最終 $e$ & 0.0130 & 0.0181 \\
+fixed propensity 最終 $e$ & 0.2109 & 0.2371 \\
+stabilization 最終 $e$ & 0.1866 & 0.2474 \\
+exploration 最終 $e$ & 0.0025 & 0.0004 \\
+stabilization / fixed propensity & 0.885 & 1.044 \\
+stabilization--fixed 95\%区間 & $[-0.109,\ 0.060]$ & $[-0.102,\ 0.122]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+操作直後の方向効果は、両seed集合でゼロを上回った。鏡像系列を状態から独立に割り当て、同一seed内で比較しているため、初期100回の経験系列が表現形成の方向へ因果効果を持つことが示された。
+
+balanced sampledでは効果の約8割が消えた。これに対しfixed propensityとstabilizationでは、操作直後の小さな差が最終的に約2.7倍へ成長した。explorationでは方向効果がほぼゼロになった。二つのseed集合を合わせた80 seedでは、操作直後の $e_0$ は0.0811、fixed propensityは0.2240、stabilizationは0.2170、explorationは0.0015だった。対応する鏡像ペアの方向効果は、操作直後とfixed propensityで80組すべて、stabilizationで79組が予測方向を示した。
+
+一方、stabilizationはfixed propensityを上回らなかった。二条件の対応差は80 seedで $-0.0070$、95\%区間は $[-0.077,\ 0.063]$ だった。操作直後の表現差を一度だけ選択傾向へ変換し、その傾向を固定するだけで、今回の増幅は説明できる。選択確率を継続的に更新する動的閉ループの追加利得は支持されない。
+
+事前判定のうち、操作効果、stabilizationによる操作直後からの増幅、explorationによる縮小は両seed集合で成立した。stabilizationがfixed propensityを上回る二条件と、各モデルが絶対的に操作方向へ入る割合が80\%を超える条件は成立しなかった。後者が不成立でも、seed固有の背景偏差を差し引いた鏡像ペアの方向効果はほぼ全組で操作に追随した。
+
+\section{結論と次の課題}
+
+本実験により、初期経験系列と表現形成方向の因果関係が得られた。微小な選択履歴は、それ自体ではbalanced sampledの後続学習によって薄れる。しかし、その履歴から生じた表現差が後続の選択傾向へ変換されると、固定された傾向だけでも差は持続・増幅する。探索型の選択は同じ差を解消する。
+
+確認された最小機構は、
+
+\begin{equation}
+\boxed{
+\text{初期経験系列}
+\rightarrow
+\text{表現差}
+\rightarrow
+\text{選択傾向}
+\rightarrow
+\text{表現差の持続・増幅}
+}
+\end{equation}
+
+である。現段階では、選択傾向を継続的に更新する必要は示されていない。次の検証では、55対45という操作強度を複数水準へ広げ、形成経路が分岐する閾値を測る。その後、正解ラベルを使う線形プローブを学習された不確実性推定へ置き換え、誤差選択から観測対象の選択へ拡張する。
+
+\end{document}

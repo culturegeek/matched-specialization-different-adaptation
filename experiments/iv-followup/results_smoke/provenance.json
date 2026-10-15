@@ -1,0 +1,44 @@
+{
+  "stage": "smoke",
+  "seeds": [
+    19799
+  ],
+  "config": {
+    "train_size": 3072,
+    "probe_size": 768,
+    "test_size": 1536,
+    "source_dim": 3,
+    "hidden_dim": 32,
+    "bottleneck": 2,
+    "correlation": 0.35,
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "initial_noise": 0.15,
+    "batch_size": 256,
+    "initial_steps": 100,
+    "formation_steps": 500,
+    "early_checkpoint_until": 100,
+    "early_checkpoint_interval": 5,
+    "checkpoint_interval": 25,
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "probe_ridge": 0.001,
+    "bootstrap_samples": 5000,
+    "bootstrap_seed": 20260902
+  },
+  "python": "3.11.7",
+  "torch": "2.13.0",
+  "numpy": "2.4.6",
+  "threads": 1,
+  "deterministic": true,
+  "device": "cpu",
+  "elapsed_seconds": 15.723883867263794,
+  "file_hashes": {
+    "run_followup.py": "25ab9efc025a8e925d4ec16ae73b3c540b52b4fc7cccdbe54fce2141d41e3f3e",
+    "protocol.md": "46716fed952084aab5faf5e89826a3874270a77f63bf1f06f8d1a5fcefb3444b",
+    "vendor/experiment_iv_complete_v05/IV-B/experiment_iv_b.py": "5c2c52f56f1c5d2d5c21f5be946ac6a64f59b271a62ce47131972856e30643e7",
+    "vendor/experiment_iv_complete_v05/IV-D/experiment_iv_d.py": "faa61d4334ad0937fa8a6d42e66ea1d60322aafa926f953deffd4233701f123d",
+    "vendor/experiment_iv_complete_v05/IV-E/experiment_iv_e.py": "e0d244387abe910680cbb8b45b9d87751b9cf8af4452d35785c0ffd87af33744"
+  },
+  "registration_sha256": null
+}

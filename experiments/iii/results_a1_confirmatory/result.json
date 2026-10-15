@@ -1,0 +1,213 @@
+{
+  "experiment": "III-A1.1",
+  "environment_seeds": [
+    3200,
+    3201,
+    3202,
+    3203,
+    3204,
+    3205,
+    3206,
+    3207,
+    3208,
+    3209,
+    3210,
+    3211,
+    3212,
+    3213,
+    3214,
+    3215,
+    3216,
+    3217,
+    3218,
+    3219,
+    3220,
+    3221,
+    3222,
+    3223,
+    3224,
+    3225,
+    3226,
+    3227,
+    3228,
+    3229,
+    3230,
+    3231,
+    3232,
+    3233,
+    3234,
+    3235,
+    3236,
+    3237,
+    3238,
+    3239
+  ],
+  "preregistered_gates": "Unit: environment seed 3200--3239. 95% percentile bootstrap CI, seed=20260824, B=10000.\nK: all sensor choices matched; mean target accuracy >=0.90; gain CI lower >0.20.\nM: disagreement CI lower >0.05; misspecified prediction-L1 CI lower >0.01;\n   correct prediction error max <=1e-10.\nHpred: disagreement CI lower >0.05; long-horizon objective-gain CI lower >0.005.\nHeval: disagreement CI lower >0.05; early-shortage-gain CI lower >0;\n       long-evaluation risk-gain CI lower >0.005.\nRisk: disagreement CI lower >0.05; absolute dangerous-occupancy reduction CI lower >0.005;\n      relative reduction CI lower >0.40; shortage-change CI lower >=0.",
+  "gates": {
+    "K_task_frame": {
+      "pass": true,
+      "matched_count": 40,
+      "target_accuracy": {
+        "mean": 0.9416407894570498,
+        "low": 0.9364135452318669,
+        "high": 0.9469436821263291
+      },
+      "accuracy_gain": {
+        "mean": 0.3237262157153623,
+        "low": 0.316705651346922,
+        "high": 0.3310936797202432
+      }
+    },
+    "M_causal_model": {
+      "pass": true,
+      "disagreement": {
+        "mean": 0.136875,
+        "low": 0.13,
+        "high": 0.14375
+      },
+      "prediction_l1": {
+        "mean": 0.15699067714455128,
+        "low": 0.15347752878936544,
+        "high": 0.16069463222584499
+      },
+      "correct_l1_max": 0.0
+    },
+    "Hpred_prediction_horizon": {
+      "pass": true,
+      "disagreement": {
+        "mean": 0.430875,
+        "low": 0.42524999999999996,
+        "high": 0.4365
+      },
+      "objective_gain": {
+        "mean": 0.007955211152917935,
+        "low": 0.007735855078878021,
+        "high": 0.008184489079211063
+      }
+    },
+    "Heval_evaluation_horizon": {
+      "pass": true,
+      "disagreement": {
+        "mean": 0.295875,
+        "low": 0.29025,
+        "high": 0.3015
+      },
+      "early_shortage_gain": {
+        "mean": 0.13646516858117744,
+        "low": 0.12834401273582619,
+        "high": 0.14484239892524767
+      },
+      "risk_gain": {
+        "mean": 0.01233867918406192,
+        "low": 0.011855261192450431,
+        "high": 0.012833842339075
+      }
+    },
+    "Risk_sensitivity": {
+      "pass": true,
+      "disagreement": {
+        "mean": 0.1665,
+        "low": 0.162375,
+        "high": 0.1705
+      },
+      "absolute_reduction": {
+        "mean": 0.012736934343990852,
+        "low": 0.011987034055492554,
+        "high": 0.013530038562563462
+      },
+      "relative_reduction": {
+        "mean": 0.695503467386045,
+        "low": 0.6824879052318445,
+        "high": 0.7087985075666634
+      },
+      "shortage_change": {
+        "mean": 0.009451746539087537,
+        "low": 0.009158900558262417,
+        "high": 0.009754244854593119
+      }
+    }
+  },
+  "statistics": {
+    "k_choices_matched": {
+      "mean": 1.0,
+      "low": 1.0,
+      "high": 1.0
+    },
+    "k_target_accuracy": {
+      "mean": 0.9416407894570498,
+      "low": 0.9364135452318669,
+      "high": 0.9469436821263291
+    },
+    "k_accuracy_gain": {
+      "mean": 0.3237262157153623,
+      "low": 0.316705651346922,
+      "high": 0.3310936797202432
+    },
+    "m_disagreement": {
+      "mean": 0.136875,
+      "low": 0.13,
+      "high": 0.14375
+    },
+    "m_prediction_l1": {
+      "mean": 0.15699067714455128,
+      "low": 0.15347752878936544,
+      "high": 0.16069463222584499
+    },
+    "m_correct_l1": {
+      "mean": 0.0,
+      "low": 0.0,
+      "high": 0.0
+    },
+    "hpred_disagreement": {
+      "mean": 0.430875,
+      "low": 0.42524999999999996,
+      "high": 0.4365
+    },
+    "hpred_objective_gain": {
+      "mean": 0.007955211152917935,
+      "low": 0.007735855078878021,
+      "high": 0.008184489079211063
+    },
+    "heval_disagreement": {
+      "mean": 0.295875,
+      "low": 0.29025,
+      "high": 0.3015
+    },
+    "heval_early_shortage_gain": {
+      "mean": 0.13646516858117744,
+      "low": 0.12834401273582619,
+      "high": 0.14484239892524767
+    },
+    "heval_risk_gain": {
+      "mean": 0.01233867918406192,
+      "low": 0.011855261192450431,
+      "high": 0.012833842339075
+    },
+    "risk_disagreement": {
+      "mean": 0.1665,
+      "low": 0.162375,
+      "high": 0.1705
+    },
+    "risk_danger_abs_reduction": {
+      "mean": 0.012736934343990852,
+      "low": 0.011987034055492554,
+      "high": 0.013530038562563462
+    },
+    "risk_danger_rel_reduction": {
+      "mean": 0.695503467386045,
+      "low": 0.6824879052318445,
+      "high": 0.7087985075666634
+    },
+    "risk_shortage_change": {
+      "mean": 0.009451746539087537,
+      "low": 0.009158900558262417,
+      "high": 0.009754244854593119
+    }
+  },
+  "completeness": {
+    "environment_rows": 40,
+    "expected": 40,
+    "unique_seeds": 40,
+    "pass": true
+  }
+}

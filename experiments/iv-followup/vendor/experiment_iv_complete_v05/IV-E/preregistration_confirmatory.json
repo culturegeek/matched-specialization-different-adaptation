@@ -1,0 +1,87 @@
+{
+  "experiment": "IV-E",
+  "registered_at": "2026-09-02T18:30:00+09:00",
+  "question": "表面指標を事前許容幅内へ揃えた二つの形成経路の短期応答差は、Adamの一次モーメントmと二次モーメントvのどちらによって媒介されるか。",
+  "pilot_disclosure": {
+    "seeds": [9000, 9001, 9002, 9003, 9004, 9005, 9006, 9007, 9008, 9009, 9010, 9011, 9012, 9013, 9014, 9015],
+    "combined_switch_route_effects": {
+      "own": 0.182570,
+      "m_other": 0.185652,
+      "v_other": -0.123632,
+      "both_other": -0.119905,
+      "reset": 0.008084
+    },
+    "use": "確認判定の実質差を固定するためにのみ使用し、確認seedには含めない。"
+  },
+  "fixed_design": {
+    "seeds": [9100, 9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120, 9121, 9122, 9123, 9124, 9125, 9126, 9127, 9128, 9129, 9130, 9131, 9132, 9133, 9134, 9135, 9136, 9137, 9138, 9139],
+    "initial_steps": 100,
+    "formation_steps": 500,
+    "update_weight_A": 0.8,
+    "protocols": ["acquisition_pulse", "update_pulse", "combined_switch"],
+    "optimizer_components": ["own", "m_other", "v_other", "both_other", "reset"],
+    "pulse_steps": 10
+  },
+  "formation_match_tolerances": {
+    "aligned_s": 0.02,
+    "target_D": 0.02,
+    "other_D": 0.02,
+    "error_sum": 0.02,
+    "aligned_low_s": 0.01
+  },
+  "primary_gates": {
+    "own_state_replicates_route_effect": {
+      "source": "route_effects_acquisition_minus_update",
+      "protocol": "combined_switch",
+      "component": "own",
+      "rule": "lower_bound_at_least",
+      "threshold": 0.10
+    },
+    "m_swap_preserves_route_effect": {
+      "source": "route_effect_attenuation_from_own",
+      "protocol": "combined_switch",
+      "component": "m_other",
+      "rule": "equivalent_within",
+      "threshold": 0.02
+    },
+    "v_swap_reverses_route_effect": {
+      "source": "route_effects_acquisition_minus_update",
+      "protocol": "combined_switch",
+      "component": "v_other",
+      "rule": "upper_bound_at_most",
+      "threshold": -0.08
+    },
+    "v_swap_attenuation_is_large": {
+      "source": "route_effect_attenuation_from_own",
+      "protocol": "combined_switch",
+      "component": "v_other",
+      "rule": "lower_bound_at_least",
+      "threshold": 0.20
+    },
+    "both_swap_reverses_route_effect": {
+      "source": "route_effects_acquisition_minus_update",
+      "protocol": "combined_switch",
+      "component": "both_other",
+      "rule": "upper_bound_at_most",
+      "threshold": -0.08
+    },
+    "reset_removes_route_effect": {
+      "source": "route_effects_acquisition_minus_update",
+      "protocol": "combined_switch",
+      "component": "reset",
+      "rule": "equivalent_within",
+      "threshold": 0.02
+    }
+  },
+  "secondary_analyses": [
+    "acquisition_pulseとupdate_pulseで同じ成分交換パターンが再現するか",
+    "形成終点におけるm、v、実効更新幅の経路差",
+    "各component条件における経路別pulse_dropと10更新以内の符号反転率"
+  ],
+  "primary_outcome": "combined_switchの10更新後pulse_dropについて、A/B方向をseed内平均した取得主導－更新主導の対応差",
+  "statistical_unit": "seed。A/B方向をseed内で平均し、40個の未使用seedを解析する。",
+  "confidence_interval": "seed bootstrap percentile 95% interval, 5000 resamples",
+  "stopping_rule": "未使用40 seedをすべて実行し、形成終点の一致や成分交換結果にかかわらず終了する。",
+  "interpretation_rule": "m交換では経路差が保たれ、v交換で経路差が反転し、resetで消失した場合、観測された短期経路依存の主要因をAdamの二次モーメントに局在させる。残差はmodel parameter・表現幾何とoptimizerの相互作用として別に報告する。",
+  "script_sha256": "e0d244387abe910680cbb8b45b9d87751b9cf8af4452d35785c0ffd87af33744"
+}

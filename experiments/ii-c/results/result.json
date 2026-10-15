@@ -1,0 +1,413 @@
+{
+  "switch_rates": {
+    "0": 0.0,
+    "800": 0.2,
+    "1600": 0.425,
+    "3200": 0.65
+  },
+  "timecourse": {
+    "0": {
+      "0": {
+        "aligned_s_mean": 0.39847182336655135
+      },
+      "1": {
+        "aligned_s_mean": 0.39844923634680846
+      },
+      "5": {
+        "aligned_s_mean": 0.39946639603009243
+      },
+      "10": {
+        "aligned_s_mean": 0.3999931013522112
+      },
+      "25": {
+        "aligned_s_mean": 0.4012469713531656
+      },
+      "50": {
+        "aligned_s_mean": 0.3967976159236669
+      },
+      "100": {
+        "aligned_s_mean": 0.3986417106080574
+      },
+      "200": {
+        "aligned_s_mean": 0.3953012169346889
+      },
+      "400": {
+        "aligned_s_mean": 0.38749989041183186
+      },
+      "800": {
+        "aligned_s_mean": 0.3925508182690671
+      },
+      "1600": {
+        "aligned_s_mean": 0.3942974454474045
+      },
+      "3200": {
+        "aligned_s_mean": 0.38865151300046596
+      },
+      "4800": {
+        "aligned_s_mean": 0.39764309414555377
+      },
+      "6400": {
+        "aligned_s_mean": 0.3947817808798689
+      },
+      "8000": {
+        "aligned_s_mean": 0.3981186775625642
+      }
+    },
+    "800": {
+      "0": {
+        "aligned_s_mean": -0.456058836259497
+      },
+      "1": {
+        "aligned_s_mean": -0.45523481736000343
+      },
+      "5": {
+        "aligned_s_mean": -0.43858943550962926
+      },
+      "10": {
+        "aligned_s_mean": -0.382891460070943
+      },
+      "25": {
+        "aligned_s_mean": -0.18258661689368794
+      },
+      "50": {
+        "aligned_s_mean": -0.006254187239636841
+      },
+      "100": {
+        "aligned_s_mean": 0.1438467366087961
+      },
+      "200": {
+        "aligned_s_mean": 0.1488240534627308
+      },
+      "400": {
+        "aligned_s_mean": 0.17145595539668793
+      },
+      "800": {
+        "aligned_s_mean": 0.2133425166963418
+      },
+      "1600": {
+        "aligned_s_mean": 0.2308990303063374
+      },
+      "3200": {
+        "aligned_s_mean": 0.22503657393594673
+      },
+      "4800": {
+        "aligned_s_mean": 0.23767771569069424
+      },
+      "6400": {
+        "aligned_s_mean": 0.23833935211102975
+      },
+      "8000": {
+        "aligned_s_mean": 0.24054853316454833
+      }
+    },
+    "1600": {
+      "0": {
+        "aligned_s_mean": -0.46049009605403873
+      },
+      "1": {
+        "aligned_s_mean": -0.4591552208190709
+      },
+      "5": {
+        "aligned_s_mean": -0.43192590449410384
+      },
+      "10": {
+        "aligned_s_mean": -0.349746724828985
+      },
+      "25": {
+        "aligned_s_mean": -0.14823834862786495
+      },
+      "50": {
+        "aligned_s_mean": -0.026093734103904566
+      },
+      "100": {
+        "aligned_s_mean": 0.07497723339466542
+      },
+      "200": {
+        "aligned_s_mean": 0.03977709221564962
+      },
+      "400": {
+        "aligned_s_mean": 0.03814782467944622
+      },
+      "800": {
+        "aligned_s_mean": 0.07331790998114575
+      },
+      "1600": {
+        "aligned_s_mean": 0.06993684765034787
+      },
+      "3200": {
+        "aligned_s_mean": 0.060790812571618245
+      },
+      "4800": {
+        "aligned_s_mean": 0.07045738449401313
+      },
+      "6400": {
+        "aligned_s_mean": 0.06583819178771042
+      },
+      "8000": {
+        "aligned_s_mean": 0.06954606949343826
+      }
+    },
+    "3200": {
+      "0": {
+        "aligned_s_mean": -0.46428410249179886
+      },
+      "1": {
+        "aligned_s_mean": -0.4622119365673467
+      },
+      "5": {
+        "aligned_s_mean": -0.4180210083652696
+      },
+      "10": {
+        "aligned_s_mean": -0.3009339837671361
+      },
+      "25": {
+        "aligned_s_mean": -0.1258135487763914
+      },
+      "50": {
+        "aligned_s_mean": -0.08398450616419166
+      },
+      "100": {
+        "aligned_s_mean": -0.029428803234998902
+      },
+      "200": {
+        "aligned_s_mean": -0.10072016230579998
+      },
+      "400": {
+        "aligned_s_mean": -0.12010857517168436
+      },
+      "800": {
+        "aligned_s_mean": -0.11358816439726535
+      },
+      "1600": {
+        "aligned_s_mean": -0.11492997713502769
+      },
+      "3200": {
+        "aligned_s_mean": -0.11377179979495936
+      },
+      "4800": {
+        "aligned_s_mean": -0.11103963127194057
+      },
+      "6400": {
+        "aligned_s_mean": -0.11350818045653077
+      },
+      "8000": {
+        "aligned_s_mean": -0.10836212212165022
+      }
+    }
+  },
+  "gates": {
+    "control_spontaneous_switch_below_0_10": true,
+    "control_index_stationary": true,
+    "control_errors_stationary": true,
+    "switch_gap_strong_vs_control": true,
+    "switch_rate_nondecreasing_in_K": true,
+    "weak_returns_strong_switches": true,
+    "returned_recover_pre_level": true,
+    "switched_reach_opposite_interior": true,
+    "pert_end_surface_similar_across_K": true,
+    "outcomes_differ_nonetheless": true,
+    "head_distance_predicts_within_K1600": false,
+    "adam_agreement_at_K1600": true
+  },
+  "diagnostics": {
+    "pert_end_surface": {
+      "aligned_s": {
+        "800": -0.456058836259497,
+        "1600": -0.46049009605403873,
+        "3200": -0.46428410249179886
+      },
+      "favored_err": {
+        "800": 0.9189570546150208,
+        "1600": 0.9183991447091102,
+        "3200": 0.9182091429829597
+      },
+      "neglected_err": {
+        "800": 0.34340890198946,
+        "1600": 0.3393710426986217,
+        "3200": 0.3360402099788189
+      }
+    },
+    "control_changes": {
+      "abs_index": {
+        "mean": -0.000353145803987219,
+        "ci_low": -0.014089837360195348,
+        "ci_high": 0.013383545752220909,
+        "n": 40
+      },
+      "favored": {
+        "mean": -0.0006759375333786011,
+        "ci_low": -0.006452233202934707,
+        "ci_high": 0.005100358136177504,
+        "n": 40
+      },
+      "neglected": {
+        "mean": -0.0030576884746551514,
+        "ci_low": -0.016886452466292404,
+        "ci_high": 0.0107710755169821,
+        "n": 40
+      }
+    },
+    "returned_ratio": {
+      "mean": 0.9854415151026806,
+      "ci_low": 0.951324906222019,
+      "ci_high": 1.0195581239833422,
+      "n": 69
+    },
+    "switched_ratio": {
+      "mean": 1.0154549303284597,
+      "ci_low": 0.9545155882990894,
+      "ci_high": 1.07639427235783,
+      "n": 51
+    },
+    "switched_interior_rate": 1.0,
+    "auc_head_distance_K1600": 0.3734015345268542,
+    "n_switch_K1600": 17,
+    "n_return_K1600": 23,
+    "adam_agreement_rate_K1600": 0.875,
+    "recovery_times_keep": {
+      "800": [
+        50,
+        200,
+        25,
+        100,
+        50,
+        50,
+        25,
+        50,
+        100,
+        100,
+        50,
+        25,
+        50,
+        800,
+        100,
+        50,
+        200,
+        100,
+        50,
+        50,
+        25,
+        25,
+        25,
+        200,
+        50,
+        100,
+        100,
+        100,
+        50,
+        50,
+        100,
+        25
+      ],
+      "1600": [
+        50,
+        200,
+        100,
+        50,
+        50,
+        25,
+        100,
+        25,
+        25,
+        50,
+        25,
+        800,
+        50,
+        50,
+        25,
+        25,
+        25,
+        400,
+        100,
+        50,
+        50,
+        100,
+        25
+      ],
+      "3200": [
+        200,
+        100,
+        50,
+        25,
+        100,
+        25,
+        25,
+        25,
+        50,
+        25,
+        25,
+        25,
+        50,
+        100
+      ]
+    },
+    "recovery_times_reset_K1600": [
+      200,
+      400,
+      200,
+      400,
+      100,
+      200,
+      100,
+      200,
+      1600,
+      800,
+      400,
+      400,
+      800,
+      200,
+      200,
+      200,
+      400,
+      100,
+      400,
+      200,
+      200,
+      100
+    ],
+    "sign_positive_rate_all_arms": 0.56875
+  },
+  "completeness": {
+    "problems": [],
+    "load_report": {
+      "duplicate_rows": 0,
+      "n_conflicts": 0,
+      "n_rows": 3000
+    }
+  },
+  "provenance": {
+    "script_sha256": "bdd612b9e8ac6136804dd1e03a80b2a534b964ca9cb0d1df89a8676669a01f5a",
+    "execution_core_sha256": "45be7de0f1c83b72cf29637d966c0afe96ce67760ce4e695b1c4204c2269075d",
+    "constants": {
+      "K_LEVELS": [
+        0,
+        800,
+        1600,
+        3200
+      ],
+      "RESET_K": 1600,
+      "BASE_STEPS": 8000,
+      "RECOVERY_STEPS": 8000,
+      "BOTTLENECK": 2,
+      "SELECTOR_MAX_BIAS": 0.4,
+      "REC_MARKS": [
+        0,
+        1,
+        5,
+        10,
+        25,
+        50,
+        100,
+        200,
+        400,
+        800,
+        1600,
+        3200,
+        4800,
+        6400,
+        8000
+      ]
+    },
+    "preregistered_gates": "\n統計単位: seed（各 seed 1 モデル、40 独立 seed）。区間は ci95。\n転換 = rel8000 の s の符号が分岐時と異なる。主条件は Adam keep。\n得意側／不得意側の誤差ラベルは分岐時の符号 pre_sign で固定する。\n\nG1. 後期定常性（K=0, keep）\n 1 control_spontaneous_switch_below_0_10   : 自発転換率 < 0.10\n 2 control_index_stationary                : |s| の rel0→rel8000 変化の95%区間が (-0.03, +0.03)\n 3 control_errors_stationary               : 得意側・不得意側誤差の同変化の95%区間がともに (-0.05, +0.05)\n\nG2. 有限の吸引域（keep）\n 4 switch_gap_strong_vs_control            : 転換率(K=3200) − 転換率(K=0) ≥ 0.50\n 5 switch_rate_nondecreasing_in_K          : 転換率が K に対して非減少（許容 0.05）\n 6 weak_returns_strong_switches            : 転換率(K=800) ≤ 0.40 かつ 転換率(K=3200) ≥ 0.60\n\nG3. 枝の対称性（keep）\n 7 returned_recover_pre_level              : 復帰個体の |s_T|/分岐時|s| の平均が (0.75, 1.15)\n 8 switched_reach_opposite_interior        : 転換個体の90%以上が |s_T| ∈ (0.20, 0.70)、\n                                             かつ |s_T|/分岐時|s| の平均が (0.75, 1.25)\n\nG4. 表面指標の不十分性（keep）\n 9 pert_end_surface_similar_across_K       : rel0 の（分岐方向へ揃えた）s の K∈{800,1600,3200} 間の\n                                             平均の最大差 < 0.03、かつ得意側・不得意側誤差の\n                                             平均の最大差 < 0.05\n10 outcomes_differ_nonetheless             : 転換率(K=3200) − 転換率(K=800) ≥ 0.30\n\nG5. 機構診断\n11 head_distance_predicts_within_K1600     : K=1600 keep の内部で、rel0 の不得意ヘッド距離が\n                                             転換を予測する（AUC ≥ 0.70）。転換・復帰の一方が\n                                             5 seed 未満なら N/A とし判定しない\n12 adam_agreement_at_K1600                 : K=1600 の keep/reset 帰結一致率 ≥ 0.80。\n                                             回復時間差は診断量として報告のみ\n\nA〜G5 は別個の仮説群であり、合計PASS数では評価しない。主判定は G1・G2。\nG5-11 が不成立でも G1〜G4 の結論には影響しない（機構の候補指標の検証である）。\n"
+  }
+}

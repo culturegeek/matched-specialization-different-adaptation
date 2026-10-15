@@ -1,0 +1,1835 @@
+{
+  "experiment": "IV-D",
+  "stage": "confirm",
+  "question": "Do acquisition-formed and update-formed matched endpoints have the same response dynamics?",
+  "design": {
+    "seeds": [
+      8100,
+      8101,
+      8102,
+      8103,
+      8104,
+      8105,
+      8106,
+      8107,
+      8108,
+      8109,
+      8110,
+      8111,
+      8112,
+      8113,
+      8114,
+      8115,
+      8116,
+      8117,
+      8118,
+      8119,
+      8120,
+      8121,
+      8122,
+      8123,
+      8124,
+      8125,
+      8126,
+      8127,
+      8128,
+      8129,
+      8130,
+      8131,
+      8132,
+      8133,
+      8134,
+      8135,
+      8136,
+      8137,
+      8138,
+      8139
+    ],
+    "same_neutral_checkpoint": true,
+    "update_route_weight_A": 0.8,
+    "directions": [
+      "A",
+      "B"
+    ],
+    "routes": [
+      "acquisition",
+      "update"
+    ],
+    "protocols": [
+      "neutral",
+      "acquisition_pulse",
+      "update_pulse",
+      "combined_switch"
+    ],
+    "optimizer_modes": [
+      "carried",
+      "reset"
+    ],
+    "protocol_steps": {
+      "neutral": 400,
+      "acquisition_pulse": 110,
+      "update_pulse": 110,
+      "combined_switch": 60
+    },
+    "same_batch_stream_within_seed": true,
+    "primary_probe": "common both-high-precision held-out probe",
+    "statistical_unit": "seed"
+  },
+  "config": {
+    "train_size": 3072,
+    "probe_size": 768,
+    "test_size": 1536,
+    "source_dim": 3,
+    "hidden_dim": 32,
+    "bottleneck": 2,
+    "correlation": 0.35,
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "initial_noise": 0.15,
+    "batch_size": 256,
+    "initial_steps": 100,
+    "formation_steps": 500,
+    "early_checkpoint_until": 100,
+    "early_checkpoint_interval": 5,
+    "checkpoint_interval": 25,
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "probe_ridge": 0.001,
+    "bootstrap_samples": 5000,
+    "bootstrap_seed": 20260902
+  },
+  "aggregate": {
+    "n_seeds": 40,
+    "formation": {
+      "acquisition": {
+        "aligned_s": {
+          "mean": 0.3374787787524997,
+          "low": 0.3339278811005158,
+          "high": 0.3408955255868803
+        },
+        "target_D": {
+          "mean": 0.40338447168469427,
+          "low": 0.40106692413799466,
+          "high": 0.4059528607409448
+        },
+        "other_D": {
+          "mean": 0.8143645726144314,
+          "low": 0.8109921108186245,
+          "high": 0.8179669209197163
+        },
+        "error_sum": {
+          "mean": 1.2177490442991257,
+          "low": 1.2138584978412836,
+          "high": 1.2216861975379287
+        },
+        "aligned_low_s": {
+          "mean": 0.11155205384308227,
+          "low": 0.10964475168983516,
+          "high": 0.11347245751461049
+        }
+      },
+      "update": {
+        "aligned_s": {
+          "mean": 0.34390263554177725,
+          "low": 0.3383129279936207,
+          "high": 0.34913209884791224
+        },
+        "target_D": {
+          "mean": 0.39998982585966586,
+          "low": 0.39737836165353657,
+          "high": 0.40272145773284135
+        },
+        "other_D": {
+          "mean": 0.8197506956756115,
+          "low": 0.8143472961895167,
+          "high": 0.8252401519939304
+        },
+        "error_sum": {
+          "mean": 1.2197405215352775,
+          "low": 1.2152135200984777,
+          "high": 1.2241159848496317
+        },
+        "aligned_low_s": {
+          "mean": 0.11316523299289023,
+          "low": 0.11081949720686012,
+          "high": 0.11545767260453502
+        }
+      }
+    },
+    "formation_match": {
+      "aligned_s": {
+        "mean": -0.006423856789277505,
+        "low": -0.009786076102616966,
+        "high": -0.0031988099312435557
+      },
+      "target_D": {
+        "mean": 0.0033946458250284197,
+        "low": 0.001428274316713214,
+        "high": 0.005578696951270102
+      },
+      "other_D": {
+        "mean": -0.005386123061180114,
+        "low": -0.00791519733145833,
+        "high": -0.0029259549640119086
+      },
+      "error_sum": {
+        "mean": -0.001991477236151695,
+        "low": -0.0037420436553657053,
+        "high": -0.00018603215925395557
+      },
+      "aligned_low_s": {
+        "mean": -0.0016131791498079904,
+        "low": -0.0028023401594303382,
+        "high": -0.0004958787211140719
+      }
+    },
+    "protocols": {
+      "carried": {
+        "neutral": {
+          "acquisition": {
+            "auc_aligned_s_0_200": {
+              "mean": 0.1267588750511643,
+              "low": 0.12073189159586047,
+              "high": 0.1330230356877803
+            },
+            "auc_aligned_s_0_400": {
+              "mean": 0.08889287617946336,
+              "low": 0.08388127049315532,
+              "high": 0.09430773607446787
+            },
+            "change_aligned_s": {
+              "mean": -0.3062034154146353,
+              "low": -0.31934539897270997,
+              "high": -0.29317210421669865
+            },
+            "final_aligned_s": {
+              "mean": 0.03127536333786444,
+              "low": 0.01719263192906683,
+              "high": 0.044829533991898415
+            },
+            "half_decay_reached": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "half_decay_step": {
+              "mean": 18.775,
+              "low": 15.8746875,
+              "high": 22.137812499999995
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.3340369055969097,
+              "high": 0.3409006386808309
+            }
+          },
+          "update": {
+            "auc_aligned_s_0_200": {
+              "mean": 0.12925089902698317,
+              "low": 0.12252356257920755,
+              "high": 0.13617863570617242
+            },
+            "auc_aligned_s_0_400": {
+              "mean": 0.08361840564715599,
+              "low": 0.07792893512893112,
+              "high": 0.08974764463911827
+            },
+            "change_aligned_s": {
+              "mean": -0.3240087852666786,
+              "low": -0.33732149176500603,
+              "high": -0.31109261902407903
+            },
+            "final_aligned_s": {
+              "mean": 0.01989385027509861,
+              "low": 0.0066169732081327835,
+              "high": 0.03288847677852188
+            },
+            "half_decay_reached": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "half_decay_step": {
+              "mean": 40.0,
+              "low": 34.475,
+              "high": 46.1625
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.33862964714741794,
+              "high": 0.3492626149087125
+            }
+          }
+        },
+        "acquisition_pulse": {
+          "acquisition": {
+            "change_aligned_s": {
+              "mean": -2.0036582679685415e-05,
+              "low": -0.001325365444177096,
+              "high": 0.0013406663508457812
+            },
+            "final_aligned_s": {
+              "mean": 0.33745874216982,
+              "low": 0.33432778613005903,
+              "high": 0.3406750718434611
+            },
+            "pulse_drop": {
+              "mean": 0.2657730448531975,
+              "low": 0.25846487439092397,
+              "high": 0.2730321085688639
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.07170573389930225,
+              "low": 0.06449233271298131,
+              "high": 0.078769671170425
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 17.175,
+              "low": 16.825,
+              "high": 17.5375
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.525,
+              "low": 1.2125,
+              "high": 1.9
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.3340838096401347,
+              "high": 0.3408587069148518
+            },
+            "switch_step": {
+              "mean": 10.975,
+              "low": 10.9375,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.025,
+              "low": 0.0,
+              "high": 0.0625
+            }
+          },
+          "update": {
+            "change_aligned_s": {
+              "mean": -0.017170922363688296,
+              "low": -0.021536257333030603,
+              "high": -0.012831460838967444
+            },
+            "final_aligned_s": {
+              "mean": 0.32673171317808897,
+              "low": 0.32336128338074877,
+              "high": 0.33006319309515064
+            },
+            "pulse_drop": {
+              "mean": 0.09901098441234761,
+              "low": 0.09449358627164546,
+              "high": 0.10364564469622765
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.24489165112942962,
+              "low": 0.2370436092421527,
+              "high": 0.25283594749604693
+            },
+            "recovered_90pct": {
+              "mean": 0.8875,
+              "low": 0.8125,
+              "high": 0.95
+            },
+            "recovery_step_90pct": {
+              "mean": 40.1375,
+              "low": 35.4,
+              "high": 45.27562499999999
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.33869769740844574,
+              "high": 0.3492693812034
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          }
+        },
+        "update_pulse": {
+          "acquisition": {
+            "change_aligned_s": {
+              "mean": 0.008377391826927543,
+              "low": 0.0032312991520727073,
+              "high": 0.013511316930591943
+            },
+            "final_aligned_s": {
+              "mean": 0.34585617057942725,
+              "low": 0.3397246339714546,
+              "high": 0.35156868240203193
+            },
+            "pulse_drop": {
+              "mean": 0.2581865247605922,
+              "low": 0.2489384201118554,
+              "high": 0.267248006504994
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.07929225399190759,
+              "low": 0.06997989577159303,
+              "high": 0.08862819614618107
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 16.1,
+              "low": 15.7,
+              "high": 16.5125
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.4375,
+              "low": 1.1125,
+              "high": 1.8375
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.3338949882327196,
+              "high": 0.3409429311858249
+            },
+            "switch_step": {
+              "mean": 10.9625,
+              "low": 10.9125,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0375,
+              "low": 0.0,
+              "high": 0.0875
+            }
+          },
+          "update": {
+            "change_aligned_s": {
+              "mean": -0.0016906225981435292,
+              "low": -0.006714619592200702,
+              "high": 0.003331381574857899
+            },
+            "final_aligned_s": {
+              "mean": 0.3422120129436337,
+              "low": 0.33770844236812403,
+              "high": 0.34674224414286064
+            },
+            "pulse_drop": {
+              "mean": 0.10721561417717285,
+              "low": 0.10141355917145463,
+              "high": 0.11329069188843245
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.23668702136460434,
+              "low": 0.2285223280756752,
+              "high": 0.24514949444662523
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 24.1,
+              "low": 23.0,
+              "high": 25.200312499999995
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.33864917266081995,
+              "high": 0.3490162960271314
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          }
+        },
+        "combined_switch": {
+          "acquisition": {
+            "change_aligned_s": {
+              "mean": 0.07726562882171965,
+              "low": 0.07474294872855879,
+              "high": 0.07988528805325402
+            },
+            "final_aligned_s": {
+              "mean": 0.4147444075742193,
+              "low": 0.41248058062032833,
+              "high": 0.41690809841765364
+            },
+            "pulse_drop": {
+              "mean": 0.35571150526737894,
+              "low": 0.3481484914620505,
+              "high": 0.3635055965094624
+            },
+            "pulse_end_aligned_s": {
+              "mean": -0.01823272651487919,
+              "low": -0.026010955720840227,
+              "high": -0.010539964847407544
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 15.3,
+              "low": 15.1125,
+              "high": 15.4875
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 6.1,
+              "low": 5.6625,
+              "high": 6.5
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.33408998177736343,
+              "high": 0.3410447831961729
+            },
+            "switch_step": {
+              "mean": 10.1375,
+              "low": 9.975,
+              "high": 10.2875
+            },
+            "switched_during_pulse": {
+              "mean": 0.675,
+              "low": 0.575,
+              "high": 0.775
+            }
+          },
+          "update": {
+            "change_aligned_s": {
+              "mean": 0.07170266408413808,
+              "low": 0.06665732760033422,
+              "high": 0.07672580161697028
+            },
+            "final_aligned_s": {
+              "mean": 0.4156052996259153,
+              "low": 0.41354229395445696,
+              "high": 0.4176969719088341
+            },
+            "pulse_drop": {
+              "mean": 0.16064746224702411,
+              "low": 0.15391704207272158,
+              "high": 0.1672223745264858
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.1832551732947531,
+              "low": 0.17296543548267415,
+              "high": 0.19289609219720333
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 17.6875,
+              "low": 17.2875,
+              "high": 18.075
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.33866978129603426,
+              "high": 0.3492021256124872
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "reset": {
+        "neutral": {
+          "acquisition": {
+            "auc_aligned_s_0_200": {
+              "mean": 0.1286876356249359,
+              "low": 0.1227860983928491,
+              "high": 0.1347131400099039
+            },
+            "auc_aligned_s_0_400": {
+              "mean": 0.08520698722527806,
+              "low": 0.08050587877785696,
+              "high": 0.09021074418618963
+            },
+            "change_aligned_s": {
+              "mean": -0.31463157920467755,
+              "low": -0.3277826333569921,
+              "high": -0.3018401813822148
+            },
+            "final_aligned_s": {
+              "mean": 0.02284719954782218,
+              "low": 0.0092836166800322,
+              "high": 0.036110895718003196
+            },
+            "half_decay_reached": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "half_decay_step": {
+              "mean": 35.45,
+              "low": 31.45,
+              "high": 40.0
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.3339402971161854,
+              "high": 0.3407788894833102
+            }
+          },
+          "update": {
+            "auc_aligned_s_0_200": {
+              "mean": 0.1304948525516954,
+              "low": 0.12307218809075905,
+              "high": 0.1382541180816482
+            },
+            "auc_aligned_s_0_400": {
+              "mean": 0.08690773261861226,
+              "low": 0.08083291879224977,
+              "high": 0.09351771473618933
+            },
+            "change_aligned_s": {
+              "mean": -0.31885928274808945,
+              "low": -0.332100432649025,
+              "high": -0.30578069449221806
+            },
+            "final_aligned_s": {
+              "mean": 0.02504335279368784,
+              "low": 0.012058576829222846,
+              "high": 0.038023385403708795
+            },
+            "half_decay_reached": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "half_decay_step": {
+              "mean": 42.3625,
+              "low": 35.4875,
+              "high": 50.08812499999999
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.3385694979692087,
+              "high": 0.34911222413997994
+            }
+          }
+        },
+        "acquisition_pulse": {
+          "acquisition": {
+            "change_aligned_s": {
+              "mean": 0.0011692595996500368,
+              "low": -0.0003784704615265142,
+              "high": 0.0027473146245390323
+            },
+            "final_aligned_s": {
+              "mean": 0.33864803835214974,
+              "low": 0.3356460747686867,
+              "high": 0.34164106456493615
+            },
+            "pulse_drop": {
+              "mean": 0.13879524460065454,
+              "low": 0.1356026311804671,
+              "high": 0.1420028603498459
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.1986835341518452,
+              "low": 0.19390249182927308,
+              "high": 0.20328712249963068
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 27.825,
+              "low": 27.3625,
+              "high": 28.275
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.3339516144126009,
+              "high": 0.340910198893502
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          },
+          "update": {
+            "change_aligned_s": {
+              "mean": -0.008155273119796944,
+              "low": -0.012699225644407945,
+              "high": -0.0035874024718701263
+            },
+            "final_aligned_s": {
+              "mean": 0.3357473624219803,
+              "low": 0.3325218547804318,
+              "high": 0.33900249414769595
+            },
+            "pulse_drop": {
+              "mean": 0.13773016358063947,
+              "low": 0.13348308636039866,
+              "high": 0.14198446072913118
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.20617247196113775,
+              "low": 0.19759862809328532,
+              "high": 0.21493754002768206
+            },
+            "recovered_90pct": {
+              "mean": 0.9125,
+              "low": 0.85,
+              "high": 0.975
+            },
+            "recovery_step_90pct": {
+              "mean": 40.7,
+              "low": 36.4871875,
+              "high": 45.425
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.33844658711583275,
+              "high": 0.34918067685265974
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          }
+        },
+        "update_pulse": {
+          "acquisition": {
+            "change_aligned_s": {
+              "mean": 0.007921757776608864,
+              "low": 0.004153990501505492,
+              "high": 0.01161314041195909
+            },
+            "final_aligned_s": {
+              "mean": 0.34540053652910857,
+              "low": 0.34074075068166326,
+              "high": 0.3500622622184552
+            },
+            "pulse_drop": {
+              "mean": 0.13764399948677286,
+              "low": 0.13468300589133556,
+              "high": 0.14061143168942455
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.1998347792657269,
+              "low": 0.19532494208414275,
+              "high": 0.20437081181019576
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 26.475,
+              "low": 25.7621875,
+              "high": 27.2125
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.334061368352901,
+              "high": 0.34099930090300434
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          },
+          "update": {
+            "change_aligned_s": {
+              "mean": -0.0009157145134336665,
+              "low": -0.005972385582950316,
+              "high": 0.004207329844217182
+            },
+            "final_aligned_s": {
+              "mean": 0.34298692102834355,
+              "low": 0.338754263915495,
+              "high": 0.34713151684649174
+            },
+            "pulse_drop": {
+              "mean": 0.12565621294363322,
+              "low": 0.1214582279229284,
+              "high": 0.12972723839940717
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.21824642259814403,
+              "low": 0.21047902649352387,
+              "high": 0.2260856065870347
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 30.6875,
+              "low": 29.375,
+              "high": 32.0625
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.3385032746867644,
+              "high": 0.3490356059075328
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          }
+        },
+        "combined_switch": {
+          "acquisition": {
+            "change_aligned_s": {
+              "mean": 0.08691565826007727,
+              "low": 0.08476657765248914,
+              "high": 0.08904079453988639
+            },
+            "final_aligned_s": {
+              "mean": 0.4243944370125769,
+              "low": 0.4219868545634027,
+              "high": 0.42673083352351104
+            },
+            "pulse_drop": {
+              "mean": 0.15625597247379458,
+              "low": 0.15329148658951178,
+              "high": 0.15935994985428328
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.18122280627870518,
+              "low": 0.17689832487522597,
+              "high": 0.1856646278458903
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 21.3125,
+              "low": 21.0875,
+              "high": 21.5375
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.3374787787524997,
+              "low": 0.3339615243970874,
+              "high": 0.34092212281687995
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          },
+          "update": {
+            "change_aligned_s": {
+              "mean": 0.07048090936276072,
+              "low": 0.06596735674262574,
+              "high": 0.07510610555810321
+            },
+            "final_aligned_s": {
+              "mean": 0.414383544904538,
+              "low": 0.4120069309790929,
+              "high": 0.4166889911766002
+            },
+            "pulse_drop": {
+              "mean": 0.1459769111568647,
+              "low": 0.14130940253256855,
+              "high": 0.1507004912695658
+            },
+            "pulse_end_aligned_s": {
+              "mean": 0.19792572438491254,
+              "low": 0.18926609065932548,
+              "high": 0.20693099358194844
+            },
+            "recovered_90pct": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recovery_step_90pct": {
+              "mean": 23.325,
+              "low": 22.8625,
+              "high": 23.775
+            },
+            "recross_step_after_recovery_start": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "recrossed_during_recovery": {
+              "mean": 1.0,
+              "low": 1.0,
+              "high": 1.0
+            },
+            "start_aligned_s": {
+              "mean": 0.34390263554177725,
+              "low": 0.33845105419984267,
+              "high": 0.3492181008840025
+            },
+            "switch_step": {
+              "mean": 11.0,
+              "low": 11.0,
+              "high": 11.0
+            },
+            "switched_during_pulse": {
+              "mean": 0.0,
+              "low": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    "route_effects_acquisition_minus_update": {
+      "carried": {
+        "neutral": {
+          "half_decay_reached": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.009814707368395091,
+            "high": -0.0032000849467974765
+          },
+          "auc_aligned_s_0_400": {
+            "mean": 0.005274470532307363,
+            "low": 0.0024772031303059655,
+            "high": 0.00796043861827373
+          },
+          "final_aligned_s": {
+            "mean": 0.01138151306276582,
+            "low": 0.009457503206283606,
+            "high": 0.013302879428558909
+          },
+          "auc_aligned_s_0_200": {
+            "mean": -0.0024920239758188805,
+            "low": -0.006400165833048299,
+            "high": 0.001285462089165272
+          },
+          "change_aligned_s": {
+            "mean": 0.017805369852043326,
+            "low": 0.014753443423751992,
+            "high": 0.02093204778974592
+          },
+          "half_decay_step": {
+            "mean": -21.225,
+            "low": -27.5125,
+            "high": -15.4375
+          }
+        },
+        "acquisition_pulse": {
+          "recovery_step_90pct": {
+            "mean": -22.9625,
+            "low": -27.2125,
+            "high": -19.0625
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.009796681142377544,
+            "high": -0.003158405902756605
+          },
+          "final_aligned_s": {
+            "mean": 0.010727028991731108,
+            "low": 0.008786032490781212,
+            "high": 0.01251352722482793
+          },
+          "recross_step_after_recovery_start": {
+            "mean": 0.525,
+            "low": 0.25,
+            "high": 0.8625
+          },
+          "pulse_drop": {
+            "mean": 0.16676206044084987,
+            "low": 0.16011927907685422,
+            "high": 0.173625177779471
+          },
+          "pulse_end_aligned_s": {
+            "mean": -0.17318591723012738,
+            "low": -0.1809578448703093,
+            "high": -0.16541647502135265
+          },
+          "switched_during_pulse": {
+            "mean": 0.025,
+            "low": 0.0,
+            "high": 0.0625
+          },
+          "recrossed_during_recovery": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recovered_90pct": {
+            "mean": 0.1125,
+            "low": 0.05,
+            "high": 0.175
+          },
+          "change_aligned_s": {
+            "mean": 0.017150885781008613,
+            "low": 0.014945689989761668,
+            "high": 0.019400389082359505
+          },
+          "switch_step": {
+            "mean": -0.025,
+            "low": -0.0625,
+            "high": 0.0
+          }
+        },
+        "update_pulse": {
+          "recovery_step_90pct": {
+            "mean": -8.0,
+            "low": -8.575,
+            "high": -7.375
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.00981977725478175,
+            "high": -0.0031873044580175273
+          },
+          "final_aligned_s": {
+            "mean": 0.0036441576357935683,
+            "low": 0.001179844223265247,
+            "high": 0.005986240757774006
+          },
+          "recross_step_after_recovery_start": {
+            "mean": 0.4375,
+            "low": 0.125,
+            "high": 0.8125
+          },
+          "pulse_drop": {
+            "mean": 0.1509709105834193,
+            "low": 0.14558626408714195,
+            "high": 0.1561959985467177
+          },
+          "pulse_end_aligned_s": {
+            "mean": -0.1573947673726968,
+            "low": -0.16388003057333314,
+            "high": -0.15065648169084786
+          },
+          "switched_during_pulse": {
+            "mean": 0.0375,
+            "low": 0.0,
+            "high": 0.07531249999999545
+          },
+          "recrossed_during_recovery": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recovered_90pct": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "change_aligned_s": {
+            "mean": 0.010068014425071072,
+            "low": 0.00764345094218437,
+            "high": 0.012321917661239664
+          },
+          "switch_step": {
+            "mean": -0.0375,
+            "low": -0.0875,
+            "high": 0.0
+          }
+        },
+        "combined_switch": {
+          "recovery_step_90pct": {
+            "mean": -2.3875,
+            "low": -2.6875,
+            "high": -2.075
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.009812277475339469,
+            "high": -0.0031289262814891794
+          },
+          "final_aligned_s": {
+            "mean": -0.0008608920516959461,
+            "low": -0.0023581843385416627,
+            "high": 0.0004373599812524855
+          },
+          "recross_step_after_recovery_start": {
+            "mean": 5.1,
+            "low": 4.5875,
+            "high": 5.575
+          },
+          "pulse_drop": {
+            "mean": 0.19506404302035482,
+            "low": 0.18797122090878268,
+            "high": 0.20213591905476333
+          },
+          "pulse_end_aligned_s": {
+            "mean": -0.20148789980963233,
+            "low": -0.20950336450041718,
+            "high": -0.19363700186408359
+          },
+          "switched_during_pulse": {
+            "mean": 0.675,
+            "low": 0.5625,
+            "high": 0.775
+          },
+          "recrossed_during_recovery": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recovered_90pct": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "change_aligned_s": {
+            "mean": 0.005562964737581558,
+            "low": 0.0029333934448583835,
+            "high": 0.008294589727441633
+          },
+          "switch_step": {
+            "mean": -0.8625,
+            "low": -1.0375,
+            "high": -0.6875
+          }
+        }
+      },
+      "reset": {
+        "neutral": {
+          "half_decay_reached": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.009817302242675248,
+            "high": -0.0031713989278894573
+          },
+          "auc_aligned_s_0_400": {
+            "mean": -0.0017007453933341958,
+            "low": -0.005523498445195853,
+            "high": 0.002070869017991883
+          },
+          "final_aligned_s": {
+            "mean": -0.0021961532458656626,
+            "low": -0.004411545887899164,
+            "high": -0.00011630413217041904
+          },
+          "auc_aligned_s_0_200": {
+            "mean": -0.0018072169267595313,
+            "low": -0.006819742921317801,
+            "high": 0.002959660291809529
+          },
+          "change_aligned_s": {
+            "mean": 0.004227703543411842,
+            "low": 0.0012186022558816926,
+            "high": 0.007479155512117646
+          },
+          "half_decay_step": {
+            "mean": -6.9125,
+            "low": -12.9384375,
+            "high": -1.574375000000009
+          }
+        },
+        "acquisition_pulse": {
+          "recovery_step_90pct": {
+            "mean": -12.875,
+            "low": -16.6125,
+            "high": -9.549687500000005
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.00983957969317509,
+            "high": -0.0031095017933659938
+          },
+          "final_aligned_s": {
+            "mean": 0.002900675930169477,
+            "low": 0.0010337913699682059,
+            "high": 0.004884556417517694
+          },
+          "recross_step_after_recovery_start": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "pulse_drop": {
+            "mean": 0.0010650810200150667,
+            "low": -0.0010035217671939285,
+            "high": 0.003498186581567459
+          },
+          "pulse_end_aligned_s": {
+            "mean": -0.00748893780929257,
+            "low": -0.012298036876781222,
+            "high": -0.0029732690026714383
+          },
+          "switched_during_pulse": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recrossed_during_recovery": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recovered_90pct": {
+            "mean": 0.0875,
+            "low": 0.0375,
+            "high": 0.15
+          },
+          "change_aligned_s": {
+            "mean": 0.009324532719446981,
+            "low": 0.007008412682240366,
+            "high": 0.01175488770823013
+          },
+          "switch_step": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          }
+        },
+        "update_pulse": {
+          "recovery_step_90pct": {
+            "mean": -4.2125,
+            "low": -4.9375,
+            "high": -3.4
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.009786956757989932,
+            "high": -0.0030354730911985057
+          },
+          "final_aligned_s": {
+            "mean": 0.0024136155007650254,
+            "low": 0.00018211411875370407,
+            "high": 0.004516928309338346
+          },
+          "recross_step_after_recovery_start": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "pulse_drop": {
+            "mean": 0.01198778654313964,
+            "low": 0.009314797033952672,
+            "high": 0.014867328956887074
+          },
+          "pulse_end_aligned_s": {
+            "mean": -0.018411643332417144,
+            "low": -0.02330806308861987,
+            "high": -0.013613392239920957
+          },
+          "switched_during_pulse": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recrossed_during_recovery": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recovered_90pct": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "change_aligned_s": {
+            "mean": 0.00883747229004253,
+            "low": 0.00673357205592771,
+            "high": 0.010902963983822326
+          },
+          "switch_step": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          }
+        },
+        "combined_switch": {
+          "recovery_step_90pct": {
+            "mean": -2.0125,
+            "low": -2.4,
+            "high": -1.575
+          },
+          "start_aligned_s": {
+            "mean": -0.006423856789277505,
+            "low": -0.009911051935999976,
+            "high": -0.003155125411375379
+          },
+          "final_aligned_s": {
+            "mean": 0.010010892108039056,
+            "low": 0.008271937966120756,
+            "high": 0.011521945554160638
+          },
+          "recross_step_after_recovery_start": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "pulse_drop": {
+            "mean": 0.01027906131692988,
+            "low": 0.00788460919410879,
+            "high": 0.012919100815260945
+          },
+          "pulse_end_aligned_s": {
+            "mean": -0.016702918106207387,
+            "low": -0.021532357282472346,
+            "high": -0.01217676176377234
+          },
+          "switched_during_pulse": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recrossed_during_recovery": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "recovered_90pct": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "change_aligned_s": {
+            "mean": 0.01643474889731656,
+            "low": 0.01403176539830826,
+            "high": 0.01886139762746645
+          },
+          "switch_step": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          }
+        }
+      }
+    },
+    "optimizer_state_interaction": {
+      "neutral": {
+        "half_decay_reached": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "start_aligned_s": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "auc_aligned_s_0_400": {
+          "mean": 0.006975215925641559,
+          "low": 0.00524248578684592,
+          "high": 0.008724174650954623
+        },
+        "final_aligned_s": {
+          "mean": 0.01357766630863148,
+          "low": 0.011887893473526279,
+          "high": 0.015319204672499401
+        },
+        "auc_aligned_s_0_200": {
+          "mean": -0.0006848070490593491,
+          "low": -0.0022538276143684445,
+          "high": 0.0009576931130944492
+        },
+        "change_aligned_s": {
+          "mean": 0.013577666308631484,
+          "low": 0.011869744025692415,
+          "high": 0.015367339311382055
+        },
+        "half_decay_step": {
+          "mean": -14.3125,
+          "low": -17.7503125,
+          "high": -11.124687500000004
+        }
+      },
+      "acquisition_pulse": {
+        "recovery_step_90pct": {
+          "mean": -10.0875,
+          "low": -11.7875,
+          "high": -8.9125
+        },
+        "start_aligned_s": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "final_aligned_s": {
+          "mean": 0.00782635306156163,
+          "low": 0.00723751056346355,
+          "high": 0.008427875663732256
+        },
+        "recross_step_after_recovery_start": {
+          "mean": 0.525,
+          "low": 0.2125,
+          "high": 0.8625
+        },
+        "pulse_drop": {
+          "mean": 0.16569697942083478,
+          "low": 0.15968972007177767,
+          "high": 0.17175180895415282
+        },
+        "pulse_end_aligned_s": {
+          "mean": -0.1656969794208348,
+          "low": -0.17175568387908638,
+          "high": -0.15952763222845248
+        },
+        "switched_during_pulse": {
+          "mean": 0.025,
+          "low": 0.0,
+          "high": 0.0625
+        },
+        "recrossed_during_recovery": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "recovered_90pct": {
+          "mean": 0.025,
+          "low": 0.0,
+          "high": 0.0625
+        },
+        "change_aligned_s": {
+          "mean": 0.00782635306156163,
+          "low": 0.007253940269819556,
+          "high": 0.008417973090052934
+        },
+        "switch_step": {
+          "mean": -0.025,
+          "low": -0.0625,
+          "high": 0.0
+        }
+      },
+      "update_pulse": {
+        "recovery_step_90pct": {
+          "mean": -3.7875,
+          "low": -4.3625,
+          "high": -3.2625
+        },
+        "start_aligned_s": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "final_aligned_s": {
+          "mean": 0.0012305421350285429,
+          "low": 0.00018820633429738866,
+          "high": 0.002258489492328416
+        },
+        "recross_step_after_recovery_start": {
+          "mean": 0.4375,
+          "low": 0.125,
+          "high": 0.8003124999999955
+        },
+        "pulse_drop": {
+          "mean": 0.13898312404027965,
+          "low": 0.13416595368770404,
+          "high": 0.1438242805591708
+        },
+        "pulse_end_aligned_s": {
+          "mean": -0.13898312404027965,
+          "low": -0.14387179222274193,
+          "high": -0.13436552094784815
+        },
+        "switched_during_pulse": {
+          "mean": 0.0375,
+          "low": 0.0,
+          "high": 0.0875
+        },
+        "recrossed_during_recovery": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "recovered_90pct": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "change_aligned_s": {
+          "mean": 0.0012305421350285429,
+          "low": 0.00021397776385452416,
+          "high": 0.002254648309996092
+        },
+        "switch_step": {
+          "mean": -0.0375,
+          "low": -0.0875,
+          "high": 0.0
+        }
+      },
+      "combined_switch": {
+        "recovery_step_90pct": {
+          "mean": -0.375,
+          "low": -0.5625,
+          "high": -0.2
+        },
+        "start_aligned_s": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "final_aligned_s": {
+          "mean": -0.010871784159735002,
+          "low": -0.011631773113156007,
+          "high": -0.010028408052139065
+        },
+        "recross_step_after_recovery_start": {
+          "mean": 5.1,
+          "low": 4.5875,
+          "high": 5.5625
+        },
+        "pulse_drop": {
+          "mean": 0.18478498170342492,
+          "low": 0.1786866466475337,
+          "high": 0.190976925361693
+        },
+        "pulse_end_aligned_s": {
+          "mean": -0.18478498170342492,
+          "low": -0.19095814087432356,
+          "high": -0.17856643862217447
+        },
+        "switched_during_pulse": {
+          "mean": 0.675,
+          "low": 0.5625,
+          "high": 0.7875
+        },
+        "recrossed_during_recovery": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "recovered_90pct": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "change_aligned_s": {
+          "mean": -0.010871784159735002,
+          "low": -0.011637315218506663,
+          "high": -0.010031591070472209
+        },
+        "switch_step": {
+          "mean": -0.8625,
+          "low": -1.0375,
+          "high": -0.7
+        }
+      }
+    },
+    "geometry": {
+      "linear_cka": {
+        "mean": 0.9269993279129267,
+        "low": 0.8972842933982611,
+        "high": 0.9530257320124655
+      }
+    }
+  },
+  "confirmatory_evaluation": {
+    "formation_match": {
+      "aligned_s": {
+        "pass": true,
+        "value": {
+          "mean": -0.006423856789277505,
+          "low": -0.009786076102616966,
+          "high": -0.0031988099312435557
+        },
+        "margin": 0.02
+      },
+      "target_D": {
+        "pass": true,
+        "value": {
+          "mean": 0.0033946458250284197,
+          "low": 0.001428274316713214,
+          "high": 0.005578696951270102
+        },
+        "margin": 0.02
+      },
+      "other_D": {
+        "pass": true,
+        "value": {
+          "mean": -0.005386123061180114,
+          "low": -0.00791519733145833,
+          "high": -0.0029259549640119086
+        },
+        "margin": 0.02
+      },
+      "error_sum": {
+        "pass": true,
+        "value": {
+          "mean": -0.001991477236151695,
+          "low": -0.0037420436553657053,
+          "high": -0.00018603215925395557
+        },
+        "margin": 0.02
+      },
+      "aligned_low_s": {
+        "pass": true,
+        "value": {
+          "mean": -0.0016131791498079904,
+          "low": -0.0028023401594303382,
+          "high": -0.0004958787211140719
+        },
+        "margin": 0.01
+      }
+    },
+    "formation_match_all_pass": true,
+    "outcome_classifications": {
+      "carried_neutral_auc": {
+        "classification": "equivalent_within_margin",
+        "value": {
+          "mean": -0.0024920239758188805,
+          "low": -0.006400165833048299,
+          "high": 0.001285462089165272
+        },
+        "margin": 0.02
+      },
+      "reset_neutral_auc": {
+        "classification": "equivalent_within_margin",
+        "value": {
+          "mean": -0.0018072169267595313,
+          "low": -0.006819742921317801,
+          "high": 0.002959660291809529
+        },
+        "margin": 0.02
+      },
+      "carried_acquisition_pulse": {
+        "classification": "different",
+        "value": {
+          "mean": 0.16676206044084987,
+          "low": 0.16011927907685422,
+          "high": 0.173625177779471
+        },
+        "margin": 0.05
+      },
+      "carried_update_pulse": {
+        "classification": "different",
+        "value": {
+          "mean": 0.1509709105834193,
+          "low": 0.14558626408714195,
+          "high": 0.1561959985467177
+        },
+        "margin": 0.05
+      },
+      "carried_combined_pulse": {
+        "classification": "different",
+        "value": {
+          "mean": 0.19506404302035482,
+          "low": 0.18797122090878268,
+          "high": 0.20213591905476333
+        },
+        "margin": 0.05
+      },
+      "reset_acquisition_pulse": {
+        "classification": "equivalent_within_margin",
+        "value": {
+          "mean": 0.0010650810200150667,
+          "low": -0.0010035217671939285,
+          "high": 0.003498186581567459
+        },
+        "margin": 0.02
+      },
+      "reset_update_pulse": {
+        "classification": "equivalent_within_margin",
+        "value": {
+          "mean": 0.01198778654313964,
+          "low": 0.009314797033952672,
+          "high": 0.014867328956887074
+        },
+        "margin": 0.02
+      },
+      "reset_combined_pulse": {
+        "classification": "equivalent_within_margin",
+        "value": {
+          "mean": 0.01027906131692988,
+          "low": 0.00788460919410879,
+          "high": 0.012919100815260945
+        },
+        "margin": 0.02
+      }
+    },
+    "optimizer_state_interaction": {
+      "acquisition_pulse": {
+        "pass": true,
+        "value": {
+          "mean": 0.16569697942083478,
+          "low": 0.15968972007177767,
+          "high": 0.17175180895415282
+        },
+        "minimum": 0.08
+      },
+      "update_pulse": {
+        "pass": true,
+        "value": {
+          "mean": 0.13898312404027965,
+          "low": 0.13416595368770404,
+          "high": 0.1438242805591708
+        },
+        "minimum": 0.08
+      },
+      "combined_pulse": {
+        "pass": true,
+        "value": {
+          "mean": 0.18478498170342492,
+          "low": 0.1786866466475337,
+          "high": 0.190976925361693
+        },
+        "minimum": 0.08
+      }
+    },
+    "optimizer_state_interaction_all_pass": true
+  },
+  "runtime_seconds": 506.98484802246094
+}

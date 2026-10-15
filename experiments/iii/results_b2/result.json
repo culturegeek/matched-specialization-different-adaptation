@@ -1,0 +1,103 @@
+{
+  "experiment": "III-B2",
+  "seeds": [
+    3900,
+    3901,
+    3902,
+    3903,
+    3904,
+    3905,
+    3906,
+    3907,
+    3908,
+    3909,
+    3910,
+    3911,
+    3912,
+    3913,
+    3914,
+    3915,
+    3916,
+    3917,
+    3918,
+    3919,
+    3920,
+    3921,
+    3922,
+    3923,
+    3924,
+    3925,
+    3926,
+    3927,
+    3928,
+    3929,
+    3930,
+    3931,
+    3932,
+    3933,
+    3934,
+    3935,
+    3936,
+    3937,
+    3938,
+    3939
+  ],
+  "preregistered_gates": "G1 compute matched: total_compute exactly 30 in every seed/rule.\nG2 adaptation: precision hard-easy observation gap CI lower >15; fixed absolute gap <0.1.\nG3 precision: mean observations within +/-1 of fixed; accuracy gain CI lower >0.03;\n   Brier reduction CI lower >0.015.\nG4 information gain: observation reduction CI lower >4; accuracy difference CI lower >-0.02.\nUnit=seed 3900--3939; percentile bootstrap seed=20260824, B=10000.",
+  "statistics": {
+    "precision_adaptation": {
+      "mean": 18.92852169327177,
+      "low": 18.833307845682743,
+      "high": 19.01879902984504
+    },
+    "fixed_adaptation": {
+      "mean": 0.0,
+      "low": 0.0,
+      "high": 0.0
+    },
+    "precision_obs_change": {
+      "mean": 0.025949999999999827,
+      "low": -0.05709250000000018,
+      "high": 0.10426562499999974
+    },
+    "precision_accuracy_gain": {
+      "mean": 0.046275,
+      "low": 0.04381249999999999,
+      "high": 0.048675
+    },
+    "precision_brier_reduction": {
+      "mean": 0.025011263653500725,
+      "low": 0.023672280351888973,
+      "high": 0.026285294420766214
+    },
+    "ig_observation_reduction": {
+      "mean": 6.15355,
+      "low": 6.125449687499999,
+      "high": 6.1815259375
+    },
+    "ig_accuracy_change": {
+      "mean": 0.0059499999999999996,
+      "low": 0.003137187499999988,
+      "high": 0.008749999999999994
+    }
+  },
+  "gates": {
+    "G1_compute_matched": {
+      "pass": true
+    },
+    "G2_adaptive_stopping": {
+      "pass": true
+    },
+    "G3_precision_benefit": {
+      "pass": true
+    },
+    "G4_information_efficiency": {
+      "pass": true
+    }
+  },
+  "completeness": {
+    "rows": 120,
+    "expected": 120,
+    "unique": 120,
+    "pass": true
+  }
+}

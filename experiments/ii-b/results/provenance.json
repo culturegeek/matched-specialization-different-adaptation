@@ -1,0 +1,36 @@
+{
+  "script_sha256": "ceedb851b854dd209486d0f8f7adb50207166cb3312418fe5271cc02b237ed97",
+  "execution_core_sha256": "8cee20bf8e1ad123ee0aaec5ec4679978b1dd3d1d4f0aeacf26c399fb356b99f",
+  "constants": {
+    "PRETRAIN_STEPS": 25,
+    "FORCED_STEPS": 100,
+    "FORCED_A_COUNT": 55,
+    "BOTTLENECKS": [
+      2,
+      3
+    ],
+    "SELECTOR_MAX_BIAS": 0.4,
+    "CONDITIONS": [
+      "balanced_sampled",
+      "fixed_propensity",
+      "stabilization",
+      "exploration"
+    ],
+    "CHECKPOINTS": [
+      0,
+      100,
+      300,
+      800,
+      1500,
+      2500,
+      4000,
+      6000,
+      8000
+    ],
+    "TOTAL_STEPS": 8000,
+    "PLATEAU_FROM": 4000
+  },
+  "preregistered_gates": "\n統計単位: 鏡像二アームを seed 内で平均した 40 seed。区間はすべてこの単位で計算する。\nrho = 0.35 なので、相関のみで説明できる誤差の下限は 1 - rho^2 = 0.8775。\n\nA. 容量3は境界特化へ向かう（内点で止まらない）\n 1 capacity3_terminal_index_above_0_95      : bottleneck=3 stabilization の step8000 平均 |s| > 0.95\n 2 capacity3_favored_error_near_zero        : 同 得意側平均誤差 < 0.02\n 3 capacity3_neglected_error_at_corr_floor  : 同 不得意側平均誤差が 1-rho^2 の ±0.05 以内\n 4 capacity3_no_material_reversal           : 同 |s| の 4000→8000 増分の95%区間の下限 > -0.02\n\nB. 容量2は内点で定常化する\n 5 capacity2_index_plateaus                 : bottleneck=2 stabilization の |s| の 4000→8000 増分の\n                                              95%区間が (-0.03, +0.03) に収まる\n 6 capacity2_favored_error_stationary       : 同 得意側誤差の 4000→8000 変化の95%区間が (-0.05, +0.05)\n 7 capacity2_neglected_error_stationary     : 同 不得意側誤差の 4000→8000 変化の95%区間が (-0.05, +0.05)\n 8 capacity2_favored_error_has_floor        : 同 得意側平均誤差が step8000 で > 0.20\n 9 capacity2_terminal_is_interior           : 同 step8000 |s| の95%区間が (0.20, 0.70) に収まる\n\nC. 二条件の質的差は容量2でも残るか\n10 capacity2_stabilization_exceeds_fixed    : bottleneck=2 で stabilization の |s_T| が\n                                              fixed propensity の1.5倍超、かつ対応差の95%区間の下限 > 0\n11 capacity2_stabilization_concentrated     : 同 変動係数が fixed propensity の半分未満\n\nD. 二峰性は指標の上限圧縮か、力学の性質か\n12 capacity2_bimodality_persists            : bottleneck=2 stabilization の方向効果 e について、\n                                              L = |s_T| の中央値 として\n                                              低域 |e| < 0.25L が 20% 以上、\n                                              高域 |e| > 0.75L が 15% 以上、\n                                              中間域が 20% 未満、\n                                              低域+高域が 80% 以上。\n                                              不成立なら、v0.4.1 の二峰性は s の上限圧縮による見かけであり、\n                                              Claude の「離散化」という記述は撤回する。\n\nE. 探索型の復元力\n13 exploration_restorative_both_capacities  : 両容量で、対応差 (exploration - balanced sampled) の\n                                              |s_T| の95%区間の上限 < 0\n\n判定6・7の得意側／不得意側は、終端の符号で個体ごとに固定したラベルで測る（v2.2）。\n判定5〜9が通っても言えるのは「内点に定常分布候補がある」までである。\nseed 平均の停止は個体の停止を含意しないため、分位点・アーム単位変化量・符号反転率を併読する。\n安定平衡には摂動後の復帰が、準安定レジームには復帰・離脱・転換費用が別途要る。\n",
+  "diagnostics_note": "\n以下は事前判定ではなく、記録のみの診断量である。事後の解釈に使う場合は探索的と明記する。\nすべて結果を見る前に宣言した。\n- 収縮比: |s_T| の seed 間標準偏差 / |s_0| の seed 間標準偏差\n- 選択確率 p_A の終端値\n- 方向効果 e の帯別割合（容量3でも算出し、容量2と比較する）\n- 各アームの符号付き s_T の枝別占有率（正枝 s_T > 0.75L、負枝 s_T < -0.75L、中間）\n- |s_T| が L の ±25% に入る割合（大きさの集中）\n- 鏡像ペアの異符号率\n- 操作方向との一致率（A寄り操作アームが正、B寄り操作アームが負になった割合）\n- |s| の分位点（10/25/50/75/90）を 4000・6000・8000 で算出\n- アーム単位の 4000→8000 変化量の絶対値（seed 平均の相殺を検出する）\n- 4000→8000 で s の符号が反転した割合\n- 両アームとも 0.20<|s|<0.70 に入る seed の割合\n- 旧定義（各時点で min/max を取り直す）による得意側・不得意側の値\n注: 枝別占有率と集中割合はアーム単位（80モデル）である。同一 seed の二アームは\n独立ではないため、これらの割合に信頼区間は付さない。\n",
+  "reading_rule_gate12": "\n判定12 の結果は、e の帯だけでなく各アームの s_T 分布と併せて読む。\ne の中間域が空であることは、個体状態の二極化を含意しない。二つのアームが\n連続的に共変していても、差である e はゼロ付近へ集まりうるためである。\n\n  各アームの s_T        e の帯              解釈\n  ------------------   -----------------   --------------------------------------------\n  ±L 付近へ集中、両枝   低域と高域に分離     状態が二枝へ収束し、操作が分岐方向を決めている\n  ±L 付近へ集中、両枝   ほぼ低域のみ         状態は二枝へ収束するが、方向は背景偶発差が支配する\n  中間値へ広く分布      中間域も多い         二極化の解釈は支持されない。「二枝への収束」を撤回する\n  片方の符号だけに集中  ほぼ低域のみ         二極化ではなく共通方向への単一収束の可能性\n\nしたがって、判定12 の FAIL だけで記述を撤回せず、また低域が大半を占めるだけで\n記述を維持もしない。各アームの s_T が正負二枝へ集中していることが必要条件である。\n"
+}

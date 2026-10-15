@@ -1,0 +1,127 @@
+{
+  "release_directional_effect": {
+    "mean": 0.07736101035526521,
+    "ci_low": 0.06644607786206863,
+    "ci_high": 0.0882759428484618,
+    "midpoint_mean": -0.006500871353343876
+  },
+  "conditions": {
+    "balanced_sampled": {
+      "final_directional_effect_mean": 0.01298225401376416,
+      "final_directional_effect_ci_low": -0.003045627016162228,
+      "final_directional_effect_ci_high": 0.02901013504369055,
+      "gain_over_release": 0.16781391496799097,
+      "change_from_release_mean": -0.06437875634150106,
+      "change_from_release_ci_low": -0.08042195029335131,
+      "change_from_release_ci_high": -0.04833556238965081,
+      "final_midpoint_mean": -0.038834208065357805,
+      "direction_tracking_rate": 0.5
+    },
+    "fixed_propensity": {
+      "final_directional_effect_mean": 0.21091690584596337,
+      "final_directional_effect_ci_low": 0.16688463176969875,
+      "final_directional_effect_ci_high": 0.254949179922228,
+      "gain_over_release": 2.7263980249823856,
+      "change_from_release_mean": 0.13355589549069816,
+      "change_from_release_ci_low": 0.0981483065837092,
+      "change_from_release_ci_high": 0.1689634843976871,
+      "final_midpoint_mean": -0.02171316558148128,
+      "direction_tracking_rate": 0.6625
+    },
+    "stabilization": {
+      "final_directional_effect_mean": 0.1866132578625143,
+      "final_directional_effect_ci_low": 0.07900703963983288,
+      "final_directional_effect_ci_high": 0.2942194760851957,
+      "gain_over_release": 2.4122391499686646,
+      "change_from_release_mean": 0.10925224750724907,
+      "change_from_release_ci_low": 0.005888651211459331,
+      "change_from_release_ci_high": 0.21261584380303883,
+      "final_midpoint_mean": -0.0011879804294021052,
+      "direction_tracking_rate": 0.6125
+    },
+    "exploration": {
+      "final_directional_effect_mean": 0.002545420332006009,
+      "final_directional_effect_ci_low": -0.005538055984568618,
+      "final_directional_effect_ci_high": 0.010628896648580636,
+      "gain_over_release": 0.032903142297182573,
+      "change_from_release_mean": -0.0748155900232592,
+      "change_from_release_ci_low": -0.08680090906192256,
+      "change_from_release_ci_high": -0.06283027098459584,
+      "final_midpoint_mean": -0.03381163952428507,
+      "direction_tracking_rate": 0.4875
+    }
+  },
+  "stabilization_minus_fixed": {
+    "mean": -0.02430364798344909,
+    "ci_low": -0.10889878572439424,
+    "ci_high": 0.06029148975749606,
+    "ratio": 0.8847714559112522
+  },
+  "gates": {
+    "forced_sequence_creates_weak_directional_effect": true,
+    "stabilization_tracks_forced_direction": true,
+    "stabilization_amplifies_release_by_50_percent": true,
+    "stabilization_exceeds_fixed_by_20_percent": false,
+    "paired_stabilization_minus_fixed_ci_excludes_zero": false,
+    "exploration_below_half_stabilization": true,
+    "forced_direction_tracking_exceeds_80_percent": false
+  },
+  "preregistered_design": {
+    "seeds": [
+      400,
+      401,
+      402,
+      403,
+      404,
+      405,
+      406,
+      407,
+      408,
+      409,
+      410,
+      411,
+      412,
+      413,
+      414,
+      415,
+      416,
+      417,
+      418,
+      419,
+      420,
+      421,
+      422,
+      423,
+      424,
+      425,
+      426,
+      427,
+      428,
+      429,
+      430,
+      431,
+      432,
+      433,
+      434,
+      435,
+      436,
+      437,
+      438,
+      439
+    ],
+    "balanced_pretrain_steps": 25,
+    "forced_steps": 100,
+    "forced_schedules": {
+      "A55_B45": "55 A / 45 B",
+      "A45_B55": "45 A / 55 B, mirrored order"
+    },
+    "optimizer_reset_after_forced_period": true,
+    "common_steps": 800,
+    "conditions": [
+      "balanced_sampled",
+      "fixed_propensity",
+      "stabilization",
+      "exploration"
+    ]
+  }
+}

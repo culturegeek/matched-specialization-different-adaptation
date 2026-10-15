@@ -1,0 +1,83 @@
+{
+  "independent_bootstrap_seed": 20260903,
+  "counts": {
+    "seeds": 40,
+    "cells": 360,
+    "timecourse_rows": 20520,
+    "sensor_rows": 40
+  },
+  "clone_start_max_difference": 0.0,
+  "metrics": {
+    "formed_acquisition_effect_high": {
+      "mean": 0.716094973729672,
+      "low": 0.710787030300393,
+      "high": 0.721245544553198
+    },
+    "formed_acquisition_effect_low": {
+      "mean": 0.23437873266925308,
+      "low": 0.23220517438719704,
+      "high": 0.2364590219236626
+    },
+    "neutral_acquisition_effect_high": {
+      "mean": 0.7085960982470608,
+      "low": 0.7010309803550823,
+      "high": 0.7157823590739044
+    },
+    "A_formed_to_B_final_s": {
+      "mean": -0.35441627108348145,
+      "low": -0.3594647567335712,
+      "high": -0.34934360109040075
+    },
+    "B_formed_to_A_final_s": {
+      "mean": 0.3587852908203245,
+      "low": 0.3540510904395011,
+      "high": 0.36344020692838264
+    },
+    "A_formed_to_B_crossing_rate": {
+      "mean": 1.0,
+      "low": 1.0,
+      "high": 1.0
+    },
+    "B_formed_to_A_crossing_rate": {
+      "mean": 1.0,
+      "low": 1.0,
+      "high": 1.0
+    },
+    "A_formed_to_B_crossing_step": {
+      "mean": 16.875,
+      "low": 16.125,
+      "high": 17.625
+    },
+    "B_formed_to_A_crossing_step": {
+      "mean": 16.75,
+      "low": 16.0,
+      "high": 17.5
+    },
+    "A_formed_vs_neutral_acquisition_effect": {
+      "mean": 0.007148501218022763,
+      "low": 0.0025364678359499518,
+      "high": 0.011948519448906203
+    },
+    "B_formed_vs_neutral_acquisition_effect": {
+      "mean": 0.007849249747199893,
+      "low": 0.0019047737617621419,
+      "high": 0.01371861671725303
+    }
+  },
+  "checks": {
+    "40_seeds": true,
+    "360_complete_cells": true,
+    "20520_complete_timecourse_rows": true,
+    "40_sensor_rows": true,
+    "same_checkpoint_clones_exact": true,
+    "script_hash_matches": true,
+    "preregistration_hash_matches": true,
+    "primary_threshold": true,
+    "A_reaches_B": true,
+    "B_reaches_A": true,
+    "crossing_rates": true,
+    "low_resolution_direction": true,
+    "reported_gates_all_pass": true
+  },
+  "all_checks_pass": true
+}

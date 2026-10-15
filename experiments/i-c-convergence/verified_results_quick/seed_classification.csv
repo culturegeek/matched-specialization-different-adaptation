@@ -1,0 +1,16 @@
+seed,phi,lambda_a,classification,schedule_at_400,continue_schedule,reset_schedule,reheat_x2_schedule,reheat_x4_schedule,reheat_x4_noise_schedule,continue_boundary_escape_gain,population_static_local_optimum
+0,0.8,0.25,already_oracle_at_400,ABBB,ABBB,ABBB,ABBB,ABBB,ABBB,0.0,True
+0,0.8,0.5,joint_dynamics_stable_candidate,ABBB,ABBB,ABBB,ABBB,ABBB,ABBB,0.0,False
+0,0.8,0.75,already_oracle_at_400,AAAB,AAAB,AAAB,AAAB,AAAB,AAAB,0.0,True
+1,0.8,0.25,already_oracle_at_400,ABBB,ABBB,ABBB,ABBB,ABBB,ABBB,0.0,True
+1,0.8,0.5,already_oracle_at_400,AABB,AABB,AABB,AABB,AABB,AABB,0.0,True
+1,0.8,0.75,already_oracle_at_400,AAAB,AAAB,AAAB,AAAB,AAAB,AAAB,0.0,True
+2,0.8,0.25,already_oracle_at_400,ABBB,ABBB,ABBB,ABBB,ABBB,ABBB,0.0,True
+2,0.8,0.5,already_oracle_at_400,AABB,AABB,AABB,AABB,AABB,AABB,0.0,True
+2,0.8,0.75,already_oracle_at_400,AAAB,AAAB,AAAB,AAAB,AAAB,AAAB,0.0,True
+3,0.8,0.25,joint_dynamics_stable_candidate,BABB,BABB,BABB,BABB,BABB,BABB,0.0,False
+3,0.8,0.5,already_oracle_at_400,AABB,AABB,AABB,AABB,AABB,AABB,0.0,True
+3,0.8,0.75,joint_dynamics_stable_candidate,AABB,AABB,AABB,AABB,AABB,AABB,0.0,False
+4,0.8,0.25,already_oracle_at_400,ABBB,ABBB,ABBB,ABBB,ABBB,ABBB,0.0,True
+4,0.8,0.5,already_oracle_at_400,AABB,AABB,AABB,AABB,AABB,AABB,0.0,True
+4,0.8,0.75,joint_dynamics_stable_candidate,AABA,AABA,AABA,AABA,AABA,AABA,0.0,False

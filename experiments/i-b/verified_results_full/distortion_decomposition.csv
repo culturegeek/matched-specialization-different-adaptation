@@ -1,0 +1,2 @@
+lambda_a,limited_observation_budget,limited_representation_capacity,baseline_D,observation_only_D,compression_only_D,joint_D,observation_penalty,compression_penalty,interaction
+0.5,4,2,0.000400033542907246,0.24924519424444497,0.5521878912982776,0.5556259827873924,0.24884516070153773,0.5517878577553703,-0.24540706921242295

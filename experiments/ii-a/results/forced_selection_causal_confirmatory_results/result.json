@@ -1,0 +1,127 @@
+{
+  "release_directional_effect": {
+    "mean": 0.08478406334222019,
+    "ci_low": 0.07188832262170158,
+    "ci_high": 0.0976798040627388,
+    "midpoint_mean": -0.022536082784801324
+  },
+  "conditions": {
+    "balanced_sampled": {
+      "final_directional_effect_mean": 0.018147213979843944,
+      "final_directional_effect_ci_low": 0.0006004005488410118,
+      "final_directional_effect_ci_high": 0.035694027410846874,
+      "gain_over_release": 0.21404038995372232,
+      "change_from_release_mean": -0.06663684936237627,
+      "change_from_release_ci_low": -0.08489006271351066,
+      "change_from_release_ci_high": -0.048383636011241876,
+      "final_midpoint_mean": -0.011089845491087798,
+      "direction_tracking_rate": 0.5125
+    },
+    "fixed_propensity": {
+      "final_directional_effect_mean": 0.237063612088886,
+      "final_directional_effect_ci_low": 0.1884457610040391,
+      "final_directional_effect_ci_high": 0.2856814631737329,
+      "gain_over_release": 2.796086938287122,
+      "change_from_release_mean": 0.15227954874666585,
+      "change_from_release_ci_low": 0.11170770025614954,
+      "change_from_release_ci_high": 0.19285139723718217,
+      "final_midpoint_mean": -0.07125051645924328,
+      "direction_tracking_rate": 0.6625
+    },
+    "stabilization": {
+      "final_directional_effect_mean": 0.24744508234617335,
+      "final_directional_effect_ci_low": 0.12452699587236132,
+      "final_directional_effect_ci_high": 0.3703631688199854,
+      "gain_over_release": 2.918532948161188,
+      "change_from_release_mean": 0.16266101900395316,
+      "change_from_release_ci_low": 0.04245015424242063,
+      "change_from_release_ci_high": 0.28287188376548567,
+      "final_midpoint_mean": 0.0606450321572688,
+      "direction_tracking_rate": 0.6375
+    },
+    "exploration": {
+      "final_directional_effect_mean": 0.00043445600560150163,
+      "final_directional_effect_ci_low": -0.0042979035001606235,
+      "final_directional_effect_ci_high": 0.005166815511363627,
+      "gain_over_release": 0.005124264967612491,
+      "change_from_release_mean": -0.0843496073366187,
+      "change_from_release_ci_low": -0.09678889402109887,
+      "change_from_release_ci_high": -0.07191032065213852,
+      "final_midpoint_mean": -0.01417291664106532,
+      "direction_tracking_rate": 0.5
+    }
+  },
+  "stabilization_minus_fixed": {
+    "mean": 0.010381470257287303,
+    "ci_low": -0.1014978723772992,
+    "ci_high": 0.12226081289187381,
+    "ratio": 1.0437919179783317
+  },
+  "gates": {
+    "forced_sequence_creates_weak_directional_effect": true,
+    "stabilization_tracks_forced_direction": true,
+    "stabilization_amplifies_release_by_50_percent": true,
+    "stabilization_exceeds_fixed_by_20_percent": false,
+    "paired_stabilization_minus_fixed_ci_excludes_zero": false,
+    "exploration_below_half_stabilization": true,
+    "forced_direction_tracking_exceeds_80_percent": false
+  },
+  "preregistered_design": {
+    "seeds": [
+      500,
+      501,
+      502,
+      503,
+      504,
+      505,
+      506,
+      507,
+      508,
+      509,
+      510,
+      511,
+      512,
+      513,
+      514,
+      515,
+      516,
+      517,
+      518,
+      519,
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      526,
+      527,
+      528,
+      529,
+      530,
+      531,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537,
+      538,
+      539
+    ],
+    "balanced_pretrain_steps": 25,
+    "forced_steps": 100,
+    "forced_schedules": {
+      "A55_B45": "55 A / 45 B",
+      "A45_B55": "45 A / 55 B, mirrored order"
+    },
+    "optimizer_reset_after_forced_period": true,
+    "common_steps": 800,
+    "conditions": [
+      "balanced_sampled",
+      "fixed_propensity",
+      "stabilization",
+      "exploration"
+    ]
+  }
+}

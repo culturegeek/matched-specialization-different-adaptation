@@ -1,0 +1,323 @@
+{
+  "experiment": "III-D",
+  "stage": "pilot",
+  "design": {
+    "seeds": [
+      6100,
+      6101,
+      6102,
+      6103,
+      6104,
+      6105,
+      6106,
+      6107,
+      6108,
+      6109,
+      6110,
+      6111
+    ],
+    "same_formed_checkpoint_cloned": true,
+    "same_batch_and_sensor_random_stream_within_seed": true,
+    "primary_acquisition": [
+      "reference",
+      "alternative"
+    ],
+    "update_sides": [
+      "reference",
+      "alternative"
+    ],
+    "auxiliary_acquisition": [
+      "none",
+      "random"
+    ],
+    "statistical_unit": "seed; A/B formed branches averaged within seed",
+    "alternative_requirement_is_evaluation_only": true
+  },
+  "config": {
+    "train_size": 3072,
+    "probe_size": 768,
+    "test_size": 1536,
+    "source_dim": 3,
+    "hidden_dim": 32,
+    "bottleneck": 2,
+    "correlation": 0.35,
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "formation_noise": 0.15,
+    "batch_size": 256,
+    "balanced_steps": 100,
+    "formation_steps": 500,
+    "trajectory_steps": 800,
+    "checkpoint_interval": 25,
+    "formation_weight": 0.85,
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "probe_ridge": 0.001,
+    "branch_threshold": 0.08,
+    "old_requirement_weight": 0.8,
+    "bootstrap_samples": 3000,
+    "bootstrap_seed": 20260827
+  },
+  "aggregate": {
+    "n_seeds": 12,
+    "formation_s_ref": {
+      "A": {
+        "mean": 0.1321097152538891,
+        "low": 0.12751793016158305,
+        "high": 0.13661522112110702
+      },
+      "B": {
+        "mean": 0.13081305586140615,
+        "low": 0.12846428072544852,
+        "high": 0.1333059072148003
+      }
+    },
+    "sensor_gain": {
+      "A_gain": {
+        "mean": 0.2083608458439509,
+        "low": 0.12768250123287242,
+        "high": 0.288999095497032
+      },
+      "B_gain": {
+        "mean": 0.20669456447164217,
+        "low": 0.12872564056888225,
+        "high": 0.28702222108840947
+      }
+    },
+    "primary_cells": {
+      "acq_alternative__upd_alternative": {
+        "final_s_ref": {
+          "mean": -0.1377724587934544,
+          "low": -0.14121623784627915,
+          "high": -0.13479040010910662
+        },
+        "retained": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "transition_event": {
+          "mean": 1.0,
+          "low": 1.0,
+          "high": 1.0
+        },
+        "transition_time_restricted": {
+          "mean": 25.0,
+          "low": 25.0,
+          "high": 25.0
+        },
+        "old_loss_auc": {
+          "mean": 0.9198706099685903,
+          "low": 0.9175284171690389,
+          "high": 0.9218102332406366
+        },
+        "alternative_loss_auc": {
+          "mean": 0.7882917635065193,
+          "low": 0.7833674602416189,
+          "high": 0.7924899871135132
+        }
+      },
+      "acq_alternative__upd_reference": {
+        "final_s_ref": {
+          "mean": 0.09990717331417787,
+          "low": 0.09727399313387836,
+          "high": 0.10234840914901337
+        },
+        "retained": {
+          "mean": 1.0,
+          "low": 1.0,
+          "high": 1.0
+        },
+        "transition_event": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "transition_time_restricted": {
+          "mean": 800.0,
+          "low": 800.0,
+          "high": 800.0
+        },
+        "old_loss_auc": {
+          "mean": 0.7595712177533036,
+          "low": 0.7549500030273337,
+          "high": 0.7641215304386182
+        },
+        "alternative_loss_auc": {
+          "mean": 0.8577258878930781,
+          "low": 0.8524245922216991,
+          "high": 0.862576377147925
+        }
+      },
+      "acq_reference__upd_alternative": {
+        "final_s_ref": {
+          "mean": -0.09924093126417503,
+          "low": -0.10191483798238155,
+          "high": -0.09642364521204
+        },
+        "retained": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "transition_event": {
+          "mean": 1.0,
+          "low": 1.0,
+          "high": 1.0
+        },
+        "transition_time_restricted": {
+          "mean": 46.875,
+          "low": 39.583333333333336,
+          "high": 55.208333333333336
+        },
+        "old_loss_auc": {
+          "mean": 0.8564473237997543,
+          "low": 0.8524045511785274,
+          "high": 0.8603051411797059
+        },
+        "alternative_loss_auc": {
+          "mean": 0.7655751483670125,
+          "low": 0.7606909045491678,
+          "high": 0.7699835225825274
+        }
+      },
+      "acq_reference__upd_reference": {
+        "final_s_ref": {
+          "mean": 0.13951796526978819,
+          "low": 0.13697432562401865,
+          "high": 0.141964461688588
+        },
+        "retained": {
+          "mean": 1.0,
+          "low": 1.0,
+          "high": 1.0
+        },
+        "transition_event": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "transition_time_restricted": {
+          "mean": 800.0,
+          "low": 800.0,
+          "high": 800.0
+        },
+        "old_loss_auc": {
+          "mean": 0.7810634192234526,
+          "low": 0.7771203679610821,
+          "high": 0.7851984800419693
+        },
+        "alternative_loss_auc": {
+          "mean": 0.9217092493005717,
+          "low": 0.9187446042943823,
+          "high": 0.9246249886210232
+        }
+      }
+    },
+    "factorial_effects": {
+      "final_s_ref": {
+        "interaction": {
+          "mean": 0.00107926442633093,
+          "low": -0.0005496667822294538,
+          "high": 0.002881586812925785
+        },
+        "acquisition_reference_minus_alternative": {
+          "mean": 0.03907115974244487,
+          "low": 0.03658642236430191,
+          "high": 0.04164804951071702
+        },
+        "update_reference_minus_alternative": {
+          "mean": 0.23821926432079774,
+          "low": 0.2339583947301777,
+          "high": 0.24245384546765703
+        }
+      },
+      "retained": {
+        "interaction": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "acquisition_reference_minus_alternative": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "update_reference_minus_alternative": {
+          "mean": 1.0,
+          "low": 1.0,
+          "high": 1.0
+        }
+      },
+      "transition_event": {
+        "interaction": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "acquisition_reference_minus_alternative": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0
+        },
+        "update_reference_minus_alternative": {
+          "mean": -1.0,
+          "low": -1.0,
+          "high": -1.0
+        }
+      },
+      "transition_time_restricted": {
+        "interaction": {
+          "mean": -21.875,
+          "low": -31.25,
+          "high": -14.583333333333334
+        },
+        "acquisition_reference_minus_alternative": {
+          "mean": 10.9375,
+          "low": 7.291666666666667,
+          "high": 15.625
+        },
+        "update_reference_minus_alternative": {
+          "mean": 764.0625,
+          "low": 759.375,
+          "high": 767.7083333333334
+        }
+      },
+      "old_loss_auc": {
+        "interaction": {
+          "mean": 0.08491548763898511,
+          "low": 0.0813893992638138,
+          "high": 0.08858871844868794
+        },
+        "acquisition_reference_minus_alternative": {
+          "mean": -0.020965542349343492,
+          "low": -0.02168734885635785,
+          "high": -0.020123947101237733
+        },
+        "update_reference_minus_alternative": {
+          "mean": -0.11784164839579414,
+          "low": -0.12008229403931184,
+          "high": -0.11555190809226284
+        }
+      },
+      "alternative_loss_auc": {
+        "interaction": {
+          "mean": 0.0866999765470003,
+          "low": 0.08350314216183806,
+          "high": 0.09022156567487397
+        },
+        "acquisition_reference_minus_alternative": {
+          "mean": 0.020633373133993393,
+          "low": 0.01940866541602492,
+          "high": 0.021962025320390224
+        },
+        "update_reference_minus_alternative": {
+          "mean": 0.1127841126600591,
+          "low": 0.11040492728187627,
+          "high": 0.11536382744146977
+        }
+      }
+    }
+  },
+  "runtime_seconds": 111.97060203552246
+}

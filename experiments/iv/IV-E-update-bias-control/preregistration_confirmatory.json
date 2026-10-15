@@ -1,0 +1,105 @@
+{
+  "experiment": "IV-E update-bias control",
+  "registered_at": "2026-09-02T20:15:00+09:00",
+  "question": "取得条件、更新回数、平均更新配分を揃えたとき、更新重みの時間的な偏り方だけで、表面指標には現れないAdam二次モーメントと短期応答の差が生じるか。",
+  "pilot_disclosure": {
+    "seeds": [9200, 9201, 9202, 9203, 9204, 9205, 9206, 9207, 9208, 9209, 9210, 9211, 9212, 9213, 9214, 9215],
+    "formation_constant_minus_variable": {
+      "aligned_s": 0.001404,
+      "target_D": -0.001204,
+      "other_D": 0.000045,
+      "error_sum": -0.001159,
+      "aligned_low_s": 0.000372
+    },
+    "optimizer_constant_minus_variable": {
+      "v_sum": -0.005209,
+      "v_sum_ratio": 0.824927,
+      "effective_lr_mean": 0.058053
+    },
+    "combined_switch_route_effects": {
+      "own": 0.027859,
+      "m_other": 0.035633,
+      "v_other": -0.019364,
+      "both_other": -0.011605,
+      "reset": 0.003881
+    },
+    "use": "形成終点の一致を確認し、確認段階の実質差と同等幅を固定するためにのみ使用した。確認seedには含めない。"
+  },
+  "fixed_design": {
+    "seeds": [9300, 9301, 9302, 9303, 9304, 9305, 9306, 9307, 9308, 9309, 9310, 9311, 9312, 9313, 9314, 9315, 9316, 9317, 9318, 9319, 9320, 9321, 9322, 9323, 9324, 9325, 9326, 9327, 9328, 9329, 9330, 9331, 9332, 9333, 9334, 9335, 9336, 9337, 9338, 9339],
+    "initial_steps": 100,
+    "formation_steps": 500,
+    "routes": {
+      "constant": [0.8],
+      "variable": [1.0, 0.6]
+    },
+    "mean_target_weight": 0.8,
+    "acquisition": "balanced half target-precise/non-target-precise",
+    "protocols": ["acquisition_pulse", "update_pulse", "combined_switch"],
+    "optimizer_components": ["own", "m_other", "v_other", "both_other", "reset"],
+    "pulse_steps": 10
+  },
+  "formation_match_tolerances": {
+    "aligned_s": 0.02,
+    "target_D": 0.02,
+    "other_D": 0.02,
+    "error_sum": 0.02,
+    "aligned_low_s": 0.01
+  },
+  "primary_gates": {
+    "variable_schedule_increases_v": {
+      "source": "optimizer",
+      "metric": "v_sum",
+      "rule": "upper_bound_at_most",
+      "threshold": -0.0025
+    },
+    "own_state_produces_response_difference": {
+      "source": "route_effect",
+      "protocol": "combined_switch",
+      "component": "own",
+      "rule": "lower_bound_at_least",
+      "threshold": 0.01
+    },
+    "m_swap_preserves_positive_difference": {
+      "source": "route_effect",
+      "protocol": "combined_switch",
+      "component": "m_other",
+      "rule": "lower_bound_at_least",
+      "threshold": 0.015
+    },
+    "v_swap_reverses_difference": {
+      "source": "route_effect",
+      "protocol": "combined_switch",
+      "component": "v_other",
+      "rule": "upper_bound_at_most",
+      "threshold": -0.005
+    },
+    "v_swap_change_is_large": {
+      "source": "change_from_own",
+      "protocol": "combined_switch",
+      "component": "v_other",
+      "rule": "lower_bound_at_least",
+      "threshold": 0.025
+    },
+    "both_swap_reverses_difference": {
+      "source": "route_effect",
+      "protocol": "combined_switch",
+      "component": "both_other",
+      "rule": "upper_bound_at_most",
+      "threshold": -0.003
+    },
+    "reset_removes_difference": {
+      "source": "route_effect",
+      "protocol": "combined_switch",
+      "component": "reset",
+      "rule": "equivalent_within",
+      "threshold": 0.01
+    }
+  },
+  "primary_outcome": "combined_switchの10更新後pulse_dropについて、A/B方向をseed内平均した一定更新－変動更新の対応差",
+  "statistical_unit": "seed。A/B方向をseed内で平均し、40個の未使用seedを解析する。",
+  "confidence_interval": "seed bootstrap percentile 95% interval, 5000 resamples",
+  "stopping_rule": "未使用40 seedをすべて実行し、形成終点の一致や応答差の結果にかかわらず終了する。",
+  "interpretation_rule": "形成終点が同等範囲に入り、変動更新でvが増加し、元のoptimizerで短期応答差が生じ、v交換でその差が反転し、resetで消失した場合、取得経路を変えなくても更新重みの時間履歴だけでIV-E型の潜在的な可塑性差が生じうると判定する。これは元の取得主導・更新主導比較で観測されたv差の起源を形成経路の名称だけへ帰属できないことを示す。",
+  "script_sha256": "6e2539b42617710b6d7b5689d22a1345e76bb7de85bf460bac059c36f76a3741"
+}

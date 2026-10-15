@@ -1,0 +1,143 @@
+{
+  "experiment": "III-A1",
+  "config": {
+    "horizon": 10,
+    "stock_max": 4,
+    "demand_persist": 0.82,
+    "health_persist_no_use": 0.92,
+    "wear_base": 0.06,
+    "wear_per_delivery": 0.18,
+    "repair_success": 0.82,
+    "recharge_low_demand": 0.78,
+    "recharge_high_demand": 0.32,
+    "initial_stock": 3,
+    "initial_high_demand": 0.45,
+    "initial_worn": 0.2,
+    "standard_accuracy": 0.62,
+    "sensor_accuracy": 0.94,
+    "effort_tiebreak": 1e-07,
+    "weight_count": 101
+  },
+  "preregistered_gates": "K task_frame:\n  demand frame chooses demand sensor and health frame chooses health sensor;\n  matched target accuracy >=0.90 and exceeds mismatched-sensor accuracy by >=0.20.\nM causal_model:\n  policy disagreement >=0.05; misspecified-model prediction L1 error >=0.01;\n  correct-model prediction error <=1e-10.\nHpred prediction_horizon:\n  policy disagreement >=0.05; Hpred=10 true base objective is >=0.005 lower than Hpred=1.\nHeval evaluation_horizon:\n  policy disagreement >=0.05; short evaluation lowers early shortage;\n  long evaluation lowers full-horizon risk by >=0.005.\nRisk risk_sensitivity:\n  policy disagreement >=0.05; high sensitivity lowers dangerous-state occupancy by >=0.02;\n  shortage is no better than under expectation-only evaluation.",
+  "gates": {
+    "K_task_frame": {
+      "pass": true,
+      "rows": [
+        {
+          "frame": "demand",
+          "selected_sensor": "demand",
+          "target_accuracy": 0.94,
+          "mismatched_sensor_accuracy": 0.6200000000000001,
+          "accuracy_gain": 0.31999999999999984
+        },
+        {
+          "frame": "health",
+          "selected_sensor": "health",
+          "target_accuracy": 0.94,
+          "mismatched_sensor_accuracy": 0.6200000000000001,
+          "accuracy_gain": 0.31999999999999984
+        }
+      ]
+    },
+    "M_causal_model": {
+      "pass": false,
+      "policy_disagreement": 0.025,
+      "misspecified_prediction_l1": 0.0004247660788871963,
+      "correct_prediction_l1": 0.0
+    },
+    "Hpred_prediction_horizon": {
+      "pass": true,
+      "policy_disagreement": 0.42,
+      "long_horizon_objective_gain": 0.007979336706580437
+    },
+    "Heval_evaluation_horizon": {
+      "pass": false,
+      "policy_disagreement": 0.185,
+      "short_eval_early_shortage_gain": 0.11293457964544004,
+      "long_eval_risk_gain": 0.003901385039515976
+    },
+    "Risk_sensitivity": {
+      "pass": false,
+      "policy_disagreement": 0.115,
+      "dangerous_occupancy_reduction": 0.01003641675095888,
+      "shortage_change": 0.0024967556475666286
+    }
+  },
+  "task_frames": [
+    {
+      "frame": "demand",
+      "selected_sensor": "demand",
+      "target_accuracy": 0.94,
+      "mismatched_sensor_accuracy": 0.6200000000000001,
+      "accuracy_gain": 0.31999999999999984
+    },
+    {
+      "frame": "health",
+      "selected_sensor": "health",
+      "target_accuracy": 0.94,
+      "mismatched_sensor_accuracy": 0.6200000000000001,
+      "accuracy_gain": 0.31999999999999984
+    }
+  ],
+  "outcomes": [
+    {
+      "condition": "baseline",
+      "policy_hash": "e3ca17c6667d3793",
+      "shortage": 0.3464479588488841,
+      "risk": 0.006215326823027077,
+      "effort": 0.06258244763660765,
+      "base_objective": 0.17633164283595557,
+      "early_shortage": 0.27016571374336,
+      "dangerous_occupancy": 0.01848810374471011
+    },
+    {
+      "condition": "causal_model_misspecified",
+      "policy_hash": "638d041ada327bf7",
+      "shortage": 0.34652653115188603,
+      "risk": 0.006227123435598276,
+      "effort": 0.06168800102437614,
+      "base_objective": 0.17637682729374213,
+      "early_shortage": 0.25859199720064,
+      "dangerous_occupancy": 0.02578150116465854
+    },
+    {
+      "condition": "prediction_horizon_1",
+      "policy_hash": "ed0ce75b3270a00e",
+      "shortage": 0.34495677983671,
+      "risk": 0.02366517924836202,
+      "effort": 0.052707051087960644,
+      "base_objective": 0.184310979542536,
+      "early_shortage": 0.15118923600000003,
+      "dangerous_occupancy": 0.07097912724311659
+    },
+    {
+      "condition": "evaluation_discount_035",
+      "policy_hash": "d675e2eaab204e42",
+      "shortage": 0.3450406700745402,
+      "risk": 0.010116711862543053,
+      "effort": 0.060090113741802745,
+      "base_objective": 0.17757869096854162,
+      "early_shortage": 0.15723113409791997,
+      "dangerous_occupancy": 0.05027486797989378
+    },
+    {
+      "condition": "risk_sensitive",
+      "policy_hash": "8fff99cfe470f3c7",
+      "shortage": 0.3489447144964507,
+      "risk": 0.0046366502309185915,
+      "effort": 0.06326861926406771,
+      "base_objective": 0.17679068236368464,
+      "early_shortage": 0.33938163349770667,
+      "dangerous_occupancy": 0.008451686993751229
+    }
+  ],
+  "completeness": {
+    "frame_rows": 2,
+    "expected_frame_rows": 2,
+    "intervention_rows": 5,
+    "expected_intervention_rows": 5,
+    "time_rows": 50,
+    "expected_time_rows": 50,
+    "pass": true
+  }
+}

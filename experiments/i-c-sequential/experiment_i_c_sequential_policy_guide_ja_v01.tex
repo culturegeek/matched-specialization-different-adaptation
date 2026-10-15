@@ -1,0 +1,275 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage{geometry}
+\usepackage{booktabs,array,tabularx,longtable}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\geometry{margin=23mm}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,
+pdftitle={実験I-C・逐次観測方策PoC},pdfauthor={Toru Takahashi}}
+\definecolor{Main}{HTML}{176B87}
+\definecolor{Accent}{HTML}{EF8354}
+\definecolor{Purple}{HTML}{7E57C2}
+\definecolor{Soft}{HTML}{EAF4F7}
+\definecolor{Warm}{HTML}{FFF3EC}
+\setlist[itemize]{leftmargin=1.7em,itemsep=3pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=4pt,topsep=4pt}
+\renewcommand{\baselinestretch}{1.07}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1em}
+\raggedbottom
+\newcommand{\code}[1]{\texttt{#1}}
+\newenvironment{takeaway}{\begin{center}\begin{minipage}{0.92\linewidth}\color{Main}\hrule\vspace{6pt}\color{black}}{\vspace{6pt}\color{Main}\hrule\color{black}\end{minipage}\end{center}}
+\newenvironment{warningbox}{\begin{center}\begin{minipage}{0.92\linewidth}\color{Accent}\hrule\vspace{6pt}\color{black}}{\vspace{6pt}\color{Accent}\hrule\color{black}\end{minipage}\end{center}}
+
+\title{\textbf{実験I-C・逐次観測方策PoC}\\
+\large 一度しかない観測機会に、有限な注意をどう配分するか}
+\author{Toru Takahashi}
+\date{v0.1 / 2026年8月}
+
+\begin{document}
+\maketitle
+
+\begin{takeaway}
+\textbf{この実験で確かめること}
+
+実験I-Bでは、観測前の欠落と、観測後の表現圧縮を分けて測った。しかし観測先はOracleが与えていた。本PoCは、毎時刻A/Bの一方だけを見る逐次環境を作り、何を保存したいかに応じて観測方策を学習する。同時刻に見なかった値は後から取得できず、下流の推定器を改良しても完全には戻らない。
+\end{takeaway}
+
+推奨環境はGoogle Colabの標準CPUである。GPU、オープンモデル、大容量データ、有料クラウドは使わない。同梱コードはNumPyのみに依存し、full設定も通常のCPUで数十秒以内に終了する。
+
+\tableofcontents
+
+\section{実験I-Bからの進展}
+
+実験I-Bは、観測作用 $\mathcal A_S$ で選ばれなかったチャネルが、後段の表現容量 $C_R$ を増やしても回復しないことを確かめた。ただし、どのチャネルを見るかは、全候補を列挙するOracleが決めていた。
+
+本実験は観測を時間上に展開する。時刻 $t=1,\dots,T$ にA側とB側の値が同時に生じるが、行為主体は一方しか観測できない。
+
+\begin{equation}
+a_t\in\{A,B\},\qquad
+o_t=x_{t,a_t},\qquad
+x_{t,\bar a_t}\notin o_{\leq T}.
+\end{equation}
+
+$\bar a_t$ は選ばなかった側を表す。この式の要点は、見なかった同時刻の値が、後の観測履歴の中に存在しないことである。取得後の圧縮ではなく、一度性を持つ観測機会の配分を対象にする。
+
+\begin{center}
+\begin{tikzpicture}[node distance=8mm and 8mm,>=Latex,
+box/.style={draw=Main,rounded corners,fill=Soft,minimum width=24mm,minimum height=10mm,align=center},
+miss/.style={draw=Accent,rounded corners,fill=Warm,minimum width=24mm,minimum height=10mm,align=center}]
+\node[box] (world) {時刻$t$\\$A_t\quad B_t$};
+\node[box,right=of world] (policy) {観測方策\\$\pi_t(A),\pi_t(B)$};
+\node[box,right=of policy] (obs) {選択した値\\$o_t$};
+\node[box,right=of obs] (state) {状態推定\\$\hat A,\hat B$};
+\node[miss,below=of obs] (lost) {未選択の値\\後から再取得不能};
+\draw[->] (world)--(policy);
+\draw[->] (policy)--(obs);
+\draw[->] (obs)--(state);
+\draw[->,Accent] (policy)--(lost);
+\end{tikzpicture}
+\end{center}
+
+\begin{warningbox}
+\textbf{このPoCがまだ示さないこと}
+
+A/Bは、心理志向／客観志向などの意味を持つ軸ではなく、競合する二つの信号源である。方策も現在状態に応じて変わらず、時刻だけに依存する。ここで校正するのは、逐次的な取得機会と観測方策の測定基盤である。
+\end{warningbox}
+
+\section{生成データと時間的重要度}
+
+$T=4$ とし、各時刻で相関するA/B信号を生成する。
+\begin{align}
+A_t&\sim\mathcal N(0,1),\\
+B_t&=\rho A_t+\sqrt{1-\rho^2}\,\varepsilon_t,
+\qquad \varepsilon_t\sim\mathcal N(0,1),\quad \rho=0.35.
+\end{align}
+
+観測値には標準偏差0.05の独立ノイズを加える。A/Bの値自体は各時刻で対称だが、評価で使う時間的重要度は反転させる。
+
+\begin{center}
+\begin{tabular}{c|rrrr}
+\toprule
+& $t=1$ & $t=2$ & $t=3$ & $t=4$ \\
+\midrule
+Aの重み $w_t^A$ & 1.8 & 1.4 & 0.6 & 0.2 \\
+Bの重み $w_t^B$ & 0.2 & 0.6 & 1.4 & 1.8 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+この設計により、Aを重視するなら前半のA観測が、Bを重視するなら後半のB観測が有利になる。両方を同じ重みで保存する場合は、前半でA、後半でBを見る 「AABB」が候補になる。ただし、コードはこの答えを与えず、方策学習が自力で収束できるかを測る。
+
+推定対象はA/Bの時系列全体である。最適線形読み出しの正規化二乗誤差を時間重みで平均し、
+\begin{align}
+D_A&=\frac{\sum_t w_t^A\,\mathrm{NMSE}(A_t,\hat A_t)}{\sum_t w_t^A},\\
+D_B&=\frac{\sum_t w_t^B\,\mathrm{NMSE}(B_t,\hat B_t)}{\sum_t w_t^B},\\
+J_\lambda&=\lambda D_A+(1-\lambda)D_B
+\end{align}
+とする。$\lambda=1$ はAだけ、$\lambda=0$ はBだけ、$\lambda=0.5$ は両者を同じ重みで保存する条件である。
+
+\section{六つの比較条件}
+
+方策が学習できたかだけでは、何が利得を生んだか分からない。そこで、上限、下限、特化、下流固定、共同更新を分ける。
+
+\begin{longtable}{>{\bfseries}p{0.22\linewidth}p{0.69\linewidth}}
+\toprule
+条件 & 役割 \\
+\midrule
+\endhead
+full observation & 毎時刻A/Bの両方を見る。時間的な観測制約のない床。\\
+Oracle & $2^4=16$通りの固定スケジュールを列挙し、検証データで最良を選ぶ。学習方策の上限対照。\\
+random fixed & 各時刻A/Bを等確率で選ぶ。保存要求を用いない基準。\\
+A fixed / B fixed & 四時刻すべてで一方を見る。目的が偏った場合の特化対照。\\
+learned / frozen & ランダム方策下で作った推定器を固定し、観測方策だけを更新する。方策単独の寄与を測る。\\
+learned / joint & 現在の方策分布の下で最適線形推定器を当て直し、方策と下流推定の最小循環を作る。\\
+\bottomrule
+\end{longtable}
+
+学習方策は時刻ごとの二値softmaxである。
+\begin{equation}
+\pi_\theta(a_{1:T})=\prod_{t=1}^{T}\pi_{\theta,t}(a_t),
+\qquad a_t\in\{A,B\}.
+\end{equation}
+
+全16スケジュールを列挙できるため、Monte Carloサンプリングは使わない。目的値の期待値
+\begin{equation}
+\mathcal J(\theta)=\sum_s\pi_\theta(s)L(s)
+\end{equation}
+とその方策勾配を厳密に計算し、Adamでロジットを更新する。共同更新条件では、その反復の方策分布に対する最適推定器を十分統計量から解く。
+
+\section{要因計画と工学的ゲート}
+
+\begin{table}[ht]
+\centering
+\caption{実行条件}
+\begin{tabularx}{0.92\linewidth}{>{\bfseries}lX}
+\toprule
+項目 & 設定 \\
+\midrule
+時刻数 & 4 \\
+相関 $\rho$ & 0.35 \\
+観測ノイズ & 0.05 \\
+$\lambda$ & 0, 0.25, 0.5, 0.75, 1 \\
+quick & 学習2,048、検証1,024、評価1,024、5 seed \\
+full & 学習8,192、検証4,096、評価4,096、20 seed \\
+必要環境 & CPU、NumPy、メモリ数GB未満 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+事前に固定した校正ゲートは次のとおりである。
+\begin{enumerate}
+\item 全観測条件の平均歪みが0.01未満である。
+\item $\lambda=0.5$ でOracle逐次観測の歪みが全観測より0.05以上大きい。
+\item 内点 $\lambda\in\{0.25,0.5,0.75\}$ で、共同更新方策のOracleとの差が0.04未満である。
+\item 共同更新方策がランダムを0.05以上上回る。
+\item 下流固定方策もランダムを0.03以上上回る。
+\item 共同更新方策の最頻スケジュールがOracleと80\% 以上一致する。
+\item A/B特化対照の優劣が $\lambda$ に応じて反転する。
+\end{enumerate}
+
+これらは人間の志向性の統計検定ではない。逐次観測、歪み評価、方策最適化、対照条件が想定した関係で動くかを確かめる工学的ゲートである。
+
+\section{検証済みfull結果}
+
+20 seedのfull設定は全ゲートを通過した。$\lambda=0.5$ の主要結果を表\ref{tab:result}に示す。
+
+\begin{table}[ht]
+\centering
+\caption{$\lambda=0.5$ の平均歪み（full、低いほど良い）}
+\label{tab:result}
+\begin{tabular}{lrrr}
+\toprule
+方法 & $J_{0.5}$ & $D_A$ & $D_B$ \\
+\midrule
+全観測 & 0.0025 & 0.0025 & 0.0025 \\
+Oracle & 0.1775 & 0.1771 & 0.1779 \\
+A特化固定 & 0.4402 & 0.0025 & 0.8779 \\
+B特化固定 & 0.4405 & 0.8785 & 0.0025 \\
+ランダム固定 & 0.4402 & 0.4404 & 0.4401 \\
+学習／下流固定 & 0.1775 & 0.1771 & 0.1780 \\
+学習／共同更新 & 0.1775 & 0.1771 & 0.1779 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+全観測とOracle逐次観測の差は0.1750であった。これは、一時刻に一方しか見られないことの機会費用である。観測方策と下流推定をどれだけ最適化しても、同時刻に見なかった専用情報は完全には回復しない。
+
+学習方策は内点でランダム方策を0.2773上回り、Oracleとの差は0.0001であった。最頻スケジュールは全20 seedでOracleと一致した。
+
+\begin{center}
+\begin{tabular}{c|ccccc}
+\toprule
+$\lambda$ & 0 & 0.25 & 0.5 & 0.75 & 1 \\
+\midrule
+Oracle & BBBB & ABBB & AABB & AAAB & AAAA \\
+学習／固定 & BBBB & ABBB & AABB & AAAB & AAAA \\
+学習／共同 & BBBB & ABBB & AABB & AAAB & AAAA \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+この結果は、保存要求の重みが変わると、同じ観測環境でも「いつ何を見るか」が系統的に変わることを校正上の予測どおり示している。
+
+\section{共同更新の利得が出なかった意味}
+
+下流固定と共同更新の差は、内点平均で約0.0001に過ぎなかった。これを「共同更新が成功した」とは解釈しない。
+
+本環境では、A/Bの観測チャネルと推定対象が線形に対応している。ランダム方策下で学習した推定器も、選択された各チャネルを既に十分復号できる。そのため、方策が変わっても、下流推定器を当て直す固有利得がほとんどない。
+
+この無差は、後続実験の対照点になる。現在状態によって有用な観測先が変わり、過去の観測分布が表現器の専門化を生む環境では、固定条件と共同更新条件に差が出る可能性がある。次の問いは、どの条件でその差が必要になるかである。
+
+\section{Google Colab実行手順}
+
+\subsection{用意するファイル}
+
+ZIPを展開し、次の二つを手元に置く。
+\begin{itemize}
+\item \code{colab\_runner.ipynb}
+\item \code{sequential\_policy\_poc.py}
+\end{itemize}
+
+\subsection{実行}
+\begin{enumerate}
+\item Google Colabを開き、「アップロード」から \code{colab\_runner.ipynb} を選ぶ。
+\item 最初のコードセルを実行し、表示されたファイル選択で \code{sequential\_policy\_poc.py} を選ぶ。
+\item 二番目のセルを実行する。既定は \code{--quick} で、数秒〜数十秒で終了する。
+\item 実行終了後、自動判定、方策別性能図、観測確率図を確認する。
+\item 最後のセルで結果ZIPをダウンロードする。
+\end{enumerate}
+
+quickが成功した後、実行セルの \code{--quick} を \code{--full} に変えると20 seedで再確認できる。GPUランタイムに切り替える必要はない。
+
+\subsection{出力の読み方}
+\begin{itemize}
+\item \code{result\_report.md}：ゲート判定、主要数値、最頻スケジュール。
+\item \code{policy\_performance.svg}：$\lambda$ ごとのOracle、ランダム、二つの学習方策の歪み。
+\item \code{learned\_policy.svg}：共同更新条件が時刻ごとにAを見る確率。
+\item \code{summary\_results.csv}：条件ごとの平均と標準偏差。
+\item \code{raw\_results.csv}：seed別の歪み、最頻スケジュール、Oracleとの一致率。
+\item \code{policy\_probabilities.csv}：時刻別のA/B観測確率。
+\item \code{learning\_history.csv}：反復中の目的値と方策エントロピー。
+\end{itemize}
+
+\section{結論と次の実験}
+
+本PoCは、静的な「どのチャネルを残すか」から、時間的な「いつ何を見るか」へ一歩進んだ。保存要求に応じた方策がOracleと同じスケジュールへ収束し、見逃した時刻の情報に明確な機会費用が生じた。
+
+ただし、これは開ループ方策の校正である。次の非自明な段階では、観測前の信念状態や部分観測によって、次に見るべき対象が変わる環境を用いる。そこで、
+\begin{enumerate}
+\item 現在状態に条件づけられた閉ループ観測方策、
+\item Oracle、ランダム、A/B特化の固定方策対照、
+\item 下流固定と共同更新の差が生じる条件、
+\item 初期の観測履歴が後の方策と表現に残るか
+\end{enumerate}
+を問う。この段階で初めて、観測方策と世界表現の学習が互いの条件を変える循環に近づく。
+
+\end{document}

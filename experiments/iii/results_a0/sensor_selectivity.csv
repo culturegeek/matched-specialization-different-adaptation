@@ -1,0 +1,5 @@
+sensors,demand_accuracy,health_accuracy
+none,0.62,0.62
+demand,0.94,0.6200000000000001
+health,0.6200000000000001,0.94
+demand+health,0.94,0.94

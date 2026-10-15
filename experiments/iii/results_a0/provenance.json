@@ -1,0 +1,8 @@
+{
+  "python": "3.12.13 (main, Aug  7 2026, 02:15:23) [Clang 22.1.3 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "numpy": "2.3.5",
+  "script": "SOURCE_ROOT/experiment_iii_a0.py",
+  "script_sha256": "5f5334119ac570d3a8de009cb00dbd311a9fb128a7c709903a424e6265e15c3f",
+  "preregistration_sha256": "6ecd3a59eab59eadd0fab7b5d84fdaf1bef773c705b4c5eaa4c09cf5b274bd9a"
+}

@@ -1,0 +1,56 @@
+{
+  "response_difference__q_ratio": {
+    "outcome": "response_difference",
+    "feature": "q_ratio",
+    "coefficients": [
+      0.003157905797374498,
+      0.09930297797047068
+    ],
+    "training_mean": 0.1967996035553134
+  },
+  "response_difference__v_ratio": {
+    "outcome": "response_difference",
+    "feature": "v_ratio",
+    "coefficients": [
+      0.2499115884436727,
+      -0.09522702758795012
+    ],
+    "training_mean": 0.1967996035553134
+  },
+  "response_difference__m_ratio": {
+    "outcome": "response_difference",
+    "feature": "m_ratio",
+    "coefficients": [
+      0.22463445192830087,
+      -0.04260493206472417
+    ],
+    "training_mean": 0.1967996035553134
+  },
+  "response_ratio__q_ratio": {
+    "outcome": "response_ratio",
+    "feature": "q_ratio",
+    "coefficients": [
+      -1.494614431383849,
+      1.9312403700417553
+    ],
+    "training_mean": 2.271321612797638
+  },
+  "response_ratio__v_ratio": {
+    "outcome": "response_ratio",
+    "feature": "v_ratio",
+    "coefficients": [
+      2.083250941514756,
+      0.33720093572824733
+    ],
+    "training_mean": 2.271321612797638
+  },
+  "response_ratio__m_ratio": {
+    "outcome": "response_ratio",
+    "feature": "m_ratio",
+    "coefficients": [
+      2.6382953794344006,
+      -0.5617020860896161
+    ],
+    "training_mean": 2.271321612797638
+  }
+}

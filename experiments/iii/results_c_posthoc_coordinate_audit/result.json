@@ -1,0 +1,53 @@
+{
+  "analysis_type": "posthoc",
+  "k_levels": [
+    4000,
+    4800,
+    5600
+  ],
+  "stratified_auc": [
+    {
+      "K": 4000,
+      "n": 80,
+      "switch_rate": 0.4625,
+      "auc_kappa": 0.5650534255185418,
+      "auc_s": 0.5373978629792583
+    },
+    {
+      "K": 4800,
+      "n": 80,
+      "switch_rate": 0.625,
+      "auc_kappa": 0.5673333333333334,
+      "auc_s": 0.464
+    },
+    {
+      "K": 5600,
+      "n": 80,
+      "switch_rate": 0.875,
+      "auc_kappa": 0.38,
+      "auc_s": 0.4742857142857143
+    },
+    {
+      "K": "pooled",
+      "n": 240,
+      "switch_rate": 0.6541666666666667,
+      "auc_kappa": 0.7118409945514542,
+      "auc_s": 0.5999539559511933
+    }
+  ],
+  "seed_split_cross_validation": [
+    {
+      "model": "K+s",
+      "auc": 0.6526743918348553,
+      "log_loss": 0.6000673607686494,
+      "brier_score": 0.20741973770987812
+    },
+    {
+      "model": "K+s+kappa",
+      "auc": 0.6575857570409025,
+      "log_loss": 0.600364154595639,
+      "brier_score": 0.20722723273791432
+    }
+  ],
+  "interpretation": "The pooled association of kappa was not preserved after conditioning on K; q=kappa is not supported as an individual-level reaction coordinate."
+}

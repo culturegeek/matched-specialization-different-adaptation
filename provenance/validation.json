@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-15",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Darwin arm64",
+    "numpy": "2.4.6",
+    "torch": "2.13.0",
+    "matplotlib": "3.11.2",
+    "device": "cpu"
+  },
+  "source_integrity": {
+    "pass": true,
+    "files": 698,
+    "registration_files": 7,
+    "followup_result_manifest_files": 129
+  },
+  "core_numeric_check": {
+    "pass": true,
+    "means": 27
+  },
+  "original_seed_reproduction": {
+    "pass": true,
+    "seed": 9100,
+    "timecourse_rows": 176,
+    "maximum_absolute_difference_all_measurements": 0.0
+  },
+  "figure_generation": {
+    "pass": true,
+    "english_figure_families": 5,
+    "visual_review": "All five regenerated figures rendered and inspected; labels, axes, legends, and error bars are readable."
+  },
+  "python_syntax": {
+    "pass": true,
+    "files": 69
+  },
+  "scope": "Stored data integrity, 27 central means, English figure generation, and one-seed reproduction. Full training for all studies was not rerun for publication.",
+  "documentation_review": {
+    "new_document_internal_links": "pass",
+    "english_and_japanese_guides": "read in full; inference unit, study scope, and analysis status checked",
+    "training_command_correction": "Added required --preregistration arguments to the IV-D, IV-E, and V-A commands."
+  }
+}

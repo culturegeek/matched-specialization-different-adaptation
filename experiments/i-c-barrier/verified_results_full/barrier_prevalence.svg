@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="500">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#263238}.title{font-size:21px;font-weight:700}.grid{stroke:#CFD8DC}</style>
+<text x="425.0" y="30" text-anchor="middle" class="title">Fraction of improving Hamming-1 moves blocked by a shared-estimator barrier</text>
+<line x1="80" y1="420.0" x2="815" y2="420.0" class="grid"/>
+<text x="68" y="425.0" text-anchor="end" font-size="12">0.0</text>
+<line x1="80" y1="348.0" x2="815" y2="348.0" class="grid"/>
+<text x="68" y="353.0" text-anchor="end" font-size="12">0.2</text>
+<line x1="80" y1="276.0" x2="815" y2="276.0" class="grid"/>
+<text x="68" y="281.0" text-anchor="end" font-size="12">0.4</text>
+<line x1="80" y1="204.0" x2="815" y2="204.0" class="grid"/>
+<text x="68" y="209.0" text-anchor="end" font-size="12">0.6</text>
+<line x1="80" y1="132.0" x2="815" y2="132.0" class="grid"/>
+<text x="68" y="137.0" text-anchor="end" font-size="12">0.8</text>
+<line x1="80" y1="60.0" x2="815" y2="60.0" class="grid"/>
+<text x="68" y="65.0" text-anchor="end" font-size="12">1.0</text>
+<polyline points="80.0,420.0 447.5,363.8 815.0,240.0" fill="none" stroke="#7E57C2" stroke-width="3"/>
+<circle cx="80.0" cy="420.0" r="6" fill="#7E57C2"/>
+<circle cx="447.5" cy="363.75" r="6" fill="#7E57C2"/>
+<circle cx="815.0" cy="240.0" r="6" fill="#7E57C2"/>
+<polyline points="80.0,420.0 447.5,375.0 815.0,217.5" fill="none" stroke="#176B87" stroke-width="3"/>
+<circle cx="80.0" cy="420.0" r="6" fill="#176B87"/>
+<circle cx="447.5" cy="375.0" r="6" fill="#176B87"/>
+<circle cx="815.0" cy="217.5" r="6" fill="#176B87"/>
+<polyline points="80.0,420.0 447.5,363.8 815.0,240.0" fill="none" stroke="#EF6C00" stroke-width="3"/>
+<circle cx="80.0" cy="420.0" r="6" fill="#EF6C00"/>
+<circle cx="447.5" cy="363.75" r="6" fill="#EF6C00"/>
+<circle cx="815.0" cy="240.0" r="6" fill="#EF6C00"/>
+<text x="80.0" y="445" text-anchor="middle" font-size="14">phi=0.0</text>
+<text x="447.5" y="445" text-anchor="middle" font-size="14">phi=0.4</text>
+<text x="815.0" y="445" text-anchor="middle" font-size="14">phi=0.8</text>
+<line x1="270" y1="470" x2="300" y2="470" stroke="#7E57C2" stroke-width="4"/>
+<text x="308" y="475" font-size="13">lambda=0.25</text>
+<line x1="420" y1="470" x2="450" y2="470" stroke="#176B87" stroke-width="4"/>
+<text x="458" y="475" font-size="13">lambda=0.5</text>
+<line x1="570" y1="470" x2="600" y2="470" stroke="#EF6C00" stroke-width="4"/>
+<text x="608" y="475" font-size="13">lambda=0.75</text>
+<text x="25" y="240.0" text-anchor="middle" transform="rotate(-90 25 240.0)" font-size="14">barrier fraction</text>
+</svg>

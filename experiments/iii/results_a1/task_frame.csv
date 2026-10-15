@@ -1,0 +1,3 @@
+frame,selected_sensor,target_accuracy,mismatched_sensor_accuracy,accuracy_gain
+demand,demand,0.94,0.6200000000000001,0.31999999999999984
+health,health,0.94,0.6200000000000001,0.31999999999999984

@@ -1,0 +1,10 @@
+{
+  "script_sha256": "6e2539b42617710b6d7b5689d22a1345e76bb7de85bf460bac059c36f76a3741",
+  "base_iv_e_sha256": "e0d244387abe910680cbb8b45b9d87751b9cf8af4452d35785c0ffd87af33744",
+  "preregistration_sha256": "9e9c5803b0ac1f4bfdd0fd3a592ebd10caaa61c9767ecf94149bdf5bcf1d3403",
+  "python": "3.11.7 (main, Dec 15 2023, 12:09:56) [Clang 14.0.6 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "numpy": "2.4.6",
+  "torch": "2.13.0",
+  "device": "cpu"
+}

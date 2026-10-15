@@ -1,0 +1,123 @@
+{
+  "config": {
+    "train_size": 2048,
+    "selector_size": 512,
+    "test_size": 1024,
+    "source_dim": 3,
+    "bottleneck": 3,
+    "correlation": 0.35,
+    "observation_noise": 0.02,
+    "hidden_dim": 24,
+    "batch_size": 256,
+    "history_steps": 400,
+    "common_steps": 800,
+    "history_lambda_a": 0.9,
+    "history_lambda_b": 0.1,
+    "checkpoints": [
+      0,
+      20,
+      100,
+      300,
+      800
+    ],
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "seeds": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "probe_ridge": 0.001,
+    "selector_interval": 10,
+    "selector_gain": 1.5,
+    "selector_max_bias": 0.4,
+    "conditions": [
+      "all_targets",
+      "balanced_sampled",
+      "fixed_propensity",
+      "stabilization",
+      "exploration"
+    ]
+  },
+  "device": "CPU",
+  "torch": "2.13.0",
+  "cuda_available": false,
+  "python": "3.11.7 (main, Dec 15 2023, 12:09:56) [Clang 14.0.6 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "runtime_seconds": 32.87747406959534,
+  "evaluation": {
+    "gates": {
+      "history_manipulation": true,
+      "open_loop_replicates_erasure": true,
+      "stabilization_preserves_history": true,
+      "exploration_reduces_history_relative_to_stabilization": true
+    },
+    "diagnostics": {
+      "dynamic_to_fixed_auc_ratio": 1.001308518763743,
+      "stabilization_minus_fixed_final_retention": 0.001333251920729417
+    },
+    "by_condition": {
+      "all_targets": {
+        "initial_gap": 1.5987230147443614,
+        "final_gap": 0.1412813438853672,
+        "behavioral_retention": 0.08837137051402863,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 0.08311230977906403,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 0.5599391234700749,
+        "probe_gap_auc": 0.5388198444420325,
+        "final_pair_CKA": 0.9856962710618973,
+        "final_selector_gap": 0.0
+      },
+      "balanced_sampled": {
+        "initial_gap": 1.5987230147443614,
+        "final_gap": 0.3859320995864569,
+        "behavioral_retention": 0.24140022757345914,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 0.22521316446552533,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 0.8523734340400952,
+        "probe_gap_auc": 0.8275563769712363,
+        "final_pair_CKA": 0.9531541764736176,
+        "final_selector_gap": 0.0
+      },
+      "fixed_propensity": {
+        "initial_gap": 1.5987230147443614,
+        "final_gap": 1.8936926631722806,
+        "behavioral_retention": 1.1845032852510107,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 1.1514003553062688,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 1.8052761751834765,
+        "probe_gap_auc": 1.816034240256763,
+        "final_pair_CKA": 0.1947154961526394,
+        "final_selector_gap": 0.6790588447287966
+      },
+      "stabilization": {
+        "initial_gap": 1.5987230147443614,
+        "final_gap": 1.8958241637024043,
+        "behavioral_retention": 1.18583653717174,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 1.1524191904464676,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 1.8076384129334435,
+        "probe_gap_auc": 1.8181713691911812,
+        "final_pair_CKA": 0.19564270973205566,
+        "final_selector_gap": 0.714571440623533
+      },
+      "exploration": {
+        "initial_gap": 1.5987230147443614,
+        "final_gap": 0.018731217005433242,
+        "behavioral_retention": 0.0117163616415547,
+        "behavioral_ci_excludes_zero": false,
+        "probe_retention": 0.0020519257891360265,
+        "probe_ci_excludes_zero": false,
+        "gap_auc": 0.2736121780864422,
+        "probe_gap_auc": 0.22036114839785992,
+        "final_pair_CKA": 0.9725748002529144,
+        "final_selector_gap": -0.014710974418118083
+      }
+    }
+  }
+}

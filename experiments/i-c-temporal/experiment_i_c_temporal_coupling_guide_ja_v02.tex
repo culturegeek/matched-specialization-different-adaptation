@@ -1,0 +1,276 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage{geometry}
+\usepackage{booktabs,array,tabularx,longtable}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\geometry{margin=23mm}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,
+pdftitle={実験I-C・時間結合を持つ逐次観測方策PoC},pdfauthor={Toru Takahashi}}
+\definecolor{Main}{HTML}{176B87}
+\definecolor{Accent}{HTML}{EF8354}
+\definecolor{Purple}{HTML}{7E57C2}
+\definecolor{Soft}{HTML}{EAF4F7}
+\definecolor{Warm}{HTML}{FFF3EC}
+\setlist[itemize]{leftmargin=1.7em,itemsep=3pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=4pt,topsep=4pt}
+\renewcommand{\baselinestretch}{1.07}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1em}
+\raggedbottom
+\newcommand{\code}[1]{\texttt{#1}}
+\newenvironment{takeaway}{\begin{center}\begin{minipage}{0.92\linewidth}\color{Main}\hrule\vspace{6pt}\color{black}}{\vspace{6pt}\color{Main}\hrule\color{black}\end{minipage}\end{center}}
+\newenvironment{warningbox}{\begin{center}\begin{minipage}{0.92\linewidth}\color{Accent}\hrule\vspace{6pt}\color{black}}{\vspace{6pt}\color{Accent}\hrule\color{black}\end{minipage}\end{center}}
+
+\title{\textbf{実験I-C・時間結合を持つ逐次観測方策PoC}\\
+\large 今、何を見るかが、後に何を推定できるかを変える}
+\author{Toru Takahashi}
+\date{v0.2 / 2026年8月}
+
+\begin{document}
+\maketitle
+
+\begin{takeaway}
+\textbf{この実験で確かめること}
+
+v0.1では、各時刻にA/Bの一方しか見られない観測機会を導入した。しかし、四時刻の選択は互いに独立で、目的関数は時刻別の和へ完全に分解できた。v0.2はA/B信号に時間相関を入れ、ある時刻の観測が別時刻の推定可能性を変える環境へ進む。その結果、目的関数に非加法性と局所最適が生じるかを、全16スケジュールの母集団値から直接測定する。
+\end{takeaway}
+
+実行にGPU、大規模モデル、有料クラウドは必要ない。Google Colabの標準CPUとNumPyだけで実行できる。
+
+\tableofcontents
+
+\section{v0.1は「時間軸上の独立選択」だった}
+
+v0.1では、時刻 $t=1,\dots,4$ でA/Bの一方を選び、見なかった同時刻の値を後から取得できないようにした。しかし、時刻間の相関はゼロであった。
+
+そのため、固定スケジュール $s=(s_1,\dots,s_4)$ の目的値は
+\begin{equation}
+J(s)=c_0+\sum_{t=1}^{4}c_t s_t
+\end{equation}
+と書けた。ある時刻でA/Bのどちらを見るべきかは、他時刻での選択と無関係に決まる。Oracleの `AABB` は、四つの独立な二値比較を並べた答えであった。
+
+\begin{center}
+\begin{tikzpicture}[>=Latex,node distance=7mm and 6mm,
+box/.style={draw=Main,rounded corners,fill=Soft,minimum width=27mm,minimum height=10mm,align=center}]
+\node[box] (t1) {$t=1$\\A/Bを比較};
+\node[box,right=of t1] (t2) {$t=2$\\A/Bを比較};
+\node[box,right=of t2] (t3) {$t=3$\\A/Bを比較};
+\node[box,right=of t3] (t4) {$t=4$\\A/Bを比較};
+\draw[dashed,gray] (t1)--(t2);
+\draw[dashed,gray] (t2)--(t3);
+\draw[dashed,gray] (t3)--(t4);
+\node[below=10mm of $(t2)!0.5!(t3)$] {各比較の価値は他時刻に依存しない};
+\end{tikzpicture}
+\end{center}
+
+これは、再取得不能な観測機会と方策最適化を実装する校正としては有効だが、「今の観測が後の学習可能性を変える」という強い意味の逐次性はまだない。
+
+\section{AR(1)時間相関を一つ追加する}
+
+v0.2では、Aと独立潜在源Cを定常AR(1)過程とする。
+\begin{align}
+A_t&=\phi A_{t-1}+\sqrt{1-\phi^2}\,\eta_t^A,\\
+C_t&=\phi C_{t-1}+\sqrt{1-\phi^2}\,\eta_t^C,\\
+B_t&=\rho A_t+\sqrt{1-\rho^2}\,C_t,
+\qquad \rho=0.35.
+\end{align}
+
+$\eta_t^A,\eta_t^C$ は独立標準正規分布である。この構成でA/Bは同じ自己相関 $\phi$ を持ち、同時刻の相関は $\rho$ のまま保たれる。
+
+\begin{equation}
+\operatorname{Cov}(A_t,A_u)
+=\operatorname{Cov}(B_t,B_u)=\phi^{|t-u|},
+\qquad
+\operatorname{Cov}(A_t,B_u)=\rho\phi^{|t-u|}.
+\end{equation}
+
+$\phi>0$ では、$A_1$ の観測は $A_2,A_3$ の推定にも寄与する。その結果、例えば $t=1$ でAを見た後に $t=2$ でもAを見る価値は、$t=1$ でBを見た場合と同じではない。
+
+\begin{center}
+\begin{tikzpicture}[>=Latex,node distance=7mm and 6mm,
+box/.style={draw=Main,rounded corners,fill=Soft,minimum width=25mm,minimum height=10mm,align=center}]
+\node[box] (t1) {$t=1$\\$A_1$を観測};
+\node[box,right=of t1] (t2) {$t=2$\\$A_2$ / $B_2$};
+\node[box,right=of t2] (t3) {$t=3$\\$A_3$ / $B_3$};
+\node[box,right=of t3] (t4) {$t=4$\\$A_4$ / $B_4$};
+\draw[->,Main,thick] (t1)--node[above] {$\phi$} (t2);
+\draw[->,Main,thick,bend left=25] (t1) to node[above] {$\phi^2$} (t3);
+\draw[->,Main,thick,bend left=32] (t1) to node[above] {$\phi^3$} (t4);
+\node[below=10mm of $(t2)!0.5!(t3)$] {早い時刻の観測が後の推定価値を変える};
+\end{tikzpicture}
+\end{center}
+
+\section{目的地形の非加法性を測る}
+
+潜在時系列 $Y=(A_1,\dots,A_4,B_1,\dots,B_4)$ の母共分散は上式から決まる。本PoCはこの共分散から、全16スケジュールの最適線形推定歪みを母集団値として計算する。
+
+A/Bの時間重みと目的関数はv0.1と同じである。
+\begin{align}
+w^A&=(1.8,1.4,0.6,0.2),\\
+w^B&=(0.2,0.6,1.4,1.8),\\
+J_\lambda(s)&=\lambda D_A(s)+(1-\lambda)D_B(s).
+\end{align}
+
+次に全16点へ加法モデル
+\begin{equation}
+\widehat J(s)=c_0+\sum_{t=1}^{4}c_t s_t,
+\qquad s_t\in\{0,1\}
+\end{equation}
+を最小二乗で当て、
+\begin{equation}
+R_{\max}=\max_s|J(s)-\widehat J(s)|
+\end{equation}
+を測る。$R_{\max}=0$ なら、スケジュールの価値は時刻別の和で説明できる。$R_{\max}>0$ なら、一つの時刻の選択効果が他時刻の選択に依存する。
+
+さらに、一時刻だけA/Bを反転したHamming-1近傍のいずれよりも歪みが低いスケジュールを局所最適とする。全16初期点から、毎回最も良い近傍へ移る貪欲改善を行い、どの局所最適に到達するかを数える。
+
+\begin{warningbox}
+\textbf{この解析が分けるもの}
+
+加法残差は「時刻間に相互作用があるか」を測り、局所最適数と吸引域は「どの初期状態からも同じ解へ到達できるか」を測る。非加法であることと、複数局所最適があることは、別の性質である。
+\end{warningbox}
+
+\section{方策学習と対照条件}
+
+方策はv0.1と同じく、時刻ごとの二値softmaxの積である。
+\begin{equation}
+\pi_\theta(a_{1:4})=\prod_{t=1}^{4}\pi_{\theta,t}(a_t).
+\end{equation}
+
+方策勾配は全16スケジュールの厳密な期待値から求める。サンプリング雑音はない。その上で初期ロジットの幅をv0.1より広げ、初期値によって異なる解へ収束するかを測る。
+
+\begin{longtable}{>{\bfseries}p{0.24\linewidth}p{0.67\linewidth}}
+\toprule
+条件 & 役割 \\
+\midrule
+\endhead
+full observation & 毎時刻A/Bの両方を見る無制約床。\\
+Oracle & 母集団歪みが最小となる決定的スケジュール。\\
+random fixed & 各時刻A/Bを等確率で見る基準。\\
+learned / frozen & ランダム方策下で学習した線形推定器を固定し、方策だけを変える。\\
+learned / joint & 反復ごとに、現在の方策分布に最適な推定器を当て直す。\\
+\bottomrule
+\end{longtable}
+
+固定条件と共同更新条件の差は、観測分布が変わったときに下流推定器を適応させる固有利得を表す。v0.1ではこの差はほぼゼロだった。v0.2の時間相関は、観測パターンによって有用な時間間推定が変わるため、差が生じる余地を作る。
+
+\section{要因計画と校正ゲート}
+
+\begin{table}[ht]
+\centering
+\caption{実行条件}
+\begin{tabularx}{0.92\linewidth}{>{\bfseries}lX}
+\toprule
+項目 & 設定 \\
+\midrule
+時刻数 & 4（全16スケジュールを列挙） \\
+時間相関 $\phi$ & 0, 0.4, 0.8 \\
+同時刻A/B相関 $\rho$ & 0.35 \\
+観測ノイズ & 0.05 \\
+$\lambda$ & 0.25, 0.5, 0.75 \\
+quick & 学習2,048、評価1,024、5 seed \\
+full & 学習8,192、評価4,096、20 seed \\
+必要環境 & CPU、NumPy、メモリ数GB未満 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+工学的ゲートは次のように固定した。
+\begin{enumerate}
+\item $\phi=0,\lambda=0.5$ の最大加法残差が $10^{-5}$ 未満である。
+\item $\phi=0,\lambda=0.5$ の局所最適が一つである。
+\item $\phi=0.8,\lambda=0.5$ の最大加法残差が0.05を超える。
+\item $\phi=0.8,\lambda=0.5$ に複数の局所最適がある。
+\item $\phi=0.8$ の大域解への貪欲吸引域が1未満である。
+\item 全観測条件の歪みが0.01未満である。
+\item $\phi=0.8,\lambda=0.5$ で共同更新方策がランダムを0.03以上上回る。
+\end{enumerate}
+
+Oracle到達率は、失敗しうる性質そのものを測るため、合格ゲートにはしない。到達率1を要求すると、局所最適を導入した実験の目的と矛盾するからである。
+
+\section{検証済みfull結果}
+
+$\lambda=0.5$ の母集団目的地形は表\ref{tab:landscape}のとおりであった。
+
+\begin{table}[ht]
+\centering
+\caption{時間結合による目的地形の変化（$\lambda=0.5$）}
+\label{tab:landscape}
+\begin{tabular}{crclc}
+\toprule
+$\phi$ & $R_{\max}$ & 局所最適数 & 局所最適 & 大域吸引域 \\
+\midrule
+0.0 & 0.000000 & 1 & AABB & 1.000 \\
+0.4 & 0.047750 & 1 & AABB & 1.000 \\
+0.8 & 0.217266 & 2 & AABB, ABAB & 0.750 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+$\phi=0.8$ では、大域解AABBの母集団目的値は0.08045、局所解ABABは0.09176であった。ABABはより悪いが、一時刻だけの反転では改善できない。全16初期点の貪欲改善では、12点がAABB、4点がABABに到達した。
+
+\begin{table}[ht]
+\centering
+\caption{$\phi=0.8,\lambda=0.5$ の方策学習結果（full, 20 seed）}
+\begin{tabular}{lrrl}
+\toprule
+方法 & 平均目的値 & Oracle到達率 & 収束先 \\
+\midrule
+全観測 & 0.0025 & --- & both:20 \\
+Oracle & 0.0804 & 1.00 & AABB:20 \\
+ランダム & 0.3184 & --- & stochastic:20 \\
+学習／下流固定 & 0.1384 & 0.90 & AABB:18, ABAB:2 \\
+学習／共同更新 & 0.0950 & 0.65 & AABB:13, その他:7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+共同更新は、ランダム方策より0.2234、下流固定条件より0.0434改善した。v0.1でほぼゼロだった共同更新の固有利得が、時間相関の導入後に現れた。
+
+ただし、Oracle到達率と目的値は同じ情報ではない。下流固定条件はAABBへ高率で到達したが、方策変化後の観測分布に推定器が適応しないため、目的値は悪い。共同更新は収束先がより多様である一方、各方策分布に合わせて推定器を適応させるため、平均歪みは小さい。
+
+\begin{takeaway}
+\textbf{実験的に追加されたもの}
+
+時間相関を一つ入れただけで、完全分離できた方策目的が非加法的になり、局所最適、初期値依存、方策と推定器の共同更新利得が現れた。これは志向性の証明ではないが、観測配分と世界表現学習の循環を研究するために、時間的結合が不可欠な条件であることを示す。
+\end{takeaway}
+
+\section{Google Colab実行手順}
+
+\begin{enumerate}
+\item 同梱の \code{colab\_runner.ipynb} をGoogle Colabで開く。
+\item 最初のセルを実行し、\code{temporal\_coupling\_poc.py} を選ぶ。
+\item 次のセルで \code{--quick} を実行する。
+\item 自動判定と、非加法性・Oracle到達率の図を確認する。
+\item 結果ZIPをダウンロードする。
+\item quick確認後、\code{--quick} を \code{--full} に変えて20 seedを実行する。
+\end{enumerate}
+
+GPUランタイムへの切り替えは不要である。検証済みfull設定は通常のCPUで数十秒で終了する。
+
+\section{解釈の境界と次段階}
+
+本PoCの方策はまだ開ループである。すなわち、$t=1$ で実際に観測した値が大きいか小さいか、現在の不確実性がどこにあるかに応じて、$t=2$ の観測先を変えない。ここで導入したのは、母集団水準の時間的結合である。
+
+次段階では、
+\begin{equation}
+\pi(a_t\mid o_{<t},z_{t-1},g)
+\end{equation}
+のように、観測履歴、信念状態、目標に条件づけられた閉ループ方策を導入する。v0.2の時間相関条件をそのまま対照に残すことで、閉ループの利得を独立に測れる。
+
+この段階で初めて、「過去に何を見たか」だけではなく、「過去の観測から今どのような世界状態が立ち上がっているか」が、次の注意を変える。それが、理論稿の述べる観測、表現、評価、学習の循環へ進む次の一歩である。
+
+\begin{warningbox}
+\textbf{主張の限界}
+
+本結果は、時間相関を持つ線形ガウス系における観測方策の構造を示す。心理志向／客観志向、人間の注意、性格、発達的志向性の実在を支持するものではない。これらを問うには、意味を持つ不変性構造、履歴操作、課題横断的な復帰を別に導入する必要がある。
+\end{warningbox}
+
+\end{document}

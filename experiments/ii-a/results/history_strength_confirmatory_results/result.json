@@ -1,0 +1,52 @@
+{
+  "preregistered": {
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "history_steps": 25,
+    "gates": {
+      "auc_ratio": "> 1.20",
+      "paired_difference_ci": "lower bound > 0",
+      "exploration_relative_auc": "< 0.50 x stabilization"
+    }
+  },
+  "initial_gap": {
+    "mean": 0.2793057634136758,
+    "ci_low": 0.2567853048110799,
+    "ci_high": 0.3018262220162717
+  },
+  "auc": {
+    "fixed_mean": 0.8727271404960693,
+    "stabilization_mean": 1.0080244524024897,
+    "exploration_mean": 0.05044997214027208,
+    "stabilization_to_fixed_ratio": 1.1550281933805344,
+    "paired_difference_mean": 0.13529731190642058,
+    "paired_difference_ci_low": -0.020720870001231545,
+    "paired_difference_ci_high": 0.29131549381407273
+  },
+  "gates": {
+    "initial_history_direction_is_reproduced": true,
+    "stabilization_to_fixed_auc_ratio_exceeds_1_20": false,
+    "paired_auc_difference_ci_excludes_zero": false,
+    "exploration_auc_below_half_stabilization": true
+  }
+}

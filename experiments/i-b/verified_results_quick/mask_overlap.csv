@@ -1,0 +1,5 @@
+observation_budget,n_seeds,observed_jaccard,observed_sd,random_expectation,difference_from_random,below_random_expectation
+2,5,0.0,0.0,0.24444444444444444,-0.24444444444444444,True
+3,5,0.04,0.08,0.365,-0.325,True
+4,5,0.3333333333333333,0.0,0.5199999999999999,-0.1866666666666666,True
+6,5,1.0,0.0,1.0,0.0,False

@@ -1,0 +1,15 @@
+seed,phi,lambda_a,arm,iteration,from_schedule,to_schedule
+0,0.8,0.25,shared_prebranch,5,AABB,ABBB
+0,0.8,0.75,shared_prebranch,1,BBAA,ABAA
+0,0.8,0.75,shared_prebranch,4,ABAA,AAAB
+1,0.8,0.25,shared_prebranch,6,ABBA,ABBB
+1,0.8,0.75,shared_prebranch,3,BAAA,AAAA
+1,0.8,0.75,shared_prebranch,4,AAAA,AAAB
+2,0.8,0.5,shared_prebranch,2,AAAA,AABB
+2,0.8,0.75,shared_prebranch,3,BAAB,AAAB
+3,0.8,0.25,shared_prebranch,3,BAAA,BABB
+4,0.8,0.25,shared_prebranch,3,ABBA,ABBB
+4,0.8,0.5,shared_prebranch,2,BBBA,BBBB
+4,0.8,0.5,shared_prebranch,3,BBBB,BABB
+4,0.8,0.5,shared_prebranch,4,BABB,AABB
+4,0.8,0.75,shared_prebranch,4,ABBA,AABA

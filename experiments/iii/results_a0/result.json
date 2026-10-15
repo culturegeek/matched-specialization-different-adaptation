@@ -1,0 +1,730 @@
+{
+  "experiment": "III-A0",
+  "config": {
+    "horizon": 10,
+    "stock_max": 4,
+    "demand_persist": 0.82,
+    "health_persist_no_use": 0.92,
+    "wear_base": 0.06,
+    "wear_per_delivery": 0.18,
+    "repair_success": 0.82,
+    "recharge_low_demand": 0.78,
+    "recharge_high_demand": 0.32,
+    "initial_stock": 3,
+    "initial_high_demand": 0.45,
+    "initial_worn": 0.2,
+    "standard_accuracy": 0.62,
+    "sensor_accuracy": 0.94,
+    "effort_tiebreak": 1e-07,
+    "weight_count": 101
+  },
+  "preregistered_gates": "G1 environment_integrity:\n  transition probabilities are nonnegative; maximum row-sum error <= 1e-12;\n  all costs are finite and nonnegative.\nG2 oracle_effectiveness:\n  at shortage weights 0.25, 0.50, 0.75, scalar Oracle cost is at least 10%\n  lower than the uniform-random-policy cost in the competing environment.\nG3 outcome_competition:\n  competing environment has >=4 nondominated Oracle outcome points across 101 weights;\n  shortage range >=0.05 and risk range >=0.02;\n  null environment has a common policy attaining both component minima within 1e-10.\nG4 sensor_selectivity:\n  matched-sensor Bayes-accuracy gain >=0.20; off-target absolute gain <=0.03.\nG5 resource_levels:\n  budget=2 and slots=2 equal full-channel Bayes error within 1e-12;\n  budget=3 or slots=3 improves by <=1e-12;\n  budget=0 and slots=1 is at least 0.10 worse than the nonbinding level.",
+  "integrity": {
+    "competing": {
+      "min_probability": 0.0,
+      "max_row_sum_error": 1.1102230246251565e-16,
+      "all_costs_finite": true,
+      "min_cost": 0.0
+    },
+    "null": {
+      "min_probability": 0.0,
+      "max_row_sum_error": 0.0,
+      "all_costs_finite": true,
+      "min_cost": 0.0
+    }
+  },
+  "selected_oracle_comparisons": {
+    "0.25": {
+      "oracle": 0.09047693094908185,
+      "random": 0.13944093411777625,
+      "relative_improvement": 0.3511451173106589
+    },
+    "0.50": {
+      "oracle": 0.17633164283595557,
+      "random": 0.24014632425627958,
+      "relative_improvement": 0.265732492962175
+    },
+    "0.75": {
+      "oracle": 0.2610739157394924,
+      "random": 0.34085171439478285,
+      "relative_improvement": 0.23405426842855728
+    }
+  },
+  "environment_summary": {
+    "competing": {
+      "actions": 5,
+      "random": [
+        0.44155710453328617,
+        0.03873554397927295,
+        0.040000000000000015
+      ],
+      "nondominated": [
+        {
+          "environment": "competing",
+          "shortage_weight": 1.0,
+          "shortage": 0.34495677983671,
+          "risk": 0.15576435468240962,
+          "effort": 0.023890730382733268,
+          "policy_hash": "afab3010bc17e838"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.99,
+          "shortage": 0.3449695828658904,
+          "risk": 0.014912159392766406,
+          "effort": 0.05997658785585798,
+          "policy_hash": "e2368caa5f2143f6"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.98,
+          "shortage": 0.34502356407349616,
+          "risk": 0.010459106149055385,
+          "effort": 0.06007607685827587,
+          "policy_hash": "5cbdf25cee3102ee"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.97,
+          "shortage": 0.34502789634916065,
+          "risk": 0.010299846225589559,
+          "effort": 0.06008299108503533,
+          "policy_hash": "5533cbdb043499bb"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.96,
+          "shortage": 0.34504078146925177,
+          "risk": 0.009946407828091782,
+          "effort": 0.05999844914980671,
+          "policy_hash": "431455a868aff408"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.9500000000000001,
+          "shortage": 0.34504326053646484,
+          "risk": 0.009891859853238897,
+          "effort": 0.06000203893464606,
+          "policy_hash": "ceaa3f30091f0c80"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.9400000000000001,
+          "shortage": 0.34505502455185866,
+          "risk": 0.009684189419554824,
+          "effort": 0.059952131027084556,
+          "policy_hash": "757307926583f6c8"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.93,
+          "shortage": 0.3450575883860033,
+          "risk": 0.009648164857795807,
+          "effort": 0.05995443551516201,
+          "policy_hash": "ab7771a1bd7d3a3e"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.92,
+          "shortage": 0.3450587332357703,
+          "risk": 0.00963388414183641,
+          "effort": 0.05995462189438474,
+          "policy_hash": "ecf9a739d9bd81e1"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.9,
+          "shortage": 0.34508172260014536,
+          "risk": 0.009383132625400662,
+          "effort": 0.06026763078730698,
+          "policy_hash": "44e3bfd3feefc077"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.88,
+          "shortage": 0.34508278698628636,
+          "risk": 0.009374024059936615,
+          "effort": 0.060267722050969565,
+          "policy_hash": "361c25e7807a96f8"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.86,
+          "shortage": 0.34511239453249576,
+          "risk": 0.009168468146466723,
+          "effort": 0.060564145570427955,
+          "policy_hash": "b27ee3a3309701a8"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.84,
+          "shortage": 0.34511336469676507,
+          "risk": 0.009162782138251257,
+          "effort": 0.06056417230712526,
+          "policy_hash": "55c6c8a04ce2b393"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.8300000000000001,
+          "shortage": 0.34513490814529457,
+          "risk": 0.00905259820366241,
+          "effort": 0.06051553176427029,
+          "policy_hash": "11e61aa53c0e8013"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.8200000000000001,
+          "shortage": 0.34519232268683475,
+          "risk": 0.00878761666123046,
+          "effort": 0.06040507520016671,
+          "policy_hash": "ed0f200a8e7bf9a2"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.79,
+          "shortage": 0.345217568876453,
+          "risk": 0.008678091550112253,
+          "effort": 0.06068505077347898,
+          "policy_hash": "bacf5f125caed39f"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.77,
+          "shortage": 0.34524481901622833,
+          "risk": 0.008579698018028556,
+          "effort": 0.06066770798345951,
+          "policy_hash": "4b6b91d5808a7117"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.76,
+          "shortage": 0.3453040718714477,
+          "risk": 0.00838640431581392,
+          "effort": 0.06057979813314006,
+          "policy_hash": "971301c41bf4b70e"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.75,
+          "shortage": 0.3454540057713736,
+          "risk": 0.007933645643848759,
+          "effort": 0.061571806780160734,
+          "policy_hash": "06f738ed53285677"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.74,
+          "shortage": 0.3454722294080687,
+          "risk": 0.007880311297410937,
+          "effort": 0.06155559572572378,
+          "policy_hash": "91f4879ef3a7def6"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.7000000000000001,
+          "shortage": 0.3455088685865073,
+          "risk": 0.00777898992036805,
+          "effort": 0.06181418840115717,
+          "policy_hash": "567055ecdbae7770"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.6900000000000001,
+          "shortage": 0.34553403872383864,
+          "risk": 0.007721102153326482,
+          "effort": 0.06180296024991557,
+          "policy_hash": "a4631173e6133a70"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.68,
+          "shortage": 0.3455361439401017,
+          "risk": 0.00771646497557138,
+          "effort": 0.06180294704149181,
+          "policy_hash": "478860990bd480c9"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.66,
+          "shortage": 0.3457663423141667,
+          "risk": 0.007241752303369849,
+          "effort": 0.062194344727510585,
+          "policy_hash": "a847113e249e202f"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.65,
+          "shortage": 0.3459244804936605,
+          "risk": 0.006940563472810196,
+          "effort": 0.062007591816679974,
+          "policy_hash": "d000d34f117600ad"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.64,
+          "shortage": 0.3459492826676952,
+          "risk": 0.006894812151230241,
+          "effort": 0.061992415484671604,
+          "policy_hash": "77485f210e8e71a4"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.6,
+          "shortage": 0.3460025741208478,
+          "risk": 0.006801091383045417,
+          "effort": 0.06223103712995308,
+          "policy_hash": "5e3340e4dc91852f"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.59,
+          "shortage": 0.34603286771004027,
+          "risk": 0.006756835927051677,
+          "effort": 0.06222121300163132,
+          "policy_hash": "b0ce5c8c7db5c7b6"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.58,
+          "shortage": 0.3461462572151903,
+          "risk": 0.0065991376574873,
+          "effort": 0.06252569859448635,
+          "policy_hash": "4fc7d66243655b9f"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.5700000000000001,
+          "shortage": 0.34618410086985657,
+          "risk": 0.006548293950750993,
+          "effort": 0.06249331185378659,
+          "policy_hash": "92c32e1497876fa1"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.53,
+          "shortage": 0.34637318023895686,
+          "risk": 0.006299040272800811,
+          "effort": 0.06236637844809941,
+          "policy_hash": "37bd482597ea967d"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.49,
+          "shortage": 0.3464479588488841,
+          "risk": 0.006215326823027077,
+          "effort": 0.06258244763660765,
+          "policy_hash": "e3ca17c6667d3793"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.48,
+          "shortage": 0.3466012314366417,
+          "risk": 0.0060712178515726955,
+          "effort": 0.06274477883769694,
+          "policy_hash": "f994dcd53797ab84"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.47000000000000003,
+          "shortage": 0.3466217572744636,
+          "risk": 0.006052272263399465,
+          "effort": 0.06273964049953408,
+          "policy_hash": "f3abc0c8767423d0"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.46,
+          "shortage": 0.34686720502908874,
+          "risk": 0.005836646905310786,
+          "effort": 0.06265609201368011,
+          "policy_hash": "1b81da3805568777"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.45,
+          "shortage": 0.34725790462969686,
+          "risk": 0.005513119796172437,
+          "effort": 0.062490610845134596,
+          "policy_hash": "cd5d6f7f2c6e1cb5"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.44,
+          "shortage": 0.34731237991127895,
+          "risk": 0.00546899481809098,
+          "effort": 0.06249170035076623,
+          "policy_hash": "645f6d64c53c25d1"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.43,
+          "shortage": 0.3474476872190343,
+          "risk": 0.005362916196255098,
+          "effort": 0.06268452188755326,
+          "policy_hash": "12852c15728914eb"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.41000000000000003,
+          "shortage": 0.3474871429670193,
+          "risk": 0.005333714606949752,
+          "effort": 0.06267425375797386,
+          "policy_hash": "7eb8437351bc17f7"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.39,
+          "shortage": 0.3475043335127229,
+          "risk": 0.005322053864371,
+          "effort": 0.06266291922502051,
+          "policy_hash": "8ae59469e5fb440c"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.38,
+          "shortage": 0.3476059068974482,
+          "risk": 0.005257543288424727,
+          "effort": 0.06280784517024522,
+          "policy_hash": "bb6057ef13d1bd82"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.37,
+          "shortage": 0.34812229930902217,
+          "risk": 0.004952881188455577,
+          "effort": 0.06267124551835654,
+          "policy_hash": "b3839cfacdb96bb4"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.35000000000000003,
+          "shortage": 0.34820345250909746,
+          "risk": 0.0049054283139099986,
+          "effort": 0.06265393507828838,
+          "policy_hash": "92c956f16d7e1651"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.33,
+          "shortage": 0.348843224157145,
+          "risk": 0.004571376250676848,
+          "effort": 0.06245987437879097,
+          "policy_hash": "bca03649ec3fa798"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.31,
+          "shortage": 0.34989541885565895,
+          "risk": 0.004073088623174316,
+          "effort": 0.06235844500649908,
+          "policy_hash": "982867fe5a50e666"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.3,
+          "shortage": 0.3500213652164083,
+          "risk": 0.004019092768950114,
+          "effort": 0.062478837975864863,
+          "policy_hash": "e1a8dfe7b934fb98"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.29,
+          "shortage": 0.3500558525606932,
+          "risk": 0.004004568189445631,
+          "effort": 0.06256939913815393,
+          "policy_hash": "e79aa04c42eb2947"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.27,
+          "shortage": 0.350839341324513,
+          "risk": 0.0036959739758567465,
+          "effort": 0.06241501160968712,
+          "policy_hash": "535eee4d8da92bd1"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.26,
+          "shortage": 0.3509863035408088,
+          "risk": 0.0036433379156405412,
+          "effort": 0.06238438625904741,
+          "policy_hash": "2e65ab91419bcee3"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.25,
+          "shortage": 0.3519172199169256,
+          "risk": 0.00333016795980061,
+          "effort": 0.062148764765784535,
+          "policy_hash": "aad73d0069f97543"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.24,
+          "shortage": 0.35218637292715677,
+          "risk": 0.0032433035835400977,
+          "effort": 0.062104685265507976,
+          "policy_hash": "d4ba3e0831dbde5f"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.23,
+          "shortage": 0.3522204892288101,
+          "risk": 0.00323280445587808,
+          "effort": 0.06217165967895262,
+          "policy_hash": "478bb08d690f0a75"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.21,
+          "shortage": 0.3524755168661714,
+          "risk": 0.003159327454717945,
+          "effort": 0.062255872543433954,
+          "policy_hash": "5a2c35cf2655e2c1"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.19,
+          "shortage": 0.3536258648712704,
+          "risk": 0.002861300568798581,
+          "effort": 0.06205470778331089,
+          "policy_hash": "d0767b82ef3ef625"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.18,
+          "shortage": 0.35377627476381934,
+          "risk": 0.0028277122725604634,
+          "effort": 0.06207777851097936,
+          "policy_hash": "8686e5c732cdddd8"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.17,
+          "shortage": 0.35469603744786016,
+          "risk": 0.0026313026647770037,
+          "effort": 0.06165543697382288,
+          "policy_hash": "b8ff68136f40c8a2"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.16,
+          "shortage": 0.3553927497412866,
+          "risk": 0.0024958277926131955,
+          "effort": 0.061545972480681964,
+          "policy_hash": "351c336408b322bd"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.15,
+          "shortage": 0.3556600686052293,
+          "risk": 0.0024471197974946864,
+          "effort": 0.06162249377574649,
+          "policy_hash": "fd630e8cd7c5b0d0"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.14,
+          "shortage": 0.35739875812511357,
+          "risk": 0.002161302397019081,
+          "effort": 0.06141647669385112,
+          "policy_hash": "563e5456e0410c6e"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.13,
+          "shortage": 0.3576055727249795,
+          "risk": 0.002129686159481778,
+          "effort": 0.06139023478685294,
+          "policy_hash": "8dcb98fecd7ffab9"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.12,
+          "shortage": 0.35792063180767597,
+          "risk": 0.0020854688755038223,
+          "effort": 0.06135264750984395,
+          "policy_hash": "cc00bb487f1f3a44"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.11,
+          "shortage": 0.359235550027878,
+          "risk": 0.0019130157928400637,
+          "effort": 0.06125173401900789,
+          "policy_hash": "e9b2b23a9a921507"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.1,
+          "shortage": 0.3594321084564923,
+          "risk": 0.001890610698086197,
+          "effort": 0.06125965380882002,
+          "policy_hash": "6b5856ff3b053ec6"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.09,
+          "shortage": 0.36299538021080174,
+          "risk": 0.0015290529854437896,
+          "effort": 0.0607683546567918,
+          "policy_hash": "8736c77476271478"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.08,
+          "shortage": 0.363888109795,
+          "risk": 0.0014468266537529756,
+          "effort": 0.06067253087810326,
+          "policy_hash": "4361cf233f7fe7f7"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.07,
+          "shortage": 0.3654173621555085,
+          "risk": 0.0013228980138238974,
+          "effort": 0.06059264819668919,
+          "policy_hash": "29d087dc911afa34"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.06,
+          "shortage": 0.36714204105385895,
+          "risk": 0.0011985852561450202,
+          "effort": 0.060488812186906514,
+          "policy_hash": "eb88d0a43d8df2cd"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.05,
+          "shortage": 0.37350377707020066,
+          "risk": 0.0008381683998717693,
+          "effort": 0.05960351174949861,
+          "policy_hash": "3ad4287544a80375"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.04,
+          "shortage": 0.37512217381067264,
+          "risk": 0.0007686085776695377,
+          "effort": 0.05944516700143099,
+          "policy_hash": "005585e63a07b960"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.03,
+          "shortage": 0.37521898723698305,
+          "risk": 0.0007646424014642428,
+          "effort": 0.05945702785938184,
+          "policy_hash": "835abeaf6fa4e3bd"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.02,
+          "shortage": 0.3859726665526687,
+          "risk": 0.0005154850215330789,
+          "effort": 0.05780409684576837,
+          "policy_hash": "aa5a7c67e5682930"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.01,
+          "shortage": 0.3889777896565886,
+          "risk": 0.0004645456595318073,
+          "effort": 0.05755793031520105,
+          "policy_hash": "8d278737d610402c"
+        },
+        {
+          "environment": "competing",
+          "shortage_weight": 0.0,
+          "shortage": 0.7431356195489311,
+          "risk": 0.0004030612224141872,
+          "effort": 0.036095238143668974,
+          "policy_hash": "519a349b99490e3b"
+        }
+      ],
+      "shortage_min": 0.34495677983671,
+      "risk_min": 0.0004030612224141872
+    },
+    "null": {
+      "actions": 6,
+      "random": [
+        0.32875707969928747,
+        0.0007599392633405595,
+        0.050000000000000044
+      ],
+      "nondominated": [
+        {
+          "environment": "null",
+          "shortage_weight": 0.01,
+          "shortage": 0.0,
+          "risk": 0.0,
+          "effort": 0.04637952038366559,
+          "policy_hash": "e1cac259556970d2"
+        }
+      ],
+      "shortage_min": 0.0,
+      "risk_min": 0.0
+    }
+  },
+  "gates": {
+    "G1_environment_integrity": {
+      "pass": true,
+      "details": {
+        "competing": {
+          "min_probability": 0.0,
+          "max_row_sum_error": 1.1102230246251565e-16,
+          "all_costs_finite": true,
+          "min_cost": 0.0
+        },
+        "null": {
+          "min_probability": 0.0,
+          "max_row_sum_error": 0.0,
+          "all_costs_finite": true,
+          "min_cost": 0.0
+        }
+      }
+    },
+    "G2_oracle_effectiveness": {
+      "pass": true,
+      "relative_improvements": [
+        0.3511451173106589,
+        0.265732492962175,
+        0.23405426842855728
+      ]
+    },
+    "G3_outcome_competition": {
+      "pass": true,
+      "competing_nondominated_count": 73,
+      "shortage_range": 0.3981788397122211,
+      "risk_range": 0.15536129345999544,
+      "null_common_minimizer": true
+    },
+    "G4_sensor_selectivity": {
+      "pass": true,
+      "demand_gain": 0.31999999999999995,
+      "health_gain": 0.31999999999999995,
+      "demand_sensor_off_target": 1.1102230246251565e-16,
+      "health_sensor_off_target": 1.1102230246251565e-16
+    },
+    "G5_resource_levels": {
+      "pass": true,
+      "nonbinding_error": 0.06000000000000005,
+      "budget3_error": 0.06000000000000005,
+      "slots3_error": 0.06000000000000005,
+      "binding_error": 0.44,
+      "binding_gap": 0.37999999999999995
+    }
+  },
+  "completeness": {
+    "expected_weights_per_environment": 101,
+    "actual_rows": 202,
+    "expected_rows": 202,
+    "resource_rows": 12,
+    "expected_resource_rows": 12,
+    "sensor_rows": 4,
+    "expected_sensor_rows": 4,
+    "pass": true
+  }
+}

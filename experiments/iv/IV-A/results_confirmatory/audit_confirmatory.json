@@ -1,0 +1,67 @@
+{
+  "audit_seed": 20260828,
+  "bootstrap_samples": 10000,
+  "completeness": {
+    "seeds": 40,
+    "branches": [
+      "A",
+      "B"
+    ],
+    "rows": 640,
+    "expected_rows": 640,
+    "unique_keys": 640,
+    "pass": true
+  },
+  "transition_time_acquisition_effect_by_formed_branch": {
+    "A": {
+      "mean": 16.625,
+      "low": 12.125,
+      "high": 22.125
+    },
+    "B": {
+      "mean": 20.125,
+      "low": 12.0,
+      "high": 34.25
+    }
+  },
+  "A_minus_B_time_effect": {
+    "mean": -3.5,
+    "low": -18.875,
+    "high": 7.25
+  },
+  "exploratory_matching_acquisition_update_effect_on_abs_s": {
+    "mean": 0.0375520203833231,
+    "low": 0.036065113114095895,
+    "high": 0.03905300973472915
+  },
+  "auxiliary_controls": {
+    "acq_none__upd_reference": {
+      "final_s_ref": 0.12303338977104113,
+      "transition_rate": 0.0,
+      "restricted_transition_time": 400.0
+    },
+    "acq_none__upd_alternative": {
+      "final_s_ref": -0.12025953102579581,
+      "transition_rate": 1.0,
+      "restricted_transition_time": 27.25
+    },
+    "acq_random__upd_reference": {
+      "final_s_ref": 0.13111537543393056,
+      "transition_rate": 0.0,
+      "restricted_transition_time": 400.0
+    },
+    "acq_random__upd_alternative": {
+      "final_s_ref": -0.12802418562614357,
+      "transition_rate": 1.0,
+      "restricted_transition_time": 25.8125
+    }
+  },
+  "failed_reference_update_retention_cases": [
+    {
+      "seed": 6238,
+      "reference": "A",
+      "acquisition": "alternative",
+      "final_s_ref": 0.06859248419129309
+    }
+  ]
+}

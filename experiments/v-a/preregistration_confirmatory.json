@@ -1,0 +1,43 @@
+{
+  "experiment": "V-A",
+  "registered_at": "2026-09-02",
+  "question": "Can acquisition precision select each of three favored targets under balanced updating, with the three effects spanning the two-dimensional allocation plane?",
+  "pilot_seeds": [8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8008, 8009, 8010, 8011],
+  "confirmatory_seeds_are_unused": true,
+  "script_sha256": "19be41236465d94535b0a6ad0eff426361349d525bf7f49da83db04222408a32",
+  "pilot_result_sha256": "67b5350527a4d6a5b104012b37ec03b10fba55967821e7f0552861923a4f3713",
+  "fixed_design": {
+    "seeds": [8200, 8201, 8202, 8203, 8204, 8205, 8206, 8207, 8208, 8209, 8210, 8211, 8212, 8213, 8214, 8215, 8216, 8217, 8218, 8219, 8220, 8221, 8222, 8223, 8224, 8225, 8226, 8227, 8228, 8229, 8230, 8231, 8232, 8233, 8234, 8235, 8236, 8237, 8238, 8239],
+    "capacities": [2, 3],
+    "formation_steps": 600,
+    "initial_steps": 100,
+    "correlation": 0.35,
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "initial_noise": 0.15,
+    "heavy_weight": 0.8,
+    "conditions": [
+      ["A_precise", "balanced"],
+      ["B_precise", "balanced"],
+      ["C_precise", "balanced"],
+      ["balanced", "balanced"],
+      ["balanced", "A_heavy"],
+      ["balanced", "B_heavy"],
+      ["balanced", "C_heavy"]
+    ]
+  },
+  "thresholds": {
+    "capacity_2_minimum_q_gain": 0.2,
+    "capacity_3_minimum_q_gain": 0.5,
+    "minimum_favored_fraction": 0.9,
+    "maximum_other_target_asymmetry": 0.06,
+    "maximum_balanced_group_mean_range": 0.08,
+    "maximum_acquisition_effect_range": 0.1,
+    "minimum_plane_singular_ratio": 0.7
+  },
+  "joint_decision": "The central claim passes only if every registered sensor, acquisition, positive-control, symmetry, label-exchangeability, and two-dimensional-span gate passes for both capacities.",
+  "statistical_unit": "seed",
+  "primary_measurement": "held-out common all-high-precision probe after 600 formation updates",
+  "secondary_measurement": "held-out common all-low-precision probe",
+  "pilot_data_are_not_pooled_with_confirmation": true
+}

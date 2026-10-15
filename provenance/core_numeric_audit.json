@@ -1,0 +1,204 @@
+{
+  "date": "2026-10-15",
+  "scope": "Independent arithmetic reaggregation of selected central means from archived CSVs; no training and no new inferential tests.",
+  "checks": [
+    {
+      "quantity": "IV-D matched aligned allocation",
+      "raw_mean": -0.006423856789277507,
+      "manuscript_value": -0.0064,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-D carried acquisition_pulse",
+      "raw_mean": 0.16676206044084987,
+      "manuscript_value": 0.1668,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-D carried update_pulse",
+      "raw_mean": 0.1509709105834193,
+      "manuscript_value": 0.151,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-D carried combined_switch",
+      "raw_mean": 0.1950640430203548,
+      "manuscript_value": 0.1951,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-D reset acquisition_pulse",
+      "raw_mean": 0.0010650810200150663,
+      "manuscript_value": 0.0011,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-D reset update_pulse",
+      "raw_mean": 0.011987786543139636,
+      "manuscript_value": 0.012,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-D reset combined_switch",
+      "raw_mean": 0.010279061316929882,
+      "manuscript_value": 0.0103,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E own",
+      "raw_mean": 0.19679960355531337,
+      "manuscript_value": 0.1968,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E m_other",
+      "raw_mean": 0.19819160687439696,
+      "manuscript_value": 0.1982,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E v_other",
+      "raw_mean": -0.12646348020657844,
+      "manuscript_value": -0.1265,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E reset",
+      "raw_mean": 0.009680682082544172,
+      "manuscript_value": 0.0097,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E-update-bias-control own",
+      "raw_mean": 0.03244932274036016,
+      "manuscript_value": 0.0324,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E-update-bias-control m_other",
+      "raw_mean": 0.032089200217212364,
+      "manuscript_value": 0.0321,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E-update-bias-control v_other",
+      "raw_mean": -0.014131757535196559,
+      "manuscript_value": -0.0141,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-E-update-bias-control reset",
+      "raw_mean": 0.004579192526863583,
+      "manuscript_value": 0.0046,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "IV-D acquisition zero crossing percent",
+      "raw_mean": 67.5,
+      "manuscript_value": 67.5,
+      "rounding_digits": 1,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up own step 10",
+      "raw_mean": 0.19071687301021673,
+      "manuscript_value": 0.1907,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up v_equal_scale step 10",
+      "raw_mean": 0.08751503644352059,
+      "manuscript_value": 0.0875,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up scalar_v_own step 10",
+      "raw_mean": 0.1251160265470316,
+      "manuscript_value": 0.1251,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up scalar_v_equal step 10",
+      "raw_mean": 0.03948502445461106,
+      "manuscript_value": 0.0395,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up v_other_equal_scale step 10",
+      "raw_mean": -0.01098560455160823,
+      "manuscript_value": -0.011,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up reset step 10",
+      "raw_mean": 0.009630099460074737,
+      "manuscript_value": 0.0096,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up reset step 50",
+      "raw_mean": 0.02738949152448869,
+      "manuscript_value": 0.0274,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up sgd_calibrated step 10",
+      "raw_mean": 0.012296713438827721,
+      "manuscript_value": 0.0123,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up sgd_calibrated step 50",
+      "raw_mean": 0.043278893025433175,
+      "manuscript_value": 0.0433,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up sgd_calibrated step 100",
+      "raw_mean": 0.030908069880547385,
+      "manuscript_value": 0.0309,
+      "rounding_digits": 4,
+      "pass_check": true
+    },
+    {
+      "quantity": "Follow-up own endpoint difference at 500",
+      "raw_mean": -0.0004539579162234408,
+      "manuscript_value": -0.00045,
+      "rounding_digits": 5,
+      "pass_check": true
+    }
+  ],
+  "all_pass": true,
+  "frozen_manifest_files_checked": 129,
+  "endpoint_interval_source": "experiments/iv-followup/posthoc_review_results.json",
+  "interval_note": "The canonical confirmatory bootstrap uses a separate random stream and gives [-0.001419,0.000582]; the manuscript retains the existing separately labeled post-hoc interval [-0.001462,0.000568]. Both use the same endpoint mean. Figure intervals likewise use their documented plotting bootstrap, not a replacement confirmatory test.",
+  "input_sha256": {
+    "experiments/iv-followup/results_confirm/manifest.json": "920e36ea357af691413466544361909b80b3722e4b028ea550930ef567eb1dff",
+    "experiments/iv-followup/posthoc_review_results.json": "b542fa7df7345ad3367f100705ac86e1eba8518d50c47d7d610e46f8a23cf790",
+    "experiments/iv-followup/posthoc_update_norm_results.json": "fca716c81d84d828ea3928a8e943e96faeff3faf01ffd2de7f4af3ff7ff71a23"
+  }
+}

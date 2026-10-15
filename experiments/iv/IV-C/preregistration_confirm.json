@@ -1,0 +1,40 @@
+{
+  "experiment": "IV-C",
+  "registered_at": "2026-09-01T18:48:00+09:00",
+  "question": "形成済み表現を出発点にしても、更新を0.5/0.5に固定したまま取得精度だけで反対方向へ移行できるか。",
+  "fixed_design": {
+    "seeds": [7700, 7701, 7702, 7703, 7704, 7705, 7706, 7707, 7708, 7709, 7710, 7711, 7712, 7713, 7714, 7715, 7716, 7717, 7718, 7719, 7720, 7721, 7722, 7723, 7724, 7725, 7726, 7727, 7728, 7729, 7730, 7731, 7732, 7733, 7734, 7735, 7736, 7737, 7738, 7739],
+    "initial_steps": 100,
+    "branch_formation_steps": 500,
+    "trajectory_steps": 1000,
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "initial_noise": 0.15,
+    "formation_weights": {
+      "A_formed": 0.85,
+      "B_formed": 0.15
+    },
+    "branch_formation_acquisition": "both A and B observed with noise SD 0.15",
+    "trajectory_update_weight_A": 0.5,
+    "initial_states": ["A_formed", "neutral", "B_formed"],
+    "acquisition_levels": ["A_precise", "balanced", "B_precise"]
+  },
+  "primary_estimand": "A/B形成済み状態で平均した、1000更新後のs_highに対するA精密取得－B精密取得のseed内対応差。",
+  "formed_start_minimum": 0.25,
+  "formed_acquisition_minimum": 0.50,
+  "opposite_destination_minimum": 0.20,
+  "minimum_crossing_rate": 0.90,
+  "neutral_control_minimum": 0.50,
+  "threshold_rationale": {
+    "formed_start_minimum": "形成済み操作が明瞭な出発状態を作ったことを確認する。パイロット平均絶対値0.35以上より低く設定した。",
+    "formed_acquisition_minimum": "パイロット中心差0.712の約70%であり、単なる微小変化ではなく形成方向の実質的な反転を要求する。",
+    "opposite_destination_minimum": "ゼロ交差だけでなく、反対方向へ十分な距離を移動したことを要求する。",
+    "minimum_crossing_rate": "形成済み状態の一部だけで生じる現象ではなく、seedを越えて再現することを要求する。",
+    "neutral_control_minimum": "IV-Bの形成効果が、延長した観測地平と新しいseed群でも再現することを確認する。"
+  },
+  "primary_probe": "全条件共通のA/B両方高精度・未使用probe/test",
+  "secondary_probe": "全条件共通のA/B両方低精度・未使用probe/test",
+  "statistical_unit": "seed",
+  "confidence_interval": "seed bootstrap percentile 95% interval, 5000 resamples",
+  "stopping_rule": "40 seedをすべて実行し、事前判定の成否にかかわらず終了する。"
+}

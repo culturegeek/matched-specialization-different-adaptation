@@ -1,0 +1,131 @@
+{
+  "config": {
+    "train_size": 4096,
+    "selector_size": 1024,
+    "test_size": 2048,
+    "source_dim": 3,
+    "bottleneck": 3,
+    "correlation": 0.35,
+    "observation_noise": 0.02,
+    "hidden_dim": 32,
+    "batch_size": 256,
+    "history_steps": 1200,
+    "common_steps": 3000,
+    "history_lambda_a": 0.9,
+    "history_lambda_b": 0.1,
+    "checkpoints": [
+      0,
+      20,
+      100,
+      300,
+      750,
+      1500,
+      3000
+    ],
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "probe_ridge": 0.001,
+    "selector_interval": 10,
+    "selector_gain": 1.5,
+    "selector_max_bias": 0.4,
+    "conditions": [
+      "all_targets",
+      "balanced_sampled",
+      "fixed_propensity",
+      "stabilization",
+      "exploration"
+    ]
+  },
+  "device": "CPU",
+  "torch": "2.13.0",
+  "cuda_available": false,
+  "python": "3.11.7 (main, Dec 15 2023, 12:09:56) [Clang 14.0.6 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "runtime_seconds": 957.8970501422882,
+  "evaluation": {
+    "gates": {
+      "history_manipulation": true,
+      "open_loop_replicates_erasure": true,
+      "stabilization_preserves_history": true,
+      "exploration_reduces_history_relative_to_stabilization": true
+    },
+    "diagnostics": {
+      "dynamic_to_fixed_auc_ratio": 1.0020966341901791,
+      "stabilization_minus_fixed_final_retention": 0.0013303574768190884
+    },
+    "by_condition": {
+      "all_targets": {
+        "initial_gap": 1.8806245109827855,
+        "final_gap": 0.004586607351364011,
+        "behavioral_retention": 0.0024388745996747016,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 0.002328626429125262,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 0.14228805928480515,
+        "probe_gap_auc": 0.1375831591348199,
+        "final_pair_CKA": 0.9876211166381836,
+        "final_selector_gap": 0.0
+      },
+      "balanced_sampled": {
+        "initial_gap": 1.8806245109827855,
+        "final_gap": 0.039342636517707676,
+        "behavioral_retention": 0.020919984977291875,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 0.020600424966254766,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 0.28620521481805317,
+        "probe_gap_auc": 0.27887590212144314,
+        "final_pair_CKA": 0.9913468480110168,
+        "final_selector_gap": 0.0
+      },
+      "fixed_propensity": {
+        "initial_gap": 1.8806245109827855,
+        "final_gap": 1.9588799807230282,
+        "behavioral_retention": 1.0416114270989194,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 1.0385396422078588,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 1.9343125463710185,
+        "probe_gap_auc": 1.936420833169041,
+        "final_pair_CKA": 0.2025480017066002,
+        "final_selector_gap": 0.7113643340742244
+      },
+      "stabilization": {
+        "initial_gap": 1.8806245109827855,
+        "final_gap": 1.961381883602305,
+        "behavioral_retention": 1.0429417845757385,
+        "behavioral_ci_excludes_zero": true,
+        "probe_retention": 1.0395859038130164,
+        "probe_ci_excludes_zero": true,
+        "gap_auc": 1.9383680921912345,
+        "probe_gap_auc": 1.9403822293884525,
+        "final_pair_CKA": 0.19812960773706437,
+        "final_selector_gap": 0.7193552221366051
+      },
+      "exploration": {
+        "initial_gap": 1.8806245109827855,
+        "final_gap": 0.01328082848684608,
+        "behavioral_retention": 0.007061924594345875,
+        "behavioral_ci_excludes_zero": false,
+        "probe_retention": 0.0071003265450126155,
+        "probe_ci_excludes_zero": false,
+        "gap_auc": 0.07548173046665531,
+        "probe_gap_auc": 0.06329408771027904,
+        "final_pair_CKA": 0.9917994856834411,
+        "final_selector_gap": -0.005796334402332182
+      }
+    }
+  }
+}

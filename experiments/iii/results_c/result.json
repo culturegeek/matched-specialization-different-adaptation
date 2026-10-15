@@ -1,0 +1,100 @@
+{
+  "experiment": "III-C",
+  "seeds": [
+    4100,
+    4101,
+    4102,
+    4103,
+    4104,
+    4105,
+    4106,
+    4107,
+    4108,
+    4109,
+    4110,
+    4111,
+    4112,
+    4113,
+    4114,
+    4115,
+    4116,
+    4117,
+    4118,
+    4119,
+    4120,
+    4121,
+    4122,
+    4123,
+    4124,
+    4125,
+    4126,
+    4127,
+    4128,
+    4129,
+    4130,
+    4131,
+    4132,
+    4133,
+    4134,
+    4135,
+    4136,
+    4137,
+    4138,
+    4139
+  ],
+  "preregistered_gates": "G1 branches: correct history branch 80/80; common-end |s| CI lower >0.90.\nG2 timescales: spontaneous switches 0 over 8000; K1600 return rate >=0.90;\n   90th-percentile relaxation <=500; residence lower-bound / relaxation >=16.\nG3 transition: K3200--6400 switch rates monotone; K3200<=0.10; K6400>=0.90; difference>=0.80.\nG4 q: K4000/4800/5600 mean aligned-s range <0.01 and switch-rate range>=0.40;\n   AUC(-aligned_kappa)>=0.70 and exceeds AUC(-aligned_s) by >=0.05.\nG5 transfer: rotated-context retention >=0.90 and aligned-s CI lower >0.90.\nUnit=seed with two mirrored history arms; bootstrap resamples seed clusters, seed=20260824, B=10000.",
+  "gates": {
+    "G1_two_states": {
+      "pass": true,
+      "correct_history_arms": 80,
+      "base_abs_s": {
+        "mean": 0.985416618117603,
+        "low": 0.9850133274934435,
+        "high": 0.9858092882747762
+      }
+    },
+    "G2_timescale_separation": {
+      "pass": true,
+      "spontaneous_switches": 0,
+      "return_rate": 1.0,
+      "relax_q90": 200.0,
+      "timescale_ratio_lower": 40.0
+    },
+    "G3_finite_transition": {
+      "pass": false,
+      "rates": {
+        "0": 0.0,
+        "1600": 0.0,
+        "3200": 0.15,
+        "4000": 0.4625,
+        "4800": 0.625,
+        "5600": 0.875,
+        "6400": 0.9625
+      }
+    },
+    "G4_order_parameter": {
+      "pass": true,
+      "surface_range": 0.0011813496637318455,
+      "rate_range": 0.4125,
+      "auc_q": 0.7118409945514542,
+      "auc_surface": 0.5999539559511933,
+      "auc_gain": 0.11188703860026095
+    },
+    "G5_context_transfer": {
+      "pass": true,
+      "retention": 1.0,
+      "aligned_s": {
+        "mean": 0.9898084246289327,
+        "low": 0.9895769857810753,
+        "high": 0.9900296520873649
+      }
+    }
+  },
+  "completeness": {
+    "endpoint_rows": 560,
+    "expected_endpoints": 560,
+    "summary_rows": 800,
+    "expected_summary": 800,
+    "pass": true
+  }
+}

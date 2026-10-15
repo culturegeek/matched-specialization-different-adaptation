@@ -1,0 +1,77 @@
+{
+  "config": {
+    "train_size": 2048,
+    "test_size": 1024,
+    "source_dim": 3,
+    "correlation": 0.35,
+    "observation_noise": 0.02,
+    "epochs": 500,
+    "learning_rate": 0.03,
+    "weight_decay": 1e-05,
+    "bottlenecks": [
+      3,
+      6
+    ],
+    "lambdas": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "calibration_correlations": [
+      0.0,
+      0.2,
+      0.35,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "scaling_train_sizes": [
+      1024,
+      2048,
+      4096,
+      8192
+    ],
+    "scaling_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "scaling_epochs": 500,
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "runtime_seconds": 10.455965042114258,
+  "python": "3.12.13 (main, Aug  7 2026, 02:15:23) [Clang 22.1.3 ]",
+  "numpy": "2.3.5",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "criteria": {
+    "limited_bottleneck": 3,
+    "expanded_bottleneck": 6,
+    "best_D_A_limited": 0.0004124057954380579,
+    "best_D_B_limited": 0.0003965179041297503,
+    "balanced_mean_D_limited": 0.32192326483894684,
+    "balanced_mean_D_expanded": 0.00040445964171590136,
+    "capacity_gain": 0.3215188051972309,
+    "individual_learnability": true,
+    "capacity_sensitive_conflict": true,
+    "calibration_rmse": 0.008562367340497876,
+    "calibration_max_error": 0.010945511835647403,
+    "analytic_calibration_passed": true,
+    "rmse_loglog_slope": -0.5365804010245007,
+    "mse_loglog_slope": -1.0731608020490013,
+    "smallest_n_rmse": 0.01030667811282133,
+    "largest_n_rmse": 0.00381449881550505,
+    "error_decreases": true,
+    "sampling_scaling_consistent": true
+  }
+}
