@@ -1,0 +1,7 @@
+{
+  "analytic_chain_rule_rows_passed": 40960,
+  "seed_ratio_intervals_passed": 16,
+  "max_absolute_float32_vs_float64_discrepancy": 2.0702791658777642e-07,
+  "all_checkpoints_and_locked_sources_unchanged": true,
+  "status": "PASS"
+}

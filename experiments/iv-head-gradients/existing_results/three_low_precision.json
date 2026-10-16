@@ -1,0 +1,17 @@
+{
+  "description": "Designated-target low-precision allocation score, balanced updating and each preferential acquisition; equal average across 3 targets and 40 seeds. Point summary only.",
+  "source": "experiments/v-a/results_confirm/cell_summary.csv",
+  "source_sha256": "52676a7ba1f88d5c3a2f2710166c2cf0bc7540aaf704e75c36bee9340e06f3d7",
+  "by_capacity": {
+    "2": {
+      "mean": 0.13687002095656078,
+      "rows": 120,
+      "seeds": 40
+    },
+    "3": {
+      "mean": 0.23530912602676776,
+      "rows": 120,
+      "seeds": 40
+    }
+  }
+}

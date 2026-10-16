@@ -38,5 +38,11 @@
     "new_document_internal_links": "pass",
     "english_and_japanese_guides": "read in full; inference unit, study scope, and analysis status checked",
     "training_command_correction": "Added required --preregistration arguments to the IV-D, IV-E, and V-A commands."
-  }
+  },
+  "subsequent_validation_records": {
+    "ivf": "ivf_validation.json",
+    "vbc": "vbc_validation.json",
+    "head": "head_validation.json"
+  },
+  "subsequent_environment_note": "V-B, V-C and head diagnostic: Python 3.12.14, NumPy 2.4.6, PyTorch 2.13.0, CPU one thread; see experiment records."
 }

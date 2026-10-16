@@ -1,6 +1,6 @@
 # From manuscript claims to data
 
-This map refers to the 15 October 2026 manuscript revision, identified by the checksum in [manuscript_version.json](../paper/manuscript_version.json). Paths below are relative to the repository root. Within an experiment, `results_confirm` (or `results_confirmatory`) identifies the stored confirmatory output; pilot directories remain separate.
+This map refers to the 16 October 2026, v1.3.0 manuscript revision, identified by the checksum in [manuscript_version.json](../paper/manuscript_version.json). Paths below are relative to the repository root. Within an experiment, `results_confirm` (or `results_confirmatory`) identifies the stored confirmatory output; pilot directories remain separate.
 
 | Manuscript location | Question and primary input | Program / figure |
 |---|---|---|
@@ -25,14 +25,26 @@ The portable arithmetic check covers 27 selected central means and the follow-up
 
 | Manuscript evidence | Data and calculation |
 |---|---|
-| Section 4 endpoint prediction; Appendix J.1 / Table 6 | `experiments/iv-extension/results_saved/`; `analyze_saved.py` |
-| Section 5.4 movement and layers; Appendix J.4 / Table 9 | `experiments/iv-extension/results_mechanism/` and `runs_mechanism/` |
-| Section 5.5 settings; Appendix J.2 / Table 7 | `experiments/iv-extension/results_general/` and `runs_general/` |
-| Section 5.5 decay/duration; Appendix J.3 / Table 8 | `experiments/iv-extension/results_beta/`, baseline in `results_general/` |
+| Section 4 endpoint prediction; Appendix J.1 / Table 8 | `experiments/iv-extension/results_saved/`; `analyze_saved.py` |
+| Section 5.4 movement and layers; Appendix J.4 / main Table 3 | `experiments/iv-extension/results_mechanism/` and `runs_mechanism/` |
+| Section 5.5 settings; Appendix J.2 / Table 9 | `experiments/iv-extension/results_general/` and `runs_general/` |
+| Section 5.5 decay/duration; Appendix J.3 / Table 10 | `experiments/iv-extension/results_beta/`, baseline in `results_general/` |
 | Every printed confidence interval | `analyses/manuscript_intervals/INTERVAL_LEDGER.csv` |
 
 Run `audit_extension.py` for independent checks and see the extension README for full reruns. Existing plots use their original frozen data; Figure 3 tick labels were spaced without changing values.
 
 ## Three-target and natural extensions
 
-The main three-target comparison table and Appendix K use `experiments/v-three-adaptation/results_confirm/result.json`; Appendix L uses `experiments/v-natural/results_confirm/result.json`. Both contain seed-level and direction-level CSVs, all endpoint criteria, and 10/50-update estimates. The raw `runs_confirm/` cells reproduce those summaries. V-C must be read with its failed room-specific matching criteria, original data attribution, split manifest and calibration failures.
+Main Table 4 summarizes the criteria across 13 distinct settings. Appendix K / Table 12 uses `experiments/v-three-adaptation/results_confirm/result.json`; Appendix L / Table 13 uses `experiments/v-natural/results_confirm/result.json`. Both contain seed-level and direction-level CSVs, all endpoint criteria, and 10/50-update estimates. The raw `runs_confirm/` cells reproduce those summaries. V-C must be read with its failed room-specific matching criteria, original data attribution, split manifest and calibration failures.
+
+## Head gradients and descriptive additions (v1.3.0)
+
+| Manuscript evidence | Data and calculation |
+|---|---|
+| Section 5.4; Appendix J.5 / Table 11 | `experiments/iv-head-gradients/results/result.json`, all 40960 batch rows, 160 checkpoint summaries, and 40-seed ratios; `analyze_gradients.py` and independent `audit_gradients.py` |
+| Section 5.5; Appendix J.3 reset increases | Frozen IV-F reset estimates in Table 10; paired reset-minus-own intervals in `experiments/iv-head-gradients/existing_results/reset_comparison.json`, computed by `summarize_existing.py` |
+| Main Table 4, setting-by-claim inventory | `experiments/iv-head-gradients/existing_results/claim_inventory.csv`; deduplicated original criteria from IV-F, V-B, V-C |
+| Appendix L, direction of unmatched starting values | `experiments/v-natural/results_confirm/result.json`, `by_capacity.2.formation_match.s01` and `low_s01`; origin-averaged description does not replace 24 room-specific criteria |
+| Appendix D, low-precision designated score | `experiments/iv-head-gradients/existing_results/three_low_precision.json`; `summarize_low_precision.py` reads the frozen V-A cells |
+
+The head analysis is exploratory, uses all saved two-target tanh follow-up endpoints, and makes no weight updates. The common high-precision result describes opposing present gradients; forming the historical second-moment pattern remains an open mechanism question. Reset changes both moments and step count. These distinctions are retained in the text and analysis plan.

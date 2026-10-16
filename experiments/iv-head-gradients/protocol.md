@@ -1,0 +1,17 @@
+# Head-specific endpoint gradient diagnostic
+
+Status: exploratory follow-up of previously inspected results, not confirmatory evidence or public preregistration. This plan is written before computing the diagnostic. The prior claim that noisy observation necessarily makes nonfavored-head gradients small is not assumed.
+
+Question: under common inputs, does each trained head transmit smaller reconstruction-loss gradients to the encoder in acquisition-formed than update-formed endpoints, and does this hold for both encoder layers?
+
+Use every saved follow-up seed 20000--20039, both favored-target directions, and both routes (160 checkpoints). Preserve all original data and checkpoints; perform no learning or head refitting. Regenerate the original held-out test split (1536 examples) using frozen source code. For each seed sample 32 batches of 256 examples with replacement using NumPy generator seed 820000 + seed. Reuse exact indices, targets, and input/noise tensors across routes, directions and input conditions.
+
+Primary descriptive condition: both targets observed with high precision, unit (unweighted) MSE gradients for the originally favored head and the other head. Also retain both-low, favored-precise and other-precise input conditions as sensitivity analyses, without selecting a winning condition. Original trained heads are used because their gradients drive the original network.
+
+For each batch/head measure encoder-layer squared gradient norms, head-parameter squared gradient norm, loss, head weight squared Frobenius norm, and the squared norm of the per-example derivative with respect to the bottleneck (mean across examples, before batch averaging). Within each checkpoint average squared norms over batches, then take their square root (RMS batch-gradient norm). Compute acquisition/update ratios per direction; average log ratios over mirrored directions within seed. Report geometric mean ratios and individual 95% intervals from 5000 paired seed resamples, fixed bootstrap seed 2026101611. Seeds are the inferential units; batches and directions are not independent replications. No pass/fail threshold or multiplicity-adjusted discovery claim is introduced. Report both heads and both layers regardless of sign.
+
+Record raw encoder-gradient dot products and cosines. Reconstruct total squared gradient using squared weighted component norms plus the cross term; retain equal weights and each route's formation weights (0.5/0.5 or 0.8/0.2). Keep weight decay separate, including all cross terms in the regularized-gradient identity. Check direct differentiation of the summed loss, numerical decomposition, unchanged checkpoint tensors and all input hashes. These quantities do not add up to nonnegative head contribution fractions.
+
+Stored v summarizes historical squared regularized gradients. Endpoint gradients cannot identify the formation-time history that produced v. Gradient conditions are common diagnostic inputs, not recreations of every formation step. Conclusions concern 40 seeds of the two-target tanh baseline at formation endpoint; no natural-data generalization is inferred.
+
+Additional descriptive analyses fixed here: paired reset-minus-own contrasts for all six beta/duration settings with 5000 seed resamples; a machine-readable 13-setting claim inventory based on the existing frozen intervals; source-backed direction of V-C endpoint mismatches. Existing margins and original failed criteria are unchanged.

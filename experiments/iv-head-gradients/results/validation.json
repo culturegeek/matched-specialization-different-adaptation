@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "checkpoint_unchanged": 160,
+    "direct_gradient_identity": 40960,
+    "squared_gradient_identity": 40960
+  },
+  "maximum_errors": {
+    "direct_relative_error": 2.6421957526760023e-06,
+    "squared_relative_error": 2.3535127348335003e-14
+  },
+  "python": "3.12.14",
+  "numpy": "2.4.6",
+  "torch": "2.13.0",
+  "threads": 1,
+  "cpu": true,
+  "elapsed_seconds": 14.150166034698486,
+  "source_sha256": "23c786fe7f0e89754a757697e0c517b3e1edc8929d09262b31da2a67ec23f4d8",
+  "protocol_sha256": "b00d6d2b4426464b8b0b267c75020b08fce1683025f7069ee3c403ea2169b7bf"
+}

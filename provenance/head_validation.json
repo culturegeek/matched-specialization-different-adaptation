@@ -1,0 +1,32 @@
+{
+  "release": "1.3.0",
+  "date": "2026-10-16",
+  "analysis_status": "exploratory; locally locked before gradient computation, after prior evidence was known",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "torch": "2.13.0",
+    "device": "CPU",
+    "threads": 1
+  },
+  "saved_seed_count": 40,
+  "saved_checkpoint_count": 160,
+  "probe_conditions": 4,
+  "batch_layer_records": 40960,
+  "independent_analytic_audit": {
+    "analytic_chain_rule_rows_passed": 40960,
+    "seed_ratio_intervals_passed": 16,
+    "max_absolute_float32_vs_float64_discrepancy": 2.0702791658777642e-07,
+    "all_checkpoints_and_locked_sources_unchanged": true,
+    "status": "PASS"
+  },
+  "confidence_intervals_per_language": 155,
+  "observed_ranges_per_language": 2,
+  "pdf_pages": {
+    "anonymous": 27,
+    "public": 27,
+    "japanese": 26
+  },
+  "historical_results_unchanged": true,
+  "scope": "All saved two-target tanh endpoint seeds; no new training and no causal reconstruction of historical v. Previous training environments and checks remain in validation.json, ivf_validation.json, vbc_validation.json."
+}

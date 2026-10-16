@@ -209,7 +209,7 @@ $d_Z$ & Acquisition gain & Update-control gain & $\sigma_2$ & Total-error increa
 \end{table}
 
 % P:appthree2
-The $\sigma_2$ intervals are $[0.5456,0.5612]$ for $d_Z=2$ and $[1.3491,1.3815]$ for $d_Z=3$. The ratios $\sigma_2/\sigma_1$ are 0.9839 ($[0.9725,0.9947]$) and 0.9876 ($[0.9767,0.9971]$), above the pre-specified 0.70 criterion. Nonzero second contrast and near-label symmetry are different claims; neither identifies the dimension of the internal learning state. In an exploratory normalization against the best linear-code distortion floors (0.3344 and 0.0025), acquisition removes 63.23\% and 63.67\% of removable distortion, and the update control removes 75.61\% and 75.39\%. These similarities do not constitute a confirmatory capacity-invariance test.
+The $\sigma_2$ intervals are $[0.5456,0.5612]$ for $d_Z=2$ and $[1.3491,1.3815]$ for $d_Z=3$. The ratios $\sigma_2/\sigma_1$ are 0.9839 ($[0.9725,0.9947]$) and 0.9876 ($[0.9767,0.9971]$), above the pre-specified 0.70 criterion. Nonzero second contrast and near-label symmetry are different claims; neither identifies the dimension of the internal learning state. In an exploratory normalization against the best linear-code distortion floors (0.3344 and 0.0025), acquisition removes 63.23\% and 63.67\% of removable distortion, and the update control removes 75.61\% and 75.39\%. These similarities do not constitute a confirmatory capacity-invariance test. Under a common low-precision probe, the designated target retains a positive mean allocation score, approximately 0.137 at dimension two and 0.235 at dimension three, averaging targets and seeds.
 
 
 \section{Network, acquisition, and measurement details (IV)}
@@ -288,7 +288,7 @@ The question-based sections map to the reproduction records as follows: formatio
 The archive's \texttt{docs/PAPER\_TO\_DATA.md} links each figure and principal table to its input files. From the archive root, \texttt{python scripts/verify\_data.py} checks preserved-file hashes and the follow-up's frozen plans and results; \texttt{python scripts/check\_core\_results.py} independently recomputes 27 central means from stored CSVs. After installing \texttt{requirements-analysis.txt}, \texttt{python scripts/make\_figures.py} regenerates the five English figure families. The numerical check covers the selected means. A separate interval ledger links every printed confidence interval to a saved result and its rounding precision. The pooled mirrored-history depth contrast and the two IV-A terminal-depth contrasts use 20,000 paired seed-bootstrap resamples, with mirrored labels averaged within seed. Their reproducible exploratory calculations are provided by \texttt{scripts/audit\_manuscript\_intervals.py}; registered experiment results and decision criteria remain separately identified.
 
 % P:appstatus4
-Training reruns are described in \texttt{docs/REPRODUCING.md}, including a one-seed trajectory comparison and the full 40-seed follow-up. The recorded follow-up environment is Python 3.11.7, NumPy 2.4.6, and PyTorch 2.13.0 on CPU with one thread. The environment and scope of the separate package checks are recorded in \texttt{provenance/validation.json}; they do not constitute a rerun of every historical experiment. Reruns write to new output directories so that the archived confirmatory data, failed criteria, and exploratory records remain available for comparison.
+Training reruns are described in \texttt{docs/REPRODUCING.md}, including a one-seed trajectory comparison and the full 40-seed follow-up. The recorded follow-up environment is Python 3.11.7, NumPy 2.4.6, and PyTorch 2.13.0 on CPU with one thread. The environment and scope of the separate package checks are recorded in \texttt{provenance/validation.json}; they do not constitute a rerun of every historical experiment. Reruns write to new output directories so that the archived confirmatory data, failed criteria, and exploratory records remain available for comparison. The extension checks are recorded separately in \texttt{provenance/ivf\_validation.json}, \texttt{provenance/vbc\_validation.json}, and \texttt{provenance/head\_validation.json}.
 
 % P:appfprovenance
 The IV-F files are in \texttt{experiments/iv-extension/}. The two registration files record local pre-run hashes. Its \texttt{README.md} maps all modes, predictions, layer summaries, and failed criteria to data and rerun commands. \texttt{audit\_extension.py} independently checks raw-CSV means, completeness, shared starts, norm constraints, and frozen hashes. Before new training, the baseline checkpoint and six pulse modes reproduced saved seed 20000 exactly.
@@ -349,23 +349,23 @@ $\rho=0$ & $0.0668\;[0.0571,0.0770]$ & $-0.0901\;[-0.1001,-0.0801]$ & $0.0056\;[
 The grid uses $\beta_2\in\{0.9,0.99,0.999\}$ and 500 or 1,500 formation updates, with the same decay parameter during initialization, formation, and the pulse and with Adam bias correction retained. All six settings pass endpoint tolerances. At 500 updates the own-state contrast grows from 0.0298 through 0.1385 to 0.1962 as $\beta_2$ increases. The smallest fails the fixed lower-bound criterion of 0.05. Exchange reverses the contrast at 0.99 and 0.999 after 500 updates, but only at 0.999 after 1,500 updates. Common-scale exchange effects remain positive throughout (Table~\ref{tab:ivfbeta}).
 
 % P:appfbeta2
-All three reset conditions after 1,500 formation updates fail the $\pm0.02$ criterion, as does $\beta_2=0.9$ after 500 updates. The grid therefore supports a decay- and duration-dependent component effect while narrowing the conditions for reversal and reset equivalence. Because $\beta_2$ changes the formation trajectory and current adaptation as well as retained history, this is not an isolated manipulation of memory duration.
+The reset column shows what remains after removing inherited optimizer state. At $\beta_2=0.9$, reset contrasts are 0.0373 and 0.1073 after 500 and 1,500 formation updates, larger than their own-state contrasts of 0.0298 and 0.0764. At 1,500 updates all three reset intervals lie above 0.02. Thus reset does not define an additive subtraction of optimizer and model contributions. The grid changes formation trajectories and subsequent adaptation together, so it identifies regime dependence rather than an isolated memory-duration effect. At $\beta_2=0.9$, a paired exploratory comparison confirms reset-minus-own increases of $0.0075\;[0.0059,0.0090]$ and $0.0308\;[0.0282,0.0334]$ for 500 and 1,500 formation updates. Reset changes both moments and the optimizer step count; this contrast does not isolate $v$ alone.
 
 \begin{table}[ht]
 \centering\small
-\caption{Decay and duration grid, 32 paired seeds per setting. Pattern effect is the route-contrast difference before minus after $v$ exchange at common $\bar a_v$. All settings satisfy endpoint tolerances.}
+\caption{Decay and duration grid, 32 paired seeds per setting. Common-scale pattern effect is the route-contrast difference before minus after $v$ exchange at common $\bar a_v$. All settings satisfy endpoint tolerances.}
 \label{tab:ivfbeta}
 % P:appfbetatable
-\begin{tabular}{lrrrr}
+\begin{tabular}{llcccc}
 \toprule
-$\beta_2$ & Formation & Own state & Exchange $v$ & Pattern effect\\
+$\beta_2$ & Formation & Own state & Exchange $v$ & Reset & \shortstack{Common-scale\\pattern effect}\\
 \midrule
-$0.9$ & 500 & $0.0298\;[0.0278,0.0318]$ & $0.0104\;[0.0082,0.0127]$ & $0.0058\;[0.0053,0.0064]$ \\
-$0.9$ & 1500 & $0.0764\;[0.0736,0.0794]$ & $0.0494\;[0.0462,0.0526]$ & $0.0120\;[0.0111,0.0131]$ \\
-$0.99$ & 500 & $0.1385\;[0.1329,0.1444]$ & $-0.0720\;[-0.0770,-0.0672]$ & $0.0673\;[0.0625,0.0721]$ \\
-$0.99$ & 1500 & $0.2859\;[0.2789,0.2925]$ & $0.0297\;[0.0204,0.0390]$ & $0.1334\;[0.1204,0.1448]$ \\
-$0.999$ & 500 & $0.1962\;[0.1881,0.2043]$ & $-0.1290\;[-0.1379,-0.1198]$ & $0.1028\;[0.0947,0.1109]$ \\
-$0.999$ & 1500 & $0.4341\;[0.4277,0.4408]$ & $-0.1279\;[-0.1416,-0.1139]$ & $0.2528\;[0.2414,0.2644]$ \\
+$0.9$ & 500 & \shortstack{$0.0298$\\$[0.0278,0.0318]$} & \shortstack{$0.0104$\\$[0.0082,0.0127]$} & \shortstack{$0.0373$\\$[0.0342,0.0406]$} & \shortstack{$0.0058$\\$[0.0053,0.0064]$} \\
+$0.9$ & 1500 & \shortstack{$0.0764$\\$[0.0736,0.0794]$} & \shortstack{$0.0494$\\$[0.0462,0.0526]$} & \shortstack{$0.1073$\\$[0.1023,0.1123]$} & \shortstack{$0.0120$\\$[0.0111,0.0131]$} \\
+$0.99$ & 500 & \shortstack{$0.1385$\\$[0.1329,0.1444]$} & \shortstack{$-0.0720$\\$[-0.0770,-0.0672]$} & \shortstack{$0.0174$\\$[0.0150,0.0197]$} & \shortstack{$0.0673$\\$[0.0625,0.0721]$} \\
+$0.99$ & 1500 & \shortstack{$0.2859$\\$[0.2789,0.2925]$} & \shortstack{$0.0297$\\$[0.0204,0.0390]$} & \shortstack{$0.0963$\\$[0.0913,0.1014]$} & \shortstack{$0.1334$\\$[0.1204,0.1448]$} \\
+$0.999$ & 500 & \shortstack{$0.1962$\\$[0.1881,0.2043]$} & \shortstack{$-0.1290$\\$[-0.1379,-0.1198]$} & \shortstack{$0.0073$\\$[0.0054,0.0092]$} & \shortstack{$0.1028$\\$[0.0947,0.1109]$} \\
+$0.999$ & 1500 & \shortstack{$0.4341$\\$[0.4277,0.4408]$} & \shortstack{$-0.1279$\\$[-0.1416,-0.1139]$} & \shortstack{$0.0574$\\$[0.0529,0.0618]$} & \shortstack{$0.2528$\\$[0.2414,0.2644]$} \\
 \bottomrule
 \end{tabular}
 
@@ -378,29 +378,42 @@ The saved follow-up checkpoints show that total $v$ and mean inverse scaling des
 % P:appfnorm
 To control realized movement, each of the four branches (two routes with own or exchanged $v$) proposes an Adam update from its current state. The geometric mean of the four proposed Euclidean norms becomes their shared target at that step. Each vector is rescaled without changing direction; $m$, $v$, and step count continue to update using gradients at the actual positions. The maximum relative discrepancy from the target norm is below $2\times10^{-6}$. The resulting exchange effect is $0.0231\;[0.0208,0.0253]$. Thus a component effect remains when global movement is equal. Directions and layerwise movements remain free to differ; the joint control rule does not identify a natural-trajectory mediation fraction.
 
+
+
+
+
+
+\subsection{Head-specific encoder gradients at saved endpoints}
+\label{app:headgrad}
+% P:headgraddesign
+We retain all 40 follow-up seeds (20000--20039), both favored-target directions, and both routes, giving 160 checkpoints. Without updating weights or refitting heads, we differentiate each trained head's mean squared reconstruction loss separately. The original held-out test split supplies 1,536 examples. Each seed supplies 32 resampled batches of 256, with identical indices, targets, and input/noise tensors across routes. Both-high-precision input is the primary descriptive probe; both-low, favored-precise, and other-precise inputs are retained as sensitivity conditions. This analysis was specified locally before computing these gradients, after the earlier results were known, and remains exploratory.
+
+% P:headgradmethod
+For each head and encoder layer, we average squared batch-gradient norms, then take the square root. We form acquisition/update ratios within direction and average their logarithms over directions within seed. Table~\ref{tab:headgrad} reports geometric mean ratios and individual 95\% intervals from 5,000 paired-seed resamples. The cosine measures alignment of the two head gradients: $-1$ denotes opposite directions and $+1$ matching directions. Cosines are averaged over batches and directions within seed. Gradients are unweighted unless specified; weight decay is kept separate.
+
 \begin{table}[ht]
 \centering\small
-\caption{Layer and movement interventions on 40 saved seed pairs. Layer rows exchange only the named layer's $v$; equal-movement rows apply the joint norm-control rule.}
-\label{tab:ivfmechanism}
-% P:appfmechanismtable
-\begin{tabular}{lr}
+\caption{Exploratory common high-precision endpoint gradients. Norm ratios compare acquisition with update; cosine rows describe the two routes separately. Statistics use 40 paired seeds.}
+\label{tab:headgrad}
+% P:headgradtable
+\begin{tabular}{lcc}
 \toprule
-Intervention & Route contrast [95\% CI]\\
+Measure & Encoder layer 1 & Encoder layer 2\\
 \midrule
-Own & $0.1907\;[0.1837,0.1976]$ \\
-First encoder layer & $0.0115\;[0.0060,0.0171]$ \\
-Second encoder layer & $0.0611\;[0.0558,0.0665]$ \\
-Both heads & $0.1911\;[0.1838,0.1978]$ \\
-All parameters & $-0.1183\;[-0.1264,-0.1099]$ \\
-Equal movement, own & $0.0303\;[0.0269,0.0338]$ \\
-Equal movement, exchanged & $0.0072\;[0.0040,0.0104]$ \\
+Favored-head norm ratio & $1.331\;[1.304,1.360]$ & $1.122\;[1.097,1.149]$\\
+Other-head norm ratio & $1.150\;[1.135,1.166]$ & $1.028\;[1.014,1.041]$\\
+Equal-weight total norm ratio & $0.860\;[0.840,0.880]$ & $0.736\;[0.717,0.755]$\\
+Gradient cosine, acquisition & $-0.976\;[-0.979,-0.974]$ & $-0.969\;[-0.973,-0.966]$\\
+Gradient cosine, update & $-0.853\;[-0.866,-0.839]$ & $-0.784\;[-0.799,-0.767]$\\
 \bottomrule
 \end{tabular}
-
 \end{table}
 
+% P:headgradinterpretation
+Individual head-gradient ratios exceed one in the common high-precision probe, while the equally weighted sum has ratios below one. For gradients $g_f,g_o$ and weights $w_f,w_o$, the squared total is $w_f^2\|g_f\|^2+w_o^2\|g_o\|^2+2w_fw_o\langle g_f,g_o\rangle$. The negative cross term therefore matters, and head norms cannot be interpreted as additive contribution fractions. Using route-specific formation weights at this same probe instead gives total-norm ratios 1.215 and 0.939. The equally weighted ratios also change with inputs: 1.305/1.211 for both-low, 0.693/0.590 for favored-precise, and 1.208/1.122 for other-precise inputs. All conditions are retained, so the smaller combined gradient is a probe- and weighting-dependent observation.
 
-
+% P:headgradscope
+These are endpoint gradients of the two-target tanh baseline after 500 formation updates. They contradict a simple account in which each head supplies a weaker encoder signal under common high-precision input in the acquisition route. They do not reconstruct the historical regularized-gradient sequence accumulated in $v$. The archive's \texttt{experiments/iv-head-gradients/} contains every batch-level value, the seed summaries, and an independent analytic chain-rule audit; formation-time logging is needed to test how the observed second-moment pattern develops.
 
 \section{Matched three-target adaptation (V-B)}
 \label{app:threeadapt}
@@ -455,7 +468,7 @@ The first 9,867 rows train the model. Four subsequent chronological blocks fit a
 The encoder becomes $6\to32\to d_Z$ with two-dimensional heads; training settings, precision noise, six directions, six modes, and horizons otherwise follow V-B. Room labels keep their physical meaning. Eight pilot seeds (35000--35007) select a weight separately for each original room and capacity, among $1/3$, 0.40, 0.45, \ldots, 0.95. Selection minimizes the same largest standardized mean endpoint discrepancy, without using pulse responses or confirmation blocks. Selected weights for kitchen/living/laundry are 0.40/0.95/0.75 at dimension two and 0.95/0.95/0.90 at dimension three. Even the best candidates exceed the largest allowed mean discrepancy by factors of 5.30--12.44. The fixed protocol carries these candidates into confirmation without expanding the search.
 
 % P:appvcmatch
-Forty new confirmation seeds (36000--36039) again fail endpoint matching. Because rooms are not exchangeable, matching requires all eight criteria for each original room, rather than averaging away room-specific differences. Only 1 of 24 criteria passes at dimension two, and none passes at dimension three. Direct input readouts verify that precise acquisition reduces the designated room's error: gains are 0.1784, 0.4822, and 0.1824 for kitchen, living room, and laundry room. Thus observation control remains effective, while this grid and formation schedule do not yield matched route endpoints.
+Forty new confirmation seeds (36000--36039) again fail endpoint matching. Because rooms are not exchangeable, matching requires all eight criteria for each original room, rather than averaging away room-specific differences. Only 1 of 24 criteria passes at dimension two, and none passes at dimension three. Direct input readouts verify that precise acquisition reduces the designated room's error: gains are 0.1784, 0.4822, and 0.1824 for kitchen, living room, and laundry room. Thus observation control remains effective, while this grid and formation schedule do not yield matched route endpoints. At dimension two, averaging original rooms within seed gives acquisition-minus-update differences of +0.0616 in $s_{01}$ and +0.0238 in its low-precision counterpart: acquisition-formed checkpoints start with greater measured relative specialization on this comparison. These pooled descriptions do not replace the room-specific matching criteria. Since response subtracts the final index from its initial value, this initial difference can contribute to the unmatched route contrast.
 
 % P:appvcresult
 Exchanging $v$ changes the ten-update response contrast at both capacities, including when its mean inverse scale is held common (Table~\ref{tab:vc}). First-moment changes and reset contrasts lie within $\pm0.02$. The inherited contrast exceeds the $+0.05$ criterion only at dimension three; the swapped contrast excludes zero negatively only at dimension two. These distinct criteria prevent interpreting a positive exchange effect as universal sign reversal. Since the endpoints are unmatched, the exchange comparison identifies an intervention on each recipient's retained state, but the original route difference cannot be described as hidden by equivalent endpoint measurements.

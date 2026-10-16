@@ -1,0 +1,14 @@
+setting,study,source,endpoint_match,pattern_effect,reversal,reset_equivalent
+base,IV-F,experiments/iv-extension/results_general/result.json,Y,Y,Y,Y
+relu,IV-F,experiments/iv-extension/results_general/result.json,Y,Y,Y,Y
+rho0,IV-F,experiments/iv-extension/results_general/result.json,Y,Y,Y,Y
+wide,IV-F,experiments/iv-extension/results_general/result.json,Y,Y,Y,N
+beta0.999_steps1500,IV-F,experiments/iv-extension/results_beta/result.json,Y,Y,Y,N
+beta0.99_steps1500,IV-F,experiments/iv-extension/results_beta/result.json,Y,Y,N,N
+beta0.99_steps500,IV-F,experiments/iv-extension/results_beta/result.json,Y,Y,Y,Y
+beta0.9_steps1500,IV-F,experiments/iv-extension/results_beta/result.json,Y,Y,N,N
+beta0.9_steps500,IV-F,experiments/iv-extension/results_beta/result.json,Y,Y,N,N
+V-B_capacity2,V-B,experiments/v-three-adaptation/results_confirm/result.json,Y,Y,Y,Y
+V-B_capacity3,V-B,experiments/v-three-adaptation/results_confirm/result.json,Y,Y,Y,?
+V-C_capacity2,V-C,experiments/v-natural/results_confirm/result.json,N,Y,Y,Y
+V-C_capacity3,V-C,experiments/v-natural/results_confirm/result.json,N,Y,?,Y

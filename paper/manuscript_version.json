@@ -2,8 +2,8 @@
   "title": "Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations",
   "author": "Toru Takahashi",
   "manuscript_revision_date": "2026-10-16",
-  "preprint_pdf_sha256": "72a5c4606a92b7d3fe7738e169bc37fb7a2ff100e723f64f1655d3a6ce6fa2f6",
-  "scope": "Core and IV-F results; V-B matched three-target adaptation; V-C natural sensor extension with failed endpoint matching; complete interval ledger.",
-  "code_release_version": "1.2.0",
+  "preprint_pdf_sha256": "8de22dffc0845b8ff20a153e2ae2067260fb2e1ffd4730c991b534bacdcc3a39",
+  "scope": "Core, IV-F, V-B and V-C; 13-setting claim inventory; reset increases at beta2=0.9; exploratory saved-endpoint head-gradient diagnostic with probe-dependent cancellation; complete interval ledger.",
+  "code_release_version": "1.3.0",
   "interval_audit": "docs/INTERVAL_AUDIT.md"
 }

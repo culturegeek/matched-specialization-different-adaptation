@@ -1,0 +1,8 @@
+{
+  "status": "exploratory; local lock before diagnostic computation",
+  "time_utc": "2026-10-16T14:14:29.480082+00:00",
+  "hashes": {
+    "protocol.md": "b00d6d2b4426464b8b0b267c75020b08fce1683025f7069ee3c403ea2169b7bf",
+    "analyze_gradients.py": "23c786fe7f0e89754a757697e0c517b3e1edc8929d09262b31da2a67ec23f4d8"
+  }
+}

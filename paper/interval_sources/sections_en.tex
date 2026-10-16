@@ -2,7 +2,7 @@
 \graphicspath{{../figures/}{figures/}}
 \begin{abstract}
 % P:abstract
-Can two learners with similar measured specialization adapt differently to the same new learning condition? We study this question in small shared-representation networks whose formation histories and optimizer states can be controlled. Different observation and loss-weighting histories produce equivalent mean reconstruction measurements. Under a common intervention favoring the other target, the more precisely readable target switches within ten updates in 67.5\% of acquisition-formed checkpoints and 0\% of update-formed checkpoints. Resetting Adam reduces the between-route difference in reallocation to within a pre-specified equivalence margin. In an independent component-exchange experiment, swapping the second moment reverses which history is more susceptible. Further interventions separate its mean adaptive scaling from its coordinate-wise pattern: equalizing the mean scale reduces the difference, while exchanging the pattern at that common scale changes its sign. Fresh Adam and calibrated SGD reveal smaller delayed differences, while sustained common learning brings allocation endpoints close by 500 updates. Thus measured specialization can conceal a reversible difference in short-horizon adaptation, with second-moment structure acting as a causal modifier. The matched comparison extends to three Gaussian targets at two bottleneck capacities. A three-room sensor-data extension retains component effects but fails endpoint matching, delimiting the evidence for concealed susceptibility.
+Can two learners with similar measured specialization adapt differently to the same new learning condition? We study this question in small shared-representation networks with controlled observation and loss-weighting histories. Matching selected mean reconstruction measurements conceals a short-horizon response difference. In the central two-target setting with 500 formation updates, a common opposing intervention switches the more precisely readable target within ten updates in 67.5\% of acquisition-formed checkpoints and 0\% of update-formed checkpoints. Component interventions identify Adam's second moment as a causal modifier: exchanging its coordinate pattern changes the response even at a common mean adaptive scale. This common-scale pattern effect remains positive across the tested architecture, target-correlation, decay, and formation-duration extensions. Sign reversal and response equivalence after resetting Adam hold under narrower conditions. Layer-restricted exchanges localize effective interventions in the encoder, and an exchange effect remains when global update norms are equalized. The matched comparison extends to three Gaussian targets at two bottleneck capacities. A three-room sensor-data extension retains component effects but fails endpoint matching. Thus optimizer-state effects transfer more broadly than the demonstration of susceptibility concealed by equivalent measurements; their magnitude and persistence depend on the learning regime and observation horizon.
 \end{abstract}
 
 \section{Introduction}
@@ -83,7 +83,7 @@ Each seed supplies a common ancestor and paired input/noise sequences. Condition
 Before confirmatory runs, each plan fixes the largest acceptable mean differences in allocation-index or normalized-error units. Appendix~\ref{app:optimizer} lists these matching tolerances and response margins, together with the separate pilot stages.
 
 % P:design6
-The core evidence comprises the endpoint-matching experiment (IV-D), independent component exchanges and a within-route control (IV-E), and a prospective scale/pattern and time-course follow-up on 40 further seeds. Supporting experiments address formation (IV-B), redirection (IV-A/C), maintenance (II/III), and three-target formation (V-A). The three-target adaptation extension (V-B) and a natural sensor-data comparison (V-C) test the scope of the component effects with new seeds. Appendix~\ref{app:optimizer} gives the exact interventions and full estimates, and Appendix~\ref{app:status} separates pre-specified tests, exploratory analyses, and failed candidates.
+The core evidence comprises the endpoint-matching experiment (IV-D), independent component exchanges and a within-route control (IV-E), and a prospective scale/pattern and time-course follow-up on 40 further seeds. Fixed-protocol transfer and layer/movement interventions form extension IV-F. Supporting experiments address formation (IV-B), redirection (IV-A/C), maintenance (II/III), and three-target formation (V-A). The three-target adaptation extension (V-B) and a natural sensor-data comparison (V-C) test the scope of the component effects with new seeds. Appendix~\ref{app:optimizer} gives the exact interventions and full estimates, and Appendix~\ref{app:status} separates pre-specified tests, exploratory analyses, and failed candidates.
 
 \section{Matched specialization conceals a short-horizon response difference}
 \label{sec:latent}
@@ -162,38 +162,71 @@ How does adaptive scaling relate to movement during the pulse? An exploratory an
 Across the same 40 seeds, the between-route path-length difference correlates 0.806 with the reallocation-response difference. Holding out each seed in turn, single-variable linear models reduce mean squared error by 28\% using the pre-intervention $\bar a_v$ ratio and 62\% using the realized path-length difference, relative to predicting the mean response difference of the other 39 seeds. Realized movement thus provides a closer reconstruction of the response difference in this exploratory comparison.
 
 % P:mechanism8
-A movement-controlled intervention on the 40 saved follow-up seed pairs tests whether unequal global path lengths are sufficient to explain the contrast. At every update, it rescales the four proposed vectors (two routes, with own or exchanged $v$) to their common geometric-mean norm while preserving each direction. The route contrast is then 0.0303 with own $v$ and 0.0072 with exchanged $v$; their paired difference is 0.0231. Thus $v$ still alters reallocation under equal global movement. This controlled learning rule changes the trajectories and does not estimate a natural-Adam mediation fraction (Appendix~\ref{app:extension}).
+A movement-controlled intervention tests whether unequal global path lengths suffice to explain the contrast. At each update, the four branches (two routes, with own or exchanged $v$) receive the geometric mean of their proposed update norms while preserving their directions. With own $v$, the contrast falls from 0.1907 to 0.0303, approximately 84\% under this rule; with exchanged $v$ it is 0.0072, leaving a paired exchange effect of 0.0231. This is a reduction under a different learning rule, rather than the fraction of natural-Adam response causally mediated by movement. The remaining exchange effect shows that equal global movement still permits different reallocation (Table~\ref{tab:ivfmechanism}).
 
 % P:mechanism9
-Layer-restricted exchanges locate a substantial part of this effect in the encoder. Starting from the original contrast 0.1907, exchanging only first-layer $v$ leaves 0.0115, exchanging only second-layer $v$ leaves 0.0611, and exchanging both heads' $v$ leaves 0.1911. These interventions retain the recipient weights and all other optimizer components. Their non-additive effects localize effective interventions, rather than assigning independent shares of the full contrast.
+The location of adaptive scaling matters more than its share of total $v$. In acquisition-formed checkpoints, the first encoder layer contains only 5.9\% of total $v$, yet exchanging that layer reduces the contrast from 0.1907 to 0.0115. The heads contain 66.2\%, yet exchanging their $v$ leaves 0.1911. Second-layer exchange leaves 0.0611 (Table~\ref{tab:ivfmechanism}). These interventions retain recipient weights and all other optimizer components. They locate effective interventions in the encoder; their non-additive effects prevent assigning independent causal shares to layers.
+
+% P:headgradient
+An exploratory endpoint diagnostic asks whether the encoder receives weaker gradients from either head in the acquisition route. With identical high-precision inputs and unweighted head losses, it receives stronger gradients from both heads: acquisition/update RMS norm ratios are 1.331 and 1.150 in the first layer, and 1.122 and 1.028 in the second. The head gradients oppose each other more strongly in acquisition-formed checkpoints, so their equally weighted sum is smaller, with ratios 0.860 and 0.736. This identifies cancellation at the measured endpoints, rather than weak individual head signals. It concerns the saved two-target tanh checkpoints under a common probe; explaining how their historical $v$ arose requires formation-time gradients (Appendix~\ref{app:headgrad}).
+
+\begin{table}[t]
+\centering\small
+\caption{Layer and movement interventions on 40 saved seed pairs. Layer rows exchange only the named layer's $v$; equal-movement rows apply the joint norm-control rule.}
+\label{tab:ivfmechanism}
+% P:appfmechanismtable
+\begin{tabular}{lr}
+\toprule
+Intervention & Route contrast [95\% CI]\\
+\midrule
+Own & $0.1907\;[0.1837,0.1976]$ \\
+First encoder layer & $0.0115\;[0.0060,0.0171]$ \\
+Second encoder layer & $0.0611\;[0.0558,0.0665]$ \\
+Both heads & $0.1911\;[0.1838,0.1978]$ \\
+All parameters & $-0.1183\;[-0.1264,-0.1099]$ \\
+Equal movement, own & $0.0303\;[0.0269,0.0338]$ \\
+Equal movement, exchanged & $0.0072\;[0.0040,0.0104]$ \\
+\bottomrule
+\end{tabular}
+
+\end{table}
 
 \subsection{Which parts of the comparison transfer across settings?}
 % P:generalization
-A fixed-protocol replication uses 32 new paired seeds at each of four settings: the baseline, hidden width 64, ReLU in place of tanh, and independent targets. All four satisfy the five endpoint tolerances. Each shows a positive inherited-state contrast, reversal under $v$ exchange, and an exchange effect at common $\bar a_v$. Reset equivalence is more conditional: at width 64 the reset contrast is 0.0249, with its interval above 0.02. The replicated component effect therefore transfers more broadly than the claim that resetting Adam makes the ten-update responses equivalent. Appendix~\ref{app:extension} gives every condition, including the failed reset criterion.
+Extension IV-F tests the comparison on 32 new paired seeds under changes in hidden width, activation, target correlation, second-moment decay, and formation duration. All nine distinct settings meet the five endpoint tolerances and show a positive common-scale pattern effect (Table~\ref{tab:claims}). This effect subtracts the swapped-pattern route contrast from the own-pattern contrast at the common $\bar a_v$. Reversal and reset equivalence hold in fewer settings. For example, width 64 retains reversal but leaves a reset interval wholly above 0.02. The component effect therefore transfers more broadly than either stronger response pattern.
 
 % P:generalizationbeta
-Varying $\beta_2$ and formation duration further bounds this transfer. Larger $\beta_2$ produces larger inherited-state contrasts in both tested duration groups, but $v$ exchange does not reverse every contrast. Common-scale exchange effects remain positive throughout the six-setting grid. Thus changing second-moment dynamics alters the component effect, while reversal and reset equivalence depend on the training regime.
+The decay/duration grid makes this distinction concrete. Reset equivalence holds at 500 formation updates with $\beta_2=0.99$ or 0.999, whereas all three 1,500-update reset intervals exceed 0.02. Own-state contrasts are larger after 1,500 than 500 formation updates at every tested $\beta_2$; the larger differences can therefore coexist with residual differences after reset. These two durations establish a duration dependence, while the trajectory by which differences accumulate remains to be measured (Appendix~\ref{app:extension}). At $\beta_2=0.9$, resetting Adam increases the contrast at both durations, showing that inherited state can also attenuate the route difference.
 
 \subsection{Three targets preserve the matched comparison; natural data delimit it}
 % P:vbmain
-Does the component effect depend on having only one alternative target? We form acquisition- and update-driven histories for three symmetric Gaussian targets and test all six ordered changes of favored target. Eight pilot seeds calibrate endpoint measurements without observing adaptation; 40 new seeds test bottleneck dimensions two and three. The response is the decrease in the pairwise allocation index for the original and destination targets, retaining all three reconstruction errors. Both capacities meet all eight mean endpoint criteria. Exchanging $v$ reverses the ten-update route contrast, and exchanging its pattern at a common $\bar a_v$ changes the contrast at both capacities (Table~\ref{tab:bridges}). Reset equivalence holds at dimension two; at dimension three its interval crosses the $+0.02$ boundary and remains unresolved (Appendix~\ref{app:threeadapt}).
+Does the component effect depend on having only one alternative target? We form acquisition- and update-driven histories for three symmetric Gaussian targets and test all six ordered changes of favored target. Eight pilot seeds calibrate endpoint measurements without observing adaptation; 40 new seeds test bottleneck dimensions two and three. The response is the decrease in the pairwise allocation index for the original and destination targets, retaining all three reconstruction errors. Both capacities meet all eight mean endpoint criteria. Exchanging $v$ reverses the ten-update route contrast, and exchanging its pattern at a common $\bar a_v$ changes the contrast at both capacities (Table~\ref{tab:claims}). Reset equivalence holds at dimension two; at dimension three its interval crosses the $+0.02$ boundary and remains unresolved (Appendix~\ref{app:threeadapt}).
 
 % P:vcmain
 We then replace Gaussian targets with recorded temperature and humidity in a kitchen, living room, and laundry room from one house \citep{candanedo2017data,candanedo2017dataset}. Noise controls observation precision; shared learning reconstructs the recorded measurements. Chronologically separated blocks distinguish training, pilot readout/evaluation, and confirmation readout/evaluation. Room-specific calibration on eight pilot seeds fails to match endpoints, and confirmation on 40 new seeds also fails at both capacities. Nevertheless, with recipient weights fixed at exchange, changing $v$ changes the response contrast, including at a common mean inverse scale. The swapped contrast is negative at dimension two but unresolved around zero at dimension three. This establishes a component effect on natural sensor measurements, while a matched-endpoint demonstration on natural data remains open (Appendix~\ref{app:natural}).
 
 \begin{table}[t]
 \centering\small
-\caption{Ten-update transfer across three-target tasks. All values are acquisition-minus-update response contrasts, except the final column, which subtracts the swapped-pattern contrast from the own-pattern contrast at common $\bar a_v$. Each dataset uses its own 40 seeds, shared across capacities. Endpoint matching passes only for the Gaussian task. Intervals and failed criteria appear in Appendices~\ref{app:threeadapt}--\ref{app:natural}.}
-\label{tab:bridges}
-% P:bridgestable
-\begin{tabular}{llrrr}
+\caption{Ten-update claims across 13 distinct extension settings. Y: criterion satisfied; N: an interval establishes failure; ?: unresolved. Endpoint matching requires every measurement interval inside its tolerance. Common-scale pattern effect requires a positive interval; reversal requires own positive and exchanged-$v$ negative intervals; reset equivalence requires its interval inside $\pm0.02$. Individual 95\% intervals are used; this inventory is not a success-rate estimate over a population of settings. IV-F has 32 shared seeds; V-B and V-C each have 40, shared across capacities. Baseline occurs only once.}
+\label{tab:claims}
+% P:claimstable
+\begin{tabular}{lcccc}
 \toprule
-Task, $d_Z$ & Endpoints & Own $v$ & Swapped $v$ & Common-scale effect\\
+Setting & Endpoints & \shortstack{Common-scale\\pattern effect} & Reversal & \shortstack{Reset\\equivalence}\\
 \midrule
-Gaussian, 2 & Matched & 0.1945 & -0.1005 & 0.0825\\
-Gaussian, 3 & Matched & 0.4054 & -0.2193 & 0.1541\\
-Room sensors, 2 & Unmatched & 0.0601 & -0.0254 & 0.0103\\
-Room sensors, 3 & Unmatched & 0.1170 & -0.0090 & 0.0257\\
+Baseline ($\beta_2=0.999$, 500) & Y & Y & Y & Y\\
+Width 64 & Y & Y & Y & N\\
+ReLU & Y & Y & Y & Y\\
+$\rho=0$ & Y & Y & Y & Y\\
+$\beta_2=0.9$, 500 & Y & Y & N & N\\
+$\beta_2=0.99$, 500 & Y & Y & Y & Y\\
+$\beta_2=0.9$, 1500 & Y & Y & N & N\\
+$\beta_2=0.99$, 1500 & Y & Y & N & N\\
+$\beta_2=0.999$, 1500 & Y & Y & Y & N\\
+Gaussian, $d_Z=2$ & Y & Y & Y & Y\\
+Gaussian, $d_Z=3$ & Y & Y & Y & ?\\
+Room sensors, $d_Z=2$ & N & Y & Y & Y\\
+Room sensors, $d_Z=3$ & N & Y & ? & Y\\
 \bottomrule
 \end{tabular}
 \end{table}

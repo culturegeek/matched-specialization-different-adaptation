@@ -14,7 +14,7 @@ source .venv-training/bin/activate
 python -m pip install -r requirements-recorded-training.txt
 ```
 
-The environment actually used for this release's validation is in [validation.json](../provenance/validation.json). It is listed separately from the original training environment. Numerical agreement on another platform should be checked from outputs rather than assumed from a package version alone.
+The original publication validation is in [validation.json](../provenance/validation.json); subsequent checks are recorded in [IV-F](../provenance/ivf_validation.json), [V-B/V-C](../provenance/vbc_validation.json), and [head diagnostic](../provenance/head_validation.json). V-B, V-C, and the head diagnostic used Python 3.12.14, NumPy 2.4.6, PyTorch 2.13.0, CPU with one thread. It is listed separately from the original training environment. Numerical agreement on another platform should be checked from outputs rather than assumed from a package version alone.
 
 ## One-seed reproduction of the original intervention
 
@@ -83,3 +83,17 @@ python experiments/v-natural/audit_natural.py
 ```
 
 Each experiment README gives full 40-seed reruns, calibration recomputation and analysis commands. Use new output directories. No source download is required: V-C includes the original UCI CSV, source checksum, CC BY 4.0 attribution and fixed temporal split. Local registration files are preserved; do not rerun lock commands. New-result file integrity is checked by `python scripts/verify_vbc_files.py`.
+
+## Head-specific endpoint diagnostic
+
+[The diagnostic README](../experiments/iv-head-gradients/README.md) documents four input conditions, retained trained heads, paired seed aggregation, and the scope of this exploratory result. It uses the already included checkpoints and regenerated held-out inputs; there is no retraining or download.
+
+```sh
+python scripts/verify_head_files.py
+python experiments/iv-head-gradients/analyze_gradients.py --archive-root . --out generated/head-gradients
+python experiments/iv-head-gradients/audit_gradients.py --archive-root .
+python experiments/iv-head-gradients/summarize_existing.py --archive-root . --out generated/existing-contrasts
+python experiments/iv-head-gradients/summarize_low_precision.py --archive-root . --out generated/three_low_precision.json
+```
+
+Use fresh output destinations. The analytic audit checks archived batch values and 16 head-ratio intervals without automatic differentiation; it writes the deterministic `independent_audit.json` report in the diagnostic folder. The source and input hashes are verified. This supplements the original frozen study audits.

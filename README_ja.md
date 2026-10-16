@@ -34,3 +34,9 @@ Toru Takahashi著「Matched Specialization, Different Adaptation: Second-Moment 
 [V-B](experiments/v-three-adaptation/README_ja.md)は新規40 seed・二容量・六方向で、終点を揃えた三対象適応と二次モーメント交換を検証しました。両容量で対比は反転し、共通倍率でも配置効果が残りました。容量3の初期化同等性は未解決です。[V-C](experiments/v-natural/README_ja.md)は別の40 seedで一住宅三室の実測温湿度へ拡張しました。終点一致は未達ですが、平均倍率を揃えた交換効果も正でした。同等終点比較の自然データ再現とは区別します。未達条件と50更新結果を全て保持します。
 
 自然データの元CSVは[出典・CC BY 4.0](experiments/v-natural/data/ATTRIBUTION.md)を保持して同梱します。記録済み環境で `python experiments/v-three-adaptation/audit_adaptation.py` と `python experiments/v-natural/audit_natural.py` を実行すると、独立監査を再現できます。前版v1.1.0は固定したままです。
+
+## head別勾配診断（v1.3.0）
+
+[保存終点の診断](experiments/iv-head-gradients/README.md)では、共通高精度入力に対する各headのencoder勾配は取得形成の方が大きく、両head間の打ち消しも強いという結果でした。等重みの合計勾配は小さくなりましたが、この大小関係は入力精度と重みづけに依存します。終点の探索的観測であり、過去の二次モーメントが形成された原因までは確定していません。40 seed・160 checkpoint・四入力条件を全て保持し、40,960行と16組の比の区間を別計算で検査しました。
+
+原稿には、13設定での成否一覧、beta2=0.9で初期化により対比が増える結果、自然データでの終点不一致の向きを反映しました。層別・移動量介入は本文Table 3、設定一覧はTable 4、勾配診断はTable 11です。英日それぞれ155信頼区間と二つの観測範囲を出典台帳へ対応づけています。[今回の検証記録](provenance/head_validation.json)に環境と検査範囲を記載します。

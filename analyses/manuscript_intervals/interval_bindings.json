@@ -714,151 +714,7 @@
     "source_key": "$.rho0.effects.reset.ci95"
   },
   {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 1,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.9_steps500.effects.own.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 2,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.9_steps500.effects.v_other.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 3,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.9_steps500.contrasts.scale_controlled_pattern_effect.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 4,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.9_steps1500.effects.own.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 5,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.9_steps1500.effects.v_other.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 6,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.9_steps1500.contrasts.scale_controlled_pattern_effect.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 7,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.99_steps500.effects.own.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 8,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.99_steps500.effects.v_other.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 9,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.99_steps500.contrasts.scale_controlled_pattern_effect.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 10,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.99_steps1500.effects.own.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 11,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.99_steps1500.effects.v_other.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 12,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.99_steps1500.contrasts.scale_controlled_pattern_effect.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 13,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_general/result.json",
-    "source_key": "$.base.effects.own.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 14,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_general/result.json",
-    "source_key": "$.base.effects.v_other.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 15,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_general/result.json",
-    "source_key": "$.base.contrasts.scale_controlled_pattern_effect.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 16,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.999_steps1500.effects.own.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 17,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.999_steps1500.effects.v_other.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
-    "paragraph_id": "appfbetatable",
-    "interval_in_paragraph": 18,
-    "kind": "confidence_interval",
-    "source_file": "experiments/iv-extension/results_beta/result.json",
-    "source_key": "$.beta0.999_steps1500.contrasts.scale_controlled_pattern_effect.ci95"
-  },
-  {
-    "source_tex": "appendices_en.tex",
+    "source_tex": "sections_en.tex",
     "paragraph_id": "appfmechanismtable",
     "interval_in_paragraph": 1,
     "kind": "confidence_interval",
@@ -866,7 +722,7 @@
     "source_key": "$.base.effects.own.ci95"
   },
   {
-    "source_tex": "appendices_en.tex",
+    "source_tex": "sections_en.tex",
     "paragraph_id": "appfmechanismtable",
     "interval_in_paragraph": 2,
     "kind": "confidence_interval",
@@ -874,7 +730,7 @@
     "source_key": "$.base.effects.layer_encoder1.ci95"
   },
   {
-    "source_tex": "appendices_en.tex",
+    "source_tex": "sections_en.tex",
     "paragraph_id": "appfmechanismtable",
     "interval_in_paragraph": 3,
     "kind": "confidence_interval",
@@ -882,7 +738,7 @@
     "source_key": "$.base.effects.layer_encoder2.ci95"
   },
   {
-    "source_tex": "appendices_en.tex",
+    "source_tex": "sections_en.tex",
     "paragraph_id": "appfmechanismtable",
     "interval_in_paragraph": 4,
     "kind": "confidence_interval",
@@ -890,7 +746,7 @@
     "source_key": "$.base.effects.layer_heads.ci95"
   },
   {
-    "source_tex": "appendices_en.tex",
+    "source_tex": "sections_en.tex",
     "paragraph_id": "appfmechanismtable",
     "interval_in_paragraph": 5,
     "kind": "confidence_interval",
@@ -898,7 +754,7 @@
     "source_key": "$.base.effects.v_other.ci95"
   },
   {
-    "source_tex": "appendices_en.tex",
+    "source_tex": "sections_en.tex",
     "paragraph_id": "appfmechanismtable",
     "interval_in_paragraph": 6,
     "kind": "confidence_interval",
@@ -906,7 +762,7 @@
     "source_key": "$.base.effects.norm_own.ci95"
   },
   {
-    "source_tex": "appendices_en.tex",
+    "source_tex": "sections_en.tex",
     "paragraph_id": "appfmechanismtable",
     "interval_in_paragraph": 7,
     "kind": "confidence_interval",
@@ -1176,5 +1032,293 @@
     "source_file": "experiments/v-natural/results_confirm/result.json",
     "source_key": "$.by_capacity.3.horizons.10.contrasts.scale_controlled_pattern_effect",
     "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 1,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps500.effects.own.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 2,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps500.effects.v_other.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 3,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps500.effects.reset.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 4,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps500.contrasts.scale_controlled_pattern_effect.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 5,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps1500.effects.own.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 6,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps1500.effects.v_other.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 7,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps1500.effects.reset.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 8,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.9_steps1500.contrasts.scale_controlled_pattern_effect.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 9,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps500.effects.own.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 10,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps500.effects.v_other.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 11,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps500.effects.reset.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 12,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps500.contrasts.scale_controlled_pattern_effect.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 13,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps1500.effects.own.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 14,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps1500.effects.v_other.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 15,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps1500.effects.reset.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 16,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.99_steps1500.contrasts.scale_controlled_pattern_effect.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 17,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_general/result.json",
+    "source_key": "$.base.effects.own.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 18,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_general/result.json",
+    "source_key": "$.base.effects.v_other.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 19,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_general/result.json",
+    "source_key": "$.base.effects.reset.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 20,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_general/result.json",
+    "source_key": "$.base.contrasts.scale_controlled_pattern_effect.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 21,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.999_steps1500.effects.own.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 22,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.999_steps1500.effects.v_other.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 23,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.999_steps1500.effects.reset.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbetatable",
+    "interval_in_paragraph": 24,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-extension/results_beta/result.json",
+    "source_key": "$.beta0.999_steps1500.contrasts.scale_controlled_pattern_effect.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbeta2",
+    "interval_in_paragraph": 1,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/existing_results/reset_comparison.json",
+    "source_key": "$.by_setting.beta0.9_steps500"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appfbeta2",
+    "interval_in_paragraph": 2,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/existing_results/reset_comparison.json",
+    "source_key": "$.by_setting.beta0.9_steps1500"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 1,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder1.favored"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 2,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder2.favored"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 3,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder1.other"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 4,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder2.other"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 5,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder1.equal_total_g2_ratio"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 6,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder2.equal_total_g2_ratio"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 7,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder1.acquisition.cosine"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 8,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder2.acquisition.cosine"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 9,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder1.update.cosine"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradtable",
+    "interval_in_paragraph": 10,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-head-gradients/results/result.json",
+    "source_key": "$.by_input.both_high.encoder2.update.cosine"
   }
 ]
