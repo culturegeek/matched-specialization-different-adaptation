@@ -1,6 +1,6 @@
 # From manuscript claims to data
 
-This map refers to the 17 October 2026, v1.4.0 manuscript revision, identified by the checksum in [manuscript_version.json](../paper/manuscript_version.json). Paths below are relative to the repository root. Within an experiment, `results_confirm` (or `results_confirmatory`) identifies the stored confirmatory output; pilot directories remain separate.
+This map refers to the 17 October 2026, v1.4.1 manuscript revision, identified by the checksum in [manuscript_version.json](../paper/manuscript_version.json). Paths below are relative to the repository root. Within an experiment, `results_confirm` (or `results_confirmatory`) identifies the stored confirmatory output; pilot directories remain separate.
 
 | Manuscript location | Question and primary input | Program / figure |
 |---|---|---|

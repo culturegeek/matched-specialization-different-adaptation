@@ -44,3 +44,7 @@ Toru Takahashi著「Matched Specialization, Different Adaptation: Second-Moment 
 ## 形成中の勾配・相殺・第二モーメント（v1.4.0）
 
 [形成の再実行](experiments/iv-formation-logging/README_ja.md)では、元の40 seedを使い、全160終点をビット単位で再現しました。実際の学習中の勾配を分解すると、取得経路ではhead間の強い相殺が小さい第二モーメントの蓄積と対応していました。これは観測履歴の算術的分解で、相殺を変更した介入の因果効果ではありません。全320,000層・更新記録、保存状態、独立連鎖律・逐次式監査、探索的な終点相関を追加しました。[今回の検証記録](provenance/formation_validation.json)に範囲を示し、各言語の全164信頼区間と二つの観測範囲を出典台帳に対応づけています。
+
+## v1.4.1 packaging correction
+
+The v1.4.0 Git-generated ZIP omitted OS metadata files referenced by the head and formation integrity lists. Version 1.4.1 removes those non-scientific entries so all checks work on a clean extraction. Scientific data, analyses and estimates are unchanged. Use v1.4.1 for reproduction.

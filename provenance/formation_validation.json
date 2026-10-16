@@ -1,5 +1,5 @@
 {
-  "release": "1.4.0",
+  "release": "1.4.1",
   "date": "2026-10-17",
   "status": "exploratory original-history replay and endpoint associations",
   "environment": {
@@ -36,5 +36,6 @@
     "anonymous": 28,
     "public": 28,
     "japanese": 28
-  }
+  },
+  "packaging_correction": "OS-generated .DS_Store entries removed from head and formation manifests. They are excluded from Git archives; no scientific data or analysis changes."
 }

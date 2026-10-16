@@ -2,8 +2,8 @@
   "title": "Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations",
   "author": "Toru Takahashi",
   "manuscript_revision_date": "2026-10-17",
-  "preprint_pdf_sha256": "feac59fab7e8a5bb5486c50ccf56eb63524dad1947b67890825a278ce5d73acc",
+  "preprint_pdf_sha256": "b1b4c4a09b7dd80eeadec5686d721ce8aab774267286aa8c625ffcef394b4ab7",
   "scope": "Core, IV-F, V-B, V-C, saved-endpoint head gradients and exploratory formation-time gradient/cancellation/second-moment accounting; 40 seeds, 160 exact endpoints, 320000 layer-step records; 164 printed intervals and two ranges per language.",
-  "code_release_version": "1.4.0",
+  "code_release_version": "1.4.1",
   "interval_audit": "docs/INTERVAL_AUDIT.md"
 }

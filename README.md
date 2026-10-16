@@ -76,3 +76,7 @@ The manuscript now distinguishes common-scale pattern effects from reversal and 
 ## Formation-time accounting / 形成中の記録 (v1.4.0)
 
 [Formation replay](experiments/iv-formation-logging/README.md) retains all 40 original seeds and matches all 160 endpoints bitwise. Actual task-gradient cancellation accounts arithmetically for a smaller second-moment accumulation in the acquisition route; it does not identify the causal effect of changing cancellation. The release adds 320000 layer-step records, snapshots, an independent chain-rule/recursion audit, and exploratory endpoint associations. [Current validation](provenance/formation_validation.json) records the scope. The current interval ledger covers 164 confidence intervals and two observed ranges per language.
+
+## v1.4.1 packaging correction
+
+The v1.4.0 Git-generated ZIP omitted OS metadata files referenced by the head and formation integrity lists. Version 1.4.1 removes those non-scientific entries so all checks work on a clean extraction. Scientific data, analyses and estimates are unchanged. Use v1.4.1 for reproduction.

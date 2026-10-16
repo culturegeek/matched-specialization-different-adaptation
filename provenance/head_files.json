@@ -1,5 +1,4 @@
 {
-  "experiments/iv-head-gradients/.DS_Store": "0cc5700b91e1c253f0c0787d618be6b8e125ce3288878d8bb6e16965a20ffe3b",
   "experiments/iv-head-gradients/README.md": "8e1b729afba89691aeb15351ca307878eaa70684af4c2e3319c4d66da5c5a04f",
   "experiments/iv-head-gradients/analysis_plan_lock.json": "5317b0ceac467415883c090e045016ac58889e42b0f14db4ee071054dfd436ed",
   "experiments/iv-head-gradients/analyze_gradients.py": "23c786fe7f0e89754a757697e0c517b3e1edc8929d09262b31da2a67ec23f4d8",
