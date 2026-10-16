@@ -72,3 +72,14 @@ The repository does not redistribute a system font. Font changes can alter layou
 ## IV-F and interval provenance
 
 [IV-F instructions](../experiments/iv-extension/README.md) give complete regeneration commands for saved-data analyses and new experiments, plus the independent audit. [Interval audit](INTERVAL_AUDIT.md) gives the three reconstructed-interval calculation and the full bilingual printed-interval verification. These extend, rather than replace, the original verification commands.
+
+## Three-target and natural adaptation
+
+Install `requirements-extension.txt`. From the repository root run the two independent checks:
+
+```sh
+python experiments/v-three-adaptation/audit_adaptation.py
+python experiments/v-natural/audit_natural.py
+```
+
+Each experiment README gives full 40-seed reruns, calibration recomputation and analysis commands. Use new output directories. No source download is required: V-C includes the original UCI CSV, source checksum, CC BY 4.0 attribution and fixed temporal split. Local registration files are preserved; do not rerun lock commands. New-result file integrity is checked by `python scripts/verify_vbc_files.py`.

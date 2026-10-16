@@ -1,0 +1,39 @@
+{
+  "complete": true,
+  "phase": "confirm",
+  "seed": 36034,
+  "capacity": 3,
+  "config": {
+    "train_size": 9867,
+    "probe_size": 1829,
+    "test_size": 1830,
+    "source_dim": 2,
+    "hidden_dim": 32,
+    "correlation": 0.35,
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "initial_noise": 0.15,
+    "batch_size": 256,
+    "initial_steps": 100,
+    "formation_steps": 600,
+    "early_checkpoint_until": 120,
+    "early_checkpoint_interval": 10,
+    "checkpoint_interval": 50,
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "probe_ridge": 0.001,
+    "bootstrap_samples": 5000,
+    "bootstrap_seed": 20260902
+  },
+  "selected_weights": {
+    "A": 0.95,
+    "B": 0.95,
+    "C": 0.9
+  },
+  "data_blocks": [
+    "train",
+    "confirm_probe",
+    "confirm_test"
+  ],
+  "seconds": 5.2799389362335205
+}

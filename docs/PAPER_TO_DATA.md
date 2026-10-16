@@ -32,3 +32,7 @@ The portable arithmetic check covers 27 selected central means and the follow-up
 | Every printed confidence interval | `analyses/manuscript_intervals/INTERVAL_LEDGER.csv` |
 
 Run `audit_extension.py` for independent checks and see the extension README for full reruns. Existing plots use their original frozen data; Figure 3 tick labels were spaced without changing values.
+
+## Three-target and natural extensions
+
+The main three-target comparison table and Appendix K use `experiments/v-three-adaptation/results_confirm/result.json`; Appendix L uses `experiments/v-natural/results_confirm/result.json`. Both contain seed-level and direction-level CSVs, all endpoint criteria, and 10/50-update estimates. The raw `runs_confirm/` cells reproduce those summaries. V-C must be read with its failed room-specific matching criteria, original data attribution, split manifest and calibration failures.

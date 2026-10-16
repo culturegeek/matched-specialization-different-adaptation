@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "legacy_formation_checks": [
+    {
+      "route": "acquisition",
+      "old_seed": 8200,
+      "max_absolute_error_difference": 0.0
+    },
+    {
+      "route": "update",
+      "old_seed": 8200,
+      "max_absolute_error_difference": 0.0
+    }
+  ],
+  "smoke_recipient_start_checks": 24,
+  "smoke_seed_excluded": 32999
+}

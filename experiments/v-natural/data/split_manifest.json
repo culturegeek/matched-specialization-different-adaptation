@@ -1,0 +1,87 @@
+{
+  "source_csv_sha256": "2820bf712ad0275cb18b85a05250926100d8e65ebb9f4d2d016ca91ea152a25d",
+  "columns": [
+    "T1",
+    "RH_1",
+    "T2",
+    "RH_2",
+    "T3",
+    "RH_3"
+  ],
+  "targets": {
+    "A": [
+      "T1",
+      "RH_1"
+    ],
+    "B": [
+      "T2",
+      "RH_2"
+    ],
+    "C": [
+      "T3",
+      "RH_3"
+    ]
+  },
+  "rooms": {
+    "A": "kitchen",
+    "B": "living room",
+    "C": "laundry room"
+  },
+  "rows": 19735,
+  "splits": {
+    "train": {
+      "start_row": 0,
+      "stop_row_exclusive": 9867,
+      "count": 9867,
+      "first_date": "2016-01-11 17:00:00",
+      "last_date": "2016-03-20 05:20:00"
+    },
+    "pilot_probe": {
+      "start_row": 10011,
+      "stop_row_exclusive": 12827,
+      "count": 2816,
+      "first_date": "2016-03-21 05:30:00",
+      "last_date": "2016-04-09 18:40:00"
+    },
+    "pilot_test": {
+      "start_row": 12971,
+      "stop_row_exclusive": 15788,
+      "count": 2817,
+      "first_date": "2016-04-10 18:50:00",
+      "last_date": "2016-04-30 08:10:00"
+    },
+    "confirm_probe": {
+      "start_row": 15932,
+      "stop_row_exclusive": 17761,
+      "count": 1829,
+      "first_date": "2016-05-01 08:20:00",
+      "last_date": "2016-05-14 01:00:00"
+    },
+    "confirm_test": {
+      "start_row": 17905,
+      "stop_row_exclusive": 19735,
+      "count": 1830,
+      "first_date": "2016-05-15 01:10:00",
+      "last_date": "2016-05-27 18:00:00"
+    }
+  },
+  "boundary_gap_rows": 144,
+  "boundary_gap_hours": 24,
+  "normalization_mean_train_only": [
+    20.705133743872874,
+    40.30642855172203,
+    19.335261466935105,
+    40.362502850549674,
+    20.81220705752366,
+    40.247603261456696
+  ],
+  "normalization_std_train_only": [
+    1.2367872582201025,
+    3.9078887732404533,
+    1.456653284509841,
+    3.235555132956036,
+    1.1799458463165144,
+    3.497484956277682
+  ],
+  "uncertainty_scope": "Training/noise seed variability conditional on one fixed building and these chronological data blocks."
+}

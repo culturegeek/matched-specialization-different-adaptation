@@ -1,0 +1,14 @@
+{
+  "D_A_when_A_precise": 0.0024506901390850544,
+  "D_A_when_B_precise": 0.17264921963214874,
+  "D_A_when_C_precise": 0.191790372133255,
+  "D_B_when_A_precise": 0.44309669733047485,
+  "D_B_when_B_precise": 0.002408480504527688,
+  "D_B_when_C_precise": 0.4957857131958008,
+  "D_C_when_A_precise": 0.1725124567747116,
+  "D_C_when_B_precise": 0.20498023927211761,
+  "D_C_when_C_precise": 0.002475759480148554,
+  "training_mean_baseline_D_A": 4.102622985839844,
+  "training_mean_baseline_D_B": 5.012497425079346,
+  "training_mean_baseline_D_C": 7.781862258911133
+}

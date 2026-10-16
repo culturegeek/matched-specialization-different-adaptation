@@ -1,6 +1,6 @@
 \section*{Guide to the appendices}
 % P:appguide
-Appendix~\ref{app:optimizer} gives the intervention details and estimates for the central adaptation comparison. Appendices~\ref{app:formation}, \ref{app:maintenance}, and \ref{app:three} examine how specialization forms, what supports it during continued learning, and how formation extends to three targets. Appendices~\ref{app:measurement} and \ref{app:calibration} describe measurement checks and acquisition--compression calibration. Appendix~\ref{app:coordinate} reports failed conditional predictors, while Appendix~\ref{app:factors} reports factor controls, including initial failures and later tests with revised criteria; Appendix~\ref{app:status} distinguishes their statistical status and maps the evidence to reproduction files. Appendix~\ref{app:extension} adds endpoint-prediction checks, fixed-protocol replications, and movement- and layer-controlled interventions.
+Appendix~\ref{app:optimizer} gives the intervention details and estimates for the central adaptation comparison. Appendices~\ref{app:formation}, \ref{app:maintenance}, and \ref{app:three} examine how specialization forms, what supports it during continued learning, and how formation extends to three targets. Appendices~\ref{app:measurement} and \ref{app:calibration} describe measurement checks and acquisition--compression calibration. Appendix~\ref{app:coordinate} reports failed conditional predictors, while Appendix~\ref{app:factors} reports factor controls, including initial failures and later tests with revised criteria; Appendix~\ref{app:status} distinguishes their statistical status and maps the evidence to reproduction files. Appendix~\ref{app:extension} adds endpoint-prediction checks, fixed-protocol replications, and movement- and layer-controlled interventions. Appendices~\ref{app:threeadapt} and \ref{app:natural} test adaptation with three Gaussian targets and with natural sensor measurements.
 
 \section{Endpoint and optimizer contrasts (IV-D--E)}
 \label{app:optimizer}
@@ -187,7 +187,7 @@ Every target-specific acquisition condition favors its designated target in all 
 \end{figure}
 
 % P:three4
-This experiment extends acquisition-selected formation to three targets and establishes a second observable contrast. Three-target transitions and optimizer-component exchange remain untested. The result therefore extends the formation claim; testing persistence and latent susceptibility at three targets requires their corresponding interventions.
+This experiment extends acquisition-selected formation to three targets and establishes a second observable comparison direction. Appendix~\ref{app:threeadapt} tests subsequent adaptation and component exchanges. Persistence of three formed regimes under common conditions would require a separate maintenance intervention.
 
 
 \subsection{Detailed estimates}
@@ -401,3 +401,88 @@ Equal movement, exchanged & $0.0072\;[0.0040,0.0104]$ \\
 
 
 
+
+\section{Matched three-target adaptation (V-B)}
+\label{app:threeadapt}
+% P:appvbdesign
+To test whether optimizer-mediated reallocation survives a third competing target, we retain the V-A Gaussian construction: three three-dimensional targets with pairwise correlation 0.35, a $9\to32\to d_Z$ tanh encoder, and three linear heads. For each $d_Z\in\{2,3\}$ and original target $i$, acquisition formation observes $i$ precisely with equal loss weights. Update formation balances precision across targets while assigning $i$ weight $w$ and the others $(1-w)/2$. Both descend from the same 100-update balanced ancestor and train for 600 further updates with Adam. Learning rate, decay, batch size, and train/probe/test counts are $0.002$, $(0.9,0.999)$, 256, and $3072/768/1536$; weight decay is $10^{-5}$ and $\epsilon=10^{-8}$.
+
+% P:appvbcal
+Eight pilot seeds (33000--33007) compare $w=0.55,0.60,\ldots,0.95$ using endpoints alone. For each capacity we minimize the largest absolute mean endpoint difference divided by its tolerance. The selected weight is 0.65 at both capacities. Eight measurements align the original target and its two cyclic alternatives: three errors, their sum, two pairwise indices, and the two indices under a low-precision probe. Tolerances are $\pm0.02$, or $\pm0.01$ for low-precision indices. The three original-target labels are averaged within seed in this symmetric construction. Confirmation on seeds 34000--34039 meets every interval-based endpoint criterion at both capacities. These are operational measurement tolerances, not externally validated performance thresholds.
+
+% P:appvbresponse
+Each endpoint receives two destination-target pulses, giving all six ordered directions. A pulse observes destination $j$ precisely and weights its loss 0.8, with 0.1 for each other target. Define $s_{ij}=(D_j-D_i)/(D_j+D_i)$ and response $s_{ij}(0)-s_{ij}(t)$. The route contrast subtracts update-formed response from acquisition-formed response. All three errors and centered log-error scores are retained. The six optimizer modes use own state, exchanged $m$, exchanged $v$, fresh Adam, own $v$ at common $\bar a_v$, or exchanged $v$ at the same common scale. Exchanges preserve recipient weights, the other moment, and step count; scale normalization uses the geometric mean of the two original scales and 80 bisection iterations including $\epsilon$.
+
+% P:appvbinference
+The protocol fixes ten updates as primary and 50 as secondary, with measurements at 0, 1, 5, 10, 20, and 50 updates. All six directions are averaged within seed; the same 40 seeds are reused across capacities, rather than counted as 80 independent seeds. Individual 95\% intervals use 5,000 paired-seed bootstrap resamples. Plans, calibration, analysis, and code were locally frozen before confirmation; all seeds and failed criteria are retained. A saved V-A seed reproduces exactly before this extension is run.
+
+% P:appvbresult
+Both capacities show a positive own-state contrast and a negative swapped-$v$ contrast (Table~\ref{tab:vb}); the six direction-specific means have these same signs. First-moment changes lie within $\pm0.02$. At common mean scale the pattern effect remains positive, although the swapped contrasts themselves remain positive: component sensitivity transfers more broadly than reversal under every scaling condition. Reset meets $\pm0.02$ at dimension two; its dimension-three interval crosses 0.02, so equivalence is unresolved rather than disproved by an interval wholly outside the margin.
+\begin{table}[ht]
+\centering\small
+\caption{Three-target Gaussian response contrasts at ten updates. Each column uses the same 40 seeds. The last two rows are paired differences between intervention contrasts; all intervals are individual 95\% seed-bootstrap intervals.}
+\label{tab:vb}
+% P:appvbtable
+\begin{tabular}{lcc}
+\toprule
+Intervention & $d_Z=2$ & $d_Z=3$\\
+\midrule
+Own state & $0.1945\;[0.1906,0.1987]$ & $0.4054\;[0.3951,0.4152]$\\
+$m$ exchanged & $0.1943\;[0.1899,0.1988]$ & $0.4063\;[0.3962,0.4161]$\\
+$v$ exchanged & $-0.1005\;[-0.1054,-0.0955]$ & $-0.2193\;[-0.2266,-0.2118]$\\
+Adam reset & $0.0116\;[0.0101,0.0132]$ & $0.0203\;[0.0178,0.0226]$\\
+Own pattern, common scale & $0.0904\;[0.0864,0.0947]$ & $0.1749\;[0.1668,0.1822]$\\
+Swapped pattern, common scale & $0.0079\;[0.0037,0.0121]$ & $0.0208\;[0.0144,0.0273]$\\
+\midrule
+$v$ exchange effect & $0.2950\;[0.2901,0.3003]$ & $0.6247\;[0.6129,0.6371]$\\
+Common-scale pattern effect & $0.0825\;[0.0792,0.0860]$ & $0.1541\;[0.1479,0.1597]$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% P:appvbhorizon
+At 50 updates, own-state contrasts are approximately 0.0000 and 0.0069 at dimensions two and three; reset contrasts are 0.0255 and 0.0596. The own-minus-swapped-$v$ effects are then $-0.0132$ and $-0.0263$, and the common-scale effects are $-0.0241$ and $-0.0479$. Thus the early positive exchange effect does not persist with the same sign. The primary result extends the matched comparison to a third Gaussian target over ten updates; it does not supply a horizon-independent equivalence or a general three-target transition model.
+
+\section{Natural three-room sensor extension (V-C)}
+\label{app:natural}
+% P:appvcdata
+We test natural cross-target and temporal structure using the UCI Appliances Energy Prediction data \citep{candanedo2017data,candanedo2017dataset}. The source contains 19,735 ten-minute records from one house, January--May 2016. The targets are kitchen temperature/humidity (T1, RH\_1), living-room measurements (T2, RH\_2), and laundry-room measurements (T3, RH\_3). The task reconstructs these recorded values after controlled observation noise; it is neither future forecasting nor the source dataset's appliance-energy benchmark.
+
+% P:appvcsplit
+The first 9,867 rows train the model. Four subsequent chronological blocks fit and evaluate pilot readouts (2,816 and 2,817 rows), then fit and evaluate confirmation readouts (1,829 and 1,830 rows). We omit 144 rows at each boundary. Training ends on March 20, pilot evaluation on April 30, and confirmation evaluation spans May 15--27. Means and standard deviations come only from the training block and are fixed thereafter. $D_i$ averages squared error over the room's two training-standardized variables, without normalization by evaluation-block variance. The model's formation and pulse updates use only the training block; fresh readouts use their designated later blocks. Gaps reduce immediate overlap but do not establish temporal independence.
+
+% P:appvcdesign
+The encoder becomes $6\to32\to d_Z$ with two-dimensional heads; training settings, precision noise, six directions, six modes, and horizons otherwise follow V-B. Room labels keep their physical meaning. Eight pilot seeds (35000--35007) select a weight separately for each original room and capacity, among $1/3$, 0.40, 0.45, \ldots, 0.95. Selection minimizes the same largest standardized mean endpoint discrepancy, without using pulse responses or confirmation blocks. Selected weights for kitchen/living/laundry are 0.40/0.95/0.75 at dimension two and 0.95/0.95/0.90 at dimension three. Even the best candidates exceed the largest allowed mean discrepancy by factors of 5.30--12.44. The fixed protocol carries these candidates into confirmation without expanding the search.
+
+% P:appvcmatch
+Forty new confirmation seeds (36000--36039) again fail endpoint matching. Because rooms are not exchangeable, matching requires all eight criteria for each original room, rather than averaging away room-specific differences. Only 1 of 24 criteria passes at dimension two, and none passes at dimension three. Direct input readouts verify that precise acquisition reduces the designated room's error: gains are 0.1784, 0.4822, and 0.1824 for kitchen, living room, and laundry room. Thus observation control remains effective, while this grid and formation schedule do not yield matched route endpoints.
+
+% P:appvcresult
+Exchanging $v$ changes the ten-update response contrast at both capacities, including when its mean inverse scale is held common (Table~\ref{tab:vc}). First-moment changes and reset contrasts lie within $\pm0.02$. The inherited contrast exceeds the $+0.05$ criterion only at dimension three; the swapped contrast excludes zero negatively only at dimension two. These distinct criteria prevent interpreting a positive exchange effect as universal sign reversal. Since the endpoints are unmatched, the exchange comparison identifies an intervention on each recipient's retained state, but the original route difference cannot be described as hidden by equivalent endpoint measurements.
+\begin{table}[ht]
+\centering\small
+\caption{Natural sensor response contrasts at ten updates; endpoints are unmatched. Each column uses the same 40 seeds. The last two rows are paired differences between intervention contrasts; all intervals are individual 95\% seed-bootstrap intervals.}
+\label{tab:vc}
+% P:appvctable
+\begin{tabular}{lcc}
+\toprule
+Intervention & $d_Z=2$ & $d_Z=3$\\
+\midrule
+Own state & $0.0601\;[0.0456,0.0741]$ & $0.1170\;[0.1024,0.1320]$\\
+$m$ exchanged & $0.0620\;[0.0472,0.0765]$ & $0.1157\;[0.1007,0.1310]$\\
+$v$ exchanged & $-0.0254\;[-0.0381,-0.0130]$ & $-0.0090\;[-0.0232,0.0049]$\\
+Adam reset & $-0.0076\;[-0.0168,0.0017]$ & $0.0046\;[-0.0062,0.0152]$\\
+Own pattern, common scale & $0.0230\;[0.0087,0.0369]$ & $0.0694\;[0.0561,0.0831]$\\
+Swapped pattern, common scale & $0.0127\;[-0.0006,0.0257]$ & $0.0437\;[0.0296,0.0578]$\\
+\midrule
+$v$ exchange effect & $0.0854\;[0.0772,0.0934]$ & $0.1261\;[0.1122,0.1410]$\\
+Common-scale pattern effect & $0.0103\;[0.0064,0.0140]$ & $0.0257\;[0.0210,0.0306]$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% P:appvcscope
+At 50 updates, the own-state contrasts are 0.0842 and 0.1156; reset contrasts are 0.0124 and 0.0392. The ten-update reduction therefore does not imply enduring route equivalence. All intervals resample training/noise seeds conditional on one building and fixed time blocks, and do not estimate between-building or between-period uncertainty. This extension supports a component effect during controlled reconstruction of natural measurements. A natural matched-endpoint claim requires new calibration data and confirmation across additional records, while preserving the unsuccessful comparison reported here.
+
+% P:appvbcprovenance
+The archive directories \texttt{experiments/v-three-adaptation/} and \texttt{experiments/v-natural/} retain all plans, pilot/confirmation cells, checkpoints, frozen manifests, and rerun instructions. Independent CSV audits pass 1,603 and 1,859 checks, including bootstrap estimates, intervention starts, scaling constraints, and hashes; V-C also verifies temporal separation and training-only standardization. Runs use Python 3.12.14, NumPy 2.4.6, PyTorch 2.13.0, and single-threaded CPU workers. Local freezing precedes confirmation but is not public preregistration.

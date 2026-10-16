@@ -1,6 +1,6 @@
 # Data and statistical status
 
-The observations are synthetic and generated from the programs in this repository. There are no human participants, personal records, or separately licensed external datasets. Data-generation parameters, random seeds, model dimensions, training lengths, and software versions are stored in the corresponding `provenance.json` files and experiment programs.
+Most observations are synthetic and generated from the programs in this repository. V-C uses a separately attributed, CC BY 4.0 public sensor dataset from one house; see the natural-data section below. Data-generation parameters, random seeds, model dimensions, training lengths, and software versions are stored in the corresponding `provenance.json` files and experiment programs.
 
 ## Reading the core records
 
@@ -28,3 +28,7 @@ Experiment III preserves unsuccessful candidate-coordinate prediction and finite
 ## Integrity
 
 Run `python scripts/verify_data.py` to check every preserved source file against the publication manifest and the follow-up's local registration and result hashes. This is an integrity check, not evidence that every scientific claim is correct. Run `python scripts/check_core_results.py` for a separate arithmetic check of the central reported means.
+
+## v1.2.0 natural data and additional seeds
+
+V-B uses pilot 33000–33007 and confirmation 34000–34039. V-C uses separate pilot 35000–35007 and confirmation 36000–36039. Within either study, both capacities reuse the same 40 confirmation seeds; six directions are averaged within seed. V-C adds one fixed building/time series, not 40 independent houses. Its data/split_manifest.json records chronological blocks and training-only scaling. All endpoint failures and unsuccessful response criteria remain, so component effects must not be described as matched-endpoint natural replication.

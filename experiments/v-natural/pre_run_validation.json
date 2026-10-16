@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "disjoint_time_blocks": true,
+  "pilot_excludes_confirm_readout_blocks": true,
+  "train_only_standardization": true,
+  "independent_float64_ridge_max_absolute_discrepancy": 8.577313570512501e-08,
+  "smoke_identical_recipient_start_checks": 24,
+  "smoke_seed_excluded": 34999
+}

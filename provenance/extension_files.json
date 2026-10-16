@@ -1,9 +1,9 @@
 {
-  "analyses/manuscript_intervals/INTERVAL_LEDGER.csv": "3ba05d5082e143ee33ee19f03e404a66cfb4867c53f8f6e3995c8fb2d0204a29",
+  "analyses/manuscript_intervals/INTERVAL_LEDGER.csv": "ac101394710313af0e823a7526aee1c413ca78c39885fbd1e12aed3768dda72b",
   "analyses/manuscript_intervals/derived_interval_seed_values.csv": "d74873b14c59ec239f2f50f110f75f3c213e9c50392916e4b406163cf350f08a",
   "analyses/manuscript_intervals/derived_intervals.json": "a56eba744cb809a8b736103c71a0133a825f6158af11ffd31ba43e483de33f58",
-  "analyses/manuscript_intervals/interval_bindings.json": "b462e4d21e299e03f85d5cd8aa8c3f8018a4d797779f420c1540a1355f5ec121",
-  "analyses/manuscript_intervals/interval_ledger.json": "3cda90a90a47e3621875d0064a1280c1a2f7c276ce1268cd6abf0b2009793ef7",
+  "analyses/manuscript_intervals/interval_bindings.json": "d0a0720e76be1303edc270fc2214f4968087620e1f806b80cfe7a9bae3ad2397",
+  "analyses/manuscript_intervals/interval_ledger.json": "34618406551d657e93cfad8af11ca818e512a1bd2d21bf4c554eb9e4ab9b034b",
   "experiments/iv-extension/README.md": "53018dbeaec801d31582e667f3c7af9614eea78df4131dff6e14ca585419f6bf",
   "experiments/iv-extension/README_ja.md": "685a5b3a158067a5991dbeabbea3033dc01962f0719bea44b85a4997fabd479b",
   "experiments/iv-extension/analyze_extension.py": "b86ec0ff32285bda25f5b925a3c451576605cf9ce9fbd9750ba681a4fee1f025",
@@ -1639,8 +1639,8 @@
   "experiments/iv-extension/vendor/vendor/experiment_iv_complete_v05/IV-B/experiment_iv_b.py": "5c2c52f56f1c5d2d5c21f5be946ac6a64f59b271a62ce47131972856e30643e7",
   "experiments/iv-extension/vendor/vendor/experiment_iv_complete_v05/IV-D/experiment_iv_d.py": "faa61d4334ad0937fa8a6d42e66ea1d60322aafa926f953deffd4233701f123d",
   "experiments/iv-extension/vendor/vendor/experiment_iv_complete_v05/IV-E/experiment_iv_e.py": "e0d244387abe910680cbb8b45b9d87751b9cf8af4452d35785c0ffd87af33744",
-  "paper/interval_sources/appendices_en.tex": "ebacd9c4ff8aa2f38f2b52bdaee3d1db517399df85e85426a5029a305e033a0c",
-  "paper/interval_sources/appendices_ja.tex": "cb31ff6ac04f77af8d2853d82688090e3f40b6c03e6a9f4b4fc5f62b7b255fe5",
-  "paper/interval_sources/sections_en.tex": "c9b024b9ddfc18fde2072550500f4cec7c5dfc668355ccff34d595ec5a96e730",
-  "paper/interval_sources/sections_ja.tex": "9085b6c817bf84be3607ac692fc0b39f23cf44dc534b34449f196cc7ff30b9b2"
+  "paper/interval_sources/appendices_en.tex": "0b9f6c949a401196cdf5dda0f7d71754f438a09be9aec8b561149d3cc42dc662",
+  "paper/interval_sources/appendices_ja.tex": "b62c846d62fb6748ddf1a5a1f8fcf60b7b9042cbe5370c1be3833f8ea2f40bfe",
+  "paper/interval_sources/sections_en.tex": "b027861be168416a74101f86404fce9370e55f8b06a29e12983c7d2888c99f54",
+  "paper/interval_sources/sections_ja.tex": "db4e96bb594af82e7e5f930a739d1eb15564871822d9acc5e4831c2567582778"
 }

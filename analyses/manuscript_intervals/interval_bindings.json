@@ -920,5 +920,261 @@
     "kind": "confidence_interval",
     "source_file": "experiments/iv-extension/results_mechanism/result.json",
     "source_key": "$.base.contrasts.norm_controlled_exchange_effect.ci95"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 1,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.own",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 2,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.own",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 3,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.m_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 4,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.m_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 5,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.v_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 6,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.v_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 7,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.reset",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 8,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.reset",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 9,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.v_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 10,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.v_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 11,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.v_other_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 12,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.v_other_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 13,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.contrasts.v_exchange_effect",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 14,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.contrasts.v_exchange_effect",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 15,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.contrasts.scale_controlled_pattern_effect",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvbtable",
+    "interval_in_paragraph": 16,
+    "source_file": "experiments/v-three-adaptation/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.contrasts.scale_controlled_pattern_effect",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 1,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.own",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 2,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.own",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 3,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.m_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 4,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.m_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 5,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.v_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 6,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.v_other",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 7,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.reset",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 8,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.reset",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 9,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.v_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 10,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.v_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 11,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.effects.v_other_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 12,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.effects.v_other_equal_scale",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 13,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.contrasts.v_exchange_effect",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 14,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.contrasts.v_exchange_effect",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 15,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.2.horizons.10.contrasts.scale_controlled_pattern_effect",
+    "kind": "confidence_interval"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "appvctable",
+    "interval_in_paragraph": 16,
+    "source_file": "experiments/v-natural/results_confirm/result.json",
+    "source_key": "$.by_capacity.3.horizons.10.contrasts.scale_controlled_pattern_effect",
+    "kind": "confidence_interval"
   }
 ]

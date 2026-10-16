@@ -12,3 +12,7 @@ python scripts/verify_manuscript_intervals.py --archive-root . --tex-root paper/
 ```
 
 Compare the regenerated derived_intervals.json and seed values with analyses/manuscript_intervals. Figure 3 also omits the crowded tick at 200; plotted data are unchanged. The new IV-F intervals retain their frozen analysis streams. The original core intervals remain separately identified.
+
+## v1.2.0 intervals
+
+The ledger additionally binds every interval in Appendices K and L to the V-B/V-C result JSONs. The independent experiment audits reproduce their bootstrap intervals from per-seed CSVs. English/Japanese parity and all printed interval occurrences are checked by the same complete-coverage verifier.

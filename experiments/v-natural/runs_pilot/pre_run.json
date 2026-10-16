@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-16T11:24:17.012272+00:00",
+  "sha256": {
+    "protocol.md": "117bbf602632b582c125c84c527715fd86911d367e68e6b58874d75e5a95dcc9",
+    "run_natural.py": "a67f3c663dc92791a9b6add2e43c733198f6b718c7f64e7a5e4b7cc397c6f31d",
+    "data/split_manifest.json": "fd18983032a092910bc070c27fb586c2369f11e37242b28ba9637167d15868ae",
+    "data/energydata_complete.csv": "2820bf712ad0275cb18b85a05250926100d8e65ebb9f4d2d016ca91ea152a25d",
+    "vendor/three_target/analyze_adaptation.py": "614cc2557b06b74e60e643c72c5fdacd57712067e47cefc4af858d565dd7f1dc",
+    "vendor/three_target/run_adaptation.py": "75351a133c8fee3213a705f3229065bda1d82e789d11d3014525281bc3fd05d2",
+    "vendor/three_target/vendor/experiment_v_a.py": "19be41236465d94535b0a6ad0eff426361349d525bf7f49da83db04222408a32"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-16",
+  "release": "1.2.0",
+  "new_confirmatory_seeds": 80,
+  "capacity_seed_cells": 160,
+  "paired_directions_per_seed": 6,
+  "V_B_independent_checks": 1603,
+  "V_C_independent_checks": 1859,
+  "V_B_portable_reproduction": {
+    "seed": 34000,
+    "capacity": 2,
+    "all_csv_bitwise_equal": {
+      "formation_endpoints.csv": true,
+      "timecourse.csv": true,
+      "state_diagnostics.csv": true,
+      "update_diagnostics.csv": true
+    }
+  },
+  "V_C_portable_reproduction": {
+    "seed": 36000,
+    "capacity": 2,
+    "all_csv_bitwise_equal": {
+      "formation_endpoints.csv": true,
+      "timecourse.csv": true,
+      "state_diagnostics.csv": true,
+      "update_diagnostics.csv": true
+    }
+  },
+  "confidence_interval_occurrences_per_language": 137,
+  "observed_ranges_per_language": 2,
+  "pdf_pages": {
+    "anonymous": 25,
+    "public": 25,
+    "japanese": 25
+  },
+  "all_new_results_retained": true,
+  "natural_endpoint_equivalence": "failed at both capacities; 1/24 and 0/24 criteria pass",
+  "scope": "All new confirmatory runs completed. Independent CSV/interval/integrity checks and one seed/capacity rerun per new study. Historical studies not all retrained."
+}

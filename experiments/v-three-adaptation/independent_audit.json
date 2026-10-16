@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "checks": 1603,
+  "timecourse_rows": 34560,
+  "new_unique_confirm_seeds": 40,
+  "capacity_seed_pairs": 80,
+  "formation_states": 480,
+  "scope": "Raw-CSV means and bootstrap intervals, complete seed/direction/mode/time cells, identical starts, q normalization, metric identities, finite update norms, frozen hashes."
+}

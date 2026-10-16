@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-16T11:13:31.548548+00:00",
+  "sha256": {
+    "pilot_protocol.md": "cbacc9caf40e1192133ca2209ee83e707d3aa7dd96f660962c95f7d47af1b208",
+    "run_adaptation.py": "75351a133c8fee3213a705f3229065bda1d82e789d11d3014525281bc3fd05d2",
+    "vendor/experiment_v_a.py": "19be41236465d94535b0a6ad0eff426361349d525bf7f49da83db04222408a32"
+  }
+}
