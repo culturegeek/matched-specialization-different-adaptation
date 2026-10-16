@@ -1,0 +1,27 @@
+{
+  "seed": 20014,
+  "rows": 8000,
+  "endpoints": [
+    {
+      "route": "acquisition",
+      "direction": "A",
+      "bitwise_equal": true
+    },
+    {
+      "route": "update",
+      "direction": "A",
+      "bitwise_equal": true
+    },
+    {
+      "route": "acquisition",
+      "direction": "B",
+      "bitwise_equal": true
+    },
+    {
+      "route": "update",
+      "direction": "B",
+      "bitwise_equal": true
+    }
+  ],
+  "checkpoint_sha256": "c7a83a3d06a782e5c7c6ec4bfb1e37996912fecf0922493f1413702e1f1b2b13"
+}

@@ -41,7 +41,7 @@ The repository includes per-seed trajectories and formation checkpoints. Most ob
 
 The [reproduction guide](docs/REPRODUCING.md) gives a one-seed reproduction check, the 40-seed follow-up, and commands for the core intervention studies. Use a new output directory for each rerun. The original experiment programs, plans, and canonical numerical results are preserved; the public figure and arithmetic-check scripts use portable repository-relative paths.
 
-The follow-up's original environment was Python 3.11.7, PyTorch 2.13.0, NumPy 2.4.6, CPU, one thread. Recorded dependencies are in [requirements-recorded-training.txt](requirements-recorded-training.txt). The original publication validation is retained in [validation](provenance/validation.json); [current diagnostic validation](provenance/head_validation.json) records the new analysis environment and checks.
+The follow-up's original environment was Python 3.11.7, PyTorch 2.13.0, NumPy 2.4.6, CPU, one thread. Recorded dependencies are in [requirements-recorded-training.txt](requirements-recorded-training.txt). The original publication validation is retained in [validation](provenance/validation.json); [current formation validation](provenance/formation_validation.json) records the new analysis environment and checks.
 
 ## Evidence and provenance
 
@@ -72,3 +72,7 @@ Run `python experiments/v-three-adaptation/audit_adaptation.py` and `python expe
 [Saved endpoint gradients](experiments/iv-head-gradients/README.md) show larger individual head gradients reaching both encoder layers under common high-precision inputs, together with stronger opposition between heads and a smaller equally weighted total. This ordering depends on the input probe and loss weighting. It is an exploratory endpoint observation; the formation of historical second-moment state remains unresolved. All 40 seeds, 160 checkpoints, four probe conditions and 40960 batch/layer records are retained. An independent analytic chain-rule calculation checks all records and 16 head-ratio intervals.
 
 The manuscript now distinguishes common-scale pattern effects from reversal and reset equivalence across 13 settings. It reports that reset increases the route contrast at beta2=0.9, and the direction of failed natural-data endpoint matching. The main mechanism table is Table 3, the setting inventory is Table 4, and the new head diagnostic is Table 11. The interval ledger covers 155 confidence intervals and two observed ranges in each language. The [paper-to-data map](docs/PAPER_TO_DATA.md) gives current table numbers. Releases v1.1.0 and v1.2.0 remain fixed.
+
+## Formation-time accounting / 形成中の記録 (v1.4.0)
+
+[Formation replay](experiments/iv-formation-logging/README.md) retains all 40 original seeds and matches all 160 endpoints bitwise. Actual task-gradient cancellation accounts arithmetically for a smaller second-moment accumulation in the acquisition route; it does not identify the causal effect of changing cancellation. The release adds 320000 layer-step records, snapshots, an independent chain-rule/recursion audit, and exploratory endpoint associations. [Current validation](provenance/formation_validation.json) records the scope. The current interval ledger covers 164 confidence intervals and two observed ranges per language.

@@ -1,6 +1,6 @@
 # From manuscript claims to data
 
-This map refers to the 16 October 2026, v1.3.0 manuscript revision, identified by the checksum in [manuscript_version.json](../paper/manuscript_version.json). Paths below are relative to the repository root. Within an experiment, `results_confirm` (or `results_confirmatory`) identifies the stored confirmatory output; pilot directories remain separate.
+This map refers to the 17 October 2026, v1.4.0 manuscript revision, identified by the checksum in [manuscript_version.json](../paper/manuscript_version.json). Paths below are relative to the repository root. Within an experiment, `results_confirm` (or `results_confirmatory`) identifies the stored confirmatory output; pilot directories remain separate.
 
 | Manuscript location | Question and primary input | Program / figure |
 |---|---|---|
@@ -48,3 +48,13 @@ Main Table 4 summarizes the criteria across 13 distinct settings. Appendix K / T
 | Appendix D, low-precision designated score | `experiments/iv-head-gradients/existing_results/three_low_precision.json`; `summarize_low_precision.py` reads the frozen V-A cells |
 
 The head analysis is exploratory, uses all saved two-target tanh follow-up endpoints, and makes no weight updates. The common high-precision result describes opposing present gradients; forming the historical second-moment pattern remains an open mechanism question. Reset changes both moments and step count. These distinctions are retained in the text and analysis plan.
+
+## Current additions: v1.4.0
+
+| Evidence | Source |
+|---|---|
+| Section 5.4; Appendix J.6 / Figure 6 | `experiments/iv-formation-logging/results/result.json`, seed summaries and complete layer-step NPZ records; `run_logging.py`, `analyze_logging.py`, independent `audit_logging.py` |
+| Appendix J.5 exploratory associations | `experiments/iv-formation-logging/endpoint_associations/result.json` and `seed_correlations.csv`; `analyze_endpoint_associations.py` |
+| Appendix J.5 pooled within-route head RMS ratios | Same association result, `descriptive.both_high.encoder1`; pooled square-root ratio, distinct from averaging checkpoint-specific ratios |
+
+Tables 3,4,8,9,10,11,12,13 retain their v1.3.0 numbers. Table 4 uses sign reversal, separate from the own-contrast lower-bound >0.05 criterion. Its inventory has nine reversal Y, three N and one unresolved setting. J.5 concerns endpoint probes; J.6 follows each route's actual training inputs and weights. Earlier releases remain fixed evidence snapshots.

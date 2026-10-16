@@ -42,7 +42,8 @@
   "subsequent_validation_records": {
     "ivf": "ivf_validation.json",
     "vbc": "vbc_validation.json",
-    "head": "head_validation.json"
+    "head": "head_validation.json",
+    "formation": "formation_validation.json"
   },
   "subsequent_environment_note": "V-B, V-C and head diagnostic: Python 3.12.14, NumPy 2.4.6, PyTorch 2.13.0, CPU one thread; see experiment records."
 }

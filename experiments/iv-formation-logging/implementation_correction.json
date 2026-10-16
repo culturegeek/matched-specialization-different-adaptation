@@ -1,0 +1,8 @@
+{
+  "time_utc": "2026-10-16T15:40:23.284082+00:00",
+  "initial_plan_sha256": "fe5a308eae9752cc42eb77e26872cf35f4f2334014310963fc78ecfd790a723e",
+  "issue": "In direction B, the logging-only decomposition used other-head weight 1-w_A instead of 1-w_favored. Original loss, optimizer updates and final checkpoints were unchanged and bitwise matched. The independent chain-rule audit detected a mismatch between weighted head decomposition and actual task gradient.",
+  "action": "Correct other-head coefficient to 1-w_favored; retain initial records locally; rerun all 40 histories and smoke without outcome selection. No scientific result from incorrect accounting is used.",
+  "original_run_sha256": "f7bbfd151ed2a04af5d0fe0a626ad9103c55e3afd396985d654263e81e2f60b3",
+  "corrected_run_sha256": "a9f79395bd3ea49811788f4b937b322299a02d6dc042f9623cda15fa4572f614"
+}

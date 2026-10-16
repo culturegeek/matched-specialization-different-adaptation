@@ -97,3 +97,7 @@ python experiments/iv-head-gradients/summarize_low_precision.py --archive-root .
 ```
 
 Use fresh output destinations. The analytic audit checks archived batch values and 16 head-ratio intervals without automatic differentiation; it writes the deterministic `independent_audit.json` report in the diagnostic folder. The source and input hashes are verified. This supplements the original frozen study audits.
+
+## Formation-time replay (v1.4.0)
+
+See [the formation README](../experiments/iv-formation-logging/README.md) for complete commands, field definitions, independent checks and a one-seed replay option. These are the original 40 seeds, not 40 additional independent examples. New NPZ records retain float64 summaries and selected float32 coordinate snapshots.

@@ -1,0 +1,584 @@
+{
+  "status": "exploratory endpoint association; not prespecified confirmatory inference",
+  "correlation_definition": "Pearson across seeds after within-seed averaging of the two target directions; 20000 paired seed bootstrap resamples, RNG 2026101701; individual intervals, no multiplicity adjustment. All 4 probes and 2 layers retained.",
+  "source_hashes": {
+    "experiments/iv-head-gradients/results/batch_gradients.csv": "79a7ad8323b77c36872a24c4aa7f085261bb482e5d4dc888c22a8d677ef0165e",
+    "experiments/iv-extension/results_mechanism/seed_effects.csv": "b9f896e9a2ce0d9c616f0a4edb3201b1b929aa1a029e32bd534e261cd02da650",
+    "experiments/iv-head-gradients/existing_results/claim_inventory.csv": "37da25418936a32ebc6d9290fca827848497926f18e811b56caafa8af76018f7",
+    "experiments/iv-extension/runs_mechanism/base/seed_20000/timecourse.csv": "b9677cea8ca8c716a66461195e351775e9925a404841b445c5f8d36523dd48c7",
+    "experiments/iv-extension/runs_mechanism/base/seed_20001/timecourse.csv": "85e1605710d89f527afb49368d3e5facaebdfb7bc1756c93d87b13ae9ea7da02",
+    "experiments/iv-extension/runs_mechanism/base/seed_20002/timecourse.csv": "3665ce80bc6c71b355c47639aee2b78481b158f861f4cd6f7eb82210e11a4f76",
+    "experiments/iv-extension/runs_mechanism/base/seed_20003/timecourse.csv": "9a290f8770bf17e360775cf1a77464df67f10bcbab310dedef25f23b5448efa6",
+    "experiments/iv-extension/runs_mechanism/base/seed_20004/timecourse.csv": "8210fc58d738e286bad3707827e72069a25a60b470da596fc074c46c72120d9c",
+    "experiments/iv-extension/runs_mechanism/base/seed_20005/timecourse.csv": "62a96c1326bf5c3ecd38eb4432faaadf31059fa33ebcb5b48b25037b1c946269",
+    "experiments/iv-extension/runs_mechanism/base/seed_20006/timecourse.csv": "31b08409b7fded7c4d2ec7f16522c7cdf63ac1baa3b2f1fc310db21e0af6c835",
+    "experiments/iv-extension/runs_mechanism/base/seed_20007/timecourse.csv": "6cd790f480c9d5c59b98b3bdeb38f3fbd8130aacea6baa2a288930ca57f184df",
+    "experiments/iv-extension/runs_mechanism/base/seed_20008/timecourse.csv": "dccdcfe5887c5d012c7be5febd702c06f3567614ce4cd5b01b214af2e85baeef",
+    "experiments/iv-extension/runs_mechanism/base/seed_20009/timecourse.csv": "4c1e8c80c306715bf17ac52b497e14218b38bd1c3339ad60c03c39a184ae3de5",
+    "experiments/iv-extension/runs_mechanism/base/seed_20010/timecourse.csv": "8cd6c717ef97f16c9cd91976648fbf7c8ee0224c39c04d99d1639d3e6e96f331",
+    "experiments/iv-extension/runs_mechanism/base/seed_20011/timecourse.csv": "3320616f0a32d685fc074309d4f85086d30946954bd4db2c1c34333193d2f222",
+    "experiments/iv-extension/runs_mechanism/base/seed_20012/timecourse.csv": "4ffcc1601cd8f85e460a664ac537e46da0312e3ae1dc6a9f0b3daf307b487c19",
+    "experiments/iv-extension/runs_mechanism/base/seed_20013/timecourse.csv": "8a6cb7df7ebb59391b94f0eb7e4dcbbf9613d27990f12125837656116804562e",
+    "experiments/iv-extension/runs_mechanism/base/seed_20014/timecourse.csv": "69f6a33c30ad16752556c18cd553219a955f13cc873a24519e0df6f9eb9f6cab",
+    "experiments/iv-extension/runs_mechanism/base/seed_20015/timecourse.csv": "007cc4e03f52867aa3aeb7031181400eb171614134bbd0e848bfd35dc34372d4",
+    "experiments/iv-extension/runs_mechanism/base/seed_20016/timecourse.csv": "824012fab39cf6632cba69d0d5b5ae0ab8912eb336b934629d50d04ab02558aa",
+    "experiments/iv-extension/runs_mechanism/base/seed_20017/timecourse.csv": "5aa47a355bb15faaa53b227967c3c53fa362d70c1667fa1868046cdd3aa8429a",
+    "experiments/iv-extension/runs_mechanism/base/seed_20018/timecourse.csv": "ad69896b190043bdb6e0545c3865cd0a0cc23001f2b596e66517e1f3e4a88e20",
+    "experiments/iv-extension/runs_mechanism/base/seed_20019/timecourse.csv": "51ca6d952b0ffb887bef5ab4fa56326ce684f7e111a3d3baba657be6bb7e6859",
+    "experiments/iv-extension/runs_mechanism/base/seed_20020/timecourse.csv": "fffc4ec18b1317f207cd8b870b2b8342cbfc35585b9ba3a82d4dcd8ed1d7805f",
+    "experiments/iv-extension/runs_mechanism/base/seed_20021/timecourse.csv": "ae8f4b1471a00d212a8578458ff7ab44476c7572868d6798691627ddf420f074",
+    "experiments/iv-extension/runs_mechanism/base/seed_20022/timecourse.csv": "22c359341aef1cea7932155f6f6e0eb00eac90a4af6549142de07ace40e58d31",
+    "experiments/iv-extension/runs_mechanism/base/seed_20023/timecourse.csv": "b0823b931b95be648ca32cab996c8a883b456febb97167d7658979099836a53f",
+    "experiments/iv-extension/runs_mechanism/base/seed_20024/timecourse.csv": "5d0c8cb23f8db0bf83d9bf441570237322d7b44b8949b874d455856d0f4baf54",
+    "experiments/iv-extension/runs_mechanism/base/seed_20025/timecourse.csv": "29f8c9ebaeb0ffa5afb1cdaa2a61ca0eeba04b917a326d16d4ebdbc277863af6",
+    "experiments/iv-extension/runs_mechanism/base/seed_20026/timecourse.csv": "7757daaae82f1186d8afc5527f6c21d9996356932532a5a3effbb59fe6c13218",
+    "experiments/iv-extension/runs_mechanism/base/seed_20027/timecourse.csv": "8960d4026358a7c3c06bc779cab1cb314aaadd3660eaf99448691974fc7ccaba",
+    "experiments/iv-extension/runs_mechanism/base/seed_20028/timecourse.csv": "2e5d64cbccf801ec3a67597bf7a1857b177adea586dd0ac3e7bb62ea56f7e1fd",
+    "experiments/iv-extension/runs_mechanism/base/seed_20029/timecourse.csv": "99a679bcbecc0e585da6515e49b39a9223cb481c7992c091271ddb721cb67c32",
+    "experiments/iv-extension/runs_mechanism/base/seed_20030/timecourse.csv": "d1dc3e06d1291bbaba7d1f8803ea78013097ecebfd420b1ca4ad85da320038c0",
+    "experiments/iv-extension/runs_mechanism/base/seed_20031/timecourse.csv": "e1921681a04e26a70da53d9c5b14c8e61cbba264ae2b93f89dcc9e9d6a44ed5f",
+    "experiments/iv-extension/runs_mechanism/base/seed_20032/timecourse.csv": "7f50e1c62a8e2c58d6e89f5756088c0edc9b846077e2e8b36b729c693a4273fd",
+    "experiments/iv-extension/runs_mechanism/base/seed_20033/timecourse.csv": "0c158607dbe6b12d79de0e410acf49de3db3291d00e1c6d4c6b44046d736773f",
+    "experiments/iv-extension/runs_mechanism/base/seed_20034/timecourse.csv": "dc38cd6aa6d974acf53edb1a2a2c104742160a73d14fc2e5e40eaa7d33cb847b",
+    "experiments/iv-extension/runs_mechanism/base/seed_20035/timecourse.csv": "62301051968dfad2fe19e45d13bafcdb9262ae0b8c1b1496c163b2fba8634979",
+    "experiments/iv-extension/runs_mechanism/base/seed_20036/timecourse.csv": "00d6e3451dea5d856f009d1b662b41cfea9fbd67242c45b2280ae347eb95de22",
+    "experiments/iv-extension/runs_mechanism/base/seed_20037/timecourse.csv": "cee3bcd53a569c6ac6fb673e4e1443f4be3e4565470526645440913e0e0a4554",
+    "experiments/iv-extension/runs_mechanism/base/seed_20038/timecourse.csv": "01c4c81d36178346ac6c66a6852b03fa9b1828eec2d38bd6f4e84f5490ad8709",
+    "experiments/iv-extension/runs_mechanism/base/seed_20039/timecourse.csv": "0d4d116f8290d4b67a560bb8624dfb31fafd5a29d705736faecdac99e6a0eb0e"
+  },
+  "claims": {
+    "endpoint_match": {
+      "Y": 11,
+      "N": 2
+    },
+    "pattern_effect": {
+      "Y": 13
+    },
+    "reversal": {
+      "Y": 9,
+      "N": 3,
+      "?": 1
+    },
+    "reset_equivalent": {
+      "Y": 7,
+      "N": 5,
+      "?": 1
+    }
+  },
+  "descriptive": {
+    "both_high": {
+      "encoder1": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.02232379003985141,
+          "mean_other_squared_norm": 0.07473365926273948,
+          "pooled_favored_rms": 0.14941147894272183,
+          "pooled_other_rms": 0.2733745768405312,
+          "other_to_favored_squared_ratio": 3.3477137676590023,
+          "other_to_favored_pooled_rms_ratio": 1.8296758640969724,
+          "mean_cosine": -0.9760895478687509,
+          "equal_total_mean_squared": 0.0043490286626026815,
+          "formation_total_mean_squared": 0.0043490286626026815
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.013531579774243841,
+          "mean_other_squared_norm": 0.056931506373785634,
+          "pooled_favored_rms": 0.11632531871541914,
+          "pooled_other_rms": 0.2386032404930529,
+          "other_to_favored_squared_ratio": 4.2073067094612036,
+          "other_to_favored_pooled_rms_ratio": 2.051172033121845,
+          "mean_cosine": -0.8533390872505076,
+          "equal_total_mean_squared": 0.005998684257550546,
+          "formation_total_mean_squared": 0.003502535451615119
+        }
+      },
+      "encoder2": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.04369456562165018,
+          "mean_other_squared_norm": 0.14781424687049247,
+          "pooled_favored_rms": 0.20903245112099264,
+          "pooled_other_rms": 0.3844661843003783,
+          "other_to_favored_squared_ratio": 3.382897730358764,
+          "other_to_favored_pooled_rms_ratio": 1.8392655410132501,
+          "mean_cosine": -0.9694807027466842,
+          "equal_total_mean_squared": 0.00893501057466772,
+          "formation_total_mean_squared": 0.00893501057466772
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.03763868006290362,
+          "mean_other_squared_norm": 0.14057447916915478,
+          "pooled_favored_rms": 0.1940069072556532,
+          "pooled_other_rms": 0.37493263284109424,
+          "other_to_favored_squared_ratio": 3.73484083220293,
+          "other_to_favored_pooled_rms_ratio": 1.932573629180252,
+          "mean_cosine": -0.7837481042442,
+          "equal_total_mean_squared": 0.016702562141856035,
+          "formation_total_mean_squared": 0.011887268700683028
+        }
+      }
+    },
+    "both_low": {
+      "encoder1": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.029983292906746728,
+          "mean_other_squared_norm": 0.04060477529298757,
+          "pooled_favored_rms": 0.1731568448163304,
+          "pooled_other_rms": 0.20150626613827066,
+          "other_to_favored_squared_ratio": 1.3542466939597162,
+          "other_to_favored_pooled_rms_ratio": 1.1637210550470058,
+          "mean_cosine": -0.0960207003826746,
+          "equal_total_mean_squared": 0.016006936408612765,
+          "formation_total_mean_squared": 0.016006936408612765
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.012502027838007284,
+          "mean_other_squared_norm": 0.03037835687496167,
+          "pooled_favored_rms": 0.11181246727448278,
+          "pooled_other_rms": 0.17429388077314037,
+          "other_to_favored_squared_ratio": 2.4298743586707388,
+          "other_to_favored_pooled_rms_ratio": 1.5588054268159124,
+          "mean_cosine": -0.11466173939520637,
+          "equal_total_mean_squared": 0.009655011927103194,
+          "formation_total_mean_squared": 0.008534778170594143
+        }
+      },
+      "encoder2": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.07582779832948518,
+          "mean_other_squared_norm": 0.08412661095496457,
+          "pooled_favored_rms": 0.2753684773707499,
+          "pooled_other_rms": 0.290045877327992,
+          "other_to_favored_squared_ratio": 1.1094428798976805,
+          "other_to_favored_pooled_rms_ratio": 1.0533009446011528,
+          "mean_cosine": 4.979181062516741e-05,
+          "equal_total_mean_squared": 0.04008628581257277,
+          "formation_total_mean_squared": 0.04008628581257277
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.04068161563019193,
+          "mean_other_squared_norm": 0.07726080207125145,
+          "pooled_favored_rms": 0.2016968409028558,
+          "pooled_other_rms": 0.27795827397516243,
+          "other_to_favored_squared_ratio": 1.8991576630971414,
+          "other_to_favored_pooled_rms_ratio": 1.3780992936276912,
+          "mean_cosine": -0.06533988554430167,
+          "equal_total_mean_squared": 0.027791861430372926,
+          "formation_total_mean_squared": 0.028042670569380625
+        }
+      }
+    },
+    "favored_precise": {
+      "encoder1": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.02904238862395424,
+          "mean_other_squared_norm": 0.030260387302477328,
+          "pooled_favored_rms": 0.17041827549871005,
+          "pooled_other_rms": 0.17395513014130204,
+          "other_to_favored_squared_ratio": 1.041938653679418,
+          "other_to_favored_pooled_rms_ratio": 1.020753963342498,
+          "mean_cosine": -0.9398269742834519,
+          "equal_total_mean_squared": 0.0009477230510051733,
+          "formation_total_mean_squared": 0.0009477230510051733
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.018764746117608228,
+          "mean_other_squared_norm": 0.023590807839938922,
+          "pooled_favored_rms": 0.1369844740020132,
+          "pooled_other_rms": 0.1535929941108608,
+          "other_to_favored_squared_ratio": 1.2571876907943922,
+          "other_to_favored_pooled_rms_ratio": 1.121243814161038,
+          "mean_cosine": -0.8354921898825414,
+          "equal_total_mean_squared": 0.002006660147074967,
+          "formation_total_mean_squared": 0.007460443689787259
+        }
+      },
+      "encoder2": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.05757261557923619,
+          "mean_other_squared_norm": 0.06163439109014677,
+          "pooled_favored_rms": 0.23994294234095778,
+          "pooled_other_rms": 0.24826274607791393,
+          "other_to_favored_squared_ratio": 1.0705504773414443,
+          "other_to_favored_pooled_rms_ratio": 1.034674092331225,
+          "mean_cosine": -0.9252970456628422,
+          "equal_total_mean_squared": 0.0023295633656675897,
+          "formation_total_mean_squared": 0.0023295633656675897
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.051636517127531444,
+          "mean_other_squared_norm": 0.060081197849673064,
+          "pooled_favored_rms": 0.22723669846116723,
+          "pooled_other_rms": 0.245114662657445,
+          "other_to_favored_squared_ratio": 1.1635408658815043,
+          "other_to_favored_pooled_rms_ratio": 1.078675514638904,
+          "mean_cosine": -0.7748937912176963,
+          "equal_total_mean_squared": 0.0069055691908013585,
+          "formation_total_mean_squared": 0.021995348761367196
+        }
+      }
+    },
+    "other_precise": {
+      "encoder1": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.027728482266783434,
+          "mean_other_squared_norm": 0.09569342201603459,
+          "pooled_favored_rms": 0.16651871446412092,
+          "pooled_other_rms": 0.3093435339812917,
+          "other_to_favored_squared_ratio": 3.451087625184155,
+          "other_to_favored_pooled_rms_ratio": 1.8577103178870906,
+          "mean_cosine": 0.08739339286929712,
+          "equal_total_mean_squared": 0.03309499735996272,
+          "formation_total_mean_squared": 0.03309499735996272
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.011829369352722077,
+          "mean_other_squared_norm": 0.0709786987326545,
+          "pooled_favored_rms": 0.10876290430437244,
+          "pooled_other_rms": 0.2664182777751078,
+          "other_to_favored_squared_ratio": 6.000209868865196,
+          "other_to_favored_pooled_rms_ratio": 2.449532581711294,
+          "mean_cosine": 0.1538733144852372,
+          "equal_total_mean_squared": 0.02309610572516102,
+          "formation_total_mean_squared": 0.011942161105491109
+        }
+      },
+      "encoder2": {
+        "acquisition": {
+          "mean_favored_squared_norm": 0.07305958997776471,
+          "mean_other_squared_norm": 0.1911117431561463,
+          "pooled_favored_rms": 0.2702953754280023,
+          "pooled_other_rms": 0.4371632911809342,
+          "other_to_favored_squared_ratio": 2.6158337764325,
+          "other_to_favored_pooled_rms_ratio": 1.6173539428438353,
+          "mean_cosine": 0.1358284163565962,
+          "equal_total_mean_squared": 0.07390160798318587,
+          "formation_total_mean_squared": 0.07390160798318587
+        },
+        "update": {
+          "mean_favored_squared_norm": 0.038782598797067226,
+          "mean_other_squared_norm": 0.17475682503629528,
+          "pooled_favored_rms": 0.19693298047068505,
+          "pooled_other_rms": 0.4180392625535253,
+          "other_to_favored_squared_ratio": 4.506062782195776,
+          "other_to_favored_pooled_rms_ratio": 2.1227488740300338,
+          "mean_cosine": 0.14239033778836724,
+          "equal_total_mean_squared": 0.05940883521260942,
+          "formation_total_mean_squared": 0.03566648295430686
+        }
+      }
+    }
+  },
+  "correlations": [
+    {
+      "input": "both_high",
+      "layer": "encoder1",
+      "predictor": "acquisition_cosine",
+      "pearson": -0.21721777813757728,
+      "ci95_percentile": [
+        -0.5282651476446694,
+        0.19003469476470086
+      ],
+      "n": 40,
+      "predictor_mean": -0.9760895478687509,
+      "predictor_sd": 0.008039310902978459
+    },
+    {
+      "input": "both_high",
+      "layer": "encoder1",
+      "predictor": "update_cosine",
+      "pearson": -0.16994315025439344,
+      "ci95_percentile": [
+        -0.5964392128701486,
+        0.3710032264614782
+      ],
+      "n": 40,
+      "predictor_mean": -0.8533390872505077,
+      "predictor_sd": 0.04509310500981615
+    },
+    {
+      "input": "both_high",
+      "layer": "encoder1",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.5162168177219479,
+      "ci95_percentile": [
+        0.2226277342265915,
+        0.7148211309695186
+      ],
+      "n": 40,
+      "predictor_mean": -0.1511135952958364,
+      "predictor_sd": 0.07739702140209626
+    },
+    {
+      "input": "both_high",
+      "layer": "encoder2",
+      "predictor": "acquisition_cosine",
+      "pearson": -0.23755126433562876,
+      "ci95_percentile": [
+        -0.493961203759126,
+        0.1239275942536554
+      ],
+      "n": 40,
+      "predictor_mean": -0.9694807027466841,
+      "predictor_sd": 0.012071347983881478
+    },
+    {
+      "input": "both_high",
+      "layer": "encoder2",
+      "predictor": "update_cosine",
+      "pearson": -0.08012327836542456,
+      "ci95_percentile": [
+        -0.4052833899918654,
+        0.2900061385164052
+      ],
+      "n": 40,
+      "predictor_mean": -0.7837481042442,
+      "predictor_sd": 0.05188100251733728
+    },
+    {
+      "input": "both_high",
+      "layer": "encoder2",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.35948594758837404,
+      "ci95_percentile": [
+        0.06601138993131794,
+        0.5852545899395069
+      ],
+      "n": 40,
+      "predictor_mean": -0.3060424046714743,
+      "predictor_sd": 0.08257016115333915
+    },
+    {
+      "input": "both_low",
+      "layer": "encoder1",
+      "predictor": "acquisition_cosine",
+      "pearson": 0.007192381419617782,
+      "ci95_percentile": [
+        -0.3124589215386001,
+        0.29563184029619294
+      ],
+      "n": 40,
+      "predictor_mean": -0.09602070038267461,
+      "predictor_sd": 0.05757319464295558
+    },
+    {
+      "input": "both_low",
+      "layer": "encoder1",
+      "predictor": "update_cosine",
+      "pearson": -0.10463667937113516,
+      "ci95_percentile": [
+        -0.4197230633771659,
+        0.20777647191539067
+      ],
+      "n": 40,
+      "predictor_mean": -0.11466173939520638,
+      "predictor_sd": 0.0792530083306843
+    },
+    {
+      "input": "both_low",
+      "layer": "encoder1",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.36004615546614144,
+      "ci95_percentile": [
+        0.06277723883911743,
+        0.6384286944365013
+      ],
+      "n": 40,
+      "predictor_mean": 0.2658210138067384,
+      "predictor_sd": 0.05149196768454353
+    },
+    {
+      "input": "both_low",
+      "layer": "encoder2",
+      "predictor": "acquisition_cosine",
+      "pearson": 0.04986073343130402,
+      "ci95_percentile": [
+        -0.2723348731459043,
+        0.33341305654969533
+      ],
+      "n": 40,
+      "predictor_mean": 4.979181062516602e-05,
+      "predictor_sd": 0.06596503023944955
+    },
+    {
+      "input": "both_low",
+      "layer": "encoder2",
+      "predictor": "update_cosine",
+      "pearson": -0.12338039927036855,
+      "ci95_percentile": [
+        -0.412585476663386,
+        0.2026322719962896
+      ],
+      "n": 40,
+      "predictor_mean": -0.06533988554430167,
+      "predictor_sd": 0.07105745617707798
+    },
+    {
+      "input": "both_low",
+      "layer": "encoder2",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.21551130435169674,
+      "ci95_percentile": [
+        -0.03711294932582608,
+        0.47776391202800694
+      ],
+      "n": 40,
+      "predictor_mean": 0.19123696545720642,
+      "predictor_sd": 0.05221949058159822
+    },
+    {
+      "input": "favored_precise",
+      "layer": "encoder1",
+      "predictor": "acquisition_cosine",
+      "pearson": 0.0031300265429957414,
+      "ci95_percentile": [
+        -0.3752076240430422,
+        0.33037909662815057
+      ],
+      "n": 40,
+      "predictor_mean": -0.9398269742834516,
+      "predictor_sd": 0.005822316469170012
+    },
+    {
+      "input": "favored_precise",
+      "layer": "encoder1",
+      "predictor": "update_cosine",
+      "pearson": -0.136752716314156,
+      "ci95_percentile": [
+        -0.5608689397676284,
+        0.3920257032974663
+      ],
+      "n": 40,
+      "predictor_mean": -0.8354921898825414,
+      "predictor_sd": 0.04194064084268204
+    },
+    {
+      "input": "favored_precise",
+      "layer": "encoder1",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.1791608031140488,
+      "ci95_percentile": [
+        -0.325917852508621,
+        0.5515407156305443
+      ],
+      "n": 40,
+      "predictor_mean": -0.3667248812106889,
+      "predictor_sd": 0.13103519351943052
+    },
+    {
+      "input": "favored_precise",
+      "layer": "encoder2",
+      "predictor": "acquisition_cosine",
+      "pearson": 0.016109102170182337,
+      "ci95_percentile": [
+        -0.30679802273733614,
+        0.3088107296949311
+      ],
+      "n": 40,
+      "predictor_mean": -0.925297045662842,
+      "predictor_sd": 0.010744089037713409
+    },
+    {
+      "input": "favored_precise",
+      "layer": "encoder2",
+      "predictor": "update_cosine",
+      "pearson": -0.05423112327583923,
+      "ci95_percentile": [
+        -0.3617893393174956,
+        0.2981559111289853
+      ],
+      "n": 40,
+      "predictor_mean": -0.7748937912176963,
+      "predictor_sd": 0.049717432634561645
+    },
+    {
+      "input": "favored_precise",
+      "layer": "encoder2",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.1308121727635518,
+      "ci95_percentile": [
+        -0.3142720453811699,
+        0.49029271577962125
+      ],
+      "n": 40,
+      "predictor_mean": -0.5273612935779113,
+      "predictor_sd": 0.12134206525330526
+    },
+    {
+      "input": "other_precise",
+      "layer": "encoder1",
+      "predictor": "acquisition_cosine",
+      "pearson": 0.022349015422511765,
+      "ci95_percentile": [
+        -0.42766973646442824,
+        0.43316305504826946
+      ],
+      "n": 40,
+      "predictor_mean": 0.08739339286929715,
+      "predictor_sd": 0.06717016313255418
+    },
+    {
+      "input": "other_precise",
+      "layer": "encoder1",
+      "predictor": "update_cosine",
+      "pearson": -0.058315783805166464,
+      "ci95_percentile": [
+        -0.4667650080041742,
+        0.32572364421044375
+      ],
+      "n": 40,
+      "predictor_mean": 0.1538733144852372,
+      "predictor_sd": 0.09380369169573975
+    },
+    {
+      "input": "other_precise",
+      "layer": "encoder1",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.37419564467507277,
+      "ci95_percentile": [
+        0.022829017873919014,
+        0.6943397686205286
+      ],
+      "n": 40,
+      "predictor_mean": 0.18887806022968734,
+      "predictor_sd": 0.04632655717901706
+    },
+    {
+      "input": "other_precise",
+      "layer": "encoder2",
+      "predictor": "acquisition_cosine",
+      "pearson": 0.08568134171777358,
+      "ci95_percentile": [
+        -0.29551015748377546,
+        0.41635197261730333
+      ],
+      "n": 40,
+      "predictor_mean": 0.1358284163565962,
+      "predictor_sd": 0.07433608916806018
+    },
+    {
+      "input": "other_precise",
+      "layer": "encoder2",
+      "predictor": "update_cosine",
+      "pearson": -0.07840135497319174,
+      "ci95_percentile": [
+        -0.3885929612933869,
+        0.22515981469912733
+      ],
+      "n": 40,
+      "predictor_mean": 0.14239033778836724,
+      "predictor_sd": 0.0772690377542729
+    },
+    {
+      "input": "other_precise",
+      "layer": "encoder2",
+      "predictor": "log_equal_total_rms_ratio",
+      "pearson": 0.2918318671918548,
+      "ci95_percentile": [
+        0.020058500215858532,
+        0.587373119648159
+      ],
+      "n": 40,
+      "predictor_mean": 0.11548412801847593,
+      "predictor_sd": 0.044004608336886894
+    }
+  ]
+}

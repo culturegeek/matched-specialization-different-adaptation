@@ -1320,5 +1320,77 @@
     "kind": "confidence_interval",
     "source_file": "experiments/iv-head-gradients/results/result.json",
     "source_key": "$.by_input.both_high.encoder2.update.cosine"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradassociation",
+    "interval_in_paragraph": 1,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/endpoint_associations/result.json",
+    "source_key": "$.correlations[0].ci95_percentile"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradassociation",
+    "interval_in_paragraph": 2,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/endpoint_associations/result.json",
+    "source_key": "$.correlations[1].ci95_percentile"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "headgradassociation",
+    "interval_in_paragraph": 3,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/endpoint_associations/result.json",
+    "source_key": "$.correlations[2].ci95_percentile"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "formationlogresult",
+    "interval_in_paragraph": 1,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/results/result.json",
+    "source_key": "$.final.encoder1.acquisition.cancellation"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "formationlogresult",
+    "interval_in_paragraph": 2,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/results/result.json",
+    "source_key": "$.final.encoder2.acquisition.cancellation"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "formationlogresult",
+    "interval_in_paragraph": 3,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/results/result.json",
+    "source_key": "$.final.encoder1.update.cancellation"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "formationlogresult",
+    "interval_in_paragraph": 4,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/results/result.json",
+    "source_key": "$.final.encoder2.update.cancellation"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "formationlogresult",
+    "interval_in_paragraph": 5,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/results/result.json",
+    "source_key": "$.final.encoder1.v_ratio"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "formationlogresult",
+    "interval_in_paragraph": 6,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-formation-logging/results/result.json",
+    "source_key": "$.final.encoder2.v_ratio"
   }
 ]

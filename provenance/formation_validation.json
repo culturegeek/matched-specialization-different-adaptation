@@ -1,0 +1,40 @@
+{
+  "release": "1.4.0",
+  "date": "2026-10-17",
+  "status": "exploratory original-history replay and endpoint associations",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "torch": "2.13.0",
+    "device": "CPU",
+    "threads": 1
+  },
+  "seeds_replayed": 40,
+  "histories": 160,
+  "formation_updates": 80000,
+  "layer_step_records": 320000,
+  "independent_audit": {
+    "status": "PASS",
+    "layer_step_records": 320000,
+    "analytic_chain_rule_records": 3840,
+    "bitwise_endpoint_checks": 160,
+    "max_analytic_float32_vs_float64_difference": 6.338844033004776e-08,
+    "max_relative_v_recursion_discrepancy": 9.815629490293601e-08,
+    "max_final_rounding_fraction": 6.771001926223647e-06,
+    "plan_unchanged": true
+  },
+  "summary_audit": {
+    "status": "PASS",
+    "final_seed_summary_intervals": 108,
+    "raw_records_independently_reshaped": 320000
+  },
+  "historical_results_unchanged": true,
+  "implementation_correction": "../experiments/iv-formation-logging/implementation_correction.json",
+  "confidence_intervals_per_language": 164,
+  "observed_ranges_per_language": 2,
+  "pdf_pages": {
+    "anonymous": 28,
+    "public": 28,
+    "japanese": 28
+  }
+}

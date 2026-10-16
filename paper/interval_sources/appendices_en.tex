@@ -288,7 +288,7 @@ The question-based sections map to the reproduction records as follows: formatio
 The archive's \texttt{docs/PAPER\_TO\_DATA.md} links each figure and principal table to its input files. From the archive root, \texttt{python scripts/verify\_data.py} checks preserved-file hashes and the follow-up's frozen plans and results; \texttt{python scripts/check\_core\_results.py} independently recomputes 27 central means from stored CSVs. After installing \texttt{requirements-analysis.txt}, \texttt{python scripts/make\_figures.py} regenerates the five English figure families. The numerical check covers the selected means. A separate interval ledger links every printed confidence interval to a saved result and its rounding precision. The pooled mirrored-history depth contrast and the two IV-A terminal-depth contrasts use 20,000 paired seed-bootstrap resamples, with mirrored labels averaged within seed. Their reproducible exploratory calculations are provided by \texttt{scripts/audit\_manuscript\_intervals.py}; registered experiment results and decision criteria remain separately identified.
 
 % P:appstatus4
-Training reruns are described in \texttt{docs/REPRODUCING.md}, including a one-seed trajectory comparison and the full 40-seed follow-up. The recorded follow-up environment is Python 3.11.7, NumPy 2.4.6, and PyTorch 2.13.0 on CPU with one thread. The environment and scope of the separate package checks are recorded in \texttt{provenance/validation.json}; they do not constitute a rerun of every historical experiment. Reruns write to new output directories so that the archived confirmatory data, failed criteria, and exploratory records remain available for comparison. The extension checks are recorded separately in \texttt{provenance/ivf\_validation.json}, \texttt{provenance/vbc\_validation.json}, and \texttt{provenance/head\_validation.json}.
+Training reruns are described in \texttt{docs/REPRODUCING.md}, including a one-seed trajectory comparison and the full 40-seed follow-up. The recorded follow-up environment is Python 3.11.7, NumPy 2.4.6, and PyTorch 2.13.0 on CPU with one thread. The environment and scope of the separate package checks are recorded in \texttt{provenance/validation.json}; they do not constitute a rerun of every historical experiment. Reruns write to new output directories so that the archived confirmatory data, failed criteria, and exploratory records remain available for comparison. The extension checks are recorded separately in \texttt{provenance/ivf\_validation.json}, \texttt{provenance/vbc\_validation.json}, \texttt{provenance/head\_validation.json}, and \texttt{provenance/formation\_validation.json}.
 
 % P:appfprovenance
 The IV-F files are in \texttt{experiments/iv-extension/}. The two registration files record local pre-run hashes. Its \texttt{README.md} maps all modes, predictions, layer summaries, and failed criteria to data and rerun commands. \texttt{audit\_extension.py} independently checks raw-CSV means, completeness, shared starts, norm constraints, and frozen hashes. Before new training, the baseline checkpoint and six pulse modes reproduced saved seed 20000 exactly.
@@ -410,10 +410,44 @@ Gradient cosine, update & $-0.853\;[-0.866,-0.839]$ & $-0.784\;[-0.799,-0.767]$\
 \end{table}
 
 % P:headgradinterpretation
-Individual head-gradient ratios exceed one in the common high-precision probe, while the equally weighted sum has ratios below one. For gradients $g_f,g_o$ and weights $w_f,w_o$, the squared total is $w_f^2\|g_f\|^2+w_o^2\|g_o\|^2+2w_fw_o\langle g_f,g_o\rangle$. The negative cross term therefore matters, and head norms cannot be interpreted as additive contribution fractions. Using route-specific formation weights at this same probe instead gives total-norm ratios 1.215 and 0.939. The equally weighted ratios also change with inputs: 1.305/1.211 for both-low, 0.693/0.590 for favored-precise, and 1.208/1.122 for other-precise inputs. All conditions are retained, so the smaller combined gradient is a probe- and weighting-dependent observation.
+Individual head-gradient ratios exceed one in the common high-precision probe, while the equally weighted sum has ratios below one. For gradients $g_f,g_o$ and weights $w_f,w_o$, the squared total is $w_f^2\|g_f\|^2+w_o^2\|g_o\|^2+2w_fw_o\langle g_f,g_o\rangle$. The negative cross term therefore matters, and head norms cannot be interpreted as additive contribution fractions.
+
+% P:headgradinputs
+Using route-specific formation weights at this same probe instead gives total-norm ratios 1.215 and 0.939. The equally weighted ratios also change with inputs: 1.305/1.211 for both-low, 0.693/0.590 for favored-precise, and 1.208/1.122 for other-precise inputs. The favored-precise probe uses the acquisition route's formation observation precision, evaluated at the endpoint. Its first-layer cosines are $-0.940$ and $-0.835$ for acquisition and update, respectively. Under both-high input, the other-head RMS gradient exceeds the favored-head gradient in both routes (pooled norm ratios 1.83 and 2.05). Downweighting that head under the update route's formation weights reduces the combined norm at this probe. All conditions are retained, so the smaller combined gradient is a probe- and weighting-dependent observation.
+
+% P:headgradassociation
+Do these endpoint quantities track the response difference across seeds? An exploratory association analysis uses the both-high probe, first encoder layer, and saved own-state ten-update responses. After averaging both directions within seed, correlations across 40 seeds are $-0.22\;[-0.53,0.19]$ for acquisition cosine, $-0.17\;[-0.60,0.37]$ for update cosine, and $0.52\;[0.22,0.71]$ for the log acquisition/update ratio of equally weighted RMS gradient norms. Individual intervals use 20,000 paired-seed resamples; all four probes and both layers are retained in the archive. The cosine estimates do not establish a clear association and do not exclude moderate associations. The positive norm-ratio association does not separate the contributions of current gradients and optimizer state.
 
 % P:headgradscope
-These are endpoint gradients of the two-target tanh baseline after 500 formation updates. They contradict a simple account in which each head supplies a weaker encoder signal under common high-precision input in the acquisition route. They do not reconstruct the historical regularized-gradient sequence accumulated in $v$. The archive's \texttt{experiments/iv-head-gradients/} contains every batch-level value, the seed summaries, and an independent analytic chain-rule audit; formation-time logging is needed to test how the observed second-moment pattern develops.
+These endpoint results concern the two-target tanh baseline after 500 formation updates. The archive retains all batch values and analytic audits in \texttt{experiments/iv-head-gradients/}, and endpoint correlations in \path{experiments/iv-formation-logging/endpoint_associations/}. The next analysis follows the actual formation gradients.
+
+
+\subsection{Gradient cancellation during the original formation histories}
+\label{app:formationlogs}
+% P:formationlogdesign
+To observe how the second moment forms, we replay all 40 follow-up seeds, two favored-target directions, and two routes. The shared 100-update ancestor and each 500-update formation sequence retain the original observations, batches, loss weights, and Adam settings. Separate head gradients are recorded on each actual training batch before the unchanged optimizer update. All 160 final model states and both moments match the archived checkpoints bitwise. This exploratory replay records 80,000 updates and 320,000 layer-step observations; it adds no independent training seeds.
+
+% P:formationlogaccount
+The squared weighted sum separates into individual squared terms and their interaction. At formation update $t$, let $g_f,g_o$ denote the two unweighted head gradients and let $\lambda\theta$ be coupled weight decay. The regularized gradient is $g_t=w_fg_f+w_og_o+\lambda\theta$. Applying the second-moment decay separately to each term gives, coordinate by coordinate,
+\begin{equation}
+v_{500}=\beta_2^{500}v_0+S+C+R+E.
+\end{equation}
+Here $S$ accumulates $w_f^2g_f^2+w_o^2g_o^2$, $C$ accumulates $2w_fw_og_fg_o$, $R$ accumulates the weight-decay terms, and $E$ records floating-point rounding. Each accumulation uses the original factor $(1-\beta_2)\beta_2^{500-t}$. Negative $C$ is cancellation; $-C/S$ measures how much of the accumulated individual-square sum it offsets. For layer ratios, $S$ and $C$ are summed over weights and biases before division. Ratios average the two directions within seed; positive route ratios use log averaging. Individual 95\% intervals use 5,000 paired-seed resamples.
+
+% P:formationlogresult
+Mean cancellation is stronger in the acquisition route throughout formation (Figure~\ref{fig:formationlogs}). At update 500, $-C/S$ is $0.942\;[0.939,0.945]$ and $0.930\;[0.927,0.934]$ in its first and second encoder layers, compared with $0.284\;[0.271,0.298]$ and $0.252\;[0.238,0.268]$ in the update route. The corresponding final acquisition/update $v$ ratios are $0.242\;[0.230,0.255]$ and $0.340\;[0.321,0.361]$. The retained ancestor contributes about 64\% and 79\% of acquisition-route final $v$, versus 16\% and 28\% for the update route, averaging direction-specific fractions within seed. The mean accumulated individual-square sum $S$ is larger under acquisition in both layers. Thus the small final state combines strong cancellation of newly accumulated task gradients with a substantial inherited contribution.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.86\textwidth]{formation_logging_en.pdf}
+\caption{Formation-time accounting on the original 40 paired seeds. Top: mean second moment per parameter in each encoder layer; dashed curves show the discounted shared ancestor. Bottom: mean accumulated cancellation fraction $-C/S$ along each route's actual observations and loss weights. Curves average both directions within seed and then seeds; interval estimates for the final values appear in the text.}
+\label{fig:formationlogs}
+\end{figure}
+
+% P:formationlogscope
+This accounting covers the two-target tanh baseline with $\beta_2=0.999$ over 500 formation updates. It tracks actual inputs and evolving weights; endpoint probes instead hold inputs common. Changing cancellation would also change later weights and gradients, requiring an intervention to identify its causal effect. Independent analytic chain rules verify 3,840 snapshot/layer records; scalar recursion checks cover all 320,000 records. The largest final rounding fraction is below $7\times10^{-6}$. Full histories, snapshots, estimates, and audits are in \texttt{experiments/iv-formation-logging/}.
+
+\FloatBarrier
 
 \section{Matched three-target adaptation (V-B)}
 \label{app:threeadapt}
