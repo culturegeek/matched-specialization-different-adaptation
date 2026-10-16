@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "baseline_endpoints_bitwise": 4,
+  "projection_equations": true,
+  "v_only_composition": true
+}

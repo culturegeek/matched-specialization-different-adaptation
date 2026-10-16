@@ -1,0 +1,94 @@
+{
+  "release": "1.5.0",
+  "date": "2026-10-17",
+  "checks": [
+    {
+      "command": [
+        "scripts/verify_data.py"
+      ],
+      "status": "PASS",
+      "output": "{\n  \"pass\": true,\n  \"preserved_source_files\": 698,\n  \"registration_files\": 7,\n  \"frozen_result_files\": 129,\n  \"failures\": []\n}"
+    },
+    {
+      "command": [
+        "scripts/check_core_results.py"
+      ],
+      "status": "PASS",
+      "output": "{\"checks\": 27, \"all_pass\": true, \"frozen_files_checked\": 129}"
+    },
+    {
+      "command": [
+        "scripts/verify_vbc_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 1166 three-target/natural files"
+    },
+    {
+      "command": [
+        "scripts/verify_head_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 19 head-diagnostic files"
+    },
+    {
+      "command": [
+        "scripts/verify_formation_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 267 formation-logging files"
+    },
+    {
+      "command": [
+        "scripts/verify_cancellation_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 543 cancellation-intervention files"
+    },
+    {
+      "command": [
+        "scripts/verify_manuscript_intervals.py",
+        "--archive-root",
+        ".",
+        "--tex-root",
+        "paper/interval_sources",
+        "--bindings",
+        "analyses/manuscript_intervals/interval_bindings.json",
+        "--out-dir",
+        "analyses/manuscript_intervals"
+      ],
+      "status": "PASS",
+      "output": "{\"confidence_interval_occurrences_per_language\": 92, \"observed_range_occurrences_per_language\": 0, \"bilingual_match\": true, \"source_and_rounding_match\": true}"
+    }
+  ],
+  "new_study": {
+    "status": "PASS",
+    "formation_rows": 120000,
+    "analytic_gradient_and_v_checks": 720,
+    "baseline_bitwise_endpoints": 160,
+    "pulse_identical_recipient_starts": 240,
+    "maximum_analytic_difference": 3.135992733549475e-08,
+    "locked_files_unchanged": true
+  },
+  "saved_analysis": {
+    "status": "PASS",
+    "checkpoint_layer_rows": 4608,
+    "duration_mean_ratios": 24,
+    "paired_square_sum_differences": 2,
+    "input_hashes": 290,
+    "method": "Independent torch reductions versus archived NumPy reductions; every duration ratio independently paired by seed. Intervals separately bound to source JSON."
+  },
+  "tolerance_mode": {
+    "status": "PASS",
+    "strict_and_tolerant_seed": 20000,
+    "small_perturbation_strict_rejected_tolerant_accepted": true,
+    "large_perturbation_rejected": true,
+    "cross_library_version_run": false
+  },
+  "manuscript": {
+    "pages": 17,
+    "printed_intervals_per_language": 92,
+    "anonymous_pdf_sha256": "81a049f9c02a89fee79eb535b89d7e621204233c61bbc14fb2c36c21a0d62f1f",
+    "public_pdf_sha256": "f77bf38b26638501a40f2d8b024f0a558743d3705b8692951679545e99441729"
+  },
+  "scope": "Independent audit of new experiment and saved-data analyses, stored-file integrity and unchanged-core numerical verification; no claim of rerunning all historical training."
+}

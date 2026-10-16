@@ -1,50 +1,19 @@
-# 同じ特化でも、適応の仕方は異なる
+# 揃えた特化、異なる適応
 
-Toru Takahashi著「Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations」（2026年10月16日改訂）の実験コードと生成データです。
+高橋徹による論文「Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations」のコード・生成データ。2026年10月17日、v1.5.0。
 
-現在の測定値が似ている学習済み表現は、その後の同じ学習条件にも同じように応答するのでしょうか。本研究では、二つの形成経路で測定値を揃えた人工学習系を比較しました。Adamが保持する過去の勾配の二乗平均（二次モーメント）を交換すると、短期応答の経路差は逆転しました。パラメータ全体の平均的な更新調整倍率を揃えると差は縮まりましたが、残りました。
+現在の特化が近くても、同じ次の学習への応答は異なりうる。Adamが保持する勾配二乗の履歴を交換すると応答が変わり、平均倍率を揃えても座標配置の効果が残った。形成中の記録と、新しい40 seedでの勾配射影・状態移植によって、保持状態の作られ方と応答への作用を結びつけた。
 
-終点を揃えた比較は二・三対象のGaussian系へ及びます。実測三室のセンサ値でも成分交換の効果は残りましたが、終点一致は未達でした。形成にはAdamを使い、SGDは形成後の継続学習で比較しています。自然データでの同等終点比較と別住宅・時期への拡張は次の課題です。
+三Gaussian対象では終点一致を伴う比較が成立した一方、実測センサと射影後の形成では終点一致が未達だった。初期化同等性、符号反転、長期間での成立範囲も結果に残す。速い再配分が最終性能の改善を意味するとは確認していない。
 
-## 最初に結果を確かめる
+[英語の案内と検証コマンド](README.md)・[論文PDF](paper/preprint.pdf)・[論文とデータの対応](docs/PAPER_TO_DATA.md)・[再現手順](docs/REPRODUCING.md)
 
-[英語README](README.md)の手順を実行すると、保存ファイルの照合、中心的な27平均値の再集計、論文の英語図5種類の再生成ができます。学習の再実行やGPUは必要ありません。
+論文は17ページ、付録五区分へ再構成した。主張に必要な比較を選び、終点診断を形成機構へ統合し、三対象比較の表も統合した。研究全体の旧実験、全候補、未達、生記録はこのリポジトリに保持する。
 
-- [図表と実験データの対応](docs/PAPER_TO_DATA.md)：読みたい主張から元データへ進む案内。
-- [再実行の手順](docs/REPRODUCING.md)：1 seedの再現確認と40 seedの追試。
-- [データと統計の読み方](docs/DATA.md)：独立な比較単位、確認的解析と事後解析の区別。
-- [公開版の検証結果](provenance/validation.json)：公開準備時に実際に行った検査。
+今回の形成介入は [iv-cancellation](experiments/iv-cancellation/README.md)、形成記録は [iv-formation-logging](experiments/iv-formation-logging/README_ja.md) にある。全92信頼区間を日英で正本JSONと照合し、主結果27平均、ファイル完全性、新実験の解析的勾配・射影・二次モーメント更新を検査した。検査範囲は [検証記録](provenance/cancellation_validation.json) に示す。
 
-主要な結果は `experiments/iv` と `experiments/iv-followup` にあります。付録の根拠となる実験I〜IIIと三対象実験V-Aも含めています。各実験の元の日本語README、実行前計画、結果CSV、監査記録を参照できます。古いREADME中の共有資料の保存先は元の研究環境の案内であり、このリポジトリでの再実行には不要です。
+再実行は新しい出力先へ行う。記録環境は新解析でPython 3.12.14、NumPy 2.4.6、PyTorch 2.13.0、CPU単一thread。厳密一致を既定とし、別環境向けに明示的な許容比較を別runnerへ追加した。許容幅、最大差、実際の一致状態を記録し、保存結果を変更しない。
 
-追試の実行前計画は、ローカルで日時とハッシュを固定した記録です。公的な事前登録ではありません。`posthoc` と付く解析は事後解析として区別し、成立しなかった予測や判定も保存しています。
+編集可能なTeX・参考文献・様式は paper/tex、図は paper/figures。公開英語稿はmain_arxiv.tex、匿名英語稿はmain.tex、日本語稿はmain_ja.texを組版する。
 
-## 利用条件
-
-コードは[MIT](LICENSE)、生成データ・図・説明資料は[CC BY 4.0](LICENSE-DATA)です。再利用する際は著作権表示・出典を残し、使用した公開版を [CITATION.cff](CITATION.cff) に基づいて引用してください。詳しい対象区分は[ライセンスの適用範囲](docs/LICENSE_SCOPE.md)を参照してください。
-
-## 2026年10月16日の追加検証
-
-[IV-F追加検証](experiments/iv-extension/README_ja.md)に、既存3組の40 seed解析、新規32 seedを共用した九設定、保存済み40 seedへの層別・移動量介入を収録しました。幅・活性化関数・対象相関を変えてもv交換で応答差が反転しました。幅64では初期化同等性が未達でした。beta2と形成時間の比較も含め、未達条件を保存しています。実移動量を揃えた後にも成分交換の効果が残りました。
-
-全印刷区間は出典台帳へ対応づけました。従来計算の保存値がなかった三区間は、点推定を保ち、固定CSVから再現可能な探索的区間として再計算しました。元の固定実験・判定は保持しています。
-
-## V-B・V-C拡張（v1.2.0）
-
-[V-B](experiments/v-three-adaptation/README_ja.md)は新規40 seed・二容量・六方向で、終点を揃えた三対象適応と二次モーメント交換を検証しました。両容量で対比は反転し、共通倍率でも配置効果が残りました。容量3の初期化同等性は未解決です。[V-C](experiments/v-natural/README_ja.md)は別の40 seedで一住宅三室の実測温湿度へ拡張しました。終点一致は未達ですが、平均倍率を揃えた交換効果も正でした。同等終点比較の自然データ再現とは区別します。未達条件と50更新結果を全て保持します。
-
-自然データの元CSVは[出典・CC BY 4.0](experiments/v-natural/data/ATTRIBUTION.md)を保持して同梱します。記録済み環境で `python experiments/v-three-adaptation/audit_adaptation.py` と `python experiments/v-natural/audit_natural.py` を実行すると、独立監査を再現できます。前版v1.1.0は固定したままです。
-
-## head別勾配診断（v1.3.0）
-
-[保存終点の診断](experiments/iv-head-gradients/README.md)では、共通高精度入力に対する各headのencoder勾配は取得形成の方が大きく、両head間の打ち消しも強いという結果でした。等重みの合計勾配は小さくなりましたが、この大小関係は入力精度と重みづけに依存します。終点の探索的観測であり、過去の二次モーメントが形成された原因までは確定していません。40 seed・160 checkpoint・四入力条件を全て保持し、40,960行と16組の比の区間を別計算で検査しました。
-
-原稿には、13設定での成否一覧、beta2=0.9で初期化により対比が増える結果、自然データでの終点不一致の向きを反映しました。層別・移動量介入は本文Table 3、設定一覧はTable 4、勾配診断はTable 11です。英日それぞれ155信頼区間と二つの観測範囲を出典台帳へ対応づけています。[今回の検証記録](provenance/head_validation.json)に環境と検査範囲を記載します。
-
-## 形成中の勾配・相殺・第二モーメント（v1.4.0）
-
-[形成の再実行](experiments/iv-formation-logging/README_ja.md)では、元の40 seedを使い、全160終点をビット単位で再現しました。実際の学習中の勾配を分解すると、取得経路ではhead間の強い相殺が小さい第二モーメントの蓄積と対応していました。これは観測履歴の算術的分解で、相殺を変更した介入の因果効果ではありません。全320,000層・更新記録、保存状態、独立連鎖律・逐次式監査、探索的な終点相関を追加しました。[今回の検証記録](provenance/formation_validation.json)に範囲を示し、各言語の全164信頼区間と二つの観測範囲を出典台帳に対応づけています。
-
-## v1.4.1 packaging correction
-
-The v1.4.0 Git-generated ZIP omitted OS metadata files referenced by the head and formation integrity lists. Version 1.4.1 removes those non-scientific entries so all checks work on a clean extraction. Scientific data, analyses and estimates are unchanged. Use v1.4.1 for reproduction.
+コードはMIT、生成データ・図・説明資料はCC BY 4.0。UCI温湿度データの元の出典とライセンスを保持する。引用にはCITATION.cffと使用版を用いる。旧公開タグは固定のままである。生成AIは設計・実装・解析・文献調査・執筆を支援し、著者が研究と公開に責任を負う。

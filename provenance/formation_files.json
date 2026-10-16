@@ -1,6 +1,6 @@
 {
-  "experiments/iv-formation-logging/README.md": "4cc71ab1fcd5dfdcf6a923238f8df6562729f528b27ca405eeae1f88632622f1",
-  "experiments/iv-formation-logging/README_ja.md": "21b955af00d63ac88d4ff411a1afab296a07f42dbf25b00033780af888a0df4c",
+  "experiments/iv-formation-logging/README.md": "63e0a105a4c5c9a4264540d3ab6070a15a1ef4a95f64ae72bf4b380dd4f0dfc7",
+  "experiments/iv-formation-logging/README_ja.md": "ad1f33c1fa2268778f18b2be0a0d8df23c7c5b1a66d7c4e23fe547087dfc4b5e",
   "experiments/iv-formation-logging/analysis_plan_lock.json": "b9618e379aa65cf28cd588f958dd804ec3e29343c5560bb9234ddcf6a58f163d",
   "experiments/iv-formation-logging/analyze_endpoint_associations.py": "a94a3261c083984a5a81f76f0e2e8f7bec4865d9ef4f99a1a539ddbea22523b5",
   "experiments/iv-formation-logging/analyze_logging.py": "92d32a32ddd03776bf36bba8046275756bc96c43cecf5d89fba6c41c2afe5b6e",
@@ -18,6 +18,7 @@
   "experiments/iv-formation-logging/independent_audit.json": "5d2e4330f6028e2e254a07d6f54f9cb05037d17180b4e5b127415b3e5681279c",
   "experiments/iv-formation-logging/make_figures.py": "71ae047f1bdb50af5f42abcf715911b4b18b4b62ab7b5cc2dfa090ea7f9b6857",
   "experiments/iv-formation-logging/protocol.md": "6a96ea76942c491032b50158339fe6dea4395a986162e59829b3899244f84b98",
+  "experiments/iv-formation-logging/reproduce_logging.py": "19f7eac95c93ff5a17aac9d6bc7b5f7cdc8b8799f22957589d21014454f5a902",
   "experiments/iv-formation-logging/results/result.json": "45e11bfe3a96e1d9b76b682b0862f89076ada807e3906cf42eb3c4d65b82c532",
   "experiments/iv-formation-logging/results/seed_final.csv": "e5244a77fb73b3798cd0b58a4ccf8c0576397cc62d9e3eee0865bb3f681929df",
   "experiments/iv-formation-logging/results/seed_windows.csv": "3a8dafd59831f60892a9970506405c73f58cb03f0514029d328c433c2f19d883",

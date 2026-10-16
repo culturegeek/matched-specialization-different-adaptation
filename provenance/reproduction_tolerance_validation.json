@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "strict_and_tolerant_seed": 20000,
+  "small_perturbation_strict_rejected_tolerant_accepted": true,
+  "large_perturbation_rejected": true,
+  "cross_library_version_run": false
+}

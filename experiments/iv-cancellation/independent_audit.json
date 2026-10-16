@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "formation_rows": 120000,
+  "analytic_gradient_and_v_checks": 720,
+  "baseline_bitwise_endpoints": 160,
+  "pulse_identical_recipient_starts": 240,
+  "maximum_analytic_difference": 3.135992733549475e-08,
+  "locked_files_unchanged": true
+}

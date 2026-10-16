@@ -34,3 +34,14 @@ The locally fixed plan is exploratory because the original endpoint results and 
 The endpoint association analysis is separately exploratory after previous estimates were known. `endpoint_associations` retains all 24 associations (four probes, two layers, three predictors), source hashes and seed values. Correlations are across 40 seeds after within-seed averaging. Small cosine variation does not prove absence of an association. RMS pooling and averaging checkpoint-specific ratios differ: under both-high encoder1, pooled other/favored ratios are 1.83/2.05; mean checkpoint-specific ratios are 1.83/2.17. The manuscript specifies the pooled convention. None of these correlations isolates the Adam numerator or excludes optimizer-state contributions.
 
 Code: MIT. Generated data, figures and documentation: CC BY 4.0, under the repository licenses.
+
+## Reproduction on another environment
+
+The archived 160 endpoints were bitwise identical in the recorded CPU environment (Python 3.12.14, PyTorch 2.13.0). This is an observed validation, not a guarantee for every machine or library release. PyTorch does not guarantee identical results across releases/platforms. The original locked `run_logging.py` remains unchanged. The supported reproduction entry point `reproduce_logging.py` checks the same original lock and defaults to strict endpoint equality:
+
+```sh
+python experiments/iv-formation-logging/reproduce_logging.py --archive-root . --seeds 20000 --out /tmp/formation-strict
+python experiments/iv-formation-logging/reproduce_logging.py --archive-root . --seeds 20000 --out /tmp/formation-tolerant --tolerance 1e-6
+```
+
+Tolerance is opt-in and is recorded along with actual bitwise status and maximum differences for weights, m, and v. Weights/m use max absolute difference <= tolerance * (1 + reference tensor max); v uses <= 1e-12 + tolerance * reference tensor max; step counters and non-tensor configuration stay exact. Finite values, shapes and dtypes must agree. Passing the tolerance mode is numerical agreement under these declared bounds, not bitwise equality or automatic equivalence of every subsequent scientific estimate. Always retain the validation file and compare the reported estimates. The archived analyses and their strict audits remain unchanged. See https://docs.pytorch.org/docs/stable/notes/randomness.html .

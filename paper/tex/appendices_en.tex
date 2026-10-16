@@ -1,0 +1,220 @@
+\section{Measurement and paired inference}
+\label{app:measurement}
+% P:measurementcompact
+The central network is $6\to32\to2$ with tanh after both encoder layers and two linear heads. Training/probe/test sample counts are $3072/768/1536$, batch size 256, Adam learning rate 0.002, $(\beta_1,\beta_2)=(0.9,0.999)$, $\epsilon=10^{-8}$, weight decay $10^{-5}$, and readout ridge coefficient $10^{-3}$. Each seed supplies a common ancestor and paired data/batches. Fresh linear readouts fit on unused probe data and evaluate on separate test data. Common high- and low-precision inputs distinguish learned readout quality from momentary observation quality.
+
+% P:appmargins
+The formation tolerances are $\pm0.02$ for aligned $s$, target and non-target errors, and their sum, and $\pm0.01$ for low-precision aligned $s$. IV-D uses response bands of $\pm0.02$ for neutral continuation and reset responses, and $\pm0.05$ for inherited-state pulses. IV-E uses $\pm0.02$ for the change under $m$ exchange and for the reset response; the within-route update-history control uses $\pm0.01$ for its reset response. These criteria apply to intervals for mean paired differences.
+
+% P:appmarginrule
+IV-D classifies a contrast as equivalent when its 95\% interval lies wholly inside the specified band, practically different when it lies wholly beyond either boundary, and unresolved otherwise. All three inherited-state pulse intervals lie wholly above $+0.05$ (Table~\ref{tab:pulses}), indicating positive, practically meaningful route differences. All reset-pulse intervals lie inside $\pm0.02$.
+
+% P:appmarginorigin
+IV-D calibrates route strength on pilot seeds 8000--8015 and fixes the tolerances before seeds 8100--8139. IV-E uses pilot seeds 9000--9015 to set response criteria before seeds 9100--9139; the within-route control explicitly uses pilot seeds 9200--9215 to set its response criteria and equivalence margin before seeds 9300--9339. The plans document these operational choices but do not derive the margins from an independent practical-error criterion. Equivalence therefore denotes agreement at the stated resolutions in these synthetic comparisons.
+
+% P:endpointpredictioncompact
+Endpoint equivalence is about intervals for selected mean paired measurements, not equality of every seed pair or of all model functions. Representation similarity (CKA) averages 0.927. A saved-data check predicts ten-update response contrasts from target error, other-target error, and low-precision allocation differences. Leave-one-seed-out error ratios relative to a training-mean predictor are 1.118, 1.023, and 0.984 in three independent 40-seed cohorts. The measured residual features therefore give little linear predictive improvement; this does not remove confounding by unmeasured geometry. The full held-out predictions are archived.
+
+\section{State interventions and continuation}
+\label{app:optimizer}
+% P:appopt1
+IV-D uses 40 confirmatory seeds and two mirrored directions per seed. Mean aligned $s$ is 0.3375 after acquisition-driven formation and 0.3439 after update-driven formation; corresponding target/non-target errors are 0.4034/0.8144 and 0.4000/0.8198. The route strengths are pilot-calibrated, not fitted to the confirmatory endpoints. Neutral-continuation integral differences are $-0.0025$ ($[-0.0064,0.0013]$) with Adam inherited and $-0.0018$ ($[-0.0068,0.0030]$) after reset. Carried-minus-reset response interactions for acquisition, update, and combined pulses are 0.1657, 0.1390, and 0.1848, each exceeding the pre-specified 0.08 criterion.
+
+% P:appopt2
+In IV-E, the own-minus-$m$-exchange change is $-0.0014$ ($[-0.0044,0.0018]$), inside $\pm0.02$. The acquisition-formed route's total second moment is 0.5577 times the update-formed route's, while the mean coordinate-wise inverse-second-moment scaling factor is 1.950 times larger. This scaling factor is not the actual parameter-update ratio: Adam's update also depends on the first moment, current gradient, and bias correction. Table~\ref{tab:components} gives the main component contrasts.
+
+\begin{table}[h]
+\centering\small
+\caption{Combined-pulse response contrasts under component interventions. IV-E compares acquisition-formed minus update-formed routes; the control compares constant minus variable update-weight histories. Each uses 40 disjoint confirmatory seeds.}
+\label{tab:components}
+\begin{tabular}{lcc}
+\toprule
+Component condition & IV-E route contrast & Equal-mean update-history control\\
+\midrule
+Own state & $0.1968\ [0.1910,0.2029]$ & $0.0324\ [0.0294,0.0354]$\\
+Exchange $m$ & $0.1982\ [0.1912,0.2054]$ & $0.0321\ [0.0277,0.0362]$\\
+Exchange $v$ & $-0.1265\ [-0.1348,-0.1183]$ & $-0.0141\ [-0.0176,-0.0110]$\\
+Reset & $0.0097\ [0.0078,0.0117]$ & $0.0046\ [0.0031,0.0062]$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% P:withinroutecompact
+The equal-mean history control uses constant favored-target weight 0.80 or a random ordering of 250 updates each at 1.00 and 0.60, with acquisition, batches, and total updates fixed. Pilot and confirmation use disjoint seeds. Every endpoint criterion passes; Table~\ref{tab:components} reports the response contrasts. Variability and sequence change jointly. This control shows that different acquisition/update route labels are unnecessary for the effect, while leaving an isolated order effect unidentified.
+
+% P:scaleprocedure
+For step count $t$ and $P$ parameters, the mean adaptive scale is
+\begin{equation}\bar a_v=P^{-1}\sum_j\frac{\eta}{\sqrt{v_j/(1-\beta_2^t)}+\epsilon}.\end{equation}
+The common target is the geometric mean of the two routes' original values. Pattern-preserving normalization replaces $v$ by $cv$, solving for positive $c$ by 80 bisection iterations including $\epsilon$. Pattern exchange transplants $v$ first, then normalizes it. Scalarization instead sets all $v_j=(\eta/a_\ast-\epsilon)^2(1-\beta_2^t)$, using either the common or own scale. Recipient weights, $m$, and step count remain fixed. Relative scale errors are below $2\times10^{-6}$. A common ancestry supplies corresponding coordinates.
+
+% P:continuationcompact
+The follow-up uses seeds 20000--20039. For momentum-free SGD, one common learning rate per seed/direction is the geometric mean of the two first-batch Adam-update norms divided by the corresponding regularized-gradient norms; response measurements are not used. It is then held fixed (0.0194--0.0529). The primary ten-update bands do not define confirmatory gates at later horizons. At 50 updates fresh-Adam and SGD contrasts have intervals $[0.0227,0.0321]$ and $[0.0368,0.0499]$. By 500 updates, measured allocation endpoints approach each other; convergence of complete model states is untested. The separate ten-update-pulse-then-neutral continuation likewise reduces the endpoint gap, from 0.06197 at update 50 to 0.00984 at 510.
+
+\section{Locating, recording, and perturbing the retained state}
+\label{app:mechanism}
+\subsection{Layer and movement controls}
+\label{app:layers}
+% P:movementprocedure
+Layer exchange changes only the named layer's $v$, including its biases. The movement control runs four branches (two routes, own/exchanged $v$) jointly. At each step their proposed Euclidean update norms determine a shared geometric-mean norm. Each update is rescaled without changing its direction; moments continue evolving at the actual positions. Achieved relative discrepancies are below $2\times10^{-6}$. These interventions change the learning rule and do not identify natural-Adam mediation fractions or additive layer contributions.
+
+\begin{table}[t]
+\centering\small
+\caption{Layer and movement interventions on 40 saved seed pairs. Layer rows exchange only the named layer's $v$; equal-movement rows apply the joint norm-control rule.}
+\label{tab:ivfmechanism}
+% P:appfmechanismtable
+\begin{tabular}{lr}
+\toprule
+Intervention & Route contrast [95\% CI]\\
+\midrule
+Own & $0.1907\;[0.1837,0.1976]$ \\
+First encoder layer & $0.0115\;[0.0060,0.0171]$ \\
+Second encoder layer & $0.0611\;[0.0558,0.0665]$ \\
+Both heads & $0.1911\;[0.1838,0.1978]$ \\
+All parameters & $-0.1183\;[-0.1264,-0.1099]$ \\
+Equal movement, own & $0.0303\;[0.0269,0.0338]$ \\
+Equal movement, exchanged & $0.0072\;[0.0040,0.0104]$ \\
+\bottomrule
+\end{tabular}
+
+\end{table}
+
+\subsection{Accounting for the formation history}
+\label{app:formationlogs}
+\label{app:headgrad}
+% P:loggingdesigncompact
+The exploratory replay retains the original 40 follow-up seeds, two directions and two routes, with all inputs, batches, loss weights and Adam settings unchanged. Separate head gradients are recorded before the original weighted backward pass. All 160 endpoints reproduce bitwise in the recorded environment. If $g_f,g_o$ are the unweighted head gradients, then the squared weighted gradient separates into individual squares, a cross term and weight-decay terms. Accumulating each with the same $\beta_2$ gives, coordinate by coordinate,
+\begin{equation}v_T=\beta_2^T v_0+S_T+C_T+R_T+E_T.\end{equation}
+Here $S_T$ accumulates $w_f^2g_f^2+w_o^2g_o^2$, $C_T$ accumulates $2w_fw_og_fg_o$, $R_T$ contains coupled weight decay, and $E_T$ is the floating-point remainder. Cancellation is $-C_T/S_T$ after summing coordinates within a layer; directions are averaged within seed. This is an arithmetic decomposition of the observed trajectory.
+
+% P:formationlogresult
+Mean cancellation is stronger in the acquisition route throughout formation (Figure~\ref{fig:formationlogs}). At update 500, $-C/S$ is $0.942\;[0.939,0.945]$ and $0.930\;[0.927,0.934]$ in its first and second encoder layers, compared with $0.284\;[0.271,0.298]$ and $0.252\;[0.238,0.268]$ in the update route. The corresponding final acquisition/update $v$ ratios are $0.242\;[0.230,0.255]$ and $0.340\;[0.321,0.361]$. The retained ancestor contributes about 64\% and 79\% of acquisition-route final $v$, versus 16\% and 28\% for the update route, averaging direction-specific fractions within seed. The mean accumulated individual-square sum $S$ is larger under acquisition in both layers. Thus the small final state combines strong cancellation of newly accumulated task gradients with a substantial inherited contribution.
+
+% P:paireds
+Paired seed differences quantify the difference in individual-square sums. Acquisition-minus-update $S_T$ is $0.000931\;[0.000831,0.001035]$ in layer one and $0.000355\;[0.000088,0.000636]$ in layer two. Both paired intervals are positive, with a smaller difference in the second layer.
+
+% P:strata
+Observation strata help locate the accumulation. In the first layer, acquisition updates (favored target always precise) have mean cosine about $-0.94$ and cancellation 0.94. Update-route steps with the favored target precise have $-0.81$ and 0.48, whereas other-target-precise steps have about $-0.08$ and 0.06. In updates 251--500 the latter cross term becomes positive (cosine about $+0.11$, cancellation $-0.12$), consistent with the decline in accumulated cancellation after its early peak. These are conditional observations along different evolving states and loss weights, not an isolated causal effect of observation precision.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.86\textwidth]{formation_logging_en.pdf}
+\caption{Formation-time accounting on the original 40 paired seeds. Top: mean second moment per parameter in each encoder layer; dashed curves show the discounted shared ancestor. Bottom: mean accumulated cancellation fraction $-C/S$ along each route's actual observations and loss weights. Curves average both directions within seed and then seeds; interval estimates for the final values appear in the text.}
+\label{fig:formationlogs}
+\end{figure}
+
+% P:endpointdiagnostics
+Common-input endpoint probes provide a complementary diagnostic. Under both-high precision the acquisition route has larger individual head gradients but a smaller equally weighted sum; the favored-precise probe instead has first-layer cosines $-0.940/-0.835$. The effect changes with input precision and loss weights. Across seeds, cosine-response associations are unresolved, while the log norm ratio has a positive exploratory association; these estimates do not separate gradient and optimizer causes. All probe conditions, norms, correlations and independent chain-rule checks remain in the reproduction archive.
+
+\subsection{Projection followed by crossed state transplantation}
+\label{app:projection}
+% P:pcmethod
+A new locally specified test uses seeds 38000--38039, with seed 37999 reserved for implementation checks. Each seed and favored direction share the ancestor, training examples, batch order and 500-update schedule. We retain native acquisition and update formation, and add projected acquisition. For the two weighted shared-encoder gradients $u,v$, if $u^\top v<0$, set
+\begin{equation}u'=u-\frac{u^\top v}{v^\top v}v,\qquad v'=v-\frac{u^\top v}{u^\top u}u.\end{equation}
+Both expressions use the original vectors. The encoder receives $u'+v'$; each head retains its weighted task gradient, and Adam adds weight decay normally. This shared-encoder implementation of PCGrad changes both direction and magnitude. It removes conflicting components without holding all other properties of formation fixed.
+
+% P:pcinference
+At formation end, native and projected acquisition recipients each receive native or projected $v$, giving a $2\times2$ transplant. Within recipient, model weights, $m$, step count and all pulse inputs are fixed. The unchanged update route provides a reference. The same opposing pulse runs for 50 updates; ten is primary and 50 secondary. Both directions are averaged within seed; all 40 seeds enter 10,000 paired bootstrap resamples (random stream 2026101704). Log ratios are averaged over directions within seed and then across seeds. The pre-run source hashes, all trajectories and all criteria are retained.
+
+\begin{table}[ht]\centering\small
+\caption{Crossed second-moment transplants: specialization loss after ten updates. Each row fixes recipient weights and first moment. Intervals use 40 paired seeds.}
+\label{tab:projection}
+% P:projectiontable
+\begin{tabular}{lcc}\toprule
+Recipient & Native $v$ & Projected-history $v$\\
+\midrule
+Native acquisition & $0.3551\;[0.3469,0.3634]$ & $0.3079\;[0.3007,0.3154]$\\
+Projected acquisition & $0.3435\;[0.3358,0.3512]$ & $0.2948\;[0.2880,0.3016]$\\
+\bottomrule\end{tabular}\end{table}
+
+% P:pcfailure
+The original acquisition/update comparison satisfies every endpoint band in this cohort. Projection changes the recipient: under the locally specified $\pm0.02$ bands, only target error and low-precision allocation satisfy equivalence; aligned allocation, other-target error and total error do not. The projected-minus-update aligned-allocation difference is $0.0416\;[0.0388,0.0442]$. Projected-own minus native-own response is $-0.0603\;[-0.0638,-0.0570]$; the projected-$v$ donor effect on the projected recipient is $-0.0487\;[-0.0503,-0.0470]$. The two donor effects have the same direction, but their ratio to the total formation effect is not a causal mediation proportion.
+
+\section{Regime and target extensions}
+\label{app:extension}
+% P:regimedesign
+Nine distinct settings reuse seeds 32000--32031: the baseline, width 64, ReLU, independent targets, and the $3\times2$ decay/duration grid sharing one baseline. Other settings retain the original protocol, including five endpoint tolerances and six pulse modes. All settings satisfy endpoint tolerances and positive common-scale pattern effects. Width 64 fails reset equivalence. Table~\ref{tab:claims} separates sign reversal from the positive $+0.05$ response-size criterion; Table~\ref{tab:ivfbeta} supplies the decay/duration estimates. This finite selected grid characterizes tested conditions, not the prevalence of an effect over all networks.
+
+\begin{table}[ht]
+\centering\small
+\caption{Decay and duration grid, 32 paired seeds per setting. Common-scale pattern effect is the route-contrast difference before minus after $v$ exchange at common $\bar a_v$. All settings satisfy endpoint tolerances.}
+\label{tab:ivfbeta}
+% P:appfbetatable
+\begin{tabular}{llcccc}
+\toprule
+$\beta_2$ & Formation & Own state & Exchange $v$ & Reset & \shortstack{Common-scale\\pattern effect}\\
+\midrule
+$0.9$ & 500 & \shortstack{$0.0298$\\$[0.0278,0.0318]$} & \shortstack{$0.0104$\\$[0.0082,0.0127]$} & \shortstack{$0.0373$\\$[0.0342,0.0406]$} & \shortstack{$0.0058$\\$[0.0053,0.0064]$} \\
+$0.9$ & 1500 & \shortstack{$0.0764$\\$[0.0736,0.0794]$} & \shortstack{$0.0494$\\$[0.0462,0.0526]$} & \shortstack{$0.1073$\\$[0.1023,0.1123]$} & \shortstack{$0.0120$\\$[0.0111,0.0131]$} \\
+$0.99$ & 500 & \shortstack{$0.1385$\\$[0.1329,0.1444]$} & \shortstack{$-0.0720$\\$[-0.0770,-0.0672]$} & \shortstack{$0.0174$\\$[0.0150,0.0197]$} & \shortstack{$0.0673$\\$[0.0625,0.0721]$} \\
+$0.99$ & 1500 & \shortstack{$0.2859$\\$[0.2789,0.2925]$} & \shortstack{$0.0297$\\$[0.0204,0.0390]$} & \shortstack{$0.0963$\\$[0.0913,0.1014]$} & \shortstack{$0.1334$\\$[0.1204,0.1448]$} \\
+$0.999$ & 500 & \shortstack{$0.1962$\\$[0.1881,0.2043]$} & \shortstack{$-0.1290$\\$[-0.1379,-0.1198]$} & \shortstack{$0.0073$\\$[0.0054,0.0092]$} & \shortstack{$0.1028$\\$[0.0947,0.1109]$} \\
+$0.999$ & 1500 & \shortstack{$0.4341$\\$[0.4277,0.4408]$} & \shortstack{$-0.1279$\\$[-0.1416,-0.1139]$} & \shortstack{$0.0574$\\$[0.0529,0.0618]$} & \shortstack{$0.2528$\\$[0.2414,0.2644]$} \\
+\bottomrule
+\end{tabular}
+
+\end{table}
+
+% P:appfbeta2
+The reset column shows what remains after removing inherited optimizer state. At $\beta_2=0.9$, reset contrasts are 0.0373 and 0.1073 after 500 and 1,500 formation updates, larger than their own-state contrasts of 0.0298 and 0.0764. At 1,500 updates all three reset intervals lie above 0.02. Thus reset does not define an additive subtraction of optimizer and model contributions. The grid changes formation trajectories and subsequent adaptation together, so it identifies regime dependence rather than an isolated memory-duration effect. At $\beta_2=0.9$, a paired exploratory comparison confirms reset-minus-own increases of $0.0075\;[0.0059,0.0090]$ and $0.0308\;[0.0282,0.0334]$ for 500 and 1,500 formation updates. Reset changes both moments and the optimizer step count; this contrast does not isolate $v$ alone.
+
+% P:durationratios
+Reading all nine settings' saved checkpoints adds no training. In the six-setting decay/duration grid, the 1,500/500 change in the acquisition/update mean-inverse-scale ratio is $0.792\;[0.759,0.827]$, $0.702\;[0.662,0.747]$, and $1.066\;[1.042,1.091]$ for $\beta_2=0.9,0.99,0.999$. These are paired geometric ratios from 32 seeds with 10,000 bootstrap resamples. Thus the increasing response contrast at every decay rate does not imply an increasing mean-scale ratio at every rate. Layerwise results and all endpoints are retained in the archive.
+
+\subsection{Three Gaussian targets}
+\label{app:threeadapt}
+% P:appvbdesign
+To test whether optimizer-mediated reallocation survives a third competing target, we use a Gaussian construction: three three-dimensional targets with pairwise correlation 0.35, a $9\to32\to d_Z$ tanh encoder, and three linear heads. For each $d_Z\in\{2,3\}$ and original target $i$, acquisition formation observes $i$ precisely with equal loss weights. Update formation balances precision across targets while assigning $i$ weight $w$ and the others $(1-w)/2$. Both descend from the same 100-update balanced ancestor and train for 600 further updates with Adam. Learning rate, decay, batch size, and train/probe/test counts are $0.002$, $(0.9,0.999)$, 256, and $3072/768/1536$; weight decay is $10^{-5}$ and $\epsilon=10^{-8}$.
+
+% P:appvbcal
+Eight pilot seeds (33000--33007) compare $w=0.55,0.60,\ldots,0.95$ using endpoints alone. For each capacity we minimize the largest absolute mean endpoint difference divided by its tolerance. The selected weight is 0.65 at both capacities. Eight measurements align the original target and its two cyclic alternatives: three errors, their sum, two pairwise indices, and the two indices under a low-precision probe. Tolerances are $\pm0.02$, or $\pm0.01$ for low-precision indices. The three original-target labels are averaged within seed in this symmetric construction. Confirmation on seeds 34000--34039 meets every interval-based endpoint criterion at both capacities. These are operational measurement tolerances, not externally validated performance thresholds.
+
+% P:appvbresponse
+Each endpoint receives two destination-target pulses, giving all six ordered directions. A pulse observes destination $j$ precisely and weights its loss 0.8, with 0.1 for each other target. Define $s_{ij}=(D_j-D_i)/(D_j+D_i)$ and response $s_{ij}(0)-s_{ij}(t)$. The route contrast subtracts update-formed response from acquisition-formed response. All three errors and centered log-error scores are retained. The six optimizer modes use own state, exchanged $m$, exchanged $v$, fresh Adam, own $v$ at common $\bar a_v$, or exchanged $v$ at the same common scale. Exchanges preserve recipient weights, the other moment, and step count; scale normalization uses the geometric mean of the two original scales and 80 bisection iterations including $\epsilon$.
+
+% P:vbcompact
+Ten updates are primary and 50 secondary. All six ordered target directions are averaged within seed; each capacity uses the same 40 confirmation seeds. Individual intervals use 5,000 paired bootstrap resamples. Both capacities satisfy endpoint matching and reversal; reset equivalence remains unresolved at dimension three. Common-scale pattern effects are positive at both capacities (Table~\ref{tab:targets}). At 50 updates, own-state contrasts are approximately 0.0000/0.0069, reset contrasts 0.0255/0.0596, and common-scale effects $-0.0241/-0.0479$. The early positive component effect therefore changes with observation horizon.
+
+\subsection{Unequal room-sensor measurements}
+\label{app:natural}
+% P:appvcdata
+We test natural cross-target and temporal structure using the UCI Appliances Energy Prediction data \citep{candanedo2017data,candanedo2017dataset}. The source contains 19,735 ten-minute records from one house, January--May 2016. The targets are kitchen temperature/humidity (T1, RH\_1), living-room measurements (T2, RH\_2), and laundry-room measurements (T3, RH\_3). The task reconstructs these recorded values after controlled observation noise; it is neither future forecasting nor the source dataset's appliance-energy benchmark.
+
+% P:appvcsplit
+The first 9,867 rows train the model. Four subsequent chronological blocks fit and evaluate pilot readouts (2,816 and 2,817 rows), then fit and evaluate confirmation readouts (1,829 and 1,830 rows). We omit 144 rows at each boundary. Training ends on March 20, pilot evaluation on April 30, and confirmation evaluation spans May 15--27. Means and standard deviations come only from the training block and are fixed thereafter. $D_i$ averages squared error over the room's two training-standardized variables, without normalization by evaluation-block variance. The model's formation and pulse updates use only the training block; fresh readouts use their designated later blocks. Gaps reduce immediate overlap but do not establish temporal independence.
+
+% P:appvcdesign
+The encoder becomes $6\to32\to d_Z$ with two-dimensional heads; training settings, precision noise, six directions, six modes, and horizons otherwise follow V-B. Room labels keep their physical meaning. Eight pilot seeds (35000--35007) select a weight separately for each original room and capacity, among $1/3$, 0.40, 0.45, \ldots, 0.95. Selection minimizes the same largest standardized mean endpoint discrepancy, without using pulse responses or confirmation blocks. Selected weights for kitchen/living/laundry are 0.40/0.95/0.75 at dimension two and 0.95/0.95/0.90 at dimension three. Even the best candidates exceed the largest allowed mean discrepancy by factors of 5.30--12.44. The fixed protocol carries these candidates into confirmation without expanding the search.
+
+% P:appvcmatch
+Forty new confirmation seeds (36000--36039) again fail endpoint matching. Because rooms are not exchangeable, matching requires all eight criteria for each original room, rather than averaging away room-specific differences. Only 1 of 24 criteria passes at dimension two, and none passes at dimension three. Direct input readouts verify that precise acquisition reduces the designated room's error: gains are 0.1784, 0.4822, and 0.1824 for kitchen, living room, and laundry room. Thus observation control remains effective, while this grid and formation schedule do not yield matched route endpoints. At dimension two, averaging original rooms within seed gives acquisition-minus-update differences of +0.0616 in $s_{01}$ and +0.0238 in its low-precision counterpart: acquisition-formed checkpoints start with greater measured relative specialization on this comparison. These pooled descriptions do not replace the room-specific matching criteria. Since response subtracts the final index from its initial value, this initial difference can contribute to the unmatched route contrast.
+
+% P:vccompact
+The same 40 seeds are reused across capacities. At ten updates, both retain a positive common-scale pattern effect (Table~\ref{tab:targets}). Dimension two has sign reversal but fails the separate own-contrast lower bound of $+0.05$; dimension three has an unresolved swapped sign. At 50 updates, own-state contrasts are 0.0842/0.1156 and reset contrasts 0.0124/0.0392. Every interval conditions on the fixed building and time blocks, measuring training/noise-seed variation rather than between-building uncertainty. Endpoint matching remains unsuccessful.
+
+\begin{table}[ht]\centering\small
+\caption{Three-target ten-update contrasts. G: Gaussian; S: room sensors. Sensor endpoints are unmatched. All intervals are individual 95\% paired-seed intervals.}
+\label{tab:targets}\label{tab:vb}\label{tab:vc}
+\begin{tabular}{lcccc}\toprule
+Condition & G, $d_Z=2$ & G, $d_Z=3$ & S, $d_Z=2$ & S, $d_Z=3$\\
+\midrule
+% P:targetown
+Own & \shortstack{$0.1945$\\$[0.1906,0.1987]$} & \shortstack{$0.4054$\\$[0.3951,0.4152]$} & \shortstack{$0.0601$\\$[0.0456,0.0741]$} & \shortstack{$0.1170$\\$[0.1024,0.1320]$}\\
+% P:targetswap
+Exchanged $v$ & \shortstack{$-0.1005$\\$[-0.1054,-0.0955]$} & \shortstack{$-0.2193$\\$[-0.2266,-0.2118]$} & \shortstack{$-0.0254$\\$[-0.0381,-0.0130]$} & \shortstack{$-0.0090$\\$[-0.0232,0.0049]$}\\
+% P:targetreset
+Reset & \shortstack{$0.0116$\\$[0.0101,0.0132]$} & \shortstack{$0.0203$\\$[0.0178,0.0226]$} & \shortstack{$-0.0076$\\$[-0.0168,0.0017]$} & \shortstack{$0.0046$\\$[-0.0062,0.0152]$}\\
+% P:targetpattern
+\shortstack{Common-scale\\pattern effect} & \shortstack{$0.0825$\\$[0.0792,0.0860]$} & \shortstack{$0.1541$\\$[0.1479,0.1597]$} & \shortstack{$0.0103$\\$[0.0064,0.0140]$} & \shortstack{$0.0257$\\$[0.0210,0.0306]$}\\
+\bottomrule\end{tabular}\end{table}
+
+\section{Reproduction and evidence status}
+\label{app:status}
+% P:reproductioncompact
+The archive separates locally specified intervention tests from exploratory analyses of existing outcomes. The matched comparison, component exchanges, scale/pattern follow-up and finite regime extensions retain their original plans and all failed criteria. Formation logging, endpoint diagnostics and saved-checkpoint duration summaries are exploratory. The projection study specifies its new seeds, interventions and contrasts before their execution. Local time-stamped file hashes document these specifications; they are not public-registry preregistrations.
+
+% P:evidencemap
+\texttt{docs/PAPER\_TO\_DATA.md} maps each figure, table and claim to source files. The central comparisons are in \texttt{experiments/iv/}, \texttt{iv-followup/}, and \texttt{iv-extension/}; the formation and projection records are in \texttt{iv-formation-logging/} and \texttt{iv-cancellation/}; target extensions are in \texttt{v-three-adaptation/} and \texttt{v-natural/}. The interval ledger binds every printed interval to a result key and rounding precision. The archive additionally preserves the wider research program's formation, maintenance, acquisition calibration and failed conditional-prediction studies, with their original outcomes and status. Their complete records remain independently reproducible.
+
+% P:reproenvironment
+Integrity checks, raw-CSV recomputation and training reruns address different reproducibility questions. The recorded follow-up used Python 3.11.7 and PyTorch 2.13.0; new formation/projection runs used Python 3.12.14, NumPy 2.4.6 and PyTorch 2.13.0 on single-threaded CPU. Bitwise equality was observed in the recorded environment, not guaranteed across library releases or machines. The reproduction runner defaults to strict equality; an explicit \texttt{--tolerance 1e-6} option records numerical bounds, maximum errors and actual bitwise status. It leaves original logs and locks unchanged. The README specifies the different tensor bounds and the strict archive audits.
+

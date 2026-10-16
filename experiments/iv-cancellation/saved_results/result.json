@@ -1,0 +1,1567 @@
+{
+  "status": "exploratory existing-data analysis",
+  "bootstrap_seed": 2026101703,
+  "resamples": 10000,
+  "self_differences": {
+    "encoder1": {
+      "mean": 0.0009310780049470426,
+      "low": 0.0008311318925966999,
+      "high": 0.0010345089810826148,
+      "n": 40
+    },
+    "encoder2": {
+      "mean": 0.00035478278933893015,
+      "low": 8.842879425251241e-05,
+      "high": 0.0006357889393581289,
+      "n": 40
+    }
+  },
+  "settings": {
+    "base": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.5290259880782757,
+          "low": 0.507370463364334,
+          "high": 0.5526612187679186,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.935000738581021,
+          "low": 1.898661388715152,
+          "high": 1.9726833926581844,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.2958989197725129,
+          "low": 0.2765737061125799,
+          "high": 0.31599247616066606,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.946466916643991,
+          "low": 1.9101792774010014,
+          "high": 1.9838968189278328,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.23512852523879507,
+          "low": 0.22281055564561925,
+          "high": 0.24890455243785023,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.9468430428609078,
+          "low": 1.9096763183009393,
+          "high": 1.984626740869607,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.3144243109738731,
+          "low": 0.2929033730287598,
+          "high": 0.3370582659280726,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.93967781701865,
+          "low": 1.8927080044184428,
+          "high": 1.987585172661154,
+          "n": 32
+        }
+      }
+    },
+    "beta0.999_steps1500": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.19970414294647396,
+          "low": 0.19219477354497902,
+          "high": 0.2075621218601362,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.063636805058839,
+          "low": 2.0178617054856542,
+          "high": 2.108647393010811,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.12140639825903518,
+          "low": 0.11735210374377882,
+          "high": 0.1255760377781007,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.090664525989661,
+          "low": 2.0429757204196157,
+          "high": 2.13688615555248,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.1352493125337804,
+          "low": 0.13197773789242725,
+          "high": 0.1385634203157747,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.0516040016281503,
+          "low": 2.003426215976906,
+          "high": 2.1001341403602205,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.11609232881898283,
+          "low": 0.11078367228129643,
+          "high": 0.12136108210250644,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.6446475060534795,
+          "low": 2.5961573380799488,
+          "high": 2.695906939128337,
+          "n": 32
+        }
+      }
+    },
+    "beta0.99_steps1500": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.15309386456412674,
+          "low": 0.14814866819676917,
+          "high": 0.1582143361537926,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.7295302913473176,
+          "low": 1.6308647370344607,
+          "high": 1.8449509327905915,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.13437795540727104,
+          "low": 0.12964711617650837,
+          "high": 0.13939098352265433,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.7638997235615093,
+          "low": 1.6600646899711573,
+          "high": 1.8850223492535507,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.18189144457210024,
+          "low": 0.176234650787594,
+          "high": 0.1877641136616518,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.7010943738799114,
+          "low": 1.597031365104545,
+          "high": 1.825844753635963,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.11533148200802218,
+          "low": 0.10996968539754576,
+          "high": 0.12108169635445855,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.6915651018237874,
+          "low": 2.6371137456375804,
+          "high": 2.7461126127454842,
+          "n": 32
+        }
+      }
+    },
+    "beta0.99_steps500": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.1842496336068861,
+          "low": 0.1753166191068893,
+          "high": 0.19457158338505665,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.4645659579833383,
+          "low": 2.3959749548520803,
+          "high": 2.5518738315261524,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.08861959178919979,
+          "low": 0.08529284753252857,
+          "high": 0.09182743431366928,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.5001265951931226,
+          "low": 2.430627545148669,
+          "high": 2.588287698251886,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.0998167056464049,
+          "low": 0.09626420621752732,
+          "high": 0.10313074764329092,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.471518489177282,
+          "low": 2.400786352085757,
+          "high": 2.5634491655754967,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.08491864362118087,
+          "low": 0.08139512969435138,
+          "high": 0.08838014500333118,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.9289783780312835,
+          "low": 2.8615472429124136,
+          "high": 3.0103943267664706,
+          "n": 32
+        }
+      }
+    },
+    "beta0.9_steps1500": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.1627260052274097,
+          "low": 0.154104778742823,
+          "high": 0.17132087522194533,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.6833952922448956,
+          "low": 1.6125674349461663,
+          "high": 1.7595800148297651,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.1460122385760148,
+          "low": 0.13774992599484637,
+          "high": 0.1542082389585731,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.7140417090587714,
+          "low": 1.6402508809330125,
+          "high": 1.7920319087357879,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.1932477806346041,
+          "low": 0.18514277941922783,
+          "high": 0.2017170179328764,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.6569821901929314,
+          "low": 1.5792319832666746,
+          "high": 1.738172896863607,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.12682483747083556,
+          "low": 0.11789472913626042,
+          "high": 0.13607565617988387,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.558996482045585,
+          "low": 2.4698328934578675,
+          "high": 2.6452413023015113,
+          "n": 32
+        }
+      }
+    },
+    "beta0.9_steps500": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.14869644012039812,
+          "low": 0.14237375648417355,
+          "high": 0.15470964102689433,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.1247120462176814,
+          "low": 2.0411336781664446,
+          "high": 2.2156069978051542,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.10163833033752911,
+          "low": 0.09671448548815735,
+          "high": 0.10686113734642985,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.160669022508974,
+          "low": 2.072418534326971,
+          "high": 2.254897279058151,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.12281012590236197,
+          "low": 0.11736731227274161,
+          "high": 0.12862907921544345,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.121404936392318,
+          "low": 2.030324520834096,
+          "high": 2.215800587348596,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.09443565542895117,
+          "low": 0.08923991901864324,
+          "high": 0.10007130037199913,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.7837652044328975,
+          "low": 2.711192053994232,
+          "high": 2.8735250802585792,
+          "n": 32
+        }
+      }
+    },
+    "relu": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.5370843485396631,
+          "low": 0.5106908991707951,
+          "high": 0.5682506513761171,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.8626492379558317,
+          "low": 1.711998467482499,
+          "high": 2.0048286934589994,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.20723271164059787,
+          "low": 0.17689944723452294,
+          "high": 0.2443070504647252,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.873820432153929,
+          "low": 1.722158098103712,
+          "high": 2.0178174412755903,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.1801558985146141,
+          "low": 0.1570366381479457,
+          "high": 0.21142584665230407,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.9836264711311227,
+          "low": 1.859863209947027,
+          "high": 2.1002666817694524,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.21328119655866562,
+          "low": 0.17998348872054498,
+          "high": 0.2539106539086376,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.827216648404366,
+          "low": 1.6266462107682609,
+          "high": 2.018682000934373,
+          "n": 32
+        }
+      }
+    },
+    "rho0": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.5392636563262284,
+          "low": 0.5182367833005153,
+          "high": 0.5614379700784186,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.0749240902782127,
+          "low": 2.031672200644765,
+          "high": 2.122117601207425,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.3339883070180001,
+          "low": 0.31571509242078266,
+          "high": 0.3529487825447442,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.0878314722054454,
+          "low": 2.044871721166508,
+          "high": 2.134223610184217,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.2797549430330985,
+          "low": 0.2667482074350719,
+          "high": 0.2932313541940631,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.0895560447822046,
+          "low": 2.0457891697768127,
+          "high": 2.13679072699509,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.34799474332853825,
+          "low": 0.3278106256413042,
+          "high": 0.3688503830517017,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.0609624744311343,
+          "low": 2.011766507765688,
+          "high": 2.1118457568164306,
+          "n": 32
+        }
+      }
+    },
+    "wide": {
+      "all": {
+        "v_sum_ratio": {
+          "mean": 0.4712137171549701,
+          "low": 0.4547336658411597,
+          "high": 0.4882609433051956,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.9560455239357968,
+          "low": 1.9213726301221863,
+          "high": 1.9905664353320442,
+          "n": 32
+        }
+      },
+      "encoder": {
+        "v_sum_ratio": {
+          "mean": 0.25496977852481056,
+          "low": 0.23616847961286333,
+          "high": 0.27547437416620135,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.959407949502898,
+          "low": 1.9240231192427801,
+          "high": 1.9944347703011736,
+          "n": 32
+        }
+      },
+      "encoder1": {
+        "v_sum_ratio": {
+          "mean": 0.21478241782677104,
+          "low": 0.20286064081506722,
+          "high": 0.22744173645533464,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 1.9552184260424323,
+          "low": 1.9205541569383062,
+          "high": 1.9898744989135657,
+          "n": 32
+        }
+      },
+      "encoder2": {
+        "v_sum_ratio": {
+          "mean": 0.2604428363416891,
+          "low": 0.24047655735991616,
+          "high": 0.2819694804991838,
+          "n": 32
+        },
+        "inverse_scale_ratio": {
+          "mean": 2.05584444679231,
+          "low": 2.0172014018449644,
+          "high": 2.095669581699999,
+          "n": 32
+        }
+      }
+    }
+  },
+  "duration_pairs": {
+    "0.9/all": {
+      "v_sum_ratio_change": {
+        "mean": 1.0943503764827993,
+        "low": 1.041369874019345,
+        "high": 1.1466074724753954,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.7922933817039357,
+        "low": 0.7594432457314446,
+        "high": 0.8266025210036341,
+        "n": 32
+      }
+    },
+    "0.9/encoder": {
+      "v_sum_ratio_change": {
+        "mean": 1.4365863556703957,
+        "low": 1.3587391915718583,
+        "high": 1.5217999026396478,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.7932921198029775,
+        "low": 0.7589108251588101,
+        "high": 0.8283634766356074,
+        "n": 32
+      }
+    },
+    "0.9/encoder1": {
+      "v_sum_ratio_change": {
+        "mean": 1.5735492429039797,
+        "low": 1.494341548713313,
+        "high": 1.6572020059865578,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.7810777479432153,
+        "low": 0.746027883613246,
+        "high": 0.8171181378985035,
+        "n": 32
+      }
+    },
+    "0.9/encoder2": {
+      "v_sum_ratio_change": {
+        "mean": 1.3429761978647197,
+        "low": 1.261754582207625,
+        "high": 1.4305990581933428,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.919257298701274,
+        "low": 0.8868284442566913,
+        "high": 0.9504056155039043,
+        "n": 32
+      }
+    },
+    "0.99/all": {
+      "v_sum_ratio_change": {
+        "mean": 0.8309045807427052,
+        "low": 0.7897982292434615,
+        "high": 0.8669010064488477,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.7017585736526717,
+        "low": 0.6615104239794027,
+        "high": 0.7470161160234681,
+        "n": 32
+      }
+    },
+    "0.99/encoder": {
+      "v_sum_ratio_change": {
+        "mean": 1.5163459083282296,
+        "low": 1.4645668974395767,
+        "high": 1.5744827385808347,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.7055241630375347,
+        "low": 0.6645000411304209,
+        "high": 0.755230869912112,
+        "n": 32
+      }
+    },
+    "0.99/encoder1": {
+      "v_sum_ratio_change": {
+        "mean": 1.8222545353925081,
+        "low": 1.7616525536672278,
+        "high": 1.894918513859677,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.6882790403264072,
+        "low": 0.6463996321698607,
+        "high": 0.7377028243449331,
+        "n": 32
+      }
+    },
+    "0.99/encoder2": {
+      "v_sum_ratio_change": {
+        "mean": 1.358140887441772,
+        "low": 1.3036719174137412,
+        "high": 1.415770143829605,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 0.9189433155300131,
+        "low": 0.8935499852159464,
+        "high": 0.9433132722760701,
+        "n": 32
+      }
+    },
+    "0.999/all": {
+      "v_sum_ratio_change": {
+        "mean": 0.3774940124811512,
+        "low": 0.3721041939154024,
+        "high": 0.3830133888883975,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 1.0664785619524617,
+        "low": 1.0419103476199973,
+        "high": 1.091251754847825,
+        "n": 32
+      }
+    },
+    "0.999/encoder": {
+      "v_sum_ratio_change": {
+        "mean": 0.41029686202427634,
+        "low": 0.3927025620776196,
+        "high": 0.4291483502262215,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 1.0740817160120495,
+        "low": 1.049421378817111,
+        "high": 1.0996608374491739,
+        "n": 32
+      }
+    },
+    "0.999/encoder1": {
+      "v_sum_ratio_change": {
+        "mean": 0.5752143956009679,
+        "low": 0.5434586195458891,
+        "high": 0.6077093961634393,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 1.053810685535951,
+        "low": 1.0287011849298722,
+        "high": 1.0796144096274851,
+        "n": 32
+      }
+    },
+    "0.999/encoder2": {
+      "v_sum_ratio_change": {
+        "mean": 0.3692218596564864,
+        "low": 0.355237009698747,
+        "high": 0.3844231046123693,
+        "n": 32
+      },
+      "inverse_scale_ratio_change": {
+        "mean": 1.3634467966017119,
+        "low": 1.3402814656924682,
+        "high": 1.3852324708226547,
+        "n": 32
+      }
+    }
+  },
+  "observation_strata": {
+    "encoder1/acquisition/1-100/-1": {
+      "cosine": {
+        "mean": -0.9136397436654489,
+        "low": -0.923375029354134,
+        "high": -0.9033791994242177,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9009313329018642,
+        "low": 0.8907351535290778,
+        "high": 0.910745642196991,
+        "n": 40
+      }
+    },
+    "encoder1/acquisition/1-100/1": {
+      "cosine": {
+        "mean": -0.9136397436654489,
+        "low": -0.9233503923073181,
+        "high": -0.9038092228769796,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9009313329018642,
+        "low": 0.8908819329487735,
+        "high": 0.910926202153353,
+        "n": 40
+      }
+    },
+    "encoder1/acquisition/1-500/-1": {
+      "cosine": {
+        "mean": -0.9424407636288951,
+        "low": -0.9457774573094655,
+        "high": -0.9390461975353236,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9400386916036471,
+        "low": 0.9372399586225151,
+        "high": 0.9430253462572178,
+        "n": 40
+      }
+    },
+    "encoder1/acquisition/1-500/1": {
+      "cosine": {
+        "mean": -0.9424407636288951,
+        "low": -0.9457948123475313,
+        "high": -0.9390661911321497,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9400386916036471,
+        "low": 0.9372706807181023,
+        "high": 0.9430729779828103,
+        "n": 40
+      }
+    },
+    "encoder1/acquisition/101-250/-1": {
+      "cosine": {
+        "mean": -0.9470252521897302,
+        "low": -0.950589072992045,
+        "high": -0.9436205543996551,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9447928167039171,
+        "low": 0.9412488471024772,
+        "high": 0.948536833071186,
+        "n": 40
+      }
+    },
+    "encoder1/acquisition/101-250/1": {
+      "cosine": {
+        "mean": -0.9470252521897302,
+        "low": -0.9505285412679402,
+        "high": -0.9435378334697228,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9447928167039171,
+        "low": 0.9411026374261559,
+        "high": 0.9484712316706252,
+        "n": 40
+      }
+    },
+    "encoder1/acquisition/251-500/-1": {
+      "cosine": {
+        "mean": -0.9512104784777723,
+        "low": -0.9524456629917615,
+        "high": -0.9500201824733416,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9486263118687035,
+        "low": 0.947350764829415,
+        "high": 0.9500139250776514,
+        "n": 40
+      }
+    },
+    "encoder1/acquisition/251-500/1": {
+      "cosine": {
+        "mean": -0.9512104784777723,
+        "low": -0.9524666866579491,
+        "high": -0.9499944708357468,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9486263118687035,
+        "low": 0.9472845461418751,
+        "high": 0.9500443372024021,
+        "n": 40
+      }
+    },
+    "encoder1/update/1-100/-1": {
+      "cosine": {
+        "mean": -0.6295876652485211,
+        "low": -0.6522207148837512,
+        "high": -0.6071799798541215,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.47087786008973465,
+        "low": 0.44773072189519175,
+        "high": 0.4941908340172784,
+        "n": 40
+      }
+    },
+    "encoder1/update/1-100/0": {
+      "cosine": {
+        "mean": -0.4879043143337725,
+        "low": -0.5216110170526647,
+        "high": -0.4548602602730207,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.44629413845837707,
+        "low": 0.41549659888684737,
+        "high": 0.4770200201946115,
+        "n": 40
+      }
+    },
+    "encoder1/update/1-100/1": {
+      "cosine": {
+        "mean": -0.7712710161632697,
+        "low": -0.7893020878521462,
+        "high": -0.7519272642189805,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.487439500972788,
+        "low": 0.4679894865991537,
+        "high": 0.5076568018126102,
+        "n": 40
+      }
+    },
+    "encoder1/update/1-500/-1": {
+      "cosine": {
+        "mean": -0.4458712555617138,
+        "low": -0.4581799642121572,
+        "high": -0.4346735003701538,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.3001970068300569,
+        "low": 0.2862240467002051,
+        "high": 0.3151958211200031,
+        "n": 40
+      }
+    },
+    "encoder1/update/1-500/0": {
+      "cosine": {
+        "mean": -0.07756214453241543,
+        "low": -0.10684499985743208,
+        "high": -0.04935660309822649,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.05890154061217521,
+        "low": 0.027600303864515858,
+        "high": 0.09200014527204255,
+        "n": 40
+      }
+    },
+    "encoder1/update/1-500/1": {
+      "cosine": {
+        "mean": -0.8141803665910121,
+        "low": -0.8245011283832253,
+        "high": -0.8034735402343823,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.48176470826931495,
+        "low": 0.47414166775401007,
+        "high": 0.489457913127078,
+        "n": 40
+      }
+    },
+    "encoder1/update/101-250/-1": {
+      "cosine": {
+        "mean": -0.46740345095748703,
+        "low": -0.48585598916236805,
+        "high": -0.45061432416689323,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.348102372367765,
+        "low": 0.3280835984340018,
+        "high": 0.36981156073442295,
+        "n": 40
+      }
+    },
+    "encoder1/update/101-250/0": {
+      "cosine": {
+        "mean": -0.12122287517334082,
+        "low": -0.1634826347935285,
+        "high": -0.08161132805804948,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.11407376303277098,
+        "low": 0.0727773872077637,
+        "high": 0.15598715095611868,
+        "n": 40
+      }
+    },
+    "encoder1/update/101-250/1": {
+      "cosine": {
+        "mean": -0.8135840267416331,
+        "low": -0.8267596364830999,
+        "high": -0.7998919799221901,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.5333142552846761,
+        "low": 0.5206253594748744,
+        "high": 0.5471483244636277,
+        "n": 40
+      }
+    },
+    "encoder1/update/251-500/-1": {
+      "cosine": {
+        "mean": -0.35946537444952703,
+        "low": -0.3669882038251514,
+        "high": -0.35212585891121684,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.20737309265147946,
+        "low": 0.19982709184136357,
+        "high": 0.2146702865578708,
+        "n": 40
+      }
+    },
+    "encoder1/update/251-500/0": {
+      "cosine": {
+        "mean": 0.11277116177268257,
+        "low": 0.08986104000172815,
+        "high": 0.13340573929900662,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": -0.11630542291751642,
+        "low": -0.13682639827153148,
+        "high": -0.09435850420518269,
+        "n": 40
+      }
+    },
+    "encoder1/update/251-500/1": {
+      "cosine": {
+        "mean": -0.8317019106717367,
+        "low": -0.8449710688492026,
+        "high": -0.8173016760586668,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.45060970456523053,
+        "low": 0.442547572015371,
+        "high": 0.4580449194562971,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/1-100/-1": {
+      "cosine": {
+        "mean": -0.8990255556455496,
+        "low": -0.9117856937757959,
+        "high": -0.8862449675127092,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.8880141163881052,
+        "low": 0.8749850096604823,
+        "high": 0.9007816999572591,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/1-100/1": {
+      "cosine": {
+        "mean": -0.8990255556455496,
+        "low": -0.910806625588712,
+        "high": -0.8862324202891374,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.8880141163881052,
+        "low": 0.8750613662144594,
+        "high": 0.9008230401993421,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/1-500/-1": {
+      "cosine": {
+        "mean": -0.9305204453336241,
+        "low": -0.9347628657447122,
+        "high": -0.9263102854524654,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9287185601080707,
+        "low": 0.9250303022989822,
+        "high": 0.9325663634237452,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/1-500/1": {
+      "cosine": {
+        "mean": -0.9305204453336241,
+        "low": -0.9347834273648598,
+        "high": -0.9263301052223717,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9287185601080707,
+        "low": 0.9251107619562502,
+        "high": 0.9326295477786366,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/101-250/-1": {
+      "cosine": {
+        "mean": -0.9364847889099067,
+        "low": -0.94093067250633,
+        "high": -0.9321746971746543,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9342766574390298,
+        "low": 0.9296985788834061,
+        "high": 0.9389772079632972,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/101-250/1": {
+      "cosine": {
+        "mean": -0.9364847889099067,
+        "low": -0.9410015238348629,
+        "high": -0.9320722502543429,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9342766574390298,
+        "low": 0.9297389649216402,
+        "high": 0.9390625799549276,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/251-500/-1": {
+      "cosine": {
+        "mean": -0.9395397950630844,
+        "low": -0.9414530052579384,
+        "high": -0.937674101610281,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9368302865641465,
+        "low": 0.9348420504746688,
+        "high": 0.9389485477528943,
+        "n": 40
+      }
+    },
+    "encoder2/acquisition/251-500/1": {
+      "cosine": {
+        "mean": -0.9395397950630844,
+        "low": -0.941457935958818,
+        "high": -0.9376945665707584,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.9368302865641465,
+        "low": 0.9348231133454247,
+        "high": 0.9390296543784202,
+        "n": 40
+      }
+    },
+    "encoder2/update/1-100/-1": {
+      "cosine": {
+        "mean": -0.5906347489170842,
+        "low": -0.6172245923647999,
+        "high": -0.5648190450940646,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.4468795880111841,
+        "low": 0.4200972162745058,
+        "high": 0.47485252758164986,
+        "n": 40
+      }
+    },
+    "encoder2/update/1-100/0": {
+      "cosine": {
+        "mean": -0.4515022643221555,
+        "low": -0.48510573158135556,
+        "high": -0.41812865130791166,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.3963042685944844,
+        "low": 0.3630529665014338,
+        "high": 0.43020611226697997,
+        "n": 40
+      }
+    },
+    "encoder2/update/1-100/1": {
+      "cosine": {
+        "mean": -0.7297672335120131,
+        "low": -0.7564126094616596,
+        "high": -0.701961567919139,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.48628841936886635,
+        "low": 0.4611299565367302,
+        "high": 0.5109007867348195,
+        "n": 40
+      }
+    },
+    "encoder2/update/1-500/-1": {
+      "cosine": {
+        "mean": -0.4211813597610594,
+        "low": -0.434177930075836,
+        "high": -0.40824883267340617,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.2664124671905851,
+        "low": 0.2501281989078983,
+        "high": 0.2836628744264753,
+        "n": 40
+      }
+    },
+    "encoder2/update/1-500/0": {
+      "cosine": {
+        "mean": -0.07842755360627936,
+        "low": -0.10665544661543816,
+        "high": -0.05068608914266417,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.04603764688989338,
+        "low": 0.015522481698566426,
+        "high": 0.07632962433673271,
+        "n": 40
+      }
+    },
+    "encoder2/update/1-500/1": {
+      "cosine": {
+        "mean": -0.7639351659158395,
+        "low": -0.7781618401533665,
+        "high": -0.7490301818637292,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.44998846688797567,
+        "low": 0.43848565035561377,
+        "high": 0.4625491469025235,
+        "n": 40
+      }
+    },
+    "encoder2/update/101-250/-1": {
+      "cosine": {
+        "mean": -0.44645103038350803,
+        "low": -0.46507813178930685,
+        "high": -0.4286362311469802,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.32091726378902097,
+        "low": 0.2993090965137861,
+        "high": 0.344509829537492,
+        "n": 40
+      }
+    },
+    "encoder2/update/101-250/0": {
+      "cosine": {
+        "mean": -0.12271835388780192,
+        "low": -0.16235953790429375,
+        "high": -0.08316028863493422,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.10920573523511452,
+        "low": 0.0719587712942453,
+        "high": 0.14692514855683114,
+        "n": 40
+      }
+    },
+    "encoder2/update/101-250/1": {
+      "cosine": {
+        "mean": -0.7701837068792141,
+        "low": -0.787297405526722,
+        "high": -0.7524845325812141,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.5062516078093995,
+        "low": 0.48906270805142577,
+        "high": 0.5246994914452672,
+        "n": 40
+      }
+    },
+    "encoder2/update/251-500/-1": {
+      "cosine": {
+        "mean": -0.3382382017251803,
+        "low": -0.34751861229960135,
+        "high": -0.3285570409347031,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.18142968187820577,
+        "low": 0.1715081222146574,
+        "high": 0.19097526409292528,
+        "n": 40
+      }
+    },
+    "encoder2/update/251-500/0": {
+      "cosine": {
+        "mean": 0.09737681084898461,
+        "low": 0.0746459025680217,
+        "high": 0.12017791996741337,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": -0.092500876214338,
+        "low": -0.11299429255935432,
+        "high": -0.07205590430550009,
+        "n": 40
+      }
+    },
+    "encoder2/update/251-500/1": {
+      "cosine": {
+        "mean": -0.7738532142993453,
+        "low": -0.7887247526343184,
+        "high": -0.7579621804526051,
+        "n": 40
+      },
+      "cancellation": {
+        "mean": 0.4089977439472424,
+        "low": 0.3980957094761394,
+        "high": 0.4195306294014698,
+        "n": 40
+      }
+    }
+  },
+  "input_sha256": {
+    "experiments/iv-formation-logging/results/seed_final.csv": "e5244a77fb73b3798cd0b58a4ccf8c0576397cc62d9e3eee0865bb3f681929df",
+    "experiments/iv-formation-logging/results/seed_windows.csv": "3a8dafd59831f60892a9970506405c73f58cb03f0514029d328c433c2f19d883",
+    "experiments/iv-extension/runs_general/base/seed_32000/formation_checkpoints.pt": "6469d35b293c7ebf2e0a1d9d9d15b235b3611d6825e13efe64f95bb40b0071ce",
+    "experiments/iv-extension/runs_general/base/seed_32001/formation_checkpoints.pt": "ca8811bc15f696947486c28e7f1ee653e0c0b03da2de384cc4d418845deee8b0",
+    "experiments/iv-extension/runs_general/base/seed_32002/formation_checkpoints.pt": "30a2c440a878a6d271b3a601a21eb7fd98e4e2c7668d9619e01e9afa3c6731e4",
+    "experiments/iv-extension/runs_general/base/seed_32003/formation_checkpoints.pt": "dba4dfc14965138ea665a9b1914060c44fe619dcdbdf97c12464696edf845e50",
+    "experiments/iv-extension/runs_general/base/seed_32004/formation_checkpoints.pt": "e5b3c9836c79ffd46cb83d643bc257e1a6decc46fc1fa7213ae5b757ce9a62ed",
+    "experiments/iv-extension/runs_general/base/seed_32005/formation_checkpoints.pt": "b0a678680c7a448a0857aaa357c5858bebba7f2c7d13d87c2bf0bac6ddf58c8a",
+    "experiments/iv-extension/runs_general/base/seed_32006/formation_checkpoints.pt": "f53f681526486680b2b3aca2260f73256dffadc2246758c6293aaca39d2266ea",
+    "experiments/iv-extension/runs_general/base/seed_32007/formation_checkpoints.pt": "42ae8e564dfdb6ef04e1e84cd2a480aeed87d32c4c8af5f7511d0a76dab44010",
+    "experiments/iv-extension/runs_general/base/seed_32008/formation_checkpoints.pt": "e75bc0c55b9c2b861441dd4c53e004c955dffdbce000fac0cc6cf926353f2319",
+    "experiments/iv-extension/runs_general/base/seed_32009/formation_checkpoints.pt": "beb1d94555113226a92625733da736cfd78f3ac66aaef3d36eddd4320a372fdb",
+    "experiments/iv-extension/runs_general/base/seed_32010/formation_checkpoints.pt": "7f226a9ffb2be63bb07a7ddfd0ff22e9e3dcd1d03b00603b177521d391cba549",
+    "experiments/iv-extension/runs_general/base/seed_32011/formation_checkpoints.pt": "38310343bddd2f22140f9c2c7f053e713a019b1e926048e4765e4ad4153b1ebc",
+    "experiments/iv-extension/runs_general/base/seed_32012/formation_checkpoints.pt": "6f3561fcd73f2385a05fb440825db4ec24c7bc487e74965280bcad4d2522214b",
+    "experiments/iv-extension/runs_general/base/seed_32013/formation_checkpoints.pt": "07e3d8e05df7296c31fd05bcdb0e5294115c2e423ba1d7e163453733ea79b5cd",
+    "experiments/iv-extension/runs_general/base/seed_32014/formation_checkpoints.pt": "9a79a42e25b21e4bcc90c6e0e7c8e7449407f5f8ace949c9a91b4084c8b11e92",
+    "experiments/iv-extension/runs_general/base/seed_32015/formation_checkpoints.pt": "bacb093d5dcfb2d90f35a9895907efb23dcf320eece8ba5dd11eaf2d4d373c7f",
+    "experiments/iv-extension/runs_general/base/seed_32016/formation_checkpoints.pt": "fde8d74ca856de796238f2e918b7afe8beb22f0fcf4bddfa028d33d99b94b87c",
+    "experiments/iv-extension/runs_general/base/seed_32017/formation_checkpoints.pt": "aacf8aaabb6c4d0e5e1fd86eafca97defa7aba025b6e7de13c54bd38851faecf",
+    "experiments/iv-extension/runs_general/base/seed_32018/formation_checkpoints.pt": "745257ab68df1274c758f1d841769293157389cad9cacac86a09f27b374d6af8",
+    "experiments/iv-extension/runs_general/base/seed_32019/formation_checkpoints.pt": "a50818b582019330fd52f9109534da34ea87214f62c1e9003c9439ca760c3d01",
+    "experiments/iv-extension/runs_general/base/seed_32020/formation_checkpoints.pt": "a17b0bc24f2de2787dcacc802ea42fb9fb430ed5ab09440b2c80a0208a289487",
+    "experiments/iv-extension/runs_general/base/seed_32021/formation_checkpoints.pt": "54ae7990b5c3a86a708ccdf9f1c89544f28374fa9e539bc3d4be573b9f67da34",
+    "experiments/iv-extension/runs_general/base/seed_32022/formation_checkpoints.pt": "1448aef4f1ecb8323f0b389fde0b3df4e634263f55cc88b6b60391c53017bdfb",
+    "experiments/iv-extension/runs_general/base/seed_32023/formation_checkpoints.pt": "70be0e0d3a6d16d5244c536ada548bb52c7146673175c5a9fe58f5cd1c4d357a",
+    "experiments/iv-extension/runs_general/base/seed_32024/formation_checkpoints.pt": "0815d4773c40a2dc5547029de5d6130673077dbb610725f359e1e21e08bd5951",
+    "experiments/iv-extension/runs_general/base/seed_32025/formation_checkpoints.pt": "81bc3807c176d4246c011d230d224907bc4e0406d281f2a8461ac17823c1265a",
+    "experiments/iv-extension/runs_general/base/seed_32026/formation_checkpoints.pt": "ffcf78ed982a87f012ce55c6a4b05e220b1f6b133ed76950c480fb2f2af95986",
+    "experiments/iv-extension/runs_general/base/seed_32027/formation_checkpoints.pt": "43a8977f76cdd1b492ef1e062841ec37e27f809a8a0c40edcbeadfd286501013",
+    "experiments/iv-extension/runs_general/base/seed_32028/formation_checkpoints.pt": "969a4ce8d3cfe530f5693f13b9c7722435232038e51d0201cfb2a5670b867f76",
+    "experiments/iv-extension/runs_general/base/seed_32029/formation_checkpoints.pt": "a10b2c03449e2de01a2b061e2b48efe3ad9b011dbe0a37a79aa9f9f48f3433ef",
+    "experiments/iv-extension/runs_general/base/seed_32030/formation_checkpoints.pt": "4590f2dbf590ef14917172b566e2dd435d15c6649cf7d0267024c2f163218c62",
+    "experiments/iv-extension/runs_general/base/seed_32031/formation_checkpoints.pt": "79e9026939cff7bc47e819a7a9f1dc39c6ce05d43f5b5307c7267b2ae7b49b59",
+    "experiments/iv-extension/runs_general/relu/seed_32000/formation_checkpoints.pt": "e4864823c9ce29cd70975a084ec56942cf7f53a8aa8e448625cc0a16de9a3d9e",
+    "experiments/iv-extension/runs_general/relu/seed_32001/formation_checkpoints.pt": "32ee247a4f58351acd0f320dad42024b719ffa5b54bd2afce7783c2a5a04472f",
+    "experiments/iv-extension/runs_general/relu/seed_32002/formation_checkpoints.pt": "0372002c70dda61cc7ee71500affa12ae2978018dc57996b3a53e76e4cb19de7",
+    "experiments/iv-extension/runs_general/relu/seed_32003/formation_checkpoints.pt": "e23b82c1530ebde1736b7fca696018a2d7dcf8f59ca6ad9b6234a6cf4d8f4e43",
+    "experiments/iv-extension/runs_general/relu/seed_32004/formation_checkpoints.pt": "85745418a44b5ebae23d2d9d7c41b7510b141e48da929ad646463e002dff2241",
+    "experiments/iv-extension/runs_general/relu/seed_32005/formation_checkpoints.pt": "7f44a24a78085b1549e45fe3781d3de22dac83dfa903e3033a27c48244573488",
+    "experiments/iv-extension/runs_general/relu/seed_32006/formation_checkpoints.pt": "f4038d70b80e91c93c0bbfa9f5afc674e904ad773f96ba83c8d096f32d592343",
+    "experiments/iv-extension/runs_general/relu/seed_32007/formation_checkpoints.pt": "eaf15fd8a36eead82ec58012d056d6a76e8dbe793e05ef52c5c8e89405576235",
+    "experiments/iv-extension/runs_general/relu/seed_32008/formation_checkpoints.pt": "a2667ace9820e7fe06e3e6b83139757528b5c9c6ca641a94c6bfe34ec6fd6557",
+    "experiments/iv-extension/runs_general/relu/seed_32009/formation_checkpoints.pt": "e68d485e472461d476e6facbaba31defead146d705c8aaf62865beaba62acfee",
+    "experiments/iv-extension/runs_general/relu/seed_32010/formation_checkpoints.pt": "348d509d977bef0f639553ce5a3602cc4747f4812d679df7ed4f3ffd1b17ead6",
+    "experiments/iv-extension/runs_general/relu/seed_32011/formation_checkpoints.pt": "930b67f7bed3efc003592763064a1260f92b7e76db15edff3221bb2f0dd97db0",
+    "experiments/iv-extension/runs_general/relu/seed_32012/formation_checkpoints.pt": "1195e578ea1cc972bc00be61649b04f77716e019b29898a4b1445c4d2f0a3756",
+    "experiments/iv-extension/runs_general/relu/seed_32013/formation_checkpoints.pt": "dcaf3dbff2bd104dc911e862f29cf34b37f1f2e7b4e6d59f7e12e2ccd69faf4b",
+    "experiments/iv-extension/runs_general/relu/seed_32014/formation_checkpoints.pt": "e3e6463adb78cefa436fb47a52436b6fd0991ab56520827a0cef78b2694aa17a",
+    "experiments/iv-extension/runs_general/relu/seed_32015/formation_checkpoints.pt": "50d7428387b3baf095ff5c0e3010b21633e2cfb9611b938b015b4c2a473c6377",
+    "experiments/iv-extension/runs_general/relu/seed_32016/formation_checkpoints.pt": "a7d468ee79a1bcc3312f6de5468efa59de1645cee2180d0f15a03015c60653ae",
+    "experiments/iv-extension/runs_general/relu/seed_32017/formation_checkpoints.pt": "b71de9d964e7249f1dd0999d8cf7fa31604bb1200b61386598550fccc322f54d",
+    "experiments/iv-extension/runs_general/relu/seed_32018/formation_checkpoints.pt": "6c73c15497862e88560b0caa9ea73e053ba2c6b47e493cfc92092c4f9b453118",
+    "experiments/iv-extension/runs_general/relu/seed_32019/formation_checkpoints.pt": "462008af1ad915780ec9e28a68781fb3135d08d164e69713616dec941fffa037",
+    "experiments/iv-extension/runs_general/relu/seed_32020/formation_checkpoints.pt": "149b17f0a5f81e8adc2be0e060478a412bc399771b4171aa4edb677a29b5895b",
+    "experiments/iv-extension/runs_general/relu/seed_32021/formation_checkpoints.pt": "c37b2cdabca3bd449908d6b413dfa11fd77e8afafb75f63a34b6062b20a001c9",
+    "experiments/iv-extension/runs_general/relu/seed_32022/formation_checkpoints.pt": "30654fb8589c02b5f15052e8200f193e9f2204ea1aded55702b55a63dfb1ffe1",
+    "experiments/iv-extension/runs_general/relu/seed_32023/formation_checkpoints.pt": "61b69f0e670db4ec06f8657d98fbd465ed96d8d32156caccff22ceb2546494e4",
+    "experiments/iv-extension/runs_general/relu/seed_32024/formation_checkpoints.pt": "3ea9e8bb0a318a5b66cdce6691a71ca4d3a643d766ce754bf2913ef5f233a580",
+    "experiments/iv-extension/runs_general/relu/seed_32025/formation_checkpoints.pt": "cabe191f35339e4124f74d851ef6a3d80713a588d597385d6689ad7207d41090",
+    "experiments/iv-extension/runs_general/relu/seed_32026/formation_checkpoints.pt": "9baae109fcf89008f6eb9f27344fa70c94c089f7c805021abfe3538605be18bc",
+    "experiments/iv-extension/runs_general/relu/seed_32027/formation_checkpoints.pt": "523845c7cd879f9fd1b8b3f542ea499f43623ab5fefc145edde353a03e779dd2",
+    "experiments/iv-extension/runs_general/relu/seed_32028/formation_checkpoints.pt": "952adad0d81d0010d6e52a8c1a6000199910652a86a6f060bc3edc9c78bcd47f",
+    "experiments/iv-extension/runs_general/relu/seed_32029/formation_checkpoints.pt": "fcf129fd64f09e853a07f40e231c1b18eb7ef7e115eb3b69578782860868fa0f",
+    "experiments/iv-extension/runs_general/relu/seed_32030/formation_checkpoints.pt": "01a778041c8b74cd95f309b32ba688f9fbcae27f24a6089fad04c3e0df71d9ba",
+    "experiments/iv-extension/runs_general/relu/seed_32031/formation_checkpoints.pt": "cff3df33eabfaf410b50bed71ac5a772b10848cd411aa7910ade55e3eef1fdc0",
+    "experiments/iv-extension/runs_general/rho0/seed_32000/formation_checkpoints.pt": "d676805674721a7710d470d670f4cfaffccc6d4b35e58ae28e067b4a82b767aa",
+    "experiments/iv-extension/runs_general/rho0/seed_32001/formation_checkpoints.pt": "4cd81523a676d9d8dac52cbf6aee7e0a1b03fd44a68aa941f7a5136e7be99596",
+    "experiments/iv-extension/runs_general/rho0/seed_32002/formation_checkpoints.pt": "9eeeea2b2913a79f73a701e2aa78dcf390154f16baeffbbb4c09bdb1b205fd25",
+    "experiments/iv-extension/runs_general/rho0/seed_32003/formation_checkpoints.pt": "d01a1700298ee28233e61b78c8337227e42615f43a79dbe25a310c8a36348d9c",
+    "experiments/iv-extension/runs_general/rho0/seed_32004/formation_checkpoints.pt": "59f1d568991bb33139b278f87f3703b2ca80b9158e886213ff79cd19e88a5f6a",
+    "experiments/iv-extension/runs_general/rho0/seed_32005/formation_checkpoints.pt": "93581864b8faea92a3ce1b305587826d807c04cae230b82010e544a3d9ca30ee",
+    "experiments/iv-extension/runs_general/rho0/seed_32006/formation_checkpoints.pt": "a5a03c3ec2092ce659adab1cff3a668e01561fad3f87f3b3d9a3e452ac21a055",
+    "experiments/iv-extension/runs_general/rho0/seed_32007/formation_checkpoints.pt": "8f85bcb05555de3f1db201853f1fe039f5973032ceec268e615f058b0558fb7a",
+    "experiments/iv-extension/runs_general/rho0/seed_32008/formation_checkpoints.pt": "c5ae8956e1c6e8a93833b9d7cce6f38314d24e528fcdfff4e2298e8b0ec77443",
+    "experiments/iv-extension/runs_general/rho0/seed_32009/formation_checkpoints.pt": "85255ea807d2d1f23cd654dea6446185e3aa5fbcf8fc9713f1168a065c5575f7",
+    "experiments/iv-extension/runs_general/rho0/seed_32010/formation_checkpoints.pt": "4ca45c6ff8eba523e8eb8a0607bd4af8e300b26d7011cc495b63a219224160db",
+    "experiments/iv-extension/runs_general/rho0/seed_32011/formation_checkpoints.pt": "1811bd20fd6683d063d4ef7b840eca05f5e350fb28c7c4e85eee09b755ab346f",
+    "experiments/iv-extension/runs_general/rho0/seed_32012/formation_checkpoints.pt": "4d060290f41c1987632952339f574f2dcfd9f6a60969a13544ffb49dbecfdf5b",
+    "experiments/iv-extension/runs_general/rho0/seed_32013/formation_checkpoints.pt": "55eddc037911bb916dd4eac3cbd25e81a27678bf2e1a9ccb782945b481c33b9c",
+    "experiments/iv-extension/runs_general/rho0/seed_32014/formation_checkpoints.pt": "b771b20b60a6e4b25effb5592039f0aef3024fc4e8f2ce1c409722f1d1be111b",
+    "experiments/iv-extension/runs_general/rho0/seed_32015/formation_checkpoints.pt": "5ca173cca2dcd9163487d39f2a739bf86958e9a6c2c2f338da81e677fa8eea00",
+    "experiments/iv-extension/runs_general/rho0/seed_32016/formation_checkpoints.pt": "c0ab4c272b254e405ed7e454fe513578312abfbf29ff7afc62e9bedb15108013",
+    "experiments/iv-extension/runs_general/rho0/seed_32017/formation_checkpoints.pt": "5d46988132fd4cd242b033302fc1ac6a5c0c7c67f51f88b2cd172bbd6be591aa",
+    "experiments/iv-extension/runs_general/rho0/seed_32018/formation_checkpoints.pt": "8d059d5845acd0e17335abc3cb5a551f4ddccba0b81c72466f2a9519e81d31e9",
+    "experiments/iv-extension/runs_general/rho0/seed_32019/formation_checkpoints.pt": "2189ee1b0807156f72c00fa663ccfda73babc564c9069328553eb3c6db477cda",
+    "experiments/iv-extension/runs_general/rho0/seed_32020/formation_checkpoints.pt": "721f5ab44c8838ef2950e2f4ab3095dd8c4115e0f146499c88ca788367de10a2",
+    "experiments/iv-extension/runs_general/rho0/seed_32021/formation_checkpoints.pt": "37f989b5e7c46711153178c836c627311179bd680db64ded4004035ecb565982",
+    "experiments/iv-extension/runs_general/rho0/seed_32022/formation_checkpoints.pt": "017dfa112393fab0eecffdfeaf4f7a7912f93ae9a64d8481d85a00adaca98b1e",
+    "experiments/iv-extension/runs_general/rho0/seed_32023/formation_checkpoints.pt": "46dfe168ee256c3602e0e52b18412026812954a233730f2c03039a693e843af1",
+    "experiments/iv-extension/runs_general/rho0/seed_32024/formation_checkpoints.pt": "0e4465524cf53e7d574736eeb7bf9946996e35ed41508a4235c3000e6e0dedba",
+    "experiments/iv-extension/runs_general/rho0/seed_32025/formation_checkpoints.pt": "db227edf9f50b40127266adf945dca887822e676b488451749f1f7da4b1317e4",
+    "experiments/iv-extension/runs_general/rho0/seed_32026/formation_checkpoints.pt": "92bf6b779a73a0b4d347e7f9b1c4c8d289374fcdf10bce20d3c9d04688e45d43",
+    "experiments/iv-extension/runs_general/rho0/seed_32027/formation_checkpoints.pt": "cd508b1cd5b00fa1478f0ebb07d5efb4e8be6cba712b89ea9a2d30a92b6b17fd",
+    "experiments/iv-extension/runs_general/rho0/seed_32028/formation_checkpoints.pt": "0915af774c9f042a49c1e1f14530a37456f36f27c7a3e257c821371e6b82e5cc",
+    "experiments/iv-extension/runs_general/rho0/seed_32029/formation_checkpoints.pt": "ea34de4d91543ceb57bc29565ecaf0aee3a1101a19e3bcca97adb2f58868d7ca",
+    "experiments/iv-extension/runs_general/rho0/seed_32030/formation_checkpoints.pt": "d1d1cde60c4088936a6f65613857cd0464dce6fb7f56bf7a2d86d627ca1b9d9b",
+    "experiments/iv-extension/runs_general/rho0/seed_32031/formation_checkpoints.pt": "c681e2f75e6f9ec619f48963cbcd3d4677216aab0be8775b968d11d565d4190c",
+    "experiments/iv-extension/runs_general/wide/seed_32000/formation_checkpoints.pt": "252eb73b4b5ff91cb20372fe94ece80bb2d9f4a1efd1f4be8bcf9cdcc4f65918",
+    "experiments/iv-extension/runs_general/wide/seed_32001/formation_checkpoints.pt": "1f9f058488f773fed7e92a7f0a49b4b01cbd9b4f1da7c8ec05083dc97b7b06d0",
+    "experiments/iv-extension/runs_general/wide/seed_32002/formation_checkpoints.pt": "ea64a3023228f596d9d504b8777076c2aa616f57ec46f77dc933ee49ac7189e7",
+    "experiments/iv-extension/runs_general/wide/seed_32003/formation_checkpoints.pt": "6fe15d1c38bb0ca6a16c6cefa09a7c9cdc02c74779d292694f5390bc85d65492",
+    "experiments/iv-extension/runs_general/wide/seed_32004/formation_checkpoints.pt": "ba89ec38698b29915ddaab2511cc5379579427e0d88d46ba3b8cbb35f1442c10",
+    "experiments/iv-extension/runs_general/wide/seed_32005/formation_checkpoints.pt": "ceba7e6c0fea1757fd42d0920daa956cd26354d47e500e1f2489fb0dd630714d",
+    "experiments/iv-extension/runs_general/wide/seed_32006/formation_checkpoints.pt": "63f85e9268fc8f1f3dbc007d2e0b1202c960f34bf49499706ad78a0e4ccfbf77",
+    "experiments/iv-extension/runs_general/wide/seed_32007/formation_checkpoints.pt": "02f724b4068a07df964ba480e82685905434ade9a48300abe5857138312161d0",
+    "experiments/iv-extension/runs_general/wide/seed_32008/formation_checkpoints.pt": "6e50c03681664f216df6a1e8084d52a613a083b76abaec9d522ec5728e443704",
+    "experiments/iv-extension/runs_general/wide/seed_32009/formation_checkpoints.pt": "0e7e056ce356546cbb4c0c43651e4b7650780a72a75eef1881e8626d5b6a542d",
+    "experiments/iv-extension/runs_general/wide/seed_32010/formation_checkpoints.pt": "b64da36f9b6c6d3b4e5953029deab3afea5662aaa7a5a7ac936d88311d5aee74",
+    "experiments/iv-extension/runs_general/wide/seed_32011/formation_checkpoints.pt": "5c0d453b25b9676121b48607e3d2121dddbaa9dae82278638e1ea84853dff4f6",
+    "experiments/iv-extension/runs_general/wide/seed_32012/formation_checkpoints.pt": "70276651aa8d55f3411d73d2df2c8155e662668162ce8f8209dac56519bef3f6",
+    "experiments/iv-extension/runs_general/wide/seed_32013/formation_checkpoints.pt": "ce78a256b2d825c541e778061f076ca82a0c8594fbe9bcd4001f992dbea82664",
+    "experiments/iv-extension/runs_general/wide/seed_32014/formation_checkpoints.pt": "4637f1b34fd8eb88e4eb77de8811029d2b94a8a262da6b412b7923007f60a6a7",
+    "experiments/iv-extension/runs_general/wide/seed_32015/formation_checkpoints.pt": "2027a47423ee3980d922d4327294b80070e1d48e67370484d243b19ba8b070a7",
+    "experiments/iv-extension/runs_general/wide/seed_32016/formation_checkpoints.pt": "14805cd83a4e29760721160949b39bea145c483fd54d0295f67dd47556666310",
+    "experiments/iv-extension/runs_general/wide/seed_32017/formation_checkpoints.pt": "4aaed03382b37359777efc320fd5633fbce0e6c1849aff75ec8a42bc0971f260",
+    "experiments/iv-extension/runs_general/wide/seed_32018/formation_checkpoints.pt": "f3a77fb1d1a7f02ec47379973042f1660b05ec66b2d1d04913ef1bd280f439ce",
+    "experiments/iv-extension/runs_general/wide/seed_32019/formation_checkpoints.pt": "0620d8da68b2c41994875fe608581b6f3c18e0b51b19a4bfa6cc19d2c2bf9891",
+    "experiments/iv-extension/runs_general/wide/seed_32020/formation_checkpoints.pt": "18fc31a4393a0f782fa6bb4f8a14199d4e744ddb597e81356de0a3a52dfdba9b",
+    "experiments/iv-extension/runs_general/wide/seed_32021/formation_checkpoints.pt": "d0483e11c4be04ccaece4f7322ab7ad3f4d1544a571ed631389e6cbe393353e6",
+    "experiments/iv-extension/runs_general/wide/seed_32022/formation_checkpoints.pt": "c779671aafae7594290bc2be4ea8bf7a7af3b885c78b99fdc4aa1d51106713ab",
+    "experiments/iv-extension/runs_general/wide/seed_32023/formation_checkpoints.pt": "01d3522debf2e671b20304a7fd66f4edc9b66f74341052403a4b49353af2bc2f",
+    "experiments/iv-extension/runs_general/wide/seed_32024/formation_checkpoints.pt": "ed443519758ed507c72933517e12659e1d1e521cf17212299c504c1a43330d33",
+    "experiments/iv-extension/runs_general/wide/seed_32025/formation_checkpoints.pt": "a18539d6e49b240110cd7daf7f9b92ca66c1351473cc613cd8d27c1920a282ba",
+    "experiments/iv-extension/runs_general/wide/seed_32026/formation_checkpoints.pt": "1d503688f8ace47036c7914b0d07bdd8a64e3ad863d135b2219cf12f971f3914",
+    "experiments/iv-extension/runs_general/wide/seed_32027/formation_checkpoints.pt": "94b1ce207a38d95250ea13e79619725178585779ec528b08a1f6e8818a1b6f65",
+    "experiments/iv-extension/runs_general/wide/seed_32028/formation_checkpoints.pt": "9cb2f18e8c4decc2503b76aad1a6c4855ad72b390d016ba02ce69597045bfe6d",
+    "experiments/iv-extension/runs_general/wide/seed_32029/formation_checkpoints.pt": "a67e46b1e2a71ad0bbf073d3cebaa35f36294a67c799e27b50a3049b0b7afea7",
+    "experiments/iv-extension/runs_general/wide/seed_32030/formation_checkpoints.pt": "a0d9de907aac6075bcd0f6168cb1a7c08cf9bfaec8286a1d81d9af4bea60efcb",
+    "experiments/iv-extension/runs_general/wide/seed_32031/formation_checkpoints.pt": "5895b5ba3f5b0992a12159bfc14748b32f17929e32d00401a471ff0f63354616",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32000/formation_checkpoints.pt": "05998f7ef929fbafcbb9ce2b45ae04124c8e9896a573389682c24360765fc56e",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32001/formation_checkpoints.pt": "e6ebe85902cb14a3c3a06ca99312887baa0afbd397fcc340a3f3a967d1ef1b99",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32002/formation_checkpoints.pt": "84cfda07cabeb061566aa6a7455938bb603eab633eec4cdece1387fc0918968b",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32003/formation_checkpoints.pt": "ef1de1f041ba74e4831e652e507866870937c64a220b08aa5da4518c7c1a2e1a",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32004/formation_checkpoints.pt": "1941bee87f9f1cf2ba31a409aba1538b4b17b2a7ab8421829b13a43c07ed17a2",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32005/formation_checkpoints.pt": "8595d78bb15665fe0e48a3a92885001993681c98bb372386d0f78aa52001b3ea",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32006/formation_checkpoints.pt": "2e44bb512ea66dbcc9ef12812db1d5abe8851bb8389f2456ce6c1e33180e96b7",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32007/formation_checkpoints.pt": "01144c012a1dac6e757caf5a344c83a4d435a889485e3712be42b4bcb96cf9ac",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32008/formation_checkpoints.pt": "a793eca3cb1926e9dfd66a12a27ff5b85fb5de5a7ac6c2261af69070a1bb0613",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32009/formation_checkpoints.pt": "c2df410819ad9553b664b74c9c8a3a637ad349934a161e1b646f3033175f50ae",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32010/formation_checkpoints.pt": "1c2e4f5eb7d97745f98c7d2fce2c74a8a1288fe21f96b4eca82b508574106750",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32011/formation_checkpoints.pt": "a71b59befd8f5459b949c071ddee194c9ea332d88f622483acb5336384567144",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32012/formation_checkpoints.pt": "f1e3c4f46891f988e17922ae4eae96557c933b2c1d116d33cf8120324a2b0426",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32013/formation_checkpoints.pt": "27d2485457138df7aedf878897ec0232bbf0c2eacfe448597800f525730aef6d",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32014/formation_checkpoints.pt": "99ae85a2a80115aa9d00cd2cb396b8ee7858facf64e6417e256c3191762b2502",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32015/formation_checkpoints.pt": "380c3e5c3051e91c20bb6a14060f802715fc0d4affdc32821f4f55b74078e95c",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32016/formation_checkpoints.pt": "4f31c7fc50099599219be087ba9b4ce7d5b6e1bc9bd1e4000733c5b1c13dbb7e",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32017/formation_checkpoints.pt": "a934837533c81240d77f30cd5f0e6f8afe28654ad8edf595a8758c3571d0be69",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32018/formation_checkpoints.pt": "5fbdb9a63e2beec9ebf5c6865fb0058e735b6fc59f7267ca2a54e41013e1f0a0",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32019/formation_checkpoints.pt": "55c035500c9edbe1057478dfc01e423167305b1b22aae04e938b4a4c15cff733",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32020/formation_checkpoints.pt": "654132e0a95f443232ae41e47a4813f92c964671a885bdff5daf3d125ee7309c",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32021/formation_checkpoints.pt": "184a2223ea2e47b2e8130052df7f0a6c5ff73fb71af4df3f645c42e1a1c48f86",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32022/formation_checkpoints.pt": "67a946d1ef1f187b77dd63d0c8e6bdec199274f76e4245de0d724642ec860d9a",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32023/formation_checkpoints.pt": "5b0be0ed3b0b181a8326b85fe34c3e2da4525e8d2aea1166b4eb8dc601129f5d",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32024/formation_checkpoints.pt": "4099b90ca34af41c43b5cbea6b2744ddcd12e74a4a56560bd3fc20cd816bef86",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32025/formation_checkpoints.pt": "38f810b7d7671e69d9dc1bdff9c91ed687a46ea64cc21990f3918b4a51f32e93",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32026/formation_checkpoints.pt": "a7ab6dec9be05de175d6947018ecac42241209a0d198e78ff089cc0eb1f20fe6",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32027/formation_checkpoints.pt": "2709db9d2680abc9cec664396c648f9e2068ce825bdd09236c8be50e39293d32",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32028/formation_checkpoints.pt": "8fde4937184596188f4cebd95df030e88ce8050d5432fb3ca2d87b633277a55a",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32029/formation_checkpoints.pt": "3903bcb60a00414c38ceb0b106bb3a69159d305079decc4b2d45f75b54016c8c",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32030/formation_checkpoints.pt": "b8648b4ea44b9f8b4d9241d718fa615ea7b10dda5b95eef5c5d52199ab7034d5",
+    "experiments/iv-extension/runs_beta/beta0.999_steps1500/seed_32031/formation_checkpoints.pt": "8494b883cd3f33a269c95ec77485e111768f6279bb0b9a11f93bf8dffecc37ee",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32000/formation_checkpoints.pt": "c24492bc316cc68da5934ce10ce0b49f7ea2296afaf90efa005edbdc19d84d8b",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32001/formation_checkpoints.pt": "094312dc07f120ca0e1547679d2c3fc7a6862c95c4ca4f8fd38a113ef1c6f406",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32002/formation_checkpoints.pt": "6204a82db609bee273f996b2f727db1eec08822199c54cda87c41a53404dd67d",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32003/formation_checkpoints.pt": "8c2a80bcbdd860ed76be82d815ffcdb8baee4f7f24c0245f7e096859cc333a04",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32004/formation_checkpoints.pt": "7c9ff32eb506c179b45d5826c7b66ae874290992fd1414c6b93f9ee100bee4c7",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32005/formation_checkpoints.pt": "4998ebe0d4d73425b25c18e60818c84be567b74bb397a90a97c37177ddc3348e",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32006/formation_checkpoints.pt": "ca1f419b0a6e8cc0d3249bd090889cfb7f263f199186a8a3aacb99b861c131bd",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32007/formation_checkpoints.pt": "42728076a5279bb38779d9eadd22cfda5ca6a277da76bd43b9d713529c0f67bb",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32008/formation_checkpoints.pt": "f73fcf3fa125f1ee1e6939eff1217281432324c6a39ba04ece6c72ab8c43c347",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32009/formation_checkpoints.pt": "db260dac91538352fbb0d41dde9426781bafc07b1b602f8283de81266c271ef4",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32010/formation_checkpoints.pt": "a531e1c85ce005063f6a3f4d09bf1a7f97ee693280c12bd18bbb022f91aeca30",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32011/formation_checkpoints.pt": "bd82b2384ee37bd0d4dfca7cb20540e80fffc1de374f3200fc7942b7f97a2dec",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32012/formation_checkpoints.pt": "158aea7f25cf88ec3ead38e9861506c234fd8255fab61a7f48091f43165f84bc",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32013/formation_checkpoints.pt": "aee26df7871394490ca9f3b7751527c5d47a1ce959604a5ea1cba2f809fa9bfa",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32014/formation_checkpoints.pt": "927c26972488d9c20b088a7911823072ca4f4337982b6971723af2531de387f9",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32015/formation_checkpoints.pt": "d52c8bbde257a32722e5fba7f72134265bb53a02e0be61bd1c90b9cf1aeba261",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32016/formation_checkpoints.pt": "445363afb2c03407763e69ed58021f6f829ba2488453256abb3360ef839e5f88",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32017/formation_checkpoints.pt": "208b41cd6d831568f650054f9023c5142ad8dae17ccf487c86def0f9ae8671df",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32018/formation_checkpoints.pt": "6d902bce1e36cbb3a6ba9d1ef8050f53a62f572612ce6b8194ca2d3fe8b2a2bd",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32019/formation_checkpoints.pt": "5972cfec724c1231a665c8f29d7b8b09975ed3c48f459e427a99522c53019795",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32020/formation_checkpoints.pt": "603e7d25fb1c49bd67b138ab871eeedcba2fa597f042c74f8674017951fbb87a",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32021/formation_checkpoints.pt": "95940c29d3f7e8979ce9e9099d87618a80163ebf3950e0829a9d505170c81617",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32022/formation_checkpoints.pt": "104b72905a0435ac1afc108d99560a5405084898d2a4c7ec6c8364a74cfb0bc1",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32023/formation_checkpoints.pt": "89a3e017d7c1ce38c47399f956cb634cabc29658e3145e5eecac1f02cf5b6183",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32024/formation_checkpoints.pt": "602d160a4989787b9f4fde2f1eebcf9f59cc7fcee2fe34f1be83cdd1d2002d47",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32025/formation_checkpoints.pt": "764a142f1049fe5f8b020cf2bd56c5775ba4e8b499977cab54fda9b2280d10f2",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32026/formation_checkpoints.pt": "9b06f16fb67486af06e6cb8ef6968fa4f185dc9caab56546e0496bd2f798dc9c",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32027/formation_checkpoints.pt": "0b90d3c071afd31980eba443352a4c0efd0d691bb5044f09f8d6893051a002ec",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32028/formation_checkpoints.pt": "490335310a25f43dd9a4f19657c6b1cae0dad023bf42e8ae9255bef25efaf41c",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32029/formation_checkpoints.pt": "df736c4ea20a50db6bd1cf200254caa50312e8d463d01309466722f0a363266b",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32030/formation_checkpoints.pt": "f4fe6e4e097ce4110e65e4c3b0036108541b6f6c44e753233d50f681efc140cc",
+    "experiments/iv-extension/runs_beta/beta0.99_steps1500/seed_32031/formation_checkpoints.pt": "881a376ee5ad76647484c2334e7b5377291e02b17a228ce3af5d5db8d7cf96d1",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32000/formation_checkpoints.pt": "79d9683777fc2e31bef98c3a60d5f85a1908a3a039011e79ddefb549b775b817",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32001/formation_checkpoints.pt": "adf11b7efc60851a0770e07493c0c152a47ddfb1d541d52bd78a787ad37bcd3e",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32002/formation_checkpoints.pt": "2239c0e2bcc877b7f6fd3c42faed4a113295b638efc79e2b2d997decc3d156c5",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32003/formation_checkpoints.pt": "4da55283c5511be6d87b1998173126ee2f251e2e3332af4dfb8a982add23daa3",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32004/formation_checkpoints.pt": "f3bacdadfb7072f6338e93b398d4fbd088143b3316529fa07a200eb294970d07",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32005/formation_checkpoints.pt": "045fa5376bdd9eb1fa7908582c816e1eedd138c82afbd32f218facf8eed93af4",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32006/formation_checkpoints.pt": "9b835054b34c836603d89e30a76d6c7a8e682553339f021fcfa4df0c36b46015",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32007/formation_checkpoints.pt": "34a109893f6f428ce66d63839393f36e6e90a25ec907260fda977ef92c17d5a8",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32008/formation_checkpoints.pt": "af478624d8eb91741197903dc644c0e1e18d11f7c78459c78cbc8aecc2e81779",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32009/formation_checkpoints.pt": "a1df4be130f94fcdaa1147b20565e25a05718c74b919638dc693333328e8eb2e",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32010/formation_checkpoints.pt": "d9a5f071dca00b4e2a1d5f60e91c62b685d49d1ecd6dd503f1df55f319537c4e",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32011/formation_checkpoints.pt": "4fb2d717ee6a6809996950cc05b50a9ce8081682fb089f5bc6450cffec1f7221",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32012/formation_checkpoints.pt": "f9a6884382ce94659fdea52b266674d810982e5e9bae89f86982e04fb553faef",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32013/formation_checkpoints.pt": "8489f4faac552e1c47d3f6b26f3746672f116f1b92f9bf9402b23d0dea952555",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32014/formation_checkpoints.pt": "13ac41d2a535919b71ca3dc8a71a2fe34f09b72847523574985c435ad59f228e",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32015/formation_checkpoints.pt": "3c1f8baec688826d5628eeb8b3fceb7749861a3dccbfa0d0bc03aabebcea43d0",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32016/formation_checkpoints.pt": "66b5285f00e30e6232ff16cc3360f01ce03ce874045de41b6ff68430818a301f",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32017/formation_checkpoints.pt": "5d16735e45332ba599cc29f1ae44f4cf553041c171685df740dbb2e3989f92d0",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32018/formation_checkpoints.pt": "e823bb0a83cbf29b7e74eec169a7aa025e8906756e30a50501a6f74a12fc555e",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32019/formation_checkpoints.pt": "1efdd07b028653a59c2a20ae794b0dc5d15a6c23d54e776be5f412d12f2453de",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32020/formation_checkpoints.pt": "9aeb2f0286c47917265ba944e8f4eb0be5e0d1f0968d98d3438c3e7f0c4fd41c",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32021/formation_checkpoints.pt": "79b1f2d2b7c0dcce2a15fe86035a7e54f587e50748353205783313b0b0a94ac9",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32022/formation_checkpoints.pt": "53e0dabb3e9261f7b8325297160ba3620d255a55c30e316afa118e6dbd72f022",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32023/formation_checkpoints.pt": "b30fb9e65cc579a440b49577ef954b7b8c98486bc75c117360352d06992905ef",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32024/formation_checkpoints.pt": "f446b99c5d17af129ff827529d4e28d889adf0257c5fbc6bc8019474991dadd0",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32025/formation_checkpoints.pt": "50d941c9e90e50dd9ac80b8fcac7ea4b60744a84c178e846d6f668eaa0ab4832",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32026/formation_checkpoints.pt": "3b8a48798083d736b1e98b0dcd5a9922c7b2585e919de1093cb0e975bd52e2ab",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32027/formation_checkpoints.pt": "ce3550d9730339ff49f9f5bb1f932e39da1084f80df65424269c56cc2ac98708",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32028/formation_checkpoints.pt": "7f5df0b0a8916619186366306ce6214f125b3b8e43a81fc057929f9d4d1828a0",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32029/formation_checkpoints.pt": "0dd5d63ec846a7f9165540d3c0469e0965b3ad5a8f45590dd2120074b105a470",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32030/formation_checkpoints.pt": "78a8bc56e7cdf9cd8b30db5692df9f62e20647ed54541b7460e6c10e4546704e",
+    "experiments/iv-extension/runs_beta/beta0.99_steps500/seed_32031/formation_checkpoints.pt": "b644eec7b288bd593a8f2da878269569d7b68051236fb7eb673c3ba836c70756",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32000/formation_checkpoints.pt": "c5501c2364d911f53be2adaa6096c72971f3c67021d94bf1ee69b06c5b51093d",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32001/formation_checkpoints.pt": "0af33457f51afe3ab4c4729219b9fbebaa6e10df902132e21cc6912c426cbf31",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32002/formation_checkpoints.pt": "2c30f1343eae98cd75626023370e91ac4dd19cff4ce54a53090b71fb4a615a2a",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32003/formation_checkpoints.pt": "9d61e52e1975c850f67d1ccf53dd7837ba34752820e7ac792a1710a61bbb3821",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32004/formation_checkpoints.pt": "2521fd842e8e1a8b8afbcc46f8f6dce6c222b67b483a5788d7017c0001275a95",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32005/formation_checkpoints.pt": "577387a641d6d3691364a0854c59dac65d171edaeb200f1ae1a28da8a6561573",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32006/formation_checkpoints.pt": "db5aa84edf9b52cc24bb576574c50de766b301f700cf3d27d0abd619f903865f",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32007/formation_checkpoints.pt": "8113af52078a6f7765e24660416d8f2f3c35cfddebb57d5a9963af0c3df878a0",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32008/formation_checkpoints.pt": "1864c5b41d794aa0b0c10d44a55616b53287d031ecb24717ec2fdd078b6ed127",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32009/formation_checkpoints.pt": "6b652d3b51ff492b95deef5d1a5d1f4a9b7cfa590f0fce271c7092d2303aa945",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32010/formation_checkpoints.pt": "e22d193bfbdb66c51ae2f69bb9f6254f74b04dedaed42017428e23f2353c1c46",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32011/formation_checkpoints.pt": "c56846289c052fb8db47321c04722336ef6f06e20c42f7cf562820e71c5a8d30",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32012/formation_checkpoints.pt": "521cb92ddbd37972a04425bf4d150e894bf3e33da902e0bb23c46f7bbc5ac1ce",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32013/formation_checkpoints.pt": "1f478e0e1ce75968beef3c1031ec16f9af4737cad2ae1ee88a4d4ed8eefffd59",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32014/formation_checkpoints.pt": "248f1bbda712ea591d82a51139a47bdb16000355dfb47944bd39072eaa72b295",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32015/formation_checkpoints.pt": "91411aee2a2b5a5f4643e322b7673b61fa82656be8e61b84e7092c71d1cb5b24",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32016/formation_checkpoints.pt": "c48706dad91dac6093b7da70109383d619e941bb3f8ab1e17e6a834420b3e820",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32017/formation_checkpoints.pt": "43aae390c4f2795984b5c03577af831f3285158cbb4121b18465a845bc1900da",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32018/formation_checkpoints.pt": "c31562b91ffdd80c1c0c606280bdd1db5151b18a8970edc618dabee50003bde7",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32019/formation_checkpoints.pt": "4f634aa42519d4759c34a1346590286c53102bdb92c693488549169c9c0ab147",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32020/formation_checkpoints.pt": "e918cb5c96dae1594607b58b3f71f2d9df58c09dbabe896f2d0719c5b9fd5d33",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32021/formation_checkpoints.pt": "96dee70be7346ccdc6cf3033bda2f802115bc50cb720c153dbdc76871c423e8c",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32022/formation_checkpoints.pt": "90083fa9982ef26fa9aaf9bd6ebcecd7224bd5518fc9dd9eebcb49a875f74e5b",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32023/formation_checkpoints.pt": "23ad74ea3508387b2a2697d2cefd268f5485110eebbd704b540d00952b29f340",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32024/formation_checkpoints.pt": "7e07d66d06529310461148c90195ccbbc53ea720e9358fe999d5eec2d910caa4",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32025/formation_checkpoints.pt": "667da11b600aeee997ff4852929326df322dc396a96e3ac69c638c8531db8cf2",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32026/formation_checkpoints.pt": "f848f0a27d00a536c185609f3698d37cba997c153a6235fb39a81fbb986e63f2",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32027/formation_checkpoints.pt": "9087713b0fce43bccac55e2674c20b90176671ec5464395fa08cf91cbdc49adf",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32028/formation_checkpoints.pt": "75e95de5ec993cf5fb07702fd816d869eaabe0423c8a041a3df58ebd1163588f",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32029/formation_checkpoints.pt": "4f5fea0f005c0fb7ca3b51cedfcb81a07144096be764ae6dd38838d15c7ae9a8",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32030/formation_checkpoints.pt": "d1af26473c18bf85442863757d4653ca32b14bedab072c581ae14c0634dc2835",
+    "experiments/iv-extension/runs_beta/beta0.9_steps1500/seed_32031/formation_checkpoints.pt": "9be3f509cfcbb0396134c566ccab22b0db0411ea12d60545b198d79d4b1dad3b",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32000/formation_checkpoints.pt": "9b9d5e897e78cd1dd7ac726fac61ae4700ed4e024bc1355ae9ed905c16444b4f",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32001/formation_checkpoints.pt": "eaae5bc0f8bf821fd983efc53023c063be9dbf7f45ebf4b87ac1c07cb30c20a7",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32002/formation_checkpoints.pt": "759a6f21574d1f7355b3ef5a6fc47a6c32a7bf51787608a1e03f644323973b80",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32003/formation_checkpoints.pt": "7ad887ed14c51460e350ac80febd99921671a5499facd93f443c83f730bafe73",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32004/formation_checkpoints.pt": "7b4a05d4c78c2060e0e0a4326d6e9b390356d6baa792c8df09f3a9ceeefafd93",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32005/formation_checkpoints.pt": "ccd54773cd981872209d869ff23c709370a46b1eff07ebe1b7fce24072c6672b",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32006/formation_checkpoints.pt": "a468900f8020e55b32e9a2ea35aafcc34fb22e883ad9391ec084f76b64f544dd",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32007/formation_checkpoints.pt": "61c2725ef741d8d303e414d153b82fa46fae35ed659ff6aecd455c5afeb01d71",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32008/formation_checkpoints.pt": "b0d891860d1788b65985e0ac7f81783fec696570b5e8b283f90dc2b284ab54eb",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32009/formation_checkpoints.pt": "6a9cc4fa19330a4a3d99aadaf06f0b98ea3a79b601e4bc02e61d0cb4c561b6c1",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32010/formation_checkpoints.pt": "6078b69d077fc601f654d5b37cf9d0e76ad25f2084593a5595b88680fc11dd04",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32011/formation_checkpoints.pt": "3043ea754af46f8ce06e137f3c9225d45d95b76409c5c77e20a613c6dab32b04",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32012/formation_checkpoints.pt": "1b3379c62623172e9c275e76742787568a4c760cd09bef23887f273d257b2c62",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32013/formation_checkpoints.pt": "8e9aa1dacd57eb7ca9407fc798c489c1df993125b09b52646c2f4d6ad98ccee8",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32014/formation_checkpoints.pt": "6c7ac6f5bd7affe401de1a71f9ff23438b71c86f6babed90df5f53d3356ecee0",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32015/formation_checkpoints.pt": "b76256e8d045c84218267b8a6545fa6ac2768f0cce4b019db59e5b97326482e8",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32016/formation_checkpoints.pt": "b27112a21f4d134ae610a5c0b3ec33e147cae2e8334977c0ba6cc585c0171245",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32017/formation_checkpoints.pt": "d4b815c8f082c7bd8fc35d67ae2c8645330a18a52a1380d4ae2079875e8b9c50",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32018/formation_checkpoints.pt": "2c9b8512086c825c5f08c32046f379344755a7ee5be30d391ec1c75a228365f8",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32019/formation_checkpoints.pt": "20589a7c00f368333f0b85c70eb76eef3e63f222b676fafc3e89d3a6a0556a44",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32020/formation_checkpoints.pt": "4dab71a60c412e66219e77416e26f1c3b442948db98c0b8ad8386838f37c1e1c",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32021/formation_checkpoints.pt": "dc8cfababce0f4318f9b2abdfe765f46f0960a3b49691fc1b767935b12a38749",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32022/formation_checkpoints.pt": "897e73e99a45c10d5b286cd09b3d0ba02ddd932e91c5cd906b647cecbd52b274",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32023/formation_checkpoints.pt": "f2e3579215316b7c281a291bdcbac6900e2ae771d38c4a131b28babdc782dca8",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32024/formation_checkpoints.pt": "2d5ac18364a29d0f11e53c7845dd1970d6957e65609c70fcb3878c75284390a1",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32025/formation_checkpoints.pt": "181e55a7871f736fe818b3c926ae70129971ca029d3b9fe086f484d63ca0aba9",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32026/formation_checkpoints.pt": "22be9c3473ad6c25de6be723adea9d85898c8f81d0d8cd2338768bbe717d7fdd",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32027/formation_checkpoints.pt": "6c079b2e054c1f56c50373cb3b773d435e2b3fa7bad72aa703ebb9ce4ae36099",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32028/formation_checkpoints.pt": "84dda45184e40889fb58471b161841d5499a353a42b9ee242bd192d5b77e8347",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32029/formation_checkpoints.pt": "3fdc1da1abda213a77675dc6ad47ba1562cd40bae02fbb2016201911f61e804d",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32030/formation_checkpoints.pt": "fedb3a843c836723199a6b653335981b70af135ac8cf82891baf355e66c93609",
+    "experiments/iv-extension/runs_beta/beta0.9_steps500/seed_32031/formation_checkpoints.pt": "4e6fedca59de5727312b7baae4588194764f5efb4f911b77010eb802fa1c99bc"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "protocol wording clarification; locked files unchanged",
+  "issue": "The projection protocol describes the five endpoint measures as original criteria but fixes a uniform 0.02 tolerance. The original central low-precision allocation tolerance is 0.01, not 0.02.",
+  "reported_rule": "Projection results use the locally specified uniform 0.02 tolerance. Two of five measures meet it.",
+  "sensitivity": "Using the original low-precision tolerance would also reject projected-route low-precision equivalence. Projected-route endpoint matching fails under either rule. Native-route matching passes under both.",
+  "no_posthoc_change": "The executed protocol, result values, all seeds and pre-run hashes are retained."
+}

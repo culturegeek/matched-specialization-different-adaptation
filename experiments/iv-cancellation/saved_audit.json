@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "checkpoint_layer_rows": 4608,
+  "duration_mean_ratios": 24,
+  "paired_square_sum_differences": 2,
+  "input_hashes": 290,
+  "method": "Independent torch reductions versus archived NumPy reductions; every duration ratio independently paired by seed. Intervals separately bound to source JSON."
+}
