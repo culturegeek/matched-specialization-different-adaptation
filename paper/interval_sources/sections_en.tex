@@ -1,0 +1,232 @@
+% Paragraph IDs correspond to sections_ja.tex.
+\graphicspath{{../figures/}{figures/}}
+\begin{abstract}
+% P:abstract
+Can two learners with similar measured specialization adapt differently to the same new learning condition? We study this question in small shared-representation networks whose formation histories and optimizer states can be controlled. Different observation and loss-weighting histories produce equivalent mean reconstruction measurements. Under a common intervention favoring the other target, the more precisely readable target switches within ten updates in 67.5\% of acquisition-formed checkpoints and 0\% of update-formed checkpoints. Resetting Adam reduces the between-route difference in reallocation to within a pre-specified equivalence margin. In an independent component-exchange experiment, swapping the second moment reverses which history is more susceptible. Further interventions separate its mean adaptive scaling from its coordinate-wise pattern: equalizing the mean scale reduces the difference, while exchanging the pattern at that common scale changes its sign. Fresh Adam and calibrated SGD reveal smaller delayed differences, while sustained common learning brings allocation endpoints close by 500 updates. Thus measured specialization can conceal a reversible difference in short-horizon adaptation, with second-moment structure acting as a causal modifier. In this controlled two-target system, persistent training state and subsequent learning conditions help characterize adaptation beyond current readout quality.
+\end{abstract}
+
+\section{Introduction}
+% P:intro1
+A shared representation is an internal code used by several prediction tasks. With limited capacity, information useful for one task may remain easier to recover than information useful for another. We call this inequality in readout precision \emph{representational specialization}. Such biases are well established: feature complexity, learning order, and competition among information sources can change what a network represents \citep{lampinen2024biased,pezeshki2021gradient,huang2022modality}. We ask what a measured specialization tells us about the learner's response when learning conditions change.
+
+% P:intro2
+This question matters whenever a model continues learning after its performance has been evaluated. Two models may currently support similar predictions but require different amounts of learning to reallocate their shared features. Training history can affect later plasticity, the ability to learn from new information, through both model parameters and optimizer state \citep{achille2019critical,lyle2023plasticity,dohare2024plasticity}. The experimental challenge is to distinguish a difference in current measured ability from a difference in subsequent response, and then identify a persistent component that changes that response.
+
+% P:intro3
+We construct this comparison using two routes to specialization. One route observes a target more precisely while weighting reconstruction errors equally; the other balances precise observations while placing more weight on that target's error. Pilot calibration makes selected mean endpoint measurements equivalent within fixed margins. We then apply the same intervention favoring the other target. If those measurements adequately characterize adaptation under this intervention, the routes should respond similarly. If inherited optimizer state contributes to an otherwise hidden response difference, resetting or exchanging that state should change the contrast while leaving each recipient's model weights fixed at intervention onset.
+
+% P:intro4
+The results support the second explanation for a large early response difference. Adam's second moment, its running estimate of squared gradients, rescales updates separately for each parameter. Exchanging it reverses which formation route changes more. Equalizing its mean inverse scaling leaves a response difference, and exchanging its coordinate-wise pattern at a common mean scale changes the sign. These interventions identify how the organization of adaptive scaling modifies reallocation in the recipient network. Longer trajectories then show why the observation horizon matters: smaller route differences emerge even after the inherited Adam state is removed, and prolonged common learning brings the measured allocation endpoints close.
+
+% P:intro5
+Our empirical contribution has three connected parts: a comparison of adaptation after matching selected reconstruction measurements; component and scale/pattern interventions that change the short response difference; and a temporal comparison that separates this large inherited-state transient from smaller delayed differences. We use \emph{latent susceptibility} to name the response difference concealed by those endpoint measurements. Small artificial learners allow the paired histories, saved model states, and optimizer components needed for these tests. The evidence concerns two correlated Gaussian targets in a small nonlinear bottleneck network; complementary formation and maintenance experiments clarify where this result sits in the wider process of specialization.
+
+\section{Relation to training history and optimizer memory}
+\label{sec:related}
+% P:related1
+Similar measured performance can coexist with important differences between predictors, as studied under underspecification \citep{damour2022underspecification}. Representation-similarity measures examine another aspect of their endpoints \citep{kornblith2019similarity}. Our comparison concerns the response to further training: selected reconstruction measurements are matched before a common intervention. This connects the study to plasticity research, where early experience and training dynamics change later learning \citep{achille2019critical,jastrzebski2020breakeven,dohare2024plasticity}.
+
+% P:related2
+Optimizer-mediated history effects have direct precedents. \citet{lyle2023plasticity} relates plasticity to loss geometry and shows how unequal adaptation rates of Adam's moment estimates can destabilize training after task changes. \citet{asadi2023resetting} evaluates optimizer resets after changing reinforcement-learning objectives. \citet{ellis2024local} analyzes update-size transients after gradient-scale changes and introduces relative Adam timesteps. These results make inherited adaptive scaling a concrete explanation to test here. Our question is whether average scaling suffices to account for a route difference in \emph{representational reallocation}, or whether the coordinate-wise pattern also changes it.
+
+% P:related3
+Direct state transplantation has also been used to study hidden training effects. In a recent preprint, \citet{xu2026optimizer} identifies a first-moment carrier of subliminal transfer: an intervention invisible in immediate outputs produces differences during subsequent training. \citet{sevetlidis2026trainingmemory} organizes historical carriers and proposes state-based causal measurements. The present contribution is a specific empirical decomposition of shared-representation adaptation. It combines matched reconstruction measurements, second-moment scale/pattern interventions, and a common continuation under inherited Adam, fresh Adam, and SGD. Table~\ref{tab:prior} summarizes the closest comparisons.
+
+\begin{table}[t]
+\centering\small
+\caption{Closest prior comparisons and the question tested here. The interventions and measured outcomes specify how the comparisons relate.}
+\label{tab:prior}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{.21\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\toprule
+Prior work & Established comparison & Present comparison\\
+\midrule
+\citet{lyle2023plasticity} & Plasticity, loss geometry, and optimizer instability under changing tasks & Reallocation response after matching selected reconstruction measurements\\
+\citet{asadi2023resetting,ellis2024local} & Resetting state or time; update-size effects of changed objectives or gradient scales & Component exchange and coordinate pattern at matched mean inverse scaling\\
+\citet{xu2026optimizer} & First-moment transplantation and later transfer, including immediate-output invariance & Second-moment structure and the time course of specialization response\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% P:related4
+These studies establish why training state matters, while the measured outcomes differ. A change in specialization under a ten-update pulse is neither an optimization-performance improvement nor a measure of accumulated trait transfer. The interval for the change in response contrast under first-moment exchange lies within the pre-specified equivalence margin at this horizon. The longer trajectories test the duration of reallocation effects under a common opposing task. Transfer of learned attributes to a distinct downstream task remains an open comparison.
+
+\section{A controlled comparison of specialization and adaptation}
+\label{sec:approach}
+\subsection{Two formation routes through one shared bottleneck}
+% P:design1
+The central learner reconstructs two three-dimensional signals, $A$ and $B$, from noisy observations. We generate standard Gaussian $A$ and independent Gaussian $\epsilon$, and set $B=\rho A+\sqrt{1-\rho^2}\epsilon$ with $\rho=0.35$. A seed-specific orthogonal transformation mixes the observations. A $6\to32\to2$ encoder, with tanh after both layers, maps them to a two-number code shared by two linear reconstruction heads. Training targets are the noise-free signals. This bottleneck makes the allocation of readable information observable.
+
+% P:design2
+We manipulate information quality and error weighting separately. \emph{Acquisition precision} changes target-specific input noise before mixing; the high- and low-precision standard deviations are 0.05 and 1.20. Dividing each noisy channel by $\sqrt{1+\sigma^2}$ normalizes its variance. \emph{Update allocation} changes the reconstruction-loss weights:
+\begin{equation}
+L_t=w_{A,t}\ell_{A,t}+w_{B,t}\ell_{B,t},\qquad w_{A,t}+w_{B,t}=1.
+\label{eq:loss}
+\end{equation}
+Equal weights give the errors equal explicit importance; their gradients can still differ. Observation quality therefore enters learning through a different intervention from changing loss weights. Related work studies active acquisition and task weighting \citep{shim2018joint,chen2022active,chen2018gradnorm,yu2020gradient}; the present design crosses these controls in one shared representation.
+
+% P:design3
+After 100 balanced initialization updates, a nine-condition acquisition-by-weighting comparison runs for 500 updates to test which target each control favors. Balanced acquisition allocates exactly 250 high-precision updates to each target. For the matched comparison, the acquisition route observes the favored target precisely with equal loss weights; the update route balances acquisition and assigns the favored target weight 0.80. Route strengths are calibrated on pilot seeds and then fixed for confirmation. Full formation and redirection controls appear in Appendix~\ref{app:formation}.
+
+\subsection{Common measurements and paired inference}
+% P:design4
+To measure readable information, we freeze the encoder, fit fresh linear readouts on unused probe data, and evaluate on separate held-out data. Both targets receive common high-precision inputs. Let $D_A,D_B$ be the variance-normalized mean squared errors. The allocation index
+\begin{equation}
+s=\frac{D_B-D_A}{D_A+D_B}
+\label{eq:s}
+\end{equation}
+is positive when $A$ is more precisely readable. We align its sign to the originally favored target. A decrease then measures reallocation toward the other target, and crossing zero changes which target is more readable. We also retain both errors, their sum, and allocation under a common low-precision probe. Thus relative advantage is evaluated alongside absolute reconstruction quality.
+
+% P:design5
+Each seed supplies a common ancestor and paired input/noise sequences. Conditions branch with the same initial model and, unless manipulated, optimizer state. Pilot and confirmatory seeds are disjoint; each principal comparison uses 40 confirmatory seeds. Mirrored target labels are averaged within seed for inference. We report 95\% seed-bootstrap intervals. Endpoint equivalence requires the interval for the mean paired difference to lie inside each pre-specified margin; it is not an assertion that every pair has identical measurements. All confirmatory seeds are retained. Model parameters and representation geometry may differ after formation.
+
+% P:design7
+Before confirmatory runs, each plan fixes the largest acceptable mean differences in allocation-index or normalized-error units. Appendix~\ref{app:optimizer} lists these matching tolerances and response margins, together with the separate pilot stages.
+
+% P:design6
+The core evidence comprises the endpoint-matching experiment (IV-D), independent component exchanges and a within-route control (IV-E), and a prospective scale/pattern and time-course follow-up on 40 further seeds. Supporting experiments address formation (IV-B), redirection (IV-A/C), maintenance (II/III), and three-target formation (V-A). These constructions answer different questions; the optimizer claim rests on the paired two-target experiments. Appendix~\ref{app:optimizer} gives the exact interventions and full estimates, and Appendix~\ref{app:status} separates pre-specified tests, exploratory analyses, and failed candidates.
+
+\section{Matched specialization conceals a short-horizon response difference}
+\label{sec:latent}
+% P:response0
+Both controls can select specialization: under equal loss weights, precise acquisition of $A$ or $B$ produces mean allocation indices of 0.3385 and $-0.3338$ (Figure~\ref{fig:headline}a), while sufficiently strong opposing update weights can overcome this acquisition advantage.
+
+% P:response1
+The two formation routes reach similar measured specializations. All five endpoint criteria pass: aligned $s$, target and non-target errors, total error, and low-precision aligned $s$. The mean aligned-$s$ difference is $-0.0064$ ($[-0.0098,-0.0032]$), inside $\pm0.02$. Mean integrated responses over 200 neutral continuation updates, with balanced observation and equal weights, are also equivalent with either inherited or fresh Adam. Matching therefore covers selected static measurements and one neutral-continuation summary, while leaving response to an opposing condition to be tested.
+
+% P:response2
+Each formed learner is copied into three ten-update opposing interventions. An acquisition-only pulse observes the previously less readable target precisely with equal loss weights. An update-only pulse balances acquisition and gives that target weight 0.80. A combined pulse observes it precisely and assigns it weight 0.85. Each pulse is tested with inherited or freshly initialized Adam, keeping the recipient model weights unchanged at the branch point. The response is the decrease in aligned $s$; the route contrast is acquisition-formed minus update-formed decrease.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.88\textwidth]{headline_en.pdf}
+\caption{A common measured allocation can conceal different adaptation. (a) Acquisition selects specialization with equal loss weights. (b) The matched formation routes receive the same combined opposing pulse. Both move toward the other target, but the acquisition-formed route moves further. Points and intervals summarize 40 seeds; mirrored labels in (b) are averaged within seed. Lines connect endpoints, rather than showing the intervening trajectory.}
+\label{fig:headline}
+\end{figure}
+
+% P:response3
+With inherited Adam, the acquisition-formed route moves further under every pulse (Table~\ref{tab:pulses}). Under the combined pulse, 67.5\% of its checkpoints cross zero within ten updates, compared with 0\% of the update-formed checkpoints (Figure~\ref{fig:headline}b). The continuous route difference is 0.1951. Resetting Adam reduces it to 0.0103, within the pre-specified $\pm0.02$ margin. The other pulses show the same reduction. Thus inherited optimizer state strongly modifies a response difference that selected endpoint measurements and neutral continuation did not reveal.
+
+\begin{table}[t]
+\centering\small
+\caption{Route difference in specialization lost after ten opposing updates. Brackets give 95\% seed-bootstrap intervals. All inherited-state intervals lie above $+0.05$, and all reset intervals lie inside $\pm0.02$, meeting their respective pre-specified criteria.}
+\label{tab:pulses}
+\begin{tabular}{lcc}
+\toprule
+Pulse & Adam inherited & Adam reset\\
+\midrule
+Acquisition only & $0.1668\ [0.1601,0.1736]$ & $0.0011\ [-0.0010,0.0035]$\\
+Update only & $0.1510\ [0.1456,0.1562]$ & $0.0120\ [0.0093,0.0149]$\\
+Combined & $0.1951\ [0.1880,0.2021]$ & $0.0103\ [0.0079,0.0129]$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% P:response4
+This result applies to the two-target network and the ten-update pulses. A separate linear measure of representation similarity (CKA) averages 0.927, and the model parameters are not identical. Resetting Adam leaves those model differences intact. The small reset contrast therefore identifies a limited response equivalence at this horizon, rather than identical representations. The zero-crossing rates likewise describe the brief pulse; Section~\ref{sec:time} examines longer common learning.
+
+% P:endpointprediction
+An exploratory check across the three existing 40-seed cohorts asks whether residual endpoint differences predict the response contrast within seeds. Linear models using target error, other-target error, and low-precision allocation provide little improvement over predicting the training-fold mean. This supports the limited predictive value of these measured endpoint features; Appendix~\ref{app:extension} reports the held-out errors and conditional estimates.
+
+\section{Second-moment structure causally modifies reallocation}
+\label{sec:mechanism}
+\subsection{Component exchange reverses the route contrast}
+% P:mechanism1
+Adam retains a signed-gradient average $m$ and a squared-gradient average $v$ \citep{kingma2015adam}. The latter sets a separate adaptive scale for each parameter. To test these components directly, we exchange $m$ or $v$ between route endpoints while holding each recipient's weights and optimizer step count fixed. Corresponding parameter coordinates are available because both routes descend from the same ancestor.
+
+% P:mechanism2
+In an independent 40-seed comparison, exchanging $m$ leaves the mean response contrast nearly unchanged, with the change inside the pre-specified margin. Exchanging $v$ changes the route contrast from $+0.1968$ to $-0.1265$ (Figure~\ref{fig:moments}a). Both estimates' intervals exclude zero in opposite directions (Appendix~\ref{app:optimizer}). The recipient's second-moment state therefore changes which route is more susceptible. This intervention identifies a causal modifier acting together with the recipient weights and subsequent gradients; it measures the combined ten-update response.
+
+\subsection{Average scaling accounts for only part of the short response difference}
+% P:mechanism3
+The exchange raises a more specific question: does one route simply receive a larger average adaptive scale? In a prospective follow-up on 40 new seeds, the inherited-state contrast is 0.1907, reproducing the earlier 0.1951 and 0.1968 estimates. We define $\bar a_v$ as the mean of Adam's bias-corrected inverse-second-moment scaling terms across parameters. This quantity describes the scaling supplied by $v$; an actual update also uses the first moment and current gradient.
+
+% P:mechanism4
+Equalizing $\bar a_v$ while preserving each route's coordinate pattern reduces the response difference from 0.1907 to 0.0875. Replacing the pattern by a scalar value gives 0.1251; combining scalarization with a common scale gives 0.0395 (Figure~\ref{fig:timecourse}a). Exchanging the other route's pattern while holding $\bar a_v$ common changes the difference to $-0.0110$. Average scaling thus accounts for part of the response contrast, while coordinate pattern also changes the recipient's response at that common mean. This comparison equalizes a mean inverse-scaling quantity, not the actual update norms throughout the pulse. The post-hoc factorial recombination remains exploratory in Appendix~\ref{app:optimizer}.
+
+\subsection{The effect also occurs within one formation-route category}
+% P:mechanism5
+A within-route control holds acquisition, mini-batches, update count, and mean target loss weight fixed. One schedule uses weight 0.80 throughout 500 updates; the other uses 1.00 and 0.60 for 250 updates each in randomized order. The endpoint criteria again pass. The constant schedule then moves further under the common pulse by 0.0324 ($[0.0294,0.0354]$). Exchanging $v$ reverses the contrast to $-0.0141$, while resetting Adam reduces it to 0.0046, inside $\pm0.01$ (Figure~\ref{fig:moments}b). Different acquisition-versus-update labels are therefore unnecessary for this response pattern: equal average loss weights can conceal different optimizer states and later responses. Variability and realized sequence change jointly in this control.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.88\textwidth]{moments_en.pdf}
+\caption{Second-moment exchange reverses two short-horizon response contrasts. (a) Acquisition-formed minus update-formed specialization loss. (b) Constant-minus-variable weight-history contrast at fixed acquisition and mean loss weight. Shaded bands show the respective pre-specified equivalence margins ($\pm0.02$, $\pm0.01$). Intervals are paired seed-bootstrap intervals; each comparison uses 40 disjoint confirmatory seeds.}
+\label{fig:moments}
+\end{figure}
+
+\subsection{Realized parameter movement links scaling to response}
+% P:mechanism6
+How does adaptive scaling relate to movement during the pulse? An exploratory analysis of the fixed follow-up trajectories measures cumulative path length by summing the distance moved by each update (its Euclidean norm). Over ten updates with inherited Adam, the acquisition-to-update route ratio is 0.987 ($[0.978,0.996]$) for cumulative gradient norm and 1.872 ($[1.844,1.902]$) for parameter-path length. Thus a gradient-norm ratio close to one accompanies substantially greater parameter movement in the acquisition-formed route.
+
+% P:mechanism7
+Across the same 40 seeds, the between-route path-length difference correlates 0.806 with the reallocation-response difference. Holding out each seed in turn, single-variable linear models reduce mean squared error by 28\% using the pre-intervention $\bar a_v$ ratio and 62\% using the realized path-length difference, relative to predicting the mean response difference of the other 39 seeds. Realized movement thus provides a closer reconstruction of the response difference in this exploratory comparison.
+
+% P:mechanism8
+A movement-controlled intervention on the 40 saved follow-up seed pairs tests whether unequal global path lengths are sufficient to explain the contrast. At every update, it rescales the four proposed vectors (two routes, with own or exchanged $v$) to their common geometric-mean norm while preserving each direction. The route contrast is then 0.0303 with own $v$ and 0.0072 with exchanged $v$; their paired difference is 0.0231. Thus $v$ still alters reallocation under equal global movement. This controlled learning rule changes the trajectories and does not estimate a natural-Adam mediation fraction (Appendix~\ref{app:extension}).
+
+% P:mechanism9
+Layer-restricted exchanges locate a substantial part of this effect in the encoder. Starting from the original contrast 0.1907, exchanging only first-layer $v$ leaves 0.0115, exchanging only second-layer $v$ leaves 0.0611, and exchanging both heads' $v$ leaves 0.1911. These interventions retain the recipient weights and all other optimizer components. Their non-additive effects localize effective interventions, rather than assigning independent shares of the full contrast.
+
+\subsection{Which parts of the comparison transfer across settings?}
+% P:generalization
+A fixed-protocol replication uses 32 new paired seeds at each of four settings: the baseline, hidden width 64, ReLU in place of tanh, and independent targets. All four satisfy the five endpoint tolerances. Each shows a positive inherited-state contrast, reversal under $v$ exchange, and an exchange effect at common $\bar a_v$. Reset equivalence is more conditional: at width 64 the reset contrast is 0.0249, with its interval above 0.02. The replicated component effect therefore transfers more broadly than the claim that resetting Adam makes the ten-update responses equivalent. Appendix~\ref{app:extension} gives every condition, including the failed reset criterion.
+
+% P:generalizationbeta
+Varying $\beta_2$ and formation duration further bounds this transfer. Larger $\beta_2$ produces larger inherited-state contrasts in both tested duration groups, but $v$ exchange does not reverse every contrast. Common-scale exchange effects remain positive throughout the six-setting grid. Thus changing second-moment dynamics alters the component effect, while reversal and reset equivalence depend on the training regime.
+
+\section{Optimizer condition changes when the route difference appears}
+\label{sec:time}
+% P:time1
+A small difference immediately after reset could still grow during continued learning. We therefore extend the opposing intervention to 500 updates under inherited Adam, fresh Adam, or momentum-free SGD. SGD's common learning rate is calibrated within each seed and target direction using first-batch inherited-Adam update norms and gradient norms, then held fixed; allocation responses are not used for calibration. All three continuations start from the Adam-formed route endpoints.
+
+% P:time2
+Inherited Adam produces its largest route differences after 10--20 updates. Fresh Adam gives 0.0096 at update 10 but 0.0274 at update 50; calibrated SGD gives 0.0123 at update 10, 0.0433 at update 50, and 0.0309 at update 100 (Figure~\ref{fig:timecourse}b). The update-50 intervals for fresh Adam and SGD lie above 0.02. That margin was fixed for the ten-update test and is only a reference for later points. The observations show delayed route differences after inherited Adam state has been removed, implicating differences retained on the model side without identifying their specific parameter or geometric source.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.88\textwidth]{timecourse_en.pdf}
+\caption{Scale/pattern interventions and observation horizon resolve different parts of the response. (a) Ten-update route contrast after retaining inherited state, scalarizing $v$, equalizing $\bar a_v$, or both. (b) Continued common opposition under inherited Adam, fresh Adam, or calibrated SGD. The band at $\pm0.02$ refers to the ten-update equivalence margin; later points have no pre-specified decision rule at that margin. Means and 95\% paired seed-bootstrap intervals use 40 new seeds.}
+\label{fig:timecourse}
+\end{figure}
+
+% P:time3
+The route contrasts shrink toward zero by update 500. Under inherited Adam, the endpoint allocation difference is $-0.00045$ ($[-0.00146,0.00057]$). This endpoint difference is distinct from the difference in change since formation, because the starting measurements were close rather than identical. The inherited-minus-fresh response contrast also changes sign by update 50, so the inherited trajectory is not described by adding a fixed nonnegative fast component to the fresh-Adam trajectory. Within this common opposing condition, optimizer state changes the timing and magnitude of reallocation; the large early difference does not imply a persistent allocation gap.
+
+\section{Implications and limits of the comparison}
+\label{sec:scope}
+% P:scope1
+The result gives a concrete way to audit continued learning. Measure current specialization, apply the same future learning condition, and test which persistent components alter the response. In this construction, equivalent mean reconstruction measurements coexist with a large early contrast that can be reversed by exchanging $v$. Mean adaptive scale explains only part of that contrast. The equal-mean loss-weight control further shows that average task emphasis can conceal different retained states and responses. Together, these comparisons connect optimizer memory to the reallocation of information within a shared representation.
+
+% P:scope2
+A concrete application is evaluating a checkpoint before resuming training on a changed task. The comparison suggests testing a common continuation with optimizer state inherited and reset, alongside current readout quality. In the present system these choices change the timing and magnitude of adaptation. Whether the same diagnostic improves decisions in fine-tuning requires validation on the target task, including its eventual performance.
+
+% P:scope3
+Complementary experiments distinguish susceptibility from formation and maintenance. Current acquisition can redirect an already formed specialization under equal subsequent loss weights over 1,000 updates (Appendix~\ref{app:formation}). Symmetrizing acquisition and updating reduces a formed bias, while designed state-following feedback can support long-lived regimes (Appendix~\ref{app:maintenance}). A symmetric three-target construction reproduces acquisition-selected formation at two bottleneck dimensions after 600 updates (Appendix~\ref{app:three}). These controls establish that formation, current support, and response require different interventions. Three-target optimizer exchange and susceptibility remain untested.
+
+% P:scope4
+The adaptation evidence covers two Gaussian targets, small tanh and ReLU bottleneck networks, externally specified observation and loss-weight schedules, and finite horizons. Equivalence of selected means leaves functional and geometric differences possible. Coordinate exchange is defined through common parameter ancestry. Equal global update norms still allow different directions and layerwise movement, so the controlled-movement result identifies a remaining component effect without a complete geometric explanation. Three-target adaptation and natural multi-task data require comparable acquisition manipulations, endpoint checks, and probes before the same inference can be made.
+
+\section{Conclusion}
+% P:conclusion
+In the studied shared-representation systems, similar measured specialization can conceal latent susceptibility to further learning. Component exchange identifies inherited Adam second moments as a causal modifier of a large early reallocation difference. The effect survives changes in width, nonlinearity, and target correlation; an additional exchange effect remains when global update norms are controlled. Fresh Adam and calibrated SGD reveal smaller delayed differences in the original network, while sustained common opposition brings its measured allocation endpoints close. Current readout quality, persistent training state, and the subsequent learning condition jointly determine what the adaptation comparison reveals.
+
+\section*{Reproducibility statement}
+% P:repro
+
+An anonymized code and data archive accompanies this manuscript as supplementary material.
+
+The archive contains source code, locally frozen plans, seed-level trajectories, checkpoints, and audit scripts for Experiments I--V-A, the IV-E follow-up, and the IV-F extensions. Code uses MIT; generated data and documentation use CC BY 4.0. Appendix~\ref{app:status} maps claims to files and gives CPU-based integrity, numerical, figure-generation, and training-reproduction checks.
+
+\section*{Broader impact statement}
+% P:impact
+The work supplies controlled comparisons for examining shared representations whose input access and learning histories vary over time. Applications to deployed systems require direct validation of the interventions and measurements in those settings.
+
+\section*{AI assistance statement}
+% P:ai
+Generative AI systems were used extensively to propose most experiment designs and follow-up analyses, implement and execute experiments, analyze outputs, survey literature, and draft and translate the manuscript. The human author initiated the broader research program, commissioned this empirical study, authorized its continuation at major decision points, reviewed the evidence and claims, and accepts responsibility for the paper and its public release.
+
+\bibliography{references}
+\bibliographystyle{tmlr}
+\FloatBarrier
+\appendix
+\input{appendices_en.tex}

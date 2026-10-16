@@ -68,3 +68,7 @@ python scripts/make_figures.py --languages en ja --japanese-font /path/to/your/J
 ```
 
 The repository does not redistribute a system font. Font changes can alter layout or PDF metadata; verify regenerated figures visually before using them in a manuscript.
+
+## IV-F and interval provenance
+
+[IV-F instructions](../experiments/iv-extension/README.md) give complete regeneration commands for saved-data analyses and new experiments, plus the independent audit. [Interval audit](INTERVAL_AUDIT.md) gives the three reconstructed-interval calculation and the full bilingual printed-interval verification. These extend, rather than replace, the original verification commands.

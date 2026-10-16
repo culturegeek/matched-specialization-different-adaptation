@@ -1,0 +1,44 @@
+{
+  "analysis_date": "2026-10-16",
+  "status": "exploratory_reconstruction",
+  "interval_method": "Paired seed bootstrap, percentile 95%, 20000 resamples; each contrast has an independent fixed random stream. Mirrored arms are never independent resampling units.",
+  "scope": "Reconstructed intervals supersede the three undocumented manuscript intervals. Historical raw data and registered result files remain unchanged.",
+  "input_sha256": {
+    "experiments/ii-a/results/forced_selection_causal_results/raw_timecourse.csv": "a91efedbddbbc9bdf50222dc8da3a7bb15d57f2217a7c77d90405954e057902f",
+    "experiments/ii-a/results/forced_selection_causal_confirmatory_results/raw_timecourse.csv": "864db771034e6e4a98744b673e20057a390ee224e5b8ed168d9a4ecc439c1995",
+    "experiments/iv/IV-A/results_measurement_neutral_audit/primary_dual_probe_timecourse.csv": "1baa9302eb73388592d06e78a3e3eba6a0ad70e7e9f5905feb0f10cf094d599c"
+  },
+  "script_sha256": "05b72630c6af1f278f03b55b7f92c582fce75eca0fe4c492b26b35151fcba889",
+  "contrasts": {
+    "ii_mirrored_absolute_depth": {
+      "mean": 0.4232656266135809,
+      "ci95": [
+        0.38727529839640457,
+        0.4596056865723563
+      ],
+      "n_seed": 80,
+      "bootstrap_seed": 2026101601,
+      "definition": "At update 800, average absolute test-probe allocation over the two mirrored arms within seed; subtract fixed propensity from state-following. Pool the two disjoint 40-seed cohorts."
+    },
+    "iv_a_terminal_alignment": {
+      "mean": 0.14112641826358052,
+      "ci95": [
+        0.13700997526296738,
+        0.14551537099644488
+      ],
+      "n_seed": 40,
+      "bootstrap_seed": 2026101602,
+      "definition": "At update 400 under x_both, average absolute aligned allocation over the two formed target labels within seed; aligned acquisition/update mean minus crossed mean."
+    },
+    "iv_a_acquisition_main_effect": {
+      "mean": 0.00017021161146344653,
+      "ci95": [
+        -0.0010708666769184828,
+        0.0014257034319790603
+      ],
+      "n_seed": 40,
+      "bootstrap_seed": 2026101603,
+      "definition": "At update 400 under x_both, reference-acquisition minus alternative-acquisition absolute allocation, averaging the two update conditions and formed labels within seed."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "pulse_rows": 48,
+  "max_aligned_s_difference": 0.0,
+  "update_rows": 240,
+  "max_update_norm_difference": 0.0,
+  "formation_model_and_optimizer_bitwise_equal": true,
+  "controlled_norm_max_relative_error": 1.0782024537636659e-06,
+  "layer_transplant_scope_exact": true,
+  "controlled_norm_rows_one_direction": 40
+}

@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "checks": 1747,
+  "config_cohorts": 10,
+  "formation_states_including_reused": 1312,
+  "timecourse_rows": 16064,
+  "norm_matching_max_relative_error": 1.6977714308863412e-06,
+  "new_unique_seeds": 32,
+  "new_setting_seed_pairs": 288,
+  "reused_checkpoint_seeds": 40,
+  "scope": "Independent CSV means, row counts, finite metrics, identical starts, norm constraints, all frozen hashes. Intervals use the separately frozen analysis scripts."
+}

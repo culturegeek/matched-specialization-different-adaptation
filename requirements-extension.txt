@@ -1,0 +1,4 @@
+# IV-F runtime: Python 3.12.14, CPU, one thread per worker.
+numpy==2.4.6
+pandas==2.2.3
+torch==2.13.0

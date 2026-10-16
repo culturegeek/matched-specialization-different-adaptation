@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-16T10:22:57.451144+00:00",
+  "status": "exploratory existing-data analysis, locked before calculation",
+  "sha256": {
+    "protocol.md": "44a734cfb8f2a76ec5e829886ce75b6562a2d1407cfd77d89b9341e34b5827b2",
+    "analyze_saved.py": "bba619546a482f1ebd8c68271db0252e85a8eb328838f45669867bd4fa615edb",
+    "vendor/run_followup.py": "cb0525cb39a617df1b2fbe9d0d5f54162a8f308f7d077b0bd7c6a4fd31d64eef",
+    "vendor/vendor/experiment_iv_complete_v05/IV-D/experiment_iv_d.py": "faa61d4334ad0937fa8a6d42e66ea1d60322aafa926f953deffd4233701f123d",
+    "vendor/vendor/experiment_iv_complete_v05/IV-E/experiment_iv_e.py": "e0d244387abe910680cbb8b45b9d87751b9cf8af4452d35785c0ffd87af33744",
+    "vendor/vendor/experiment_iv_complete_v05/IV-B/experiment_iv_b.py": "5c2c52f56f1c5d2d5c21f5be946ac6a64f59b271a62ce47131972856e30643e7"
+  }
+}

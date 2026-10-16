@@ -1,7 +1,9 @@
 {
   "title": "Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations",
   "author": "Toru Takahashi",
-  "manuscript_revision_date": "2026-10-15",
-  "preprint_pdf_sha256": "ce3e52a0b00b1444643c1aab9ac4d69b873c68bd4e61112b1b0d7ee13fd6d712",
-  "scope": "Code, generated data, and figure assets accompanying this manuscript revision. Manuscript text is maintained separately."
+  "manuscript_revision_date": "2026-10-16",
+  "preprint_pdf_sha256": "89c8cb52720ae599d24f14f3fd17980bc7e1323fb7bf873ec21e4044c2454130",
+  "scope": "Core experiments, IV-F extensions, full interval ledger, and anonymous numerical manuscript fragments.",
+  "code_release_version": "1.1.0",
+  "interval_audit": "docs/INTERVAL_AUDIT.md"
 }

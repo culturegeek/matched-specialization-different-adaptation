@@ -3732,9 +3732,11 @@
     {
       "path": "experiments/iv-followup/POSTHOC_UPDATE_NORM_NOTE.md",
       "source": "IV-E-followup-20260903/POSTHOC_UPDATE_NORM_NOTE.md",
-      "sha256": "8d755e266d8e6dd1f91b1a2b2693ba69df18843faf48d3e95a5aed82e80bba46",
+      "sha256": "80cad6b3a9e735fec48dce9b6621f86ce2890ecd03411727f3679d54dfff3fb8",
       "source_sha256": "8d755e266d8e6dd1f91b1a2b2693ba69df18843faf48d3e95a5aed82e80bba46",
-      "transformation": null
+      "transformation": null,
+      "previous_published_sha256": "8d755e266d8e6dd1f91b1a2b2693ba69df18843faf48d3e95a5aed82e80bba46",
+      "correction_record": "provenance/documentation_corrections_20261016.json"
     },
     {
       "path": "experiments/iv-followup/README_ja.md",
@@ -3865,9 +3867,11 @@
     {
       "path": "experiments/iv-followup/result_report_ja.md",
       "source": "IV-E-followup-20260903/result_report_ja.md",
-      "sha256": "d0fc709ee12d0128b8b26d566263e61c27e13dc6f1055ff30b24c4af83de15b0",
+      "sha256": "020cf71487e30d9ee857f6d7884f57362d03d896e6d93eb72a69bf4b9c967403",
       "source_sha256": "d0fc709ee12d0128b8b26d566263e61c27e13dc6f1055ff30b24c4af83de15b0",
-      "transformation": null
+      "transformation": null,
+      "previous_published_sha256": "d0fc709ee12d0128b8b26d566263e61c27e13dc6f1055ff30b24c4af83de15b0",
+      "correction_record": "provenance/documentation_corrections_20261016.json"
     },
     {
       "path": "experiments/iv-followup/results_confirm/audit.json",

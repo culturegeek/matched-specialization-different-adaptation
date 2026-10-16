@@ -1,0 +1,36 @@
+{
+  "config": {
+    "hidden": 32,
+    "activation": "tanh",
+    "rho": 0.35,
+    "beta2": 0.99,
+    "steps": 1500
+  },
+  "config_full": {
+    "train_size": 3072,
+    "probe_size": 768,
+    "test_size": 1536,
+    "source_dim": 3,
+    "hidden_dim": 32,
+    "bottleneck": 2,
+    "correlation": 0.35,
+    "low_noise": 1.2,
+    "high_noise": 0.05,
+    "initial_noise": 0.15,
+    "batch_size": 256,
+    "initial_steps": 100,
+    "formation_steps": 1500,
+    "early_checkpoint_until": 100,
+    "early_checkpoint_interval": 5,
+    "checkpoint_interval": 25,
+    "learning_rate": 0.002,
+    "weight_decay": 1e-05,
+    "probe_ridge": 0.001,
+    "bootstrap_samples": 5000,
+    "bootstrap_seed": 20260902
+  },
+  "seed": 32003,
+  "seconds": 3.21354603767395,
+  "source_checkpoint_sha256": null,
+  "complete": true
+}

@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-16T10:25:48.106174+00:00",
+  "seeds": [
+    32000,
+    32001,
+    32002,
+    32003,
+    32004,
+    32005,
+    32006,
+    32007,
+    32008,
+    32009,
+    32010,
+    32011,
+    32012,
+    32013,
+    32014,
+    32015,
+    32016,
+    32017,
+    32018,
+    32019,
+    32020,
+    32021,
+    32022,
+    32023,
+    32024,
+    32025,
+    32026,
+    32027,
+    32028,
+    32029,
+    32030,
+    32031
+  ],
+  "configs": {
+    "base": {
+      "hidden": 32,
+      "activation": "tanh",
+      "rho": 0.35,
+      "beta2": 0.999,
+      "steps": 500
+    },
+    "wide": {
+      "hidden": 64,
+      "activation": "tanh",
+      "rho": 0.35,
+      "beta2": 0.999,
+      "steps": 500
+    },
+    "relu": {
+      "hidden": 32,
+      "activation": "relu",
+      "rho": 0.35,
+      "beta2": 0.999,
+      "steps": 500
+    },
+    "rho0": {
+      "hidden": 32,
+      "activation": "tanh",
+      "rho": 0.0,
+      "beta2": 0.999,
+      "steps": 500
+    },
+    "beta0.9_steps500": {
+      "hidden": 32,
+      "activation": "tanh",
+      "rho": 0.35,
+      "beta2": 0.9,
+      "steps": 500
+    },
+    "beta0.9_steps1500": {
+      "hidden": 32,
+      "activation": "tanh",
+      "rho": 0.35,
+      "beta2": 0.9,
+      "steps": 1500
+    },
+    "beta0.99_steps500": {
+      "hidden": 32,
+      "activation": "tanh",
+      "rho": 0.35,
+      "beta2": 0.99,
+      "steps": 500
+    },
+    "beta0.99_steps1500": {
+      "hidden": 32,
+      "activation": "tanh",
+      "rho": 0.35,
+      "beta2": 0.99,
+      "steps": 1500
+    },
+    "beta0.999_steps1500": {
+      "hidden": 32,
+      "activation": "tanh",
+      "rho": 0.35,
+      "beta2": 0.999,
+      "steps": 1500
+    }
+  },
+  "sha256": {
+    "protocol.md": "44a734cfb8f2a76ec5e829886ce75b6562a2d1407cfd77d89b9341e34b5827b2",
+    "run_extension.py": "cc7ceff7906c4648b273dea21fdfd593d8a3cc96d3058778fbfd7ae8c2852507",
+    "analyze_extension.py": "b86ec0ff32285bda25f5b925a3c451576605cf9ce9fbd9750ba681a4fee1f025",
+    "vendor/run_followup.py": "cb0525cb39a617df1b2fbe9d0d5f54162a8f308f7d077b0bd7c6a4fd31d64eef",
+    "vendor/vendor/experiment_iv_complete_v05/IV-B/experiment_iv_b.py": "5c2c52f56f1c5d2d5c21f5be946ac6a64f59b271a62ce47131972856e30643e7",
+    "vendor/vendor/experiment_iv_complete_v05/IV-D/experiment_iv_d.py": "faa61d4334ad0937fa8a6d42e66ea1d60322aafa926f953deffd4233701f123d",
+    "vendor/vendor/experiment_iv_complete_v05/IV-E/experiment_iv_e.py": "e0d244387abe910680cbb8b45b9d87751b9cf8af4452d35785c0ffd87af33744"
+  },
+  "python": "3.12.14",
+  "numpy": "2.4.6",
+  "torch": "2.13.0"
+}

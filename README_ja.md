@@ -1,6 +1,6 @@
 # 同じ特化でも、適応の仕方は異なる
 
-Toru Takahashi著「Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations」（2026年10月15日改訂）の実験コードと生成データです。
+Toru Takahashi著「Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations」（2026年10月16日改訂）の実験コードと生成データです。
 
 現在の測定値が似ている学習済み表現は、その後の同じ学習条件にも同じように応答するのでしょうか。本研究では、二つの形成経路で測定値を揃えた人工学習系を比較しました。Adamが保持する過去の勾配の二乗平均（二次モーメント）を交換すると、短期応答の経路差は逆転しました。パラメータ全体の平均的な更新調整倍率を揃えると差は縮まりましたが、残りました。
 
@@ -22,3 +22,9 @@ Toru Takahashi著「Matched Specialization, Different Adaptation: Second-Moment 
 ## 利用条件
 
 コードは[MIT](LICENSE)、生成データ・図・説明資料は[CC BY 4.0](LICENSE-DATA)です。再利用する際は著作権表示・出典を残し、使用した公開版を [CITATION.cff](CITATION.cff) に基づいて引用してください。詳しい対象区分は[ライセンスの適用範囲](docs/LICENSE_SCOPE.md)を参照してください。
+
+## 2026年10月16日の追加検証
+
+[IV-F追加検証](experiments/iv-extension/README_ja.md)に、既存3組の40 seed解析、新規32 seedを共用した九設定、保存済み40 seedへの層別・移動量介入を収録しました。幅・活性化関数・対象相関を変えてもv交換で応答差が反転しました。幅64では初期化同等性が未達でした。beta2と形成時間の比較も含め、未達条件を保存しています。実移動量を揃えた後にも成分交換の効果が残りました。
+
+全印刷区間は出典台帳へ対応づけました。従来計算の保存値がなかった三区間は、点推定を保ち、固定CSVから再現可能な探索的区間として再計算しました。元の固定実験・判定は保持しています。

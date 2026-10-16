@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-16",
+  "scope": "Documentation corrections only; code, CSV data, checkpoints, plans, and numerical analysis JSONs are unchanged.",
+  "corrections": [
+    "Align path-analysis confidence intervals with posthoc_update_norm_results.json.",
+    "Clarify direction-wise averaging of scaling ratios in correlations and linear reconstruction.",
+    "Clarify that each leave-one-seed-out baseline uses the other 39 seeds."
+  ],
+  "files": [
+    {
+      "path": "experiments/iv-followup/POSTHOC_UPDATE_NORM_NOTE.md",
+      "previous_sha256": "8d755e266d8e6dd1f91b1a2b2693ba69df18843faf48d3e95a5aed82e80bba46",
+      "corrected_sha256": "80cad6b3a9e735fec48dce9b6621f86ce2890ecd03411727f3679d54dfff3fb8"
+    },
+    {
+      "path": "experiments/iv-followup/result_report_ja.md",
+      "previous_sha256": "d0fc709ee12d0128b8b26d566263e61c27e13dc6f1055ff30b24c4af83de15b0",
+      "corrected_sha256": "020cf71487e30d9ee857f6d7884f57362d03d896e6d93eb72a69bf4b9c967403"
+    }
+  ]
+}

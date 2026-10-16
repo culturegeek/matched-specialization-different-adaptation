@@ -169,8 +169,8 @@ def timecourse(lang, route_effects):
         axes[1].fill_between(x, lo, hi, color=color, alpha=.12)
     axes[1].axhspan(-.02, .02, color="#E2E8EB", alpha=.65, zorder=0)
     axes[1].axhline(0, color=".5", lw=.8)
-    axes[1].set(xscale="log", xticks=[10,20,50,100,200,500],
-                xticklabels=[10,20,50,100,200,500],
+    axes[1].set(xscale="log", xticks=[10,20,50,100,500],
+                xticklabels=[10,20,50,100,500],
                 xlabel="反対条件の更新回数" if ja else "Opposing-condition updates",
                 ylabel="低下量の経路差" if ja else "Route difference in loss\nof specialization",
                 title="b  差が現れる時間が変わる" if ja else "b  The timing of route differences changes")
