@@ -1,0 +1,83 @@
+{
+  "release": "1.5.2",
+  "date": "2026-10-17",
+  "checks": [
+    {
+      "command": [
+        "scripts/verify_data.py"
+      ],
+      "status": "PASS",
+      "output": "{\n  \"pass\": true,\n  \"preserved_source_files\": 698,\n  \"registration_files\": 7,\n  \"frozen_result_files\": 129,\n  \"failures\": []\n}"
+    },
+    {
+      "command": [
+        "scripts/check_core_results.py"
+      ],
+      "status": "PASS",
+      "output": "{\"checks\": 27, \"all_pass\": true, \"frozen_files_checked\": 129}"
+    },
+    {
+      "command": [
+        "scripts/verify_vbc_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 1166 three-target/natural files"
+    },
+    {
+      "command": [
+        "scripts/verify_head_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 19 head-diagnostic files"
+    },
+    {
+      "command": [
+        "scripts/verify_formation_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 267 formation-logging files"
+    },
+    {
+      "command": [
+        "scripts/verify_cancellation_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 543 cancellation-intervention files"
+    },
+    {
+      "command": [
+        "scripts/verify_manuscript_intervals.py",
+        "--archive-root",
+        ".",
+        "--tex-root",
+        "paper/interval_sources",
+        "--bindings",
+        "analyses/manuscript_intervals/interval_bindings.json",
+        "--out-dir",
+        "analyses/manuscript_intervals"
+      ],
+      "status": "PASS",
+      "output": "{\"confidence_interval_occurrences_per_language\": 95, \"observed_range_occurrences_per_language\": 0, \"bilingual_match\": true, \"source_and_rounding_match\": true}"
+    }
+  ],
+  "manuscript": {
+    "pages": 17,
+    "printed_intervals_per_language": 95,
+    "anonymous_pdf_sha256": "8b726645488c6d3d1e5000fabc574dd6452468e3481c1ab09e550a25c12e92df",
+    "public_pdf_sha256": "125ee4768c68b0dfb8652c10b3e364df78a2450f243ed86e2a6c84fa26520865"
+  },
+  "scope": "Editorial closure only. No new training, cohorts, statistical analyses, or claims of new raw-data reruns. Experimental files unchanged from v1.5.1. Whole-tree SHA256SUMS and verifier added.",
+  "previous_numerical_validation": "provenance/final_checks_validation.json",
+  "external_reproduction_report": {
+    "status": "reported_by_external_reviewer_raw_log_not_supplied",
+    "torch": "2.14.1",
+    "command": "audit_intervention.py --tolerance 1e-6",
+    "reported_pass": true,
+    "reported_max_abs_difference": {
+      "weights": 9.5e-07,
+      "m": 2e-08,
+      "v": 1.5e-09
+    },
+    "does_not_replace_original_environment_record": true
+  }
+}

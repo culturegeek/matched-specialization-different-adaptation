@@ -1,6 +1,6 @@
 # Matched Specialization, Different Adaptation
 
-Code and generated data for **Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations**, by Toru Takahashi. Manuscript revision: 17 October 2026; release **v1.5.1**.
+Code and generated data for **Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations**, by Toru Takahashi. Manuscript revision: 17 October 2026; release **v1.5.2**.
 
 Can similar current specialization conceal different responses to further learning? The controlled comparisons show that it can. Adam's retained squared-gradient averages change later reallocation, including through their coordinate pattern at a common average scale. Formation records and a new projection-plus-transplant experiment connect how this state is produced to how it changes adaptation.
 
@@ -16,6 +16,7 @@ cd matched-specialization-different-adaptation
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-analysis.txt
+python scripts/verify_manifest.py
 python scripts/verify_data.py
 python scripts/check_core_results.py
 python scripts/verify_vbc_files.py
@@ -54,3 +55,11 @@ Code is [MIT](LICENSE); generated data, checkpoints, figures and documentation a
 Generative AI assisted experiment design, implementation, analysis, literature work and writing. The author is responsible for the work and release; the paper contains the full statement.
 
 The v1.5.1 checks add the previously recorded secondary horizon to the paper, distinguish individual and combined gradient magnitude, and support explicit audit tolerance. No new experimental cohort was added. See [the fixed verification scope](analyses/final_checks_20261017/README.md).
+
+## Release closure (v1.5.2)
+
+The abstract now states the small Adam-trained model scope and contribution first, and distinguishes the bounded first-moment exchange result from second-moment reversal. The introduction states the scale/pattern/formation contribution explicitly. No new experiments, numerical estimates, or appendices were added.
+
+`SHA256SUMS` covers every file shipped in this release except the manifest itself. Run `python scripts/verify_manifest.py` after extracting the release archive. The release ZIP digest protects the complete package, including the manifest. Runtime-generated files and the local Git database are not part of this manifest.
+
+A separately reported PyTorch 2.14.1 reproduction passed `audit_intervention.py --tolerance 1e-6`, with maximum reported differences of 9.5e-7 for weights, 2.0e-8 for first moments and 1.5e-9 for second moments, and a worst bound fraction of approximately 0.45. These are externally reported results; the raw external log was not supplied. Our own cross-version runs and their exact scopes are recorded in `analyses/final_checks_20261017/`. The older `provenance/reproduction_tolerance_validation.json` is a historical record and is preserved unchanged.
