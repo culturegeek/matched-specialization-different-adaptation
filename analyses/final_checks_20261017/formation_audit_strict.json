@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "seeds": [
+    20000,
+    20001,
+    20002,
+    20003,
+    20004,
+    20005,
+    20006,
+    20007,
+    20008,
+    20009,
+    20010,
+    20011,
+    20012,
+    20013,
+    20014,
+    20015,
+    20016,
+    20017,
+    20018,
+    20019,
+    20020,
+    20021,
+    20022,
+    20023,
+    20024,
+    20025,
+    20026,
+    20027,
+    20028,
+    20029,
+    20030,
+    20031,
+    20032,
+    20033,
+    20034,
+    20035,
+    20036,
+    20037,
+    20038,
+    20039
+  ],
+  "full_cohort": true,
+  "numerical_comparison": {
+    "tolerance": 0.0,
+    "mode": "strict",
+    "groups": {
+      "weights": {
+        "checks": 160,
+        "bitwise_equal_checks": 160,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      },
+      "m": {
+        "checks": 160,
+        "bitwise_equal_checks": 160,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      },
+      "v": {
+        "checks": 160,
+        "bitwise_equal_checks": 160,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      }
+    },
+    "scope": "Only recomputed or replayed floating weights/m/v; hashes, schedules, step counts and transplant identity remain exact.",
+    "bounds": {
+      "weights_and_m": "tolerance * (1 + max(abs(reference)))",
+      "v": "1e-12 + tolerance * max(abs(reference)); zero bound in strict mode"
+    },
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "torch": "2.13.0"
+  },
+  "endpoints_checked": 160,
+  "layer_step_records": 320000,
+  "analytic_chain_rule_records": 3840,
+  "bitwise_endpoint_checks": 160,
+  "max_analytic_float32_vs_float64_difference": 6.338844033004776e-08,
+  "max_relative_v_recursion_discrepancy": 9.815629490293601e-08,
+  "max_final_rounding_fraction": 6.771001926223647e-06,
+  "plan_unchanged": true
+}

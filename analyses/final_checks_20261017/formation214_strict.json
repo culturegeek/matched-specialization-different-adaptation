@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "seeds": [
+    20000
+  ],
+  "full_cohort": false,
+  "numerical_comparison": {
+    "tolerance": 0.0,
+    "mode": "strict",
+    "groups": {
+      "weights": {
+        "checks": 4,
+        "bitwise_equal_checks": 4,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      },
+      "m": {
+        "checks": 4,
+        "bitwise_equal_checks": 4,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      },
+      "v": {
+        "checks": 4,
+        "bitwise_equal_checks": 4,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      }
+    },
+    "scope": "Only recomputed or replayed floating weights/m/v; hashes, schedules, step counts and transplant identity remain exact.",
+    "bounds": {
+      "weights_and_m": "tolerance * (1 + max(abs(reference)))",
+      "v": "1e-12 + tolerance * max(abs(reference)); zero bound in strict mode"
+    },
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "torch": "2.14.1"
+  },
+  "endpoints_checked": 4,
+  "layer_step_records": 8000,
+  "analytic_chain_rule_records": 96,
+  "bitwise_endpoint_checks": 4,
+  "max_analytic_float32_vs_float64_difference": 2.778825283766828e-08,
+  "max_relative_v_recursion_discrepancy": 8.034710244848266e-08,
+  "max_final_rounding_fraction": 6.1628581470145755e-06,
+  "plan_unchanged": true
+}

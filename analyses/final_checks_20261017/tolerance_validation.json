@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "strict accepts exact",
+      "accepted": true,
+      "expected_accepted": true
+    },
+    {
+      "name": "strict rejects one ULP",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "explicit tolerance accepts one ULP",
+      "accepted": true,
+      "expected_accepted": true
+    },
+    {
+      "name": "tolerance rejects substantial weight error",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "small v not given weight absolute tolerance",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "shape never relaxed",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "dtype never relaxed",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "NaN rejected",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "negative v rejected",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "negative tolerance rejected",
+      "accepted": false,
+      "expected_accepted": false
+    },
+    {
+      "name": "infinite tolerance rejected",
+      "accepted": false,
+      "expected_accepted": false
+    }
+  ]
+}

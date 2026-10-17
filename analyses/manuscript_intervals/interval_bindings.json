@@ -734,5 +734,29 @@
     "kind": "confidence_interval",
     "source_file": "experiments/v-natural/results_confirm/result.json",
     "source_key": "$.by_capacity.3.horizons.10.contrasts.scale_controlled_pattern_effect"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "projection50",
+    "interval_in_paragraph": 1,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-cancellation/results/result.json",
+    "source_key": "$.response.50.v_donor_effect_native_recipient"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "projection50",
+    "interval_in_paragraph": 2,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-cancellation/results/result.json",
+    "source_key": "$.response.50.v_donor_effect_projected_recipient"
+  },
+  {
+    "source_tex": "appendices_en.tex",
+    "paragraph_id": "projection50",
+    "interval_in_paragraph": 3,
+    "kind": "confidence_interval",
+    "source_file": "experiments/iv-cancellation/results/result.json",
+    "source_key": "$.response.50.formation_total_effect"
   }
 ]

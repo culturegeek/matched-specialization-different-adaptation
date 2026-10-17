@@ -1,0 +1,84 @@
+[
+  {
+    "name": "projection214_strict",
+    "returncode": 0,
+    "args": [
+      "-u",
+      "ARCHIVE_ROOT/experiments/iv-cancellation/audit_intervention.py",
+      "--archive-root",
+      "ARCHIVE_ROOT",
+      "--input",
+      "ARCHIVE_ROOT/experiments/iv-cancellation/runs",
+      "--seeds",
+      "38000",
+      "--out",
+      "CHECK_OUTPUT/projection214_strict.json"
+    ]
+  },
+  {
+    "name": "projection214_tolerant",
+    "returncode": 0,
+    "args": [
+      "-u",
+      "ARCHIVE_ROOT/experiments/iv-cancellation/audit_intervention.py",
+      "--archive-root",
+      "ARCHIVE_ROOT",
+      "--input",
+      "ARCHIVE_ROOT/experiments/iv-cancellation/runs",
+      "--tolerance",
+      "1e-6",
+      "--out",
+      "CHECK_OUTPUT/projection214_tolerant.json"
+    ]
+  },
+  {
+    "name": "formation214_replay",
+    "returncode": 0,
+    "args": [
+      "-u",
+      "ARCHIVE_ROOT/experiments/iv-formation-logging/reproduce_logging.py",
+      "--archive-root",
+      "ARCHIVE_ROOT",
+      "--out",
+      "CHECK_OUTPUT/formation214_replay",
+      "--seeds",
+      "20000",
+      "--tolerance",
+      "1e-6"
+    ]
+  },
+  {
+    "name": "formation214_strict",
+    "returncode": 0,
+    "args": [
+      "-u",
+      "ARCHIVE_ROOT/experiments/iv-formation-logging/audit_logging.py",
+      "--archive-root",
+      "ARCHIVE_ROOT",
+      "--input",
+      "CHECK_OUTPUT/formation214_replay",
+      "--seeds",
+      "20000",
+      "--out",
+      "CHECK_OUTPUT/formation214_strict.json"
+    ]
+  },
+  {
+    "name": "formation214_tolerant",
+    "returncode": 0,
+    "args": [
+      "-u",
+      "ARCHIVE_ROOT/experiments/iv-formation-logging/audit_logging.py",
+      "--archive-root",
+      "ARCHIVE_ROOT",
+      "--input",
+      "CHECK_OUTPUT/formation214_replay",
+      "--seeds",
+      "20000",
+      "--tolerance",
+      "1e-6",
+      "--out",
+      "CHECK_OUTPUT/formation214_tolerant.json"
+    ]
+  }
+]

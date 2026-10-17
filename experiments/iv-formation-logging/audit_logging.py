@@ -3,22 +3,26 @@ import argparse,importlib.util,json,sys
 from pathlib import Path
 import numpy as np
 import torch
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]/"scripts"))
+from numerical_audit import TensorAudit
 from run_logging import load_parent,sha,LAYERS
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--archive-root',type=Path,required=True);p.add_argument('--input',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--archive-root',type=Path,required=True);p.add_argument('--input',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--tolerance',type=float,default=0.0);p.add_argument('--seeds',type=int,nargs='+');a=p.parse_args();numeric=TensorAudit(a.tolerance)
  torch.set_num_threads(1);F=load_parent(a.archive_root);cfg=F.D.config_for_stage('confirm')
  spec=importlib.util.spec_from_file_location('manual_chain_rule',a.archive_root/'experiments/iv-head-gradients/audit_gradients.py');M=importlib.util.module_from_spec(spec);spec.loader.exec_module(M)
  checked=0;analytic=0;max_error=0.;max_round_frac=0.;endpoint_checks=0;recur_rel=0.
- for seed in range(20000,20040):
+ seeds=sorted(a.seeds) if a.seeds else list(range(20000,20040));assert len(set(seeds))==len(seeds) and set(seeds)<=set(range(20000,20040))
+ for seed in seeds:
   folder=a.input/f'seed_{seed}';raw=np.load(folder/'records.npz');A=raw['values'];ix={f:i for i,f in enumerate(raw['fields'])};assert A.shape==(8000,28);assert np.isfinite(A).all()
   train=F.B.make_splits(cfg,seed)[0];ep=torch.load(a.archive_root/f'experiments/iv-followup/results_confirm/seed_{seed}/formation_checkpoints.pt',weights_only=False,map_location='cpu')
   for di,dr in enumerate(['A','B']):
    for ri,route in enumerate(['acquisition','update']):
     s=np.load(folder/f'snapshots_{route}_{dr}.npz');base=F.B.make_model(cfg,torch.device('cpu'));names=[n for n,p in base.named_parameters()];shapes=[p.shape for p in base.parameters()];edges=np.cumsum([0]+[p.numel() for p in base.parameters()])
     ref=ep[(route,dr)];flat=lambda ts:torch.cat([t.reshape(-1) for t in ts]).numpy()
-    for key,want in [('weights',flat(list(ref[0].values()))),('m',flat([v['exp_avg'] for v in ref[1]['state'].values()])),('v',flat([v['exp_avg_sq'] for v in ref[1]['state'].values()]))]:assert np.array_equal(s[key][-1],want),(seed,route,dr,key)
-    endpoint_checks+=1
+    same=[]
+    for key,want in [('weights',flat(list(ref[0].values()))),('m',flat([v['exp_avg'] for v in ref[1]['state'].values()])),('v',flat([v['exp_avg_sq'] for v in ref[1]['state'].values()]))]:same.append(numeric.compare(s[key][-1],want,key,(seed,route,dr,key)))
+    endpoint_checks+=int(all(same))
     assert np.array_equal(s['sample_indices'],np.random.default_rng(600000+seed).integers(0,len(train.a),(500,256)))
     assert np.array_equal(s['schedule'],F.D.balanced_schedule(500,seed,610000))
     acq,w=F.D.formation_condition(route,dr,.8);wf=w if dr=='A' else 1-w;wo=1-wf
@@ -47,6 +51,6 @@ def main():
       checked+=1;last=r
      max_round_frac=max(max_round_frac,abs(last[ix['v_rounding']])/last[ix['v_after']])
  lock=json.loads((Path(__file__).parent/'analysis_plan_lock.json').read_text());assert all(sha(Path(__file__).parent/n)==h for n,h in lock['files'].items())
- result={'status':'PASS','layer_step_records':checked,'analytic_chain_rule_records':analytic,'bitwise_endpoint_checks':endpoint_checks,'max_analytic_float32_vs_float64_difference':max_error,'max_relative_v_recursion_discrepancy':recur_rel,'max_final_rounding_fraction':max_round_frac,'plan_unchanged':True}
+ result={'status':'PASS','seeds':seeds,'full_cohort':seeds==list(range(20000,20040)),'numerical_comparison':{**numeric.report(),'torch':torch.__version__},'endpoints_checked':len(seeds)*4,'layer_step_records':checked,'analytic_chain_rule_records':analytic,'bitwise_endpoint_checks':endpoint_checks,'max_analytic_float32_vs_float64_difference':max_error,'max_relative_v_recursion_discrepancy':recur_rel,'max_final_rounding_fraction':max_round_frac,'plan_unchanged':True}
  a.out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 if __name__=='__main__':main()

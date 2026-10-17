@@ -1,6 +1,6 @@
 # Matched Specialization, Different Adaptation
 
-Code and generated data for **Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations**, by Toru Takahashi. Manuscript revision: 17 October 2026; release **v1.5.0**.
+Code and generated data for **Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations**, by Toru Takahashi. Manuscript revision: 17 October 2026; release **v1.5.1**.
 
 Can similar current specialization conceal different responses to further learning? The controlled comparisons show that it can. Adam's retained squared-gradient averages change later reallocation, including through their coordinate pattern at a common average scale. Formation records and a new projection-plus-transplant experiment connect how this state is produced to how it changes adaptation.
 
@@ -24,7 +24,7 @@ python scripts/verify_formation_files.py
 python scripts/verify_cancellation_files.py
 ```
 
-These checks verify stored files and independently recompute the 27 original central means. The [interval audit](docs/INTERVAL_AUDIT.md) binds all 92 printed confidence intervals in each language to exact source keys and rounding. New-study independent audits additionally compare analytic gradients, projection, second-moment updates, paired starts and unchanged native endpoints. See [current validation](provenance/cancellation_validation.json) for their actual scope.
+These checks verify stored files and independently recompute the 27 original central means. The [interval audit](docs/INTERVAL_AUDIT.md) binds all 95 printed confidence intervals in each language to exact source keys and rounding. New-study independent audits additionally compare analytic gradients, projection, second-moment updates, paired starts and unchanged native endpoints. See [current validation](provenance/final_checks_validation.json) for their actual scope.
 
 ## Evidence needed for the current paper
 
@@ -52,3 +52,5 @@ Editable TeX, bibliography and styles are in paper/tex, with figures in paper/fi
 Code is [MIT](LICENSE); generated data, checkpoints, figures and documentation are [CC BY 4.0](LICENSE-DATA). The redistributed UCI Appliances Energy Prediction measurements retain the original author attribution and license. See [license scope](docs/LICENSE_SCOPE.md) and [CITATION.cff](CITATION.cff). Previous release tags remain immutable.
 
 Generative AI assisted experiment design, implementation, analysis, literature work and writing. The author is responsible for the work and release; the paper contains the full statement.
+
+The v1.5.1 checks add the previously recorded secondary horizon to the paper, distinguish individual and combined gradient magnitude, and support explicit audit tolerance. No new experimental cohort was added. See [the fixed verification scope](analyses/final_checks_20261017/README.md).

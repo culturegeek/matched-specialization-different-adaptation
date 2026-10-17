@@ -2,9 +2,9 @@
   "title": "Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations",
   "author": "Toru Takahashi",
   "manuscript_revision_date": "2026-10-17",
-  "preprint_pdf_sha256": "f77bf38b26638501a40f2d8b024f0a558743d3705b8692951679545e99441729",
-  "scope": "Question-centered 17-page manuscript; five evidence appendices; new 40-seed formation projection and crossed v transplants; failed endpoint matching retained; saved duration and strata analyses; 92 bound intervals per language.",
-  "code_release_version": "1.5.0",
+  "preprint_pdf_sha256": "b1eb5a676b418875b8b0ea22a616a9846b5916e0a896f955a6efdce590c35f31",
+  "scope": "17-page question-centered manuscript; five evidence appendices; all fixed projection horizons checked; secondary 50-update sign changes and saved gradient-magnitude decomposition reported; explicit numeric tolerance added to audits; 95 bound intervals per language.",
+  "code_release_version": "1.5.1",
   "interval_audit": "docs/INTERVAL_AUDIT.md",
   "pages": 17
 }

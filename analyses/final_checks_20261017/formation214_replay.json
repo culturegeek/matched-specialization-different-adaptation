@@ -1,0 +1,22 @@
+{
+  "seeds": [
+    20000
+  ],
+  "rows": 8000,
+  "elapsed_s": 3.121279001235962,
+  "python": "3.12.14",
+  "numpy": "2.4.6",
+  "torch": "2.14.1",
+  "threads": 1,
+  "device": "cpu",
+  "plan_sha256": "b9618e379aa65cf28cd588f958dd804ec3e29343c5560bb9234ddcf6a58f163d",
+  "sources": {
+    "experiments/iv-followup/vendor/experiment_iv_complete_v05/IV-D/experiment_iv_d.py": "faa61d4334ad0937fa8a6d42e66ea1d60322aafa926f953deffd4233701f123d",
+    "experiments/iv-followup/vendor/experiment_iv_complete_v05/IV-E/experiment_iv_e.py": "e0d244387abe910680cbb8b45b9d87751b9cf8af4452d35785c0ffd87af33744",
+    "experiments/iv-followup/vendor/experiment_iv_complete_v05/IV-B/experiment_iv_b.py": "5c2c52f56f1c5d2d5c21f5be946ac6a64f59b271a62ce47131972856e30643e7"
+  },
+  "all_endpoints_bitwise_equal": true,
+  "all_endpoints_within_tolerance": true,
+  "tolerance": 1e-06,
+  "reproduction_runner_sha256": "19f7eac95c93ff5a17aac9d6bc7b5f7cdc8b8799f22957589d21014454f5a902"
+}

@@ -1,0 +1,310 @@
+{
+  "release": "1.5.1",
+  "date": "2026-10-17",
+  "checks": [
+    {
+      "command": [
+        "scripts/verify_data.py"
+      ],
+      "status": "PASS",
+      "output": "{\n  \"pass\": true,\n  \"preserved_source_files\": 698,\n  \"registration_files\": 7,\n  \"frozen_result_files\": 129,\n  \"failures\": []\n}"
+    },
+    {
+      "command": [
+        "scripts/check_core_results.py"
+      ],
+      "status": "PASS",
+      "output": "{\"checks\": 27, \"all_pass\": true, \"frozen_files_checked\": 129}"
+    },
+    {
+      "command": [
+        "scripts/verify_vbc_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 1166 three-target/natural files"
+    },
+    {
+      "command": [
+        "scripts/verify_head_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 19 head-diagnostic files"
+    },
+    {
+      "command": [
+        "scripts/verify_formation_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 267 formation-logging files"
+    },
+    {
+      "command": [
+        "scripts/verify_cancellation_files.py"
+      ],
+      "status": "PASS",
+      "output": "PASS: 543 cancellation-intervention files"
+    },
+    {
+      "command": [
+        "scripts/verify_manuscript_intervals.py",
+        "--archive-root",
+        ".",
+        "--tex-root",
+        "paper/interval_sources",
+        "--bindings",
+        "analyses/manuscript_intervals/interval_bindings.json",
+        "--out-dir",
+        "analyses/manuscript_intervals"
+      ],
+      "status": "PASS",
+      "output": "{\"confidence_interval_occurrences_per_language\": 95, \"observed_range_occurrences_per_language\": 0, \"bilingual_match\": true, \"source_and_rounding_match\": true}"
+    }
+  ],
+  "raw_reaggregation": {
+    "status": "PASS",
+    "response_estimates_verified": 150,
+    "max_response_difference": 1.6653345369377348e-16,
+    "max_decomposition_identity_error": 5.551115123125783e-17
+  },
+  "strict_audits": {
+    "projection": {
+      "status": "PASS",
+      "seeds": [
+        38000,
+        38001,
+        38002,
+        38003,
+        38004,
+        38005,
+        38006,
+        38007,
+        38008,
+        38009,
+        38010,
+        38011,
+        38012,
+        38013,
+        38014,
+        38015,
+        38016,
+        38017,
+        38018,
+        38019,
+        38020,
+        38021,
+        38022,
+        38023,
+        38024,
+        38025,
+        38026,
+        38027,
+        38028,
+        38029,
+        38030,
+        38031,
+        38032,
+        38033,
+        38034,
+        38035,
+        38036,
+        38037,
+        38038,
+        38039
+      ],
+      "full_cohort": true,
+      "numerical_comparison": {
+        "tolerance": 0.0,
+        "mode": "strict",
+        "groups": {
+          "weights": {
+            "checks": 3200,
+            "bitwise_equal_checks": 3200,
+            "max_absolute_difference": 0.0,
+            "worst_bound_fraction": 0.0
+          },
+          "m": {
+            "checks": 1280,
+            "bitwise_equal_checks": 1280,
+            "max_absolute_difference": 0.0,
+            "worst_bound_fraction": 0.0
+          },
+          "v": {
+            "checks": 1280,
+            "bitwise_equal_checks": 1280,
+            "max_absolute_difference": 0.0,
+            "worst_bound_fraction": 0.0
+          }
+        },
+        "scope": "Only recomputed or replayed floating weights/m/v; hashes, schedules, step counts and transplant identity remain exact.",
+        "bounds": {
+          "weights_and_m": "tolerance * (1 + max(abs(reference)))",
+          "v": "1e-12 + tolerance * max(abs(reference)); zero bound in strict mode"
+        },
+        "python": "3.12.14",
+        "numpy": "2.4.6",
+        "torch": "2.13.0"
+      },
+      "baseline_endpoints_checked": 160,
+      "formation_rows": 120000,
+      "analytic_gradient_and_v_checks": 720,
+      "baseline_bitwise_endpoints": 160,
+      "pulse_identical_recipient_starts": 240,
+      "maximum_analytic_difference": 3.135992733549475e-08,
+      "locked_files_unchanged": true
+    },
+    "formation": {
+      "status": "PASS",
+      "seeds": [
+        20000,
+        20001,
+        20002,
+        20003,
+        20004,
+        20005,
+        20006,
+        20007,
+        20008,
+        20009,
+        20010,
+        20011,
+        20012,
+        20013,
+        20014,
+        20015,
+        20016,
+        20017,
+        20018,
+        20019,
+        20020,
+        20021,
+        20022,
+        20023,
+        20024,
+        20025,
+        20026,
+        20027,
+        20028,
+        20029,
+        20030,
+        20031,
+        20032,
+        20033,
+        20034,
+        20035,
+        20036,
+        20037,
+        20038,
+        20039
+      ],
+      "full_cohort": true,
+      "numerical_comparison": {
+        "tolerance": 0.0,
+        "mode": "strict",
+        "groups": {
+          "weights": {
+            "checks": 160,
+            "bitwise_equal_checks": 160,
+            "max_absolute_difference": 0.0,
+            "worst_bound_fraction": 0.0
+          },
+          "m": {
+            "checks": 160,
+            "bitwise_equal_checks": 160,
+            "max_absolute_difference": 0.0,
+            "worst_bound_fraction": 0.0
+          },
+          "v": {
+            "checks": 160,
+            "bitwise_equal_checks": 160,
+            "max_absolute_difference": 0.0,
+            "worst_bound_fraction": 0.0
+          }
+        },
+        "scope": "Only recomputed or replayed floating weights/m/v; hashes, schedules, step counts and transplant identity remain exact.",
+        "bounds": {
+          "weights_and_m": "tolerance * (1 + max(abs(reference)))",
+          "v": "1e-12 + tolerance * max(abs(reference)); zero bound in strict mode"
+        },
+        "python": "3.12.14",
+        "numpy": "2.4.6",
+        "torch": "2.13.0"
+      },
+      "endpoints_checked": 160,
+      "layer_step_records": 320000,
+      "analytic_chain_rule_records": 3840,
+      "bitwise_endpoint_checks": 160,
+      "max_analytic_float32_vs_float64_difference": 6.338844033004776e-08,
+      "max_relative_v_recursion_discrepancy": 9.815629490293601e-08,
+      "max_final_rounding_fraction": 6.771001926223647e-06,
+      "plan_unchanged": true
+    }
+  },
+  "portability": "analyses/final_checks_20261017/README.md",
+  "tolerance_tests": {
+    "status": "PASS",
+    "cases": [
+      {
+        "name": "strict accepts exact",
+        "accepted": true,
+        "expected_accepted": true
+      },
+      {
+        "name": "strict rejects one ULP",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "explicit tolerance accepts one ULP",
+        "accepted": true,
+        "expected_accepted": true
+      },
+      {
+        "name": "tolerance rejects substantial weight error",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "small v not given weight absolute tolerance",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "shape never relaxed",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "dtype never relaxed",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "NaN rejected",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "negative v rejected",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "negative tolerance rejected",
+        "accepted": false,
+        "expected_accepted": false
+      },
+      {
+        "name": "infinite tolerance rejected",
+        "accepted": false,
+        "expected_accepted": false
+      }
+    ]
+  },
+  "manuscript": {
+    "pages": 17,
+    "printed_intervals_per_language": 95,
+    "anonymous_pdf_sha256": "b61a8f8be65bdeb21f61fa2c522d1efad68598862b71b1c5139a08f440f70e93",
+    "public_pdf_sha256": "b1eb5a676b418875b8b0ea22a616a9846b5916e0a896f955a6efdce590c35f31"
+  },
+  "scope": "All fixed horizons reaggregated, both recorded-environment audits on all 40 seeds; new-version projection audit on all 40 seeds and formation replay/audit on seed 20000; no additional hypothesis-driven training cohort."
+}

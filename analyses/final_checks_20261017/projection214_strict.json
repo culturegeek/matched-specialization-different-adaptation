@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "seeds": [
+    38000
+  ],
+  "full_cohort": false,
+  "numerical_comparison": {
+    "tolerance": 0.0,
+    "mode": "strict",
+    "groups": {
+      "weights": {
+        "checks": 80,
+        "bitwise_equal_checks": 80,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      },
+      "m": {
+        "checks": 32,
+        "bitwise_equal_checks": 32,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      },
+      "v": {
+        "checks": 32,
+        "bitwise_equal_checks": 32,
+        "max_absolute_difference": 0.0,
+        "worst_bound_fraction": 0.0
+      }
+    },
+    "scope": "Only recomputed or replayed floating weights/m/v; hashes, schedules, step counts and transplant identity remain exact.",
+    "bounds": {
+      "weights_and_m": "tolerance * (1 + max(abs(reference)))",
+      "v": "1e-12 + tolerance * max(abs(reference)); zero bound in strict mode"
+    },
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "torch": "2.14.1"
+  },
+  "baseline_endpoints_checked": 4,
+  "formation_rows": 3000,
+  "analytic_gradient_and_v_checks": 18,
+  "baseline_bitwise_endpoints": 4,
+  "pulse_identical_recipient_starts": 6,
+  "maximum_analytic_difference": 5.2814248807653286e-09,
+  "locked_files_unchanged": true
+}

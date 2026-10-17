@@ -45,3 +45,7 @@ python experiments/iv-formation-logging/reproduce_logging.py --archive-root . --
 ```
 
 Tolerance is opt-in and is recorded along with actual bitwise status and maximum differences for weights, m, and v. Weights/m use max absolute difference <= tolerance * (1 + reference tensor max); v uses <= 1e-12 + tolerance * reference tensor max; step counters and non-tensor configuration stay exact. Finite values, shapes and dtypes must agree. Passing the tolerance mode is numerical agreement under these declared bounds, not bitwise equality or automatic equivalence of every subsequent scientific estimate. Always retain the validation file and compare the reported estimates. The archived analyses and their strict audits remain unchanged. See https://docs.pytorch.org/docs/stable/notes/randomness.html .
+
+## Audit portability (v1.5.1)
+
+`audit_logging.py` now supports `--tolerance 1e-6` and an optional declared `--seeds` subset. Default comparisons remain strict. Only replayed floating weights and moments use the documented tensor-specific tolerance; source hashes, schedules, step counts and state-transplant identity stay exact. Inspect `numerical_comparison` and `full_cohort` in the output. The cross-version checks and rejection tests are in `analyses/final_checks_20261017/README.md`.
