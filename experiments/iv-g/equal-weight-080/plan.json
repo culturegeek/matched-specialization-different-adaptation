@@ -1,0 +1,32 @@
+{
+  "classification": "Exploratory follow-up specified after inspecting IV-G at 0.79 and the alternating results. The fixed-weight 0.80 outcomes were not used to choose the analysis. The 40 evaluation seeds were previously used for related comparisons.",
+  "favored_weight": 0.8,
+  "seed_first": 20000,
+  "seed_last": 20039,
+  "formation_updates": 500,
+  "pulse_updates": 10,
+  "endpoint_margins": {
+    "aligned_s": 0.02,
+    "target_D": 0.02,
+    "other_D": 0.02,
+    "error_sum": 0.02,
+    "aligned_low_s": 0.01
+  },
+  "endpoint_rule": "Average the two directions within each seed. All five paired 95% intervals must lie within their margins to describe the corresponding comparison as matched. Report every result regardless of the gate.",
+  "pulse_modes": [
+    "own",
+    "m_other",
+    "v_other",
+    "reset",
+    "v_equal_scale",
+    "v_other_equal_scale"
+  ],
+  "primary": "Difference between the alternating and within-batch common-scale pattern effects at the same favored weight 0.80. For each seed and direction: contrast = acquisition response minus update-route response; pattern effect = own contrast minus exchanged contrast; difference = alternating pattern effect minus within-batch pattern effect. Use each pair's geometric mean initial multiplier in both of its exchange conditions, exactly as in the original comparison.",
+  "secondary": "All five initial readout differences for acquisition vs mixed and alternating vs mixed; unscaled inherited, m/v-exchanged and reset route contrasts; retained-pattern and exchanged-pattern contrasts at common scale. Record per-direction values, endpoint switch counts at update 10, and the two mixed encoder cancellation fractions. The original 0.79 pilot-selected condition stays separate.",
+  "bootstrap_seed": 20260903,
+  "bootstrap_draws": 5000,
+  "analysis_unit": "40 paired seed averages. Two directions per seed. Percentile intervals, resampling whole seeds for every paired difference.",
+  "stop": "All 40 fixed seeds once, both directions. No replacements or recalibration if a tolerance fails. Rebuild the alternating reference on the original checkpoints and check against the archived per-seed table.",
+  "authorization": "Additional equal-weight control requested after the calibrated comparison had been inspected. Local analysis plan recorded before the new fixed-weight run.",
+  "recorded_utc": "2026-11-21T06:52:27.268321+00:00"
+}

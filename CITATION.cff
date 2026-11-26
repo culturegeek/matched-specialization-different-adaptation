@@ -5,8 +5,8 @@ title: "Matched Specialization, Different Adaptation: Code and Generated Data"
 authors:
   - family-names: Takahashi
     given-names: Toru
-version: 1.5.2
-date-released: 2026-10-17
+version: 1.6.0
+date-released: 2026-11-26
 repository-code: "https://github.com/culturegeek/matched-specialization-different-adaptation"
 url: "https://github.com/culturegeek/matched-specialization-different-adaptation"
 license:

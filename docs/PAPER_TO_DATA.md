@@ -1,4 +1,15 @@
-# Paper-to-data map — manuscript v1.5.0
+# Paper-to-data map
+
+## Within-batch and equal-weight controls (v1.6.0)
+
+| Question | Published evidence |
+|---|---|
+| Does the route contrast persist when each batch mixes both observation conditions? | [Calibrated within-batch control](../experiments/iv-g/results/result.json) and [paired seed values](../experiments/iv-g/results/stationary_update_seed_summary.csv) |
+| At the same loss weight of 0.80, how do the two batch schedules compare at matched endpoints and under second-moment exchange? | [Exploratory plan](../experiments/iv-g/equal-weight-080/plan.json), [endpoint tests, response comparisons and intervals](../experiments/iv-g/equal-weight-080/results/result.json), [seed means](../experiments/iv-g/equal-weight-080/results/per_seed.csv) |
+| How can a reader check both target directions or rerun the fixed-weight study? | [Directional records](../experiments/iv-g/equal-weight-080/results/directional.csv), [checkpoints](../experiments/iv-g/equal-weight-080/results/checkpoints/) and [reproduction instructions](../experiments/iv-g/equal-weight-080/README.md) |
+| How often did the favored target switch in the earlier calibrated comparison? | [Directional replay and count check](../experiments/iv-g/equal-weight-080/calibrated-replay/) |
+
+## October manuscript (v1.5.x)
 
 The manuscript asks how matched current specialization can conceal different adaptation. Complete historical experiments remain archived; the paper selects evidence that answers this question. Inference is paired by seed; statuses and failed criteria remain in the source plans/results.
 

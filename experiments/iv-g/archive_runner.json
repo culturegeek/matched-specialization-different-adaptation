@@ -1,0 +1,8 @@
+{
+  "original_script_sha256": "107c4270913b39be6a691235ccb7192a7b1ffafcfab9cb682b8b0a7d550072bc",
+  "archive_runner_sha256": "a34c064c54cc363b8d1eeccf791fdde37e479d9a0f3efa513daf0ab6767253eb",
+  "changes": [
+    "Resolve the original inputs relative to the archive",
+    "Write replays to an explicitly chosen new directory"
+  ]
+}

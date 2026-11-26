@@ -1,6 +1,33 @@
 # Matched Specialization, Different Adaptation
 
-Code and generated data for **Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations**, by Toru Takahashi. Manuscript revision: 17 October 2026; release **v1.5.2**.
+Code and data for **Matched Specialization, Different Adaptation: Second-Moment Structure in Shared Representations**. [日本語](README_ja.md) · [Paper on arXiv](https://arxiv.org/abs/2610.15830) · [Data map](docs/PAPER_TO_DATA.md)
+
+## Within-batch and equal-weight controls (v1.6.0)
+
+Does it matter whether training batches alternate which signal is seen precisely or mix both observation conditions within each batch? We compared both training histories with the same reference learner. After matching current readouts and the starting mean Adam multiplier, we exchanged the coordinate pattern of Adam’s second moments. At a fixed favored loss weight of 0.80, the exchange substantially reduced the ten-update route contrast for alternating batches and slightly increased it for mixed batches.
+
+| Compared with the same reference | Own pattern | Exchanged pattern | Own minus exchanged |
+|---|---:|---:|---:|
+| Alternating batches | +0.0875 | −0.0110 | +0.0985 |
+| Mixed batches | −0.0035 | +0.0025 | −0.0060 |
+
+The paired difference in exchange effects was +0.1045 (95% bootstrap interval [0.0987, 0.1102]). At each seed we averaged the two target directions before computing the interval. The exploratory follow-up reused the 40 seeds from the earlier calibrated control (favored loss weight 0.79).
+
+- [Calibrated control and normalization analyses](experiments/iv-g/README.md)
+- [Fixed-weight analysis plan, results and instructions for rerunning the experiment](experiments/iv-g/equal-weight-080/README.md)
+- [80 directional observations](experiments/iv-g/equal-weight-080/results/directional.csv) · [40 paired seed summaries](experiments/iv-g/equal-weight-080/results/per_seed.csv) · [Estimates and intervals](experiments/iv-g/equal-weight-080/results/result.json)
+
+To verify the archived controls, run the following from the repository root with NumPy installed.
+
+~~~sh
+python scripts/verify_iv_g.py
+python experiments/iv-g/equal-weight-080/audit.py --archive-root .
+python experiments/iv-g/equal-weight-080/calibrated-replay/check.py --archive-root .
+~~~
+
+## October manuscript and earlier experiments (v1.5.2)
+
+The bundled [manuscript PDF](paper/preprint.pdf), TeX and manuscript-specific interval audit correspond to the 17 October 2026 release. The November control records and their checks are linked above.
 
 Can similar current specialization conceal different responses to further learning? The controlled comparisons show that it can. Adam's retained squared-gradient averages change later reallocation, including through their coordinate pattern at a common average scale. Formation records and a new projection-plus-transplant experiment connect how this state is produced to how it changes adaptation.
 
